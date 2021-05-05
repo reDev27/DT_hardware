@@ -74,27 +74,27 @@ public class Carrello
 {
 	this.numeroProdotti = productCount;
 }
-public Double getSubTotale()
+	public Double getSubTotale()
 {
 	return subTotale;
 }
-public void setSubTotale(Double subTotale)
+	public void setSubTotale(Double subTotale)
 {
 	this.subTotale = subTotale;
 }
-public Double getTotale()
+	public Double getTotale()
 {
 	return totale;
 }
-public void setTotale(Double totale)
+	public void setTotale(Double totale)
 {
 	this.totale = totale;
 }
-public Double getTasse()
+	public Double getTasse()
 {
 	return tasse;
 }
-public void setTasse(Double tasse)
+	public void setTasse(Double tasse)
 {
 	this.tasse = tasse;
 }

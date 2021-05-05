@@ -6,13 +6,13 @@ public class ProductsArray
 {
 
 
-private ArrayList<Product> prodotti;
+	private ArrayList<Product> prodotti;
 
-public ArrayList<Product> getProdotti()
+	public ArrayList<Product> getProdotti()
 {
 	return prodotti;
 }
-public void setProdotti(ArrayList<Product> prodotti)
+	public void setProdotti(ArrayList<Product> prodotti)
 {
 	this.prodotti = prodotti;
 }

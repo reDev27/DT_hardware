@@ -1,21 +1,22 @@
-package Model;
+package Model.DAO;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserBean
 {
 
-	public void register(String nomeUtente, String password) throws SQLException, NoSuchAlgorithmException
+	public void register(String nickname, String eMail,String password, String nome, String cognome, String nTelefono, Date dataAcquisto, int nCarta) throws SQLException, NoSuchAlgorithmException
 	{
 		String passwordPronta=preparaPassword(password);
-		String query="insert into info values ( \"" + nomeUtente + "\"," + "\"" + passwordPronta + "\", 0.0);";
+		String query="insert into cliente values ( \"" + nickname + "\"," + "\"" + passwordPronta + "\", 0.0);";
 		UserDAO connection=new UserDAO();
-		System.out.println("sono state modificate " + connection.doUpdate(query) + " righe");
+		System.out.println("sono state modificate " + connection.doUpdate(query, "user", "Tav0lin0") + " righe");
 	}
 
 	private String preparaPassword(String password) throws NoSuchAlgorithmException
@@ -31,14 +32,14 @@ public class UserBean
 		UserDAO connection=new UserDAO();
 		String passwordInseritaHashed=preparaPassword(password);
 		String query= "select * from info where nomeUtente= \"" + nomeUtente + "\"" + " and pass=" + "\"" + passwordInseritaHashed + "\";";
-		ResultSet result=connection.doStatement(query);
+		ResultSet result=connection.doStatement(query, "user", "Tav0lin0");
 		result.next();
 		String s=result.getString("nomeUtente");
 		return s;
 	}
 
 
-	private User utente;
+	/*private User utente;
 
 	public User getUtente()
 	{
@@ -47,5 +48,5 @@ public class UserBean
 	public void setUtente(User utente)
 	{
 		this.utente = utente;
-	}
+	}*/
 }

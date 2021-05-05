@@ -1,32 +1,32 @@
-package Model;
+package Model.DAO;
 
 import java.sql.*;
 
 public class UserDAO
 {
 
-	public int doUpdate(String query) throws SQLException
+	public int doUpdate(String query, String userType, String pass) throws SQLException
 	{
-		openConnection();
+		openConnection(userType, pass);
 		Statement statement= user.createStatement();
 		return statement.executeUpdate(query);
 	}
 
-	public ResultSet doStatement(String query) throws SQLException
+	public ResultSet doStatement(String query, String userType, String pass) throws SQLException
 	{
-		openConnection();
+		openConnection(userType, pass);
 		Statement statement= user.createStatement();
 		result=statement.executeQuery(query);
 		return result;
 	}
 
-	public void openConnection()
+	public void openConnection(String userType, String pass)
 	{
 		if(user==null)
 		{
 			try
 			{
-				user = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/clienti?serverTimezone=UTC", "root", "aaaa");
+				user = DriverManager.getConnection(URL, userType, pass);
 			}
 			catch (SQLException throwable)
 			{
@@ -37,6 +37,7 @@ public class UserDAO
 
 	private Connection user;
 	private ResultSet result;
+	private final String URL="jdbc:mysql://127.0.0.1:3306/dthw?serverTimezone=UTC";
 
 public ResultSet getResult()
 {

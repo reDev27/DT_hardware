@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.UserBean;
+import Model.DAO.UserBean;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +17,7 @@ public class UserServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		UserBean userUtil=new UserBean();
+		/*UserBean userUtil=new UserBean();
 		String nome=request.getParameter("nome");
 		String password=request.getParameter("password");
 		if(nome!=null && password!=null)
@@ -37,13 +37,13 @@ public class UserServ extends HttpServlet
 		}
 
 		RequestDispatcher dispatcher=request.getRequestDispatcher("LoginForm.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);*/
 	}
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		UserBean userUtil=new UserBean();
+		/*UserBean userUtil=new UserBean();
 		String nome=request.getParameter("nome");
 		String password=request.getParameter("password");
 		String nomeLogged=null;
@@ -70,6 +70,6 @@ public class UserServ extends HttpServlet
 		}
 		request.setAttribute("esito", esito);
 		RequestDispatcher dispatcher=request.getRequestDispatcher("resultOfLogin.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);*/
 	}
 }

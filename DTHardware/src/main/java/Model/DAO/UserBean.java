@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,14 +21,15 @@ public class UserBean
 		return connection.doUpdate(query, "user", "Tav0l1n0");
 	}
 
-	public static String login(String nomeUtente, String password) throws NoSuchAlgorithmException, SQLException
+	public static String login(String nickname, String password) throws NoSuchAlgorithmException, SQLException
 	{
+
 		UserDAO connection=new UserDAO();
 		String passwordInseritaHashed=preparaPassword(password);
-		String query= "select * from info where nomeUtente= \"" + nomeUtente + "\"" + " and pass=" + "\"" + passwordInseritaHashed + "\";";
-		ResultSet result=connection.doStatement(query, "user", "Tav0l1n0");
-		result.next();
-		String s=result.getString("nomeUtente");
+		String query= "call loginUser(\""+nickname+"\", \""+passwordInseritaHashed+"\", @esito);";
+		ResultSet result=connection.doExecute(query, "user", "Tav0l1n0");
+		//result.next();
+		String s=String.valueOf(result.getInt(3));//result.getString("@esito");
 		return s;
 	}
 

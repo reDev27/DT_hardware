@@ -38,6 +38,18 @@ public class UserServ extends HttpServlet
 		{
 			e.printStackTrace();
 		}*/
+		try
+		{
+			System.out.println(UserBean.login("admin00", "admin"));
+		}
+		catch (NoSuchAlgorithmException e)
+		{
+			e.printStackTrace();
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 

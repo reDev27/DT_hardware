@@ -5,6 +5,6 @@ create
                                                     IN dataacquistoIn date, IN ncartaIn int)
 begin
     insert into cliente values
-    ("usernameIn", "emailIn", passwIn, nomeIn, cognomeIn, ntelefonoIn, dataacquistoIn, ncartaIn);
+    (usernameIn, emailIn, passwIn, nomeIn, cognomeIn, ntelefonoIn, dataacquistoIn, ncartaIn);
 end;
 

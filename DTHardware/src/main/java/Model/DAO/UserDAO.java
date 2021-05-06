@@ -25,6 +25,7 @@ public class UserDAO implements Destroyable
 	public int doUpdate(String query, String userType, String pass) throws SQLException
 	{
 		openConnection(userType, pass);
+		//CallableStatement callableStatement=user.prepareCall("call loginUser(\""+nickname+"\", \""+passwordInseritaHashed+"\", @esito);");
 		Statement statement = user.createStatement();
 		int n = statement.executeUpdate(query);
 		user.close();
@@ -38,6 +39,15 @@ public class UserDAO implements Destroyable
 		result=statement.executeQuery(query);
 		user.close();
 		return result;
+	}
+
+	public ResultSet doExecute(String query, String userType, String pass) throws SQLException
+	{
+		openConnection(userType, pass);
+		CallableStatement callableStatement=user.prepareCall(query);
+		callableStatement.execute();
+		user.close();
+		return callableStatement.getResultSet();
 	}
 
 	private void openConnection(String userType, String pass)

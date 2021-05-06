@@ -18,10 +18,8 @@
 |root||mysql.session|localhost|CONNECTION_ADMIN|G
 |root||root|localhost|CONNECTION_ADMIN|G
 |root||root|localhost|CREATE|G
-|root||user||CREATE|G
 |root||root|localhost|CREATE ROLE|G
 |root||root|localhost|CREATE ROUTINE|G
-|root||user||CREATE ROUTINE|G
 |root||root|localhost|CREATE TABLESPACE|G
 |root||root|localhost|CREATE TEMPORARY TABLES|G
 |root||user||CREATE TEMPORARY TABLES|G
@@ -35,8 +33,8 @@
 |root||root|localhost|DROP ROLE|G
 |root||root|localhost|ENCRYPTION_KEY_ADMIN|G
 |root||root|localhost|EVENT|G
-|root||user||EVENT|G
 |root||root|localhost|EXECUTE|G
+|root||user||EXECUTE|G
 |root||root|localhost|FILE|G
 |root||root|localhost|GROUP_REPLICATION_ADMIN|G
 |root||root|localhost|INDEX|G
@@ -46,7 +44,6 @@
 |root||root|localhost|INSERT|G
 |root||user||INSERT|G
 |root||root|localhost|LOCK TABLES|G
-|root||user||LOCK TABLES|G
 |root||mysql.session|localhost|PERSIST_RO_VARIABLES_ADMIN|G
 |root||root|localhost|PERSIST_RO_VARIABLES_ADMIN|G
 |root||root|localhost|PROCESS|G
@@ -67,7 +64,6 @@
 |root||root|localhost|SESSION_VARIABLES_ADMIN|G
 |root||root|localhost|SET_USER_ID|G
 |root||root|localhost|SHOW DATABASES|G
-|root||user||SHOW DATABASES|G
 |root||root|localhost|SHOW VIEW|G
 |root||user||SHOW VIEW|G
 |root||root|localhost|SHOW_ROUTINE|G
@@ -993,5 +989,6 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <user id="285" parent="1" name="user">
       <Plugin>caching_sha2_password</Plugin>
     </user>
+    <user id="286" parent="1" name="userNotLogged"/>
   </database-model>
 </dataSource>

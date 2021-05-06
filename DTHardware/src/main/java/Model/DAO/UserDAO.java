@@ -46,6 +46,7 @@ public class UserDAO implements Destroyable
 	{
 		openConnection(userType, pass);
 		CallableStatement callableStatement=user.prepareCall(query);
+
 		callableStatement.execute();
 		user.close();
 		return callableStatement.getResultSet();

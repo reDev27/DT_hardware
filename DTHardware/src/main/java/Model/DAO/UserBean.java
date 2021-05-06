@@ -19,18 +19,17 @@ public class UserBean
 		String query="call registerUser(\""+nickname+"\",\""+eMail+"\",\""+passwordPronta+"\",\""+nome+"\",\""+cognome+"\","+nTelefono+",\""+dateUtil.PrepTime(dataAcquisto)+"\","+nCarta+",\""+dateUtil.PrepTime(dataAcquisto)+"\","+ cvv +");";
 		System.out.println(query);
 		UserDAO connection=new UserDAO();
-		return connection.doUpdate(query, "root", "b3ta");
+		return connection.doUpdate(query, "user", "Tav0l1n0");
 	}
 
 	public static String login(String nickname, String password) throws NoSuchAlgorithmException, SQLException
 	{
-
 		UserDAO connection=new UserDAO();
 		String passwordInseritaHashed=preparaPassword(password);
 		String query= "call loginUser(\""+nickname+"\", \""+passwordInseritaHashed+"\", @esito);";
 		ResultSet result=connection.doExecute(query, "root", "b3ta");
 		//result.next();
-		String s=String.valueOf(result.getInt(3));//result.getString("@esito");
+		String s=result.getString("esito");
 		return s;
 	}
 

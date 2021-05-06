@@ -7,37 +7,40 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 public class UserBean
 {
 
-	public void register(String nickname, String eMail,String password, String nome, String cognome, String nTelefono, Date dataAcquisto, int nCarta) throws SQLException, NoSuchAlgorithmException
+	public static void register(String nickname, String eMail, String password, String nome, String cognome, String nTelefono, Calendar dataAcquisto, int nCarta, Calendar scadenza, int cvv) throws SQLException, NoSuchAlgorithmException
 	{
 		String passwordPronta=preparaPassword(password);
-		String query="insert into cliente values ( \"" + nickname + "\"," + "\"" + passwordPronta + "\", 0.0);";
+		String query="call registerUser(\""+nickname+"\",\""+eMail+"\",\""+passwordPronta+"\",\""+nome+"\",\""+cognome+"\","+nTelefono+",NOW(),"+nCarta+",\"2024-06-01 00:00:01\","+ cvv +");";
+		System.out.println(query);
 		UserDAO connection=new UserDAO();
-		System.out.println("sono state modificate " + connection.doUpdate(query, "user", "Tav0lin0") + " righe");
+		System.out.println("sono state modificate " + connection.doUpdate(query, "user", "Tav0l1n0") + " righe");
 	}
 
-	private String preparaPassword(String password) throws NoSuchAlgorithmException
+
+
+	public static String login(String nomeUtente, String password) throws NoSuchAlgorithmException, SQLException
+	{
+		UserDAO connection=new UserDAO();
+		String passwordInseritaHashed=preparaPassword(password);
+		String query= "select * from info where nomeUtente= \"" + nomeUtente + "\"" + " and pass=" + "\"" + passwordInseritaHashed + "\";";
+		ResultSet result=connection.doStatement(query, "user", "Tav0l1n0");
+		result.next();
+		String s=result.getString("nomeUtente");
+		return s;
+	}
+
+	private static String preparaPassword(String password) throws NoSuchAlgorithmException
 	{
 		MessageDigest digest=MessageDigest.getInstance("SHA-1");
 		digest.reset();
 		digest.update(password.getBytes(StandardCharsets.UTF_8));
 		return String.format("%040x", new BigInteger(1, digest.digest()));
 	}
-
-	public String login(String nomeUtente, String password) throws NoSuchAlgorithmException, SQLException
-	{
-		UserDAO connection=new UserDAO();
-		String passwordInseritaHashed=preparaPassword(password);
-		String query= "select * from info where nomeUtente= \"" + nomeUtente + "\"" + " and pass=" + "\"" + passwordInseritaHashed + "\";";
-		ResultSet result=connection.doStatement(query, "user", "Tav0lin0");
-		result.next();
-		String s=result.getString("nomeUtente");
-		return s;
-	}
-
 
 	/*private User utente;
 

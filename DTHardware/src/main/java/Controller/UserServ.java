@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 
 @WebServlet(name="UserServ" , value = "/UserServ")
 public class UserServ extends HttpServlet
@@ -17,27 +19,25 @@ public class UserServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		/*UserBean userUtil=new UserBean();
-		String nome=request.getParameter("nome");
-		String password=request.getParameter("password");
-		if(nome!=null && password!=null)
+		/*Calendar dataScadenza= Calendar.getInstance();//new Date()
+		dataScadenza.set(Calendar.YEAR, 2024);
+		dataScadenza.set(Calendar.MONTH, Calendar.JUNE);
+		System.out.println(dataScadenza.getTime());
+		try
 		{
-			try
-			{
-				userUtil.register(nome, password);
-			}
-			catch (SQLException throwables)
-			{
-				throwables.printStackTrace();
-			}
-			catch (NoSuchAlgorithmException e)
-			{
-				e.printStackTrace();
-			}
+			UserBean.register("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", Calendar.getInstance(), 0, dataScadenza, 999);
 		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		catch (NoSuchAlgorithmException e)
+		{
+			e.printStackTrace();
+		}*/
+		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
 
-		RequestDispatcher dispatcher=request.getRequestDispatcher("LoginForm.jsp");
-		dispatcher.forward(request, response);*/
 	}
 
 	@Override

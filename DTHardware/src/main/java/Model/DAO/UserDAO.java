@@ -2,14 +2,33 @@ package Model.DAO;
 
 import java.sql.*;
 
-public class UserDAO
+public class UserDAO implements Destroyable
 {
+	@Override
+	public void destroy()
+	{
+		if(user!=null)
+		{
+			user=null;
+		}
+	}
+
+	@Override
+	public boolean isDestroyed()
+	{
+		if(user==null)
+			return true;
+		else
+			return false;
+	}
 
 	public int doUpdate(String query, String userType, String pass) throws SQLException
 	{
 		openConnection(userType, pass);
-		Statement statement= user.createStatement();
-		return statement.executeUpdate(query);
+		Statement statement = user.createStatement();
+		int n = statement.executeUpdate(query);
+		//user.close();
+		return n;
 	}
 
 	public ResultSet doStatement(String query, String userType, String pass) throws SQLException
@@ -17,10 +36,11 @@ public class UserDAO
 		openConnection(userType, pass);
 		Statement statement= user.createStatement();
 		result=statement.executeQuery(query);
+		user.close();
 		return result;
 	}
 
-	public void openConnection(String userType, String pass)
+	private void openConnection(String userType, String pass)
 	{
 		if(user==null)
 		{

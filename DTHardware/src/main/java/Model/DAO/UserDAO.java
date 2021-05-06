@@ -27,7 +27,7 @@ public class UserDAO implements Destroyable
 		openConnection(userType, pass);
 		Statement statement = user.createStatement();
 		int n = statement.executeUpdate(query);
-		//user.close();
+		user.close();
 		return n;
 	}
 

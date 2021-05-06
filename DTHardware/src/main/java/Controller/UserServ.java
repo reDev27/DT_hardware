@@ -23,6 +23,9 @@ public class UserServ extends HttpServlet
 		dataScadenza.set(Calendar.YEAR, 2024);
 		dataScadenza.set(Calendar.MONTH, Calendar.JUNE);
 		System.out.println(dataScadenza.getTime());
+		String s= dataScadenza.get(Calendar.YEAR)+"-"+dataScadenza.get(Calendar.DAY_OF_MONTH);
+
+
 		try
 		{
 			UserBean.register("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", Calendar.getInstance(), 0, dataScadenza, 999);

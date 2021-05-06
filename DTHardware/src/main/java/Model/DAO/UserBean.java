@@ -26,14 +26,16 @@ public class UserBean
 	{
 		UserDAO connection=new UserDAO();
 		String passwordInseritaHashed=preparaPassword(password);
-		String query= "call loginUser(\""+nickname+"\", \""+passwordInseritaHashed+"\", @esito);";
-		ResultSet result=connection.doExecute(query, "root", "b3ta");
+		//String query= "call loginUser(\""+nickname+"\", \""+passwordInseritaHashed+"\", @esito);";	//DA MODIFICARE
+		String query= "{call loginUser(?, ?, ?)}";
+		Object result=connection.doExecute(query, "root", "aaaa");
 		//result.next();
-		String s=result.getString("esito");
-		return s;
+		//String s=result.getString("esito");
+		System.out.println((boolean) result);
+		return "";
 	}
 
-	private static String preparaPassword(String password) throws NoSuchAlgorithmException
+	public static String preparaPassword(String password) throws NoSuchAlgorithmException
 	{
 		MessageDigest digest=MessageDigest.getInstance("SHA-1");
 		digest.reset();

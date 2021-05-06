@@ -42,14 +42,18 @@ public class UserDAO implements Destroyable
 		return result;
 	}
 
-	public ResultSet doExecute(String query, String userType, String pass) throws SQLException
+	public Object doExecute(String query, String userType, String pass) throws SQLException, NoSuchAlgorithmException
 	{
 		openConnection(userType, pass);
 		CallableStatement callableStatement=user.prepareCall(query);
-
+		callableStatement.setString(1, "admin00");
+		callableStatement.setString(2, UserBean.preparaPassword("adin"));			//DA MODIFICARE
+		//callableStatement.registerOutParameter(3, Types.BOOLEAN);
+		callableStatement.registerOutParameter("esito", Types.BOOLEAN);
 		callableStatement.execute();
+		boolean b=callableStatement.getBoolean("esito");
 		user.close();
-		return callableStatement.getResultSet();
+		return b;
 	}
 
 	private void openConnection(String userType, String pass)

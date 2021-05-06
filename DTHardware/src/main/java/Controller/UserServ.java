@@ -19,7 +19,7 @@ public class UserServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		Calendar dataScadenza= Calendar.getInstance();//new Date()
+		/*Calendar dataScadenza= Calendar.getInstance();//new Date()
 		dataScadenza.set(Calendar.YEAR, 2024);
 		dataScadenza.set(Calendar.MONTH, Calendar.JUNE);
 		System.out.println(dataScadenza.getTime());
@@ -37,7 +37,7 @@ public class UserServ extends HttpServlet
 		catch (NoSuchAlgorithmException e)
 		{
 			e.printStackTrace();
-		}
+		}*/
 		try
 		{
 			System.out.println(UserBean.login("admin00", "admin"));

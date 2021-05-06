@@ -998,7 +998,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <table id="292" parent="3" name="ordine"/>
     <table id="293" parent="3" name="prodotto"/>
     <routine id="294" parent="3" name="loginUser">
-      <SourceTextLength>207</SourceTextLength>
+      <SourceTextLength>211</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>

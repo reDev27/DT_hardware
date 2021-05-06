@@ -1,5 +1,6 @@
 package Model.DAO;
 
+import javax.security.auth.Destroyable;
 import java.sql.*;
 
 public class UserDAO implements Destroyable

@@ -12,16 +12,13 @@ import java.util.Calendar;
 public class UserBean
 {
 
-	public static void register(String nickname, String eMail, String password, String nome, String cognome, String nTelefono, Calendar dataAcquisto, int nCarta, Calendar scadenza, int cvv) throws SQLException, NoSuchAlgorithmException
+	public static int register(String nickname, String eMail, String password, String nome, String cognome, String nTelefono, Calendar dataAcquisto, int nCarta, Calendar scadenza, int cvv) throws SQLException, NoSuchAlgorithmException
 	{
 		String passwordPronta=preparaPassword(password);
 		String query="call registerUser(\""+nickname+"\",\""+eMail+"\",\""+passwordPronta+"\",\""+nome+"\",\""+cognome+"\","+nTelefono+",NOW(),"+nCarta+",\"2024-06-01 00:00:01\","+ cvv +");";
-		System.out.println(query);
 		UserDAO connection=new UserDAO();
-		System.out.println("sono state modificate " + connection.doUpdate(query, "user", "Tav0l1n0") + " righe");
+		return connection.doUpdate(query, "user", "Tav0l1n0");
 	}
-
-
 
 	public static String login(String nomeUtente, String password) throws NoSuchAlgorithmException, SQLException
 	{

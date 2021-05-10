@@ -55,7 +55,7 @@ public abstract class BaseDAO implements Destroyable
 	{
 		System.out.println(callableStatement.execute());
 		result=callableStatement.getResultSet();
-		result.getBoolean("esito");
+		result.getBoolean("esito");		//temporaneo
 		user.close();
 		return result;
 	}

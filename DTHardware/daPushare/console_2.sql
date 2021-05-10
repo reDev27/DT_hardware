@@ -14,6 +14,5 @@ begin
         set esito=false;
     end if;
 
-    select @esito;
 end //
 DELIMITER ;

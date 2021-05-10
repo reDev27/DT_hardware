@@ -13,7 +13,6 @@ public class UserBean
 	public static int callRegister(String username, String eMail, String password, String nome, String cognome, String nTelefono, Calendar dataAcquisto, String nCarta, Calendar scadenza, int cvv) throws SQLException, NoSuchAlgorithmException
 	{
 		String passwordPronta=preparaPassword(password);
-		//String query="call registerUser(\""+nickname+"\",\""+eMail+"\",\""+passwordPronta+"\",\""+nome+"\",\""+cognome+"\","+nTelefono+",\""+dateUtil.PrepTime(dataAcquisto)+"\","+nCarta+",\""+dateUtil.PrepTime(dataAcquisto)+"\","+ cvv +");";
 		UserDAO connection=new UserDAO();
 		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, dataAcquisto, nCarta, scadenza, cvv, "user", "Tav0l1n0");
 		return 0;

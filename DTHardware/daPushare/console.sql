@@ -7,9 +7,9 @@ create procedure registerUser(
     in nomeIn varchar(30),
     in cognomeIn varchar(30),
     in ntelefonoIn int,
-    in dataacquistoIn date,
+    in dataacquistoIn timestamp,
     in ncartaIn int,
-    in scadenzaIn timestamp(4),
+    in scadenzaIn timestamp,
     in cvvIn int
 )
 

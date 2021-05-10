@@ -51,13 +51,10 @@ public abstract class BaseDAO implements Destroyable
 		return result;
 	}
 
-	public ResultSet doExecute(CallableStatement callableStatement, String userType, String pass) throws SQLException, NoSuchAlgorithmException
+	public CallableStatement doExecute(CallableStatement callableStatement, String userType, String pass) throws SQLException, NoSuchAlgorithmException
 	{
-		System.out.println(callableStatement.execute());
-		result=callableStatement.getResultSet();
-		result.getBoolean("esito");		//temporaneo
-		user.close();
-		return result;
+		callableStatement.execute();
+		return callableStatement;
 	}
 
 	protected void openConnection(String userType, String pass)

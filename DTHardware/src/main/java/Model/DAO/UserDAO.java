@@ -29,11 +29,10 @@ public class UserDAO extends BaseDAO
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call loginUser(?, ?, ?)}");
-		callableStatement.setString("usernameIn", "admin00");
+		callableStatement.setString("usernameIn", username);
 		callableStatement.setString("passwIn", pass);
-		//callableStatement.registerOutParameter(3, Types.BOOLEAN);
 		callableStatement.registerOutParameter("esito", Types.BOOLEAN);
-		return (boolean) doExecute(callableStatement, "user", "Tav0l1n0").getBoolean("esito");
+		return doExecute(callableStatement, "user", "Tav0l1n0").getBoolean("esito");
 	}
 
 }

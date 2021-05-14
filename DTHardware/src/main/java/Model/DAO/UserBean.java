@@ -22,7 +22,7 @@ public class UserBean
 	{
 		UserDAO connection=new UserDAO();
 		String passwordInseritaHashed=preparaPassword(password);
-		boolean b=connection.login(nickname, passwordInseritaHashed, "user", "Tav0l1n0");
+		boolean b=connection.login(nickname, passwordInseritaHashed, "root", "FrankB3ta");
 		return b;
 	}
 

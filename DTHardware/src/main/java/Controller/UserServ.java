@@ -24,7 +24,7 @@ public class UserServ extends HttpServlet
 		boolean esitoLogin=false;
 		try
 		{
-			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", "777", dataScadenza, 999);
+			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", null, dataScadenza, 999);
 			//esitoLogin=UserBean.callLogin("admin00", "adn");
 		}
 		catch (SQLException throwables)

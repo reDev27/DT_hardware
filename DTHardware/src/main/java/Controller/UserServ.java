@@ -24,7 +24,7 @@ public class UserServ extends HttpServlet
 		boolean esitoLogin=false;
 		try
 		{
-			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", dataAcquisto, null, dataScadenza, 999);
+			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", "777", dataScadenza, 999);
 			//esitoLogin=UserBean.callLogin("admin00", "adn");
 		}
 		catch (SQLException throwables)
@@ -35,6 +35,7 @@ public class UserServ extends HttpServlet
 		{
 			e.printStackTrace();
 		}
+
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}

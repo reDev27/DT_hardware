@@ -10,11 +10,21 @@ import java.util.Calendar;
 public class UserBean
 {
 
-	public static int callRegister(String username, String eMail, String password, String nome, String cognome, String nTelefono, Calendar dataAcquisto, String nCarta, Calendar scadenza, int cvv) throws SQLException, NoSuchAlgorithmException
+	public static int callRegister(String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, NoSuchAlgorithmException
 	{
 		String passwordPronta=preparaPassword(password);
 		UserDAO connection=new UserDAO();
-		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, dataAcquisto, nCarta, scadenza, cvv, "user", "Tav0l1n0");
+		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, "user", "Tav0l1n0");
+		if(nCarta!=null && scadenza!=null && cvv!=null)
+		{
+			connection.insertCartaCredito(nCarta, scadenza, cvv, "user", "Tav0l1n0");
+			connection.updateUserCartaDiCredito(username, nCarta,"user", "Tav0l1n0");
+		}
+		else
+		{
+			//carta di credito non registrata
+		}
+		connection.destroy();
 		return 0;
 	}
 
@@ -22,7 +32,8 @@ public class UserBean
 	{
 		UserDAO connection=new UserDAO();
 		String passwordInseritaHashed=preparaPassword(password);
-		boolean b=connection.login(nickname, passwordInseritaHashed, "root", "FrankB3ta");
+		boolean b=connection.login(nickname, passwordInseritaHashed, "user", "Tav0l1n0");
+		connection.destroy();
 		return b;
 	}
 

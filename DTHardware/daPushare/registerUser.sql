@@ -12,7 +12,7 @@ create procedure registerUser(
 begin
 
     insert into cliente values
-    (usernameIn, emailIn, passwIn, nomeIn, cognomeIn, ntelefonoIn);
+    (usernameIn, emailIn, passwIn, nomeIn, cognomeIn, ntelefonoIn, null, null);
 
 end //
 DELIMITER ;

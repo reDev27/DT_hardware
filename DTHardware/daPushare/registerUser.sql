@@ -14,10 +14,9 @@ create procedure registerUser(
 )
 
 begin
-    insert into cartadicredito values
-    (ncartaIn, scadenzaIn, cvvIn);
 
     insert into cliente values
     (usernameIn, emailIn, passwIn, nomeIn, cognomeIn, ntelefonoIn, dataacquistoIn, ncartaIn);
+
 end //
 DELIMITER ;

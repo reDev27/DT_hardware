@@ -18,13 +18,13 @@ public class UserServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		/*Calendar dataScadenza= Calendar.getInstance();
+		Calendar dataScadenza= Calendar.getInstance();
 		dataScadenza.set(2024, Calendar.DECEMBER, 1, 7,39,46);
 		Calendar dataAcquisto= Calendar.getInstance();
 		boolean esitoLogin=false;
 		try
 		{
-			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", dataAcquisto, "0", dataScadenza, 999);
+			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", dataAcquisto, null, dataScadenza, 999);
 			//esitoLogin=UserBean.callLogin("admin00", "adn");
 		}
 		catch (SQLException throwables)
@@ -34,12 +34,9 @@ public class UserServ extends HttpServlet
 		catch (NoSuchAlgorithmException e)
 		{
 			e.printStackTrace();
-		}*/
-
-
+		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	@Override

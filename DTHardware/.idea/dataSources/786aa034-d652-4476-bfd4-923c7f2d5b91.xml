@@ -1008,7 +1008,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="296" parent="3" name="registerUser">
-      <SourceTextLength>136</SourceTextLength>
+      <SourceTextLength>110</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -1294,22 +1294,6 @@ NCIVICO</ColNames>
     </argument>
     <argument id="357" parent="296" name="ntelefonoIn">
       <Position>6</Position>
-      <DataType>int|0s</DataType>
-    </argument>
-    <argument id="358" parent="296" name="dataacquistoIn">
-      <Position>7</Position>
-      <DataType>timestamp|0s</DataType>
-    </argument>
-    <argument id="359" parent="296" name="ncartaIn">
-      <Position>8</Position>
-      <DataType>int|0s</DataType>
-    </argument>
-    <argument id="360" parent="296" name="scadenzaIn">
-      <Position>9</Position>
-      <DataType>timestamp|0s</DataType>
-    </argument>
-    <argument id="361" parent="296" name="cvvIn">
-      <Position>10</Position>
       <DataType>int|0s</DataType>
     </argument>
   </database-model>

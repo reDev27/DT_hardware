@@ -1,10 +1,16 @@
 package Model.DAO;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Stream;
 
 public class UserDAO extends BaseDAO
 {
@@ -51,9 +57,7 @@ public class UserDAO extends BaseDAO
 		return doExecute(callableStatement).getBoolean("esito");
 	}
 
-
-
-	public void InsertCategoria(String nome, int quantita, int codiceaBarre,String userType, String passData) throws SQLException
+	public void insertCategoria(String nome, int quantita, int codiceaBarre,String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call InsertCategoria(?, ?, ?)}");
@@ -63,7 +67,7 @@ public class UserDAO extends BaseDAO
 		doExecute(callableStatement);
 
 	}
-	public void InsertCompone(int nprodotti,String userType, String passData) throws SQLException
+	public void insertCompone(int nprodotti,String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call InsertCompone(?)}");
@@ -71,7 +75,7 @@ public class UserDAO extends BaseDAO
 		doExecute(callableStatement);
 
 	}
-	public void InsertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
+	public void insertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertIndirizzo(?, ?, ?, ?, ?, ?)}");
 		callableStatement.setString("viaIn", via);
@@ -82,7 +86,7 @@ public class UserDAO extends BaseDAO
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
-	public void InsertOrdine(int id, int sconto, double totale,String userType, String passData) throws SQLException {
+	public void insertOrdine(int id, int sconto, double totale,String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertOrdine(?, ?, ?)}");
 		callableStatement.setString("idIn", String.valueOf(id));
@@ -90,20 +94,45 @@ public class UserDAO extends BaseDAO
 		callableStatement.setString("codiceabarreIn", String.valueOf(totale));
 		doExecute(callableStatement);
 	}
-	public void InsertProdotto(int codiceaBarre, double prezzo, String descrizione,String specifiche, int quantita,String marca, String modello,String userType, String passData) throws SQLException {
+
+	public void insertProdotto(String codiceaBarre, double prezzo, String descrizione, String specifiche, InputStream image, int quantita, String marca, String modello, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
-		CallableStatement callableStatement = user.prepareCall("{call InsertProdotto(?, ?, ?, ?, ?, ?, ?)}");
-		callableStatement.setString("codiceabarreIn", String.valueOf(codiceaBarre));
+		CallableStatement callableStatement = user.prepareCall("{call InsertProdotto(?, ?, ?, ?, ?, ?, ?, ?)}");
+		callableStatement.setString("codiceabarreIn", codiceaBarre);
 		callableStatement.setString("prezzoIn", String.valueOf(prezzo));
 		callableStatement.setString("descrizioneIn", descrizione);
 		callableStatement.setString("specificheIn", specifiche);
+		callableStatement.setBinaryStream("immagineIn", image);
 		callableStatement.setString("quantitaIn", String.valueOf(quantita));
 		callableStatement.setString("marcaIn", marca);
 		callableStatement.setString("modelloIn", modello);
 		doExecute(callableStatement);
 	}
 
-
-
+	public Map<String, Object> selectProdotto(String codiceABarre, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call selectProdotto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+		callableStatement.setString("codiceABarreIn", codiceABarre);
+		callableStatement.registerOutParameter("codiceABarreOut", Types.CHAR);
+		callableStatement.registerOutParameter("prezzoOut", Types.DOUBLE);
+		callableStatement.registerOutParameter("descrizioneOut", Types.VARCHAR);
+		callableStatement.registerOutParameter("specificheOut", Types.VARCHAR);
+		callableStatement.registerOutParameter("immagineOut", Types.BLOB);
+		callableStatement.registerOutParameter("quantitaOut", Types.INTEGER);
+		callableStatement.registerOutParameter("marcaOut", Types.VARCHAR);
+		callableStatement.registerOutParameter("modelloOut", Types.VARCHAR);
+		callableStatement=doExecute(callableStatement);
+		Map<String, Object> risultati= new HashMap<String, Object>();
+		risultati.put("codiceABarreOut", callableStatement.getString("codiceABarreOut"));
+		risultati.put("prezzoOut",callableStatement.getDouble("prezzoOut"));
+		risultati.put("descrizioneOut", callableStatement.getString("descrizioneOut"));
+		risultati.put("specificheOut", callableStatement.getString("specificheOut"));
+		risultati.put("immagineOut", callableStatement.getBlob("immagineOut"));
+		risultati.put("quantitaOut", callableStatement.getInt("quantitaOut"));
+		risultati.put("marcaOut", callableStatement.getString("marcaOut"));
+		risultati.put("modelloOut", callableStatement.getString("modelloOut"));
+		return risultati;
+	}
 
 }

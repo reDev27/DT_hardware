@@ -5,6 +5,7 @@ create procedure InsertProdotto(
     in prezzoIn double,
     in descrizioneIn varchar(1000),
     in specificheIn varchar(1000),
+    in immagineIn longblob,
     in quantitaIn int,
     in marcaIn varchar(50),
     in modelloIn varchar(50)
@@ -13,7 +14,7 @@ create procedure InsertProdotto(
 begin
 
     insert into PRODOTTO values
-    (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn,quantitaIn,marcaIn,modelloIn);
+    (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, immagineIn, quantitaIn,marcaIn,modelloIn);
 
 end //
 DELIMITER ;

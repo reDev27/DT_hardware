@@ -66,10 +66,10 @@ public class UserBean
 		connection.insertCategoria(nome, quantita, codiceaBarre, "root", "aaaa");
 	}
 
-	public void insertCompone(int nprodotti) throws SQLException /////////
+	public void insertCompone(int nprodotti, int id, String codiceABarre) throws SQLException /////////
 	{
 		UserDAO connection=new UserDAO();
-		connection.insertCompone(nprodotti, "root", "aaaa");
+		connection.insertCompone(nprodotti, id, codiceABarre, "root", "aaaa");
 		connection.destroy();
 	}
 

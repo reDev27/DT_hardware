@@ -67,11 +67,13 @@ public class UserDAO extends BaseDAO
 		doExecute(callableStatement);
 
 	}
-	public void insertCompone(int nprodotti,String userType, String passData) throws SQLException
+	public void insertCompone(int nprodotti, int id, String codiceABarre, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call InsertCompone(?)}");
 		callableStatement.setString("nprodottiIn", String.valueOf(nprodotti));
+		callableStatement.setString("idIn", String.valueOf(id));
+		callableStatement.setString("codiceABarreIn", codiceABarre);
 		doExecute(callableStatement);
 
 	}

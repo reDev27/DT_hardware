@@ -24,7 +24,8 @@ public class UserServ extends HttpServlet
 		boolean esitoLogin=false;
 		try
 		{
-			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", dataAcquisto, "0", dataScadenza, 999);
+			UserBean.callRegister("chiccoPalmieri1", "chiccoPalmieri1@gmail.com", "aaaa", "Chicco", "Palmieri", "0", null, null, null);
+			UserBean.callInsertCartaDiCredito("chiccoPalmieri1", "123456789012", dataScadenza, 678);
 			//esitoLogin=UserBean.callLogin("admin00", "adn");
 		}
 		catch (SQLException throwables)
@@ -35,43 +36,22 @@ public class UserServ extends HttpServlet
 		{
 			e.printStackTrace();
 		}*/
-
-
+		try
+		{
+			UserBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
+			UserBean.callSelectProdotto("1");
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
-		/*UserBean userUtil=new UserBean();
-		String nome=request.getParameter("nome");
-		String password=request.getParameter("password");
-		String nomeLogged=null;
-		if(nome!=null && password!=null)
-		{
-			try
-			{
-				nomeLogged=userUtil.login(nome, password);
-			}
-			catch (SQLException throwables)
-			{
-				throwables.printStackTrace();
-			}
-			catch (NoSuchAlgorithmException e)
-			{
-				e.printStackTrace();
-			}
-		}
-		boolean esito=false;
-		if(nomeLogged!=null)
-		{
-			request.setAttribute("nome", nomeLogged);
-			esito=true;
-		}
-		request.setAttribute("esito", esito);
-		RequestDispatcher dispatcher=request.getRequestDispatcher("resultOfLogin.jsp");
-		dispatcher.forward(request, response);*/
+
 	}
 }

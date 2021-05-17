@@ -51,7 +51,7 @@ public abstract class BaseDAO implements Destroyable
 		return result;
 	}
 
-	public CallableStatement doExecute(CallableStatement callableStatement, String userType, String pass) throws SQLException, NoSuchAlgorithmException
+	public CallableStatement doExecute(CallableStatement callableStatement) throws SQLException
 	{
 		callableStatement.execute();
 		return callableStatement;

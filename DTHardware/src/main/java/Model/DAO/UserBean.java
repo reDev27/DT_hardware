@@ -23,7 +23,6 @@ public class UserBean
 		Blob immagine=(Blob) risultati.get("immagineOut");
 		f.createNewFile();
 		PrintStream printStream=new PrintStream(f);
-
 		InputStream in = immagine.getBinaryStream();
 		int length = (int) immagine.length();
 		int bufferSize = 1024;
@@ -32,9 +31,6 @@ public class UserBean
 			//out.write(buffer, 0, length);
 			printStream.write(buffer, 0, length);
 		}
-
-
-
 		connection.destroy();
 	}
 
@@ -66,7 +62,7 @@ public class UserBean
 		connection.insertCategoria(nome, quantita, codiceaBarre, "root", "aaaa");
 	}
 
-	public void insertCompone(int nprodotti, int id, String codiceABarre) throws SQLException /////////
+	public void callInsertCompone(int nprodotti, int id, String codiceABarre) throws SQLException /////////
 	{
 		UserDAO connection=new UserDAO();
 		connection.insertCompone(nprodotti, id, codiceABarre, "root", "aaaa");

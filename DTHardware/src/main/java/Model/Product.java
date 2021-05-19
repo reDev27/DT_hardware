@@ -1,29 +1,68 @@
 package Model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 
 public class Product
 {
 	public Product()
 	{
-		nome="senza nome";
-		prezzo=0.0;
-		disponibilita=false;
-		descrizione=null;
-		specifiche=null;
-		immagini=null;
+		setCodiceABarre(null);
+		setMarca("senza nome");
+		setModello("senza nome");
+		setPrezzo(0.0);
+		setDescrizione(null);
+		setSpecifiche(null);
+		setImmagine(null);
+		setDisponibilita(false);
+		setQuantitaProdotto(0);
+	}
+
+	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, Blob immagine, boolean disponibilita,int quantitaProdotto)
+	{
+		setCodiceABarre(codiceABarre);
+		setMarca(marca);
+		setModello(modello);
+		setPrezzo(prezzo);
+		setDescrizione(descrizione);
+		setSpecifiche(specifiche);
+		setImmagine(immagine);
+		setDisponibilita(disponibilita);
+		setQuantitaProdotto(quantitaProdotto);
+	}
+
+	public void getProduct(String codiceABarre)
+	{
+
 	}
 
 
-
-	private String nome;
+	private String codiceABarre;
+	private String marca;
+	private String modello;
 	private Double prezzo;
-	private ArrayList<String> descrizione;
-	private ArrayList<String> specifiche;
-	private ArrayList<String> immagini;
+	private String descrizione;
+	private String specifiche;
+	private Blob immagine;
 	private boolean disponibilita;
 	private int quantitaProdotto;
 
+public String getMarca()
+{
+	return marca;
+}
+public void setMarca(String marca)
+{
+	this.marca = marca;
+}
+public String getCodiceABarre()
+{
+	return codiceABarre;
+}
+public void setCodiceABarre(String codiceABarre)
+{
+	this.codiceABarre = codiceABarre;
+}
 public int getQuantitaProdotto()
 {
 	return quantitaProdotto;
@@ -32,13 +71,13 @@ public void setQuantitaProdotto(int quantitaProdotto)
 {
 	this.quantitaProdotto = quantitaProdotto;
 }
-public String getNome()
+public String getModello()
 {
-	return nome;
+	return modello;
 }
-public void setNome(String nome)
+public void setModello(String modello)
 {
-	this.nome = nome;
+	this.modello = modello;
 }
 public Double getPrezzo()
 {
@@ -48,29 +87,29 @@ public void setPrezzo(Double prezzo)
 {
 	this.prezzo = prezzo;
 }
-public ArrayList<String> getDescrizione()
+public String getDescrizione()
 {
 	return descrizione;
 }
-public void setDescrizione(ArrayList<String> descrizione)
+public void setDescrizione(String descrizione)
 {
 	descrizione = descrizione;
 }
-public ArrayList<String> getSpecifiche()
+public String getSpecifiche()
 {
 	return specifiche;
 }
-public void setSpecifiche(ArrayList<String> specifiche)
+public void setSpecifiche(String specifiche)
 {
 	specifiche = specifiche;
 }
-public ArrayList<String> getImmagini()
+public Blob getImmagine()
 {
-	return immagini;
+	return immagine;
 }
-public void setImmagini(ArrayList<String> immagini)
+public void setImmagine(Blob immagine)
 {
-	this.immagini = immagini;
+	this.immagine = immagine;
 }
 public boolean isDisponibilita()
 {

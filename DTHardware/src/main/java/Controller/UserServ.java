@@ -40,14 +40,16 @@ public class UserServ extends HttpServlet
 		try
 		{
 			//UserBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
-			//UserBean.callSelectProdotto("1");
-			Blob imm=UserBean.callSelectProdotto("1");
-			request.setAttribute("immagine", imm);
+			UserBean.callSelectProdotto("1");
+			//Blob imm=UserBean.callSelectProdotto("1");
+			//request.setAttribute("immagine", imm);
 		}
 		catch (SQLException throwables)
 		{
 			throwables.printStackTrace();
 		}
+
+		UserBean.fileWrite(request.getServletPath());
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}

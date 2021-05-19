@@ -8,7 +8,7 @@ Stored procedure:
 		(...)
 	};
 Java bean/DAO per tutte le procedure elencate sopra;
-gestione carrello e acquisti;
+gestione prodotti, carrello e acquisti;
 algoritmo di ricerca;
 
 gestione visualizzazione contenuti;

@@ -6,21 +6,20 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Map;
-import java.util.Scanner;
 
 public class UserBean
 {
 
-	public static void callSelectProdotto(String codiceABarre) throws SQLException, IOException
+	public static Blob callSelectProdotto(String codiceABarre) throws SQLException, IOException
 	{
 		UserDAO connection=new UserDAO();
 		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, "root", "aaaa");
-		File f=new File("C:\\Users\\rEDOx\\Desktop\\Nuova cartella\\image.txt");
 		Blob immagine=(Blob) risultati.get("immagineOut");
+
+		/*File f=new File("C:\\Users\\rEDOx\\Desktop\\Nuova cartella\\image.txt");
 		f.createNewFile();
 		PrintStream printStream=new PrintStream(f);
 		InputStream in = immagine.getBinaryStream();
@@ -30,8 +29,9 @@ public class UserBean
 		while ((length = in.read(buffer)) != -1) {
 			//out.write(buffer, 0, length);
 			printStream.write(buffer, 0, length);
-		}
+		}*/
 		connection.destroy();
+		return immagine;
 	}
 
 	public static void callInsertProdotto(String codiceABarre, double prezzo, String descrizione,String specifiche, int quantita, String marca, String modello) throws SQLException, FileNotFoundException

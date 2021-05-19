@@ -48,11 +48,11 @@
     request.setAttribute("imm", s);
 %>
 
-<p>
-<img id="provaImmagine" src="">
+
+<img id="provaImmagine" src=""></img>
 <script>
-    document.getElementById("provaImmagine").src = "data:image/png;base64," + <%=request.getAttribute("imm")%>;
+    document.getElementById("provaImmagine").src = "data:image/png;base64," + btoa(String.fromCharCode.apply(null, new Uint8Array(<%=request.getAttribute("imm")%>)));
 </script>
-</p>
+
 </body>
 </html>

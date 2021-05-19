@@ -1,14 +1,10 @@
 <%@ page import="java.io.InputStream"%>
 <%@ page import="java.sql.Blob"%>
-<%@ page import="java.io.OutputStream" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ page import="java.io.PrintStream" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.io.ByteArrayOutputStream" %>
 <%@ page import="java.util.Arrays" %>
-<%@ page import="java.util.Scanner" %>
+<%@ page import="java.util.Base64" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<import value="net.sf.jasperreports.engine.util.JRImageLoader"></import>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +15,10 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
-
+<br>
+<br>
+<br>
 <%
-
-
     Blob immagineBlob=(Blob) request.getAttribute("immagine");
     InputStream in=null;
     int length = 0;
@@ -35,23 +31,28 @@
     {
         throwables.printStackTrace();
     }
-
-    byte[] immagine=in.readAllBytes();
-   /* int bufferSize = 1024;
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    byte[] immagine=new byte[200000];
+    int bufferSize = 1024;
     byte[] buffer = new byte[bufferSize];
-    while ((length = in.read(buffer)) != -1)
+    int i;
+    //while ((length = in.read(buffer)) != -1)
+    while ((i = in.read(immagine, 0, length)) != -1)
     {
-    	printWriter.write(immagine, 0, length);
+        output.write(immagine, 0, i);
         //outStream.write(buffer, 0, length);
-    }*/
-    request.setAttribute("imm", immagine);
+    }
+
+    //String s= Base64.getEncoder().encodeToString(output.toByteArray());
+    String s=Arrays.toString(output.toByteArray());
+    request.setAttribute("imm", s);
 %>
-<imageExpression class="java.awt.Image"><br />
-    net.sf.jasperreports.engine.util.JRImageLoader.loadImage(buffer)<br />
-</imageExpression>
+
+<p>
 <img id="provaImmagine" src="">
 <script>
     document.getElementById("provaImmagine").src = "data:image/png;base64," + <%=request.getAttribute("imm")%>;
 </script>
+</p>
 </body>
 </html>

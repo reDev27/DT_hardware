@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.DAO.AdminBean;
 import Model.DAO.UserNotLoggedBean;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Map;
 
 @WebServlet(name="UserServ" , value = "/UserServ")
 public class UserServ extends HttpServlet
@@ -38,18 +40,18 @@ public class UserServ extends HttpServlet
 		}*/
 		try
 		{
-			//UserBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
-			UserNotLoggedBean.callSelectProdotto("1");
+			//AdminBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
+			Map<String, Object> ris=UserNotLoggedBean.callSelectProdotto("1");
 			//Blob imm=UserBean.callSelectProdotto("1");
-			//request.setAttribute("immagine", imm);
+			request.setAttribute("immagine", ris.get("immagineOut"));
 		}
 		catch (SQLException throwables)
 		{
 			throwables.printStackTrace();
 		}
 
-		fileWrite(request.getServletPath());
-		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+		//fileWrite(request.getServletPath());
+		RequestDispatcher dispatcher=request.getRequestDispatcher("showImage.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -1,7 +1,6 @@
 package Model.DAO;
 
 import javax.security.auth.Destroyable;
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.TimeZone;
 

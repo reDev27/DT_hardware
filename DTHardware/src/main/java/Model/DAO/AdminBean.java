@@ -10,14 +10,14 @@ public class AdminBean extends UserBean
 {
 	public static void callInsertCategoria(String nome, int quantita, int codiceaBarre) throws SQLException
 	{
-		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		AdminDAO connection=new AdminDAO();
 		connection.insertCategoria(nome, quantita, codiceaBarre, "root", "aaaa");
 		connection.destroy();
 	}
 
 	public static void callInsertProdotto(String codiceABarre, double prezzo, String descrizione,String specifiche, int quantita, String marca, String modello) throws SQLException, FileNotFoundException
 	{
-		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		AdminDAO connection=new AdminDAO();
 		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, preparaImmagine("D:\\file_miei\\immagini\\disegno dove mostro le mie impareggiabli doti artistiche da disegnatore e grafico 4d iper ultra.png"),quantita, marca, modello,"root", "aaaa");
 		connection.destroy();
 	}

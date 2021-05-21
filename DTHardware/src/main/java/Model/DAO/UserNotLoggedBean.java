@@ -7,30 +7,23 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.Map;
 
 public class UserNotLoggedBean
 {
+	public static void callSelectCategoria()
+	{
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+
+		connection.destroy();
+	}
+
 	public static Map<String, Object> callSelectProdotto(String codiceABarre) throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, "root", "aaaa");
-
-
-		/*
-		Blob immagine=(Blob) risultati.get("immagineOut");
-		File f=new File("C:\\Users\\rEDOx\\Desktop\\Nuova cartella\\image.txt");
-		f.createNewFile();
-		PrintStream printStream=new PrintStream(f);
-		InputStream in = immagine.getBinaryStream();
-		int length = (int) immagine.length();
-		int bufferSize = 1024;
-		byte[] buffer = new byte[bufferSize];
-		while ((length = in.read(buffer)) != -1) {
-			//out.write(buffer, 0, length);
-			printStream.write(buffer, 0, length);
-		}*/
 		connection.destroy();
 		return risultati;
 	}
@@ -75,6 +68,32 @@ public class UserNotLoggedBean
 		boolean b=connection.login(nickname, passwordInseritaHashed, "user", "Tav0l1n0");
 		connection.destroy();
 		return b;
+	}
+
+	public static String getBase64Image(Blob image) throws IOException
+	{
+		InputStream in=null;
+		int length = 0;
+		try
+		{
+			in=image.getBinaryStream();
+			length = (int) image.length();
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		byte[] immagine=new byte[200000];
+		int i;
+		while ((i = in.read(immagine, 0, length)) != -1)
+		{
+			output.write(immagine, 0, i);
+		}
+		String encoded = Base64.getEncoder().encodeToString(immagine);
+		output.flush();
+		output.close();
+		return encoded;
 	}
 
 	private static String preparaPassword(String password) throws NoSuchAlgorithmException

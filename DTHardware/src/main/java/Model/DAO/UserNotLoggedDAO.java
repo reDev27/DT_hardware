@@ -57,26 +57,8 @@ public class UserNotLoggedDAO extends BaseDAO
 		return doExecute(callableStatement).getBoolean("esito");
 	}
 
-	public void insertCategoria(String nome, int quantita, int codiceaBarre,String userType, String passData) throws SQLException
-	{
-		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call InsertCategoria(?, ?, ?)}");
-		callableStatement.setString("nomeIn", nome);
-		callableStatement.setString("quantitaIn",String.valueOf(quantita));
-		callableStatement.setString("codiceabarreIn",String.valueOf(codiceaBarre));
-		doExecute(callableStatement);
 
-	}
-	public void insertCompone(int nprodotti, int id, String codiceABarre, String userType, String passData) throws SQLException
-	{
-		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call InsertCompone(?)}");
-		callableStatement.setString("nprodottiIn", String.valueOf(nprodotti));
-		callableStatement.setString("idIn", String.valueOf(id));
-		callableStatement.setString("codiceABarreIn", codiceABarre);
-		doExecute(callableStatement);
 
-	}
 	public void insertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertIndirizzo(?, ?, ?, ?, ?, ?)}");
@@ -88,28 +70,9 @@ public class UserNotLoggedDAO extends BaseDAO
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
-	public void insertOrdine(int id, int sconto, double totale,String userType, String passData) throws SQLException {
-		openConnection(userType, passData);
-		CallableStatement callableStatement = user.prepareCall("{call InsertOrdine(?, ?, ?)}");
-		callableStatement.setString("idIn", String.valueOf(id));
-		callableStatement.setString("quantitaIn", String.valueOf(sconto));
-		callableStatement.setString("codiceabarreIn", String.valueOf(totale));
-		doExecute(callableStatement);
-	}
 
-	public void insertProdotto(String codiceaBarre, double prezzo, String descrizione, String specifiche, InputStream image, int quantita, String marca, String modello, String userType, String passData) throws SQLException {
-		openConnection(userType, passData);
-		CallableStatement callableStatement = user.prepareCall("{call InsertProdotto(?, ?, ?, ?, ?, ?, ?, ?)}");
-		callableStatement.setString("codiceabarreIn", codiceaBarre);
-		callableStatement.setString("prezzoIn", String.valueOf(prezzo));
-		callableStatement.setString("descrizioneIn", descrizione);
-		callableStatement.setString("specificheIn", specifiche);
-		callableStatement.setBinaryStream("immagineIn", image);
-		callableStatement.setString("quantitaIn", String.valueOf(quantita));
-		callableStatement.setString("marcaIn", marca);
-		callableStatement.setString("modelloIn", modello);
-		doExecute(callableStatement);
-	}
+
+
 
 	public Map<String, Object> selectProdotto(String codiceABarre, String userType, String passData) throws SQLException
 	{

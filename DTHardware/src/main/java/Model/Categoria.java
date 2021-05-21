@@ -1,17 +1,16 @@
 package Model;
 
-public class Categorie
+public class Categoria
 {
-	public Categorie()
+	public Categoria()
 	{
 
 	}
-	public Categorie(String nome, int quantita)
+	public Categoria(String nome, int quantita)
 	{
 		this.nome = nome;
 		this.quantita = quantita;
 	}
-
 
 
 	private String nome;

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.CategorieArray;
 import Model.DAO.AdminBean;
 import Model.DAO.UserNotLoggedBean;
 import javax.servlet.RequestDispatcher;
@@ -44,7 +45,7 @@ public class UserServ extends HttpServlet
 			//Map<String, Object> ris=UserNotLoggedBean.callSelectProdotto("1");
 			//Blob imm=UserBean.callSelectProdotto("1");
 			//request.setAttribute("immagine", ris.get("immagineOut"));
-			UserNotLoggedBean.callSelectCategoria();
+			CategorieArray cat=UserNotLoggedBean.callSelectCategoria();
 		}
 		catch (SQLException throwables)
 		{
@@ -52,7 +53,7 @@ public class UserServ extends HttpServlet
 		}
 
 		//fileWrite(request.getServletPath());
-		RequestDispatcher dispatcher=request.getRequestDispatcher("showImage.jsp");
+		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}
 

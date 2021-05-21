@@ -1,5 +1,7 @@
 package Model.DAO;
 
+import Model.CategorieArray;
+
 import java.io.*;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -14,15 +16,17 @@ import java.util.Map;
 
 public class UserNotLoggedBean
 {
-	public static void callSelectCategoria() throws SQLException
+	public static CategorieArray callSelectCategoria() throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		ResultSet result=connection.selectCategoria("user", "Tav0l1n0");
+		CategorieArray categorie=new CategorieArray();
 		while(result.next())
 		{
-
+			categorie.addCategoria(result.getString("nome"), Integer.parseInt(result.getString("quantita")));
 		}
 		connection.destroy();
+		return categorie;
 	}
 
 	public static Map<String, Object> callSelectProdotto(String codiceABarre) throws SQLException

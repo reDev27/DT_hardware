@@ -6,23 +6,40 @@ public class CategorieArray
 {
 	public CategorieArray()
 	{
-
+		categories= new ArrayList<>();
 	}
-
-	public CategorieArray(ArrayList<Categorie> categories)
+	public CategorieArray(ArrayList<Categoria> categories)
 	{
 		this.categories=categories;
 	}
 
+	/////////
 
+	public void addCategoria(Categoria categoria)
+	{
+		categories.add(categoria);
+	}
 
-	ArrayList<Categorie> categories;
+	public void addCategoria(String nome, int quantita)
+	{
+		Categoria categoria=new Categoria(nome, quantita);
+		categories.add(categoria);
+	}
 
-public ArrayList<Categorie> getCategories()
+	public Categoria getCategoria(int index)
+	{
+		return categories.get(index);
+	}
+
+	////////
+
+	ArrayList<Categoria> categories;
+
+public ArrayList<Categoria> getCategories()
 {
 	return categories;
 }
-public void setCategories(ArrayList<Categorie> categories)
+public void setCategories(ArrayList<Categoria> categories)
 {
 	this.categories = categories;
 }

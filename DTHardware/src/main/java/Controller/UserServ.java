@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.DAO.UserBean;
+import Model.DAO.UserNotLoggedBean;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.Calendar;
 
 @WebServlet(name="UserServ" , value = "/UserServ")
 public class UserServ extends HttpServlet
@@ -42,7 +39,7 @@ public class UserServ extends HttpServlet
 		try
 		{
 			//UserBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
-			UserBean.callSelectProdotto("1");
+			UserNotLoggedBean.callSelectProdotto("1");
 			//Blob imm=UserBean.callSelectProdotto("1");
 			//request.setAttribute("immagine", imm);
 		}

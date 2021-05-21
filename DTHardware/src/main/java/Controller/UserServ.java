@@ -7,7 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -49,9 +51,17 @@ public class UserServ extends HttpServlet
 			throwables.printStackTrace();
 		}
 
-		UserBean.fileWrite(request.getServletPath());
+		fileWrite(request.getServletPath());
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	public static void fileWrite(String genericURL) throws IOException
+	{
+		File f=new File(genericURL + "/src/java/model/userPass");
+		f.createNewFile();
+		PrintWriter printWriter=new PrintWriter(f);
+		printWriter.write("user, Tav0l1n0");
 	}
 
 	@Override

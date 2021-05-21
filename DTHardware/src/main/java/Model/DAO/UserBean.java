@@ -12,13 +12,7 @@ import java.util.Map;
 
 public class UserBean
 {
-	public static void fileWrite(String genericURL) throws IOException
-	{
-		File f=new File(genericURL + "/src/java/model/userPass");
-		f.createNewFile();
-		PrintWriter printWriter=new PrintWriter(f);
-		printWriter.write("user, Tav0l1n0");
-	}
+
 
 	public static Blob callSelectProdotto(String codiceABarre) throws SQLException
 	{

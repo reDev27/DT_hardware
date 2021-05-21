@@ -74,5 +74,5 @@ public abstract class BaseDAO implements Destroyable
 
 	protected Connection user;
 	protected ResultSet result;
-	protected final String URL="jdbc:mysql://127.0.0.1:3306/dthw?serverTimezone=UTC"; //+ TimeZone.getDefault().getID();
+	protected final String URL="jdbc:mysql://127.0.0.1:3306/dthw?serverTimezone=" + TimeZone.getDefault().getID();
 }

@@ -20,7 +20,7 @@ public class UserBean
 		printWriter.write("user, Tav0l1n0");
 	}
 
-	public static Blob callSelectProdotto(String codiceABarre) throws SQLException, IOException
+	public static Blob callSelectProdotto(String codiceABarre) throws SQLException
 	{
 		UserDAO connection=new UserDAO();
 		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, "root", "aaaa");
@@ -46,7 +46,6 @@ public class UserBean
 		UserDAO connection=new UserDAO();
 		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, preparaImmagine("D:\\file_miei\\immagini\\disegno dove mostro le mie impareggiabli doti artistiche da disegnatore e grafico 4d iper ultra.png"),quantita, marca, modello,"root", "aaaa");
 		connection.destroy();
-
 	}
 
 	public void callInsertOrdine(int id, int sconto, double totale) throws SQLException

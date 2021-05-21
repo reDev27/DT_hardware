@@ -1,7 +1,6 @@
 package Model;
 
 import java.sql.Blob;
-import java.util.ArrayList;
 
 public class Product
 {

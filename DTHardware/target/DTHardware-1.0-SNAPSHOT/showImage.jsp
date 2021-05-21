@@ -53,7 +53,7 @@
 
 <img id="provaImmagine" src="">
 <script>
-  document.getElementById("provaImmagine").src = "data:image/png;base64,{" + btoa(String.fromCharCode.apply(null, new Uint8Array(<%=request.getAttribute("imm")%>))) + "}";
+  document.getElementById("provaImmagine").src = "data:image/png;base64," + btoa(String.fromCharCode.apply(null, new Uint8Array(<%=request.getAttribute("imm")%>)));
 </script>
 </body>
 </html>

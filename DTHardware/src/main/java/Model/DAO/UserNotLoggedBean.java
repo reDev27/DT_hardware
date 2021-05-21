@@ -12,15 +12,15 @@ import java.util.Map;
 
 public class UserNotLoggedBean
 {
-
-
-	public static Blob callSelectProdotto(String codiceABarre) throws SQLException
+	public static Map<String, Object> callSelectProdotto(String codiceABarre) throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, "root", "aaaa");
-		Blob immagine=(Blob) risultati.get("immagineOut");
 
-		/*File f=new File("C:\\Users\\rEDOx\\Desktop\\Nuova cartella\\image.txt");
+
+		/*
+		Blob immagine=(Blob) risultati.get("immagineOut");
+		File f=new File("C:\\Users\\rEDOx\\Desktop\\Nuova cartella\\image.txt");
 		f.createNewFile();
 		PrintStream printStream=new PrintStream(f);
 		InputStream in = immagine.getBinaryStream();
@@ -32,31 +32,15 @@ public class UserNotLoggedBean
 			printStream.write(buffer, 0, length);
 		}*/
 		connection.destroy();
-		return immagine;
+		return risultati;
 	}
 
-	public static void callInsertProdotto(String codiceABarre, double prezzo, String descrizione,String specifiche, int quantita, String marca, String modello) throws SQLException, FileNotFoundException
-	{
-		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, preparaImmagine("D:\\file_miei\\immagini\\disegno dove mostro le mie impareggiabli doti artistiche da disegnatore e grafico 4d iper ultra.png"),quantita, marca, modello,"root", "aaaa");
-		connection.destroy();
-	}
-
-	public void callInsertOrdine(int id, int sconto, double totale) throws SQLException
-	{
-		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertOrdine(id, sconto, totale, "root", "aaaa");
-		connection.destroy();
-	}
-
-	public void callInsertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username) throws SQLException
+	public static void callInsertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username) throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, "root", "aaaa");
 		connection.destroy();
 	}
-
-
 
 	public static void callInsertCartaDiCredito(String username, String nCarta, Calendar scadenza, Integer cvv) throws SQLException
 	{
@@ -91,13 +75,6 @@ public class UserNotLoggedBean
 		boolean b=connection.login(nickname, passwordInseritaHashed, "user", "Tav0l1n0");
 		connection.destroy();
 		return b;
-	}
-
-	private static InputStream preparaImmagine(String path) throws FileNotFoundException
-	{
-		File file=new File(path);
-		FileInputStream stream=new FileInputStream(file);
-		return (InputStream) stream;
 	}
 
 	private static String preparaPassword(String password) throws NoSuchAlgorithmException

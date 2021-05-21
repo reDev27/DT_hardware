@@ -5,6 +5,7 @@ import Model.DAO.UserNotLoggedBean;
 
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class Product
 {
@@ -35,7 +36,19 @@ public class Product
 	}
 
 	public void getProduct(String codiceABarre) throws SQLException {
-		UserNotLoggedBean.callSelectProdotto(codiceABarre);
+		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdotto(codiceABarre);
+		setCodiceABarre((String) risultati.get("codiceABarreOut"));
+		setMarca((String) risultati.get("marcaOut"));
+		setModello((String) risultati.get("modelloOut"));
+		setPrezzo((Double) risultati.get("prezzoOut"));
+		setDescrizione((String) risultati.get("descrizioneOut"));
+		setSpecifiche((String) risultati.get("specificheOut"));
+		setImmagine((Blob) risultati.get("immagineOut"));
+		setQuantitaProdotto((Integer) risultati.get("quantitaOut"));
+		if(quantitaProdotto>0)
+			setDisponibilita(true);
+		else
+			setDisponibilita(false);
 	}
 
 

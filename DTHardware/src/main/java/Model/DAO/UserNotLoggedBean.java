@@ -56,19 +56,7 @@ public class UserNotLoggedBean
 		connection.destroy();
 	}
 
-	public void callInsertCategoria(String nome, int quantita, int codiceaBarre) throws SQLException  ////////////
-	{
-		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertCategoria(nome, quantita, codiceaBarre, "root", "aaaa");
-		connection.destroy();
-	}
 
-	public void callInsertCompone(int nprodotti, int id, String codiceABarre) throws SQLException /////////
-	{
-		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertCompone(nprodotti, id, codiceABarre, "root", "aaaa");
-		connection.destroy();
-	}
 
 	public static void callInsertCartaDiCredito(String username, String nCarta, Calendar scadenza, Integer cvv) throws SQLException
 	{

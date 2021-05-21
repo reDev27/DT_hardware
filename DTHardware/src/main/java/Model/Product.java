@@ -1,6 +1,10 @@
 package Model;
 
+
+import Model.DAO.UserNotLoggedBean;
+
 import java.sql.Blob;
+import java.sql.SQLException;
 
 public class Product
 {
@@ -30,9 +34,8 @@ public class Product
 		setQuantitaProdotto(quantitaProdotto);
 	}
 
-	public void getProduct(String codiceABarre)
-	{
-
+	public void getProduct(String codiceABarre) throws SQLException {
+		UserNotLoggedBean.callSelectProdotto(codiceABarre);
 	}
 
 

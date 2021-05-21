@@ -20,7 +20,7 @@ public class UserNotLoggedBean
 		ResultSet result=connection.selectCategoria("user", "Tav0l1n0");
 		while(result.next())
 		{
-			System.out.println(result.getString("nome")+ " " +result.getString("quantita"));
+
 		}
 		connection.destroy();
 	}

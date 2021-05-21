@@ -1085,7 +1085,6 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <column id="312" parent="288" name="CODICEBARRE">
       <Position>3</Position>
       <DataType>char(12)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <index id="313" parent="288" name="CODICEBARRE">
       <ColNames>CODICEBARRE</ColNames>
@@ -1093,8 +1092,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </index>
     <key id="314" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>NOME
-CODICEBARRE</ColNames>
+      <ColNames>NOME</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="315" parent="288" name="categoria_ibfk_1">
@@ -1504,65 +1502,55 @@ NCIVICO</ColNames>
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="407" parent="303" name="nomeOut">
-      <Position>1</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>varchar(50)|0s</DataType>
-    </argument>
-    <argument id="408" parent="303" name="quantitaOut">
-      <Position>2</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>int|0s</DataType>
-    </argument>
-    <argument id="409" parent="304" name="codiceABarreIn">
+    <argument id="407" parent="304" name="codiceABarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="410" parent="304" name="codiceABarreOut">
+    <argument id="408" parent="304" name="codiceABarreOut">
       <Position>2</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="411" parent="304" name="prezzoOut">
+    <argument id="409" parent="304" name="prezzoOut">
       <Position>3</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>double|0s</DataType>
     </argument>
-    <argument id="412" parent="304" name="descrizioneOut">
+    <argument id="410" parent="304" name="descrizioneOut">
       <Position>4</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="413" parent="304" name="specificheOut">
+    <argument id="411" parent="304" name="specificheOut">
       <Position>5</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="414" parent="304" name="immagineOut">
+    <argument id="412" parent="304" name="immagineOut">
       <Position>6</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>longblob|0s</DataType>
     </argument>
-    <argument id="415" parent="304" name="quantitaOut">
+    <argument id="413" parent="304" name="quantitaOut">
       <Position>7</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="416" parent="304" name="marcaOut">
+    <argument id="414" parent="304" name="marcaOut">
       <Position>8</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="417" parent="304" name="modelloOut">
+    <argument id="415" parent="304" name="modelloOut">
       <Position>9</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="418" parent="305" name="usernameIn">
+    <argument id="416" parent="305" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="419" parent="305" name="ncartaIn">
+    <argument id="417" parent="305" name="ncartaIn">
       <Position>2</Position>
       <DataType>char(12)|0s</DataType>
     </argument>

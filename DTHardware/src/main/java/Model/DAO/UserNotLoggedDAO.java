@@ -5,6 +5,7 @@ import javax.imageio.stream.ImageInputStream;
 import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Calendar;
@@ -57,8 +58,6 @@ public class UserNotLoggedDAO extends BaseDAO
 		return doExecute(callableStatement).getBoolean("esito");
 	}
 
-
-
 	public void insertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertIndirizzo(?, ?, ?, ?, ?, ?)}");
@@ -70,9 +69,6 @@ public class UserNotLoggedDAO extends BaseDAO
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
-
-
-
 
 	public Map<String, Object> selectProdotto(String codiceABarre, String userType, String passData) throws SQLException
 	{
@@ -100,4 +96,11 @@ public class UserNotLoggedDAO extends BaseDAO
 		return risultati;
 	}
 
+	public ResultSet selectCategoria(String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call selectCategoria()}");
+		doExecute(callableStatement);
+		return getResult();
+	}
 }

@@ -33,22 +33,12 @@
   }
   ByteArrayOutputStream output = new ByteArrayOutputStream();
   byte[] immagine=new byte[200000];
-  int bufferSize = 1024;
-  byte[] buffer = new byte[bufferSize];
   int i;
-
-
-  //while ((length = in.read(buffer)) != -1)
   while ((i = in.read(immagine, 0, length)) != -1)
   {
     output.write(immagine, 0, i);
-    //outStream.write(buffer, 0, length);
   }
-
-  //String s= Arrays.toString(output.toByteArray());
-  //final byte[] authBytes = s.getBytes(StandardCharsets.UTF_8);
   String encoded = Base64.getEncoder().encodeToString(immagine);
-
   request.setAttribute("imm", encoded);
   output.flush();
   output.close();
@@ -58,8 +48,8 @@
 
 <img id="provaImmagine" src="">
 <script>
-  var laMiaFottutaImmagine="<%=request.getAttribute("imm")%>";
-  document.getElementById("provaImmagine").src = "data:image/png;base64," + laMiaFottutaImmagine;
+  var laMiaImmagine="<%=request.getAttribute("imm")%>";
+  document.getElementById("provaImmagine").src = "data:image/png;base64," + laMiaImmagine;
 </script>
 </body>
 </html>

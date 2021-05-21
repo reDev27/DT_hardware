@@ -53,6 +53,7 @@ public abstract class BaseDAO implements Destroyable
 	public CallableStatement doExecute(CallableStatement callableStatement) throws SQLException
 	{
 		callableStatement.execute();
+		result=callableStatement.getResultSet();
 		return callableStatement;
 	}
 
@@ -72,6 +73,15 @@ public abstract class BaseDAO implements Destroyable
 	}
 
 	protected Connection user;
-	protected ResultSet result;
+	private ResultSet result;
 	protected final String URL="jdbc:mysql://127.0.0.1:3306/dthw?serverTimezone=" + TimeZone.getDefault().getID();
+
+protected ResultSet getResult()
+{
+	return result;
+}
+protected void setResult(ResultSet result)
+{
+	this.result = result;
+}
 }

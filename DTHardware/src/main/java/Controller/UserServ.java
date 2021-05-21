@@ -41,9 +41,10 @@ public class UserServ extends HttpServlet
 		try
 		{
 			//AdminBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
-			Map<String, Object> ris=UserNotLoggedBean.callSelectProdotto("1");
+			//Map<String, Object> ris=UserNotLoggedBean.callSelectProdotto("1");
 			//Blob imm=UserBean.callSelectProdotto("1");
-			request.setAttribute("immagine", ris.get("immagineOut"));
+			//request.setAttribute("immagine", ris.get("immagineOut"));
+			UserNotLoggedBean.callSelectCategoria();
 		}
 		catch (SQLException throwables)
 		{

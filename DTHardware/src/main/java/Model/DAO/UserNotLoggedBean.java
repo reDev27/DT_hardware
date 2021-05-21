@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Calendar;
@@ -13,10 +14,14 @@ import java.util.Map;
 
 public class UserNotLoggedBean
 {
-	public static void callSelectCategoria()
+	public static void callSelectCategoria() throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-
+		ResultSet result=connection.selectCategoria("user", "Tav0l1n0");
+		while(result.next())
+		{
+			System.out.println(result.getString("nome")+ " " +result.getString("quantita"));
+		}
 		connection.destroy();
 	}
 

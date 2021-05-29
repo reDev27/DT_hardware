@@ -49,6 +49,7 @@ public class UserServ extends HttpServlet
 			//request.setAttribute("immagine", ris.get("immagineOut"));
 			//CategorieArray cat=UserNotLoggedBean.callSelectCategoria();
 			AdminBean.callInsertProdotto("0123",10,"mobo msi z570","chipset z570",5,"MSI","Z570 ACE");
+			AdminBean.callInsertProdotto("0124",10,"mobo msi z590","chipset z590",5,"MSI","Z590 PRO");
 			AdminBean.callInsertCategoria("Schede madri",10,0123);
 			ProductsArray prodotti=new ProductsArray();
 			UserNotLoggedBean.callSelectProdottoByCategoria("schedeMadri");

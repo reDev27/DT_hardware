@@ -2,6 +2,8 @@ package Controller;
 
 import Model.CategorieArray;
 import Model.DAO.UserNotLoggedBean;
+import Model.Product;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,6 +46,9 @@ public class UserServ extends HttpServlet
 			//Blob imm=UserBean.callSelectProdotto("1");
 			//request.setAttribute("immagine", ris.get("immagineOut"));
 			CategorieArray cat=UserNotLoggedBean.callSelectCategoria();
+			Product ciao=new Product();
+			ciao.getProductByCodiceABarre("");
+
 		}
 		catch (SQLException throwables)
 		{

@@ -6,6 +6,7 @@ public class ProductsArray
 {
 
 
+
 	private ArrayList<Product> prodotti;
 
 	public ArrayList<Product> getProdotti()

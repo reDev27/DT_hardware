@@ -1,6 +1,5 @@
 package Model;
 
-
 import Model.DAO.UserNotLoggedBean;
 
 import java.sql.Blob;
@@ -22,7 +21,7 @@ public class Product
 		setQuantitaProdotto(0);
 	}
 
-	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, Blob immagine, boolean disponibilita,int quantitaProdotto)
+	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, Blob immagine,int quantitaProdotto)
 	{
 		setCodiceABarre(codiceABarre);
 		setMarca(marca);
@@ -31,16 +30,24 @@ public class Product
 		setDescrizione(descrizione);
 		setSpecifiche(specifiche);
 		setImmagine(immagine);
-		setDisponibilita(disponibilita);
+		if(quantitaProdotto>0)
+			setDisponibilita(true);
+		else
+			setDisponibilita(false);
 		setQuantitaProdotto(quantitaProdotto);
 	}
 
-	public void getProduct(String codiceABarre) throws SQLException {
+/**
+ * this function return a map of all attributes of a specified product
+ * @param codiceABarre string used to identify the product of you want to know attributes, is the code that identify the product
+ * @throws SQLException
+ * @return this function return a java.util.Map of all attributes of the specified product
+ */
+	public Map<String, Object> getProductByCodiceABarre(String codiceABarre) throws SQLException {
 		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre);
 		setCodiceABarre((String) risultati.get("codiceABarreOut"));
 		setMarca((String) risultati.get("marcaOut"));
 		setModello((String) risultati.get("modelloOut"));
-
 		setPrezzo((Double) risultati.get("prezzoOut"));
 		setDescrizione((String) risultati.get("descrizioneOut"));
 		setSpecifiche((String) risultati.get("specificheOut"));
@@ -50,9 +57,8 @@ public class Product
 			setDisponibilita(true);
 		else
 			setDisponibilita(false);
+		return risultati;
 	}
-
-
 
 	private String codiceABarre;
 	private String marca;

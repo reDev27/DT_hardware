@@ -1,6 +1,7 @@
 package Model.DAO;
 
 import Model.CategorieArray;
+import Model.Product;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -10,12 +11,34 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Base64;
-import java.util.Calendar;
-import java.util.Map;
+import java.util.*;
 
 public class UserNotLoggedBean
 {
+	public static ArrayList<Product> callSelectProdottoByCategoria(String categoria) throws SQLException
+	{
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		ResultSet result=connection.selectProdottoByCategoria(categoria, "user", "Tav0l1n0");
+		ArrayList<Product> resultsArray=new ArrayList<>();
+		Product prodotto;
+
+		while(result.next())
+		{
+			prodotto=new Product(
+								result.getString("CODICEABARRE"),
+								result.getString("DESCRIZIONE"),
+								result.getString("SPECIFICHE"),
+								result.getDouble("PREZZO"),
+								result.getString("MARCA"),
+								result.getString("MODELLO"),
+								result.getBlob("IMMAGINE"),
+								result.getInt("QUANTITA")
+								);
+			resultsArray.add(prodotto);
+		}
+		return resultsArray;
+	}
+
 	public static CategorieArray callSelectCategoria() throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();

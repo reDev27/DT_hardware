@@ -24,7 +24,7 @@ public class UserDAO extends UserNotLoggedDAO
 		callableStatement.setString("idIn", String.valueOf(id));
 		callableStatement.setString("scontoIn", String.valueOf(sconto));
 		callableStatement.setString("totaleIn", String.valueOf(totale));
-		callableStatement.setString("dataacquistoIn", DateUtil.PrepTime(dataacquisto));
+		callableStatement.setString("dataacquistoIn", DateUtil.getStringFromCalendar(dataacquisto));
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}

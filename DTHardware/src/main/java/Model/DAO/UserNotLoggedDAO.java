@@ -1,9 +1,5 @@
 package Model.DAO;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import java.io.InputStream;
-import java.security.NoSuchAlgorithmException;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +7,6 @@ import java.sql.Types;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class UserNotLoggedDAO extends BaseDAO
 {
@@ -29,7 +24,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call insertCartaDiCredito(?, ?, ?)}");
 		callableStatement.setString("ncartaIn", nCarta);
-		callableStatement.setString("scadenzaIn", DateUtil.PrepTime(scadenza));
+		callableStatement.setString("scadenzaIn", DateUtil.getStringFromCalendar(scadenza));
 		callableStatement.setString("cvvIn", String.valueOf(cvv));
 		doExecute(callableStatement);
 

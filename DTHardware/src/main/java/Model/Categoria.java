@@ -12,7 +12,6 @@ public class Categoria
 		this.quantita = quantita;
 	}
 
-
 	private String nome;
 	private int quantita;
 

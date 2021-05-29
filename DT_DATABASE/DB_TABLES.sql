@@ -42,7 +42,7 @@ USE DTHW;
 	QUANTITA INT NOT NULL,
 	MARCA VARCHAR(50) NOT NULL,
 	MODELLO VARCHAR(50) NOT NULL,
-    NOME VARCHAR(50) ,
+    NOME VARCHAR(50),
     foreign key (NOME) references categoria(NOME)
 	);
        

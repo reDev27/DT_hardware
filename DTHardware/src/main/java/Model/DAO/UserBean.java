@@ -1,6 +1,7 @@
 package Model.DAO;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 
 public class UserBean extends UserNotLoggedBean
 {
@@ -12,10 +13,10 @@ public class UserBean extends UserNotLoggedBean
 		connection.destroy();
 	}
 
-	public static void callInsertOrdine(int id, int sconto, double totale) throws SQLException
+	public static  void callInsertOrdine(int id, int sconto, double totale, Calendar dataacquisto, String username) throws SQLException
 	{
 		UserDAO connection=new UserDAO();
-		connection.insertOrdine(id, sconto, totale, "root", "aaaa");
+		connection.insertOrdine(id, sconto, totale,dataacquisto,username, "root", "aaaa");
 		connection.destroy();
 	}
 }

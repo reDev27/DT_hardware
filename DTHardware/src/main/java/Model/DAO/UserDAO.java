@@ -2,6 +2,7 @@ package Model.DAO;
 
 import java.sql.CallableStatement;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO
 {
@@ -17,12 +18,14 @@ public class UserDAO extends UserNotLoggedDAO
 
 	}
 
-	public void insertOrdine(int id, int sconto, double totale,String userType, String passData) throws SQLException {
+	public void insertOrdine(int id, int sconto, double totale, Calendar dataacquisto, String username,String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
-		CallableStatement callableStatement = user.prepareCall("{call InsertOrdine(?, ?, ?)}");
+		CallableStatement callableStatement = user.prepareCall("{call InsertOrdine(?, ?, ?, ?, ?)}");
 		callableStatement.setString("idIn", String.valueOf(id));
-		callableStatement.setString("quantitaIn", String.valueOf(sconto));
-		callableStatement.setString("codiceabarreIn", String.valueOf(totale));
+		callableStatement.setString("scontoIn", String.valueOf(sconto));
+		callableStatement.setString("totaleIn", String.valueOf(totale));
+		callableStatement.setString("dataacquistoIn", DateUtil.PrepTime(dataacquisto));
+		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
 

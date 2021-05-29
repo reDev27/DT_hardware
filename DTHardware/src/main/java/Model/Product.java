@@ -36,10 +36,11 @@ public class Product
 	}
 
 	public void getProduct(String codiceABarre) throws SQLException {
-		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdotto(codiceABarre);
+		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre);
 		setCodiceABarre((String) risultati.get("codiceABarreOut"));
 		setMarca((String) risultati.get("marcaOut"));
 		setModello((String) risultati.get("modelloOut"));
+
 		setPrezzo((Double) risultati.get("prezzoOut"));
 		setDescrizione((String) risultati.get("descrizioneOut"));
 		setSpecifiche((String) risultati.get("specificheOut"));
@@ -50,6 +51,7 @@ public class Product
 		else
 			setDisponibilita(false);
 	}
+
 
 
 	private String codiceABarre;

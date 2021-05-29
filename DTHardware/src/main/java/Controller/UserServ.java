@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.CategorieArray;
-import Model.DAO.AdminBean;
 import Model.DAO.UserNotLoggedBean;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.Map;
 
 @WebServlet(name="UserServ" , value = "/UserServ")
 public class UserServ extends HttpServlet

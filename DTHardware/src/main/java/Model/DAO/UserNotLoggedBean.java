@@ -29,7 +29,7 @@ public class UserNotLoggedBean
 		return categorie;
 	}
 
-	public static Map<String, Object> callSelectProdotto(String codiceABarre) throws SQLException
+	public static Map<String, Object> callSelectProdottoByCodiceABarre(String codiceABarre) throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, "root", "aaaa");

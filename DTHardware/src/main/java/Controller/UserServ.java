@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.CategorieArray;
+import Model.DAO.AdminBean;
 import Model.DAO.UserNotLoggedBean;
 import Model.Product;
 import Model.ProductsArray;
@@ -47,6 +48,8 @@ public class UserServ extends HttpServlet
 			//Blob imm=UserBean.callSelectProdotto("1");
 			//request.setAttribute("immagine", ris.get("immagineOut"));
 			//CategorieArray cat=UserNotLoggedBean.callSelectCategoria();
+			AdminBean.callInsertProdotto("0123",10,"mobo msi z570","chipset z570",5,"MSI","Z570 ACE");
+			AdminBean.callInsertCategoria("Schede madri",10,0123);
 			ProductsArray prodotti=new ProductsArray();
 			UserNotLoggedBean.callSelectProdottoByCategoria("schedeMadri");
 		}

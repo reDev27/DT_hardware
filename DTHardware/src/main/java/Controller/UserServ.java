@@ -3,6 +3,7 @@ package Controller;
 import Model.CategorieArray;
 import Model.DAO.UserNotLoggedBean;
 import Model.Product;
+import Model.ProductsArray;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,10 +46,9 @@ public class UserServ extends HttpServlet
 			//Map<String, Object> ris=UserNotLoggedBean.callSelectProdotto("1");
 			//Blob imm=UserBean.callSelectProdotto("1");
 			//request.setAttribute("immagine", ris.get("immagineOut"));
-			CategorieArray cat=UserNotLoggedBean.callSelectCategoria();
-			Product ciao=new Product();
-			ciao.getProductByCodiceABarre("");
-
+			//CategorieArray cat=UserNotLoggedBean.callSelectCategoria();
+			ProductsArray prodotti=new ProductsArray();
+			UserNotLoggedBean.callSelectProdottoByCategoria("schedeMadri");
 		}
 		catch (SQLException throwables)
 		{

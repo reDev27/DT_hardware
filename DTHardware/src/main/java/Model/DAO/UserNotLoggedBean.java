@@ -21,7 +21,6 @@ public class UserNotLoggedBean
 		ResultSet result=connection.selectProdottoByCategoria(categoria, "user", "Tav0l1n0");
 		ArrayList<Product> resultsArray=new ArrayList<>();
 		Product prodotto;
-
 		while(result.next())
 		{
 			prodotto=new Product(

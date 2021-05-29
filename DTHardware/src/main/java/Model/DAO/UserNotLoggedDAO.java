@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 public class UserNotLoggedDAO extends BaseDAO
 {
-	public void updateUserCartaDiCredito(String username, String nCarta, String userType, String passData) throws SQLException
+	protected void updateUserCartaDiCredito(String username, String nCarta, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call updateUserCartaDiCredito(?, ?)}");
@@ -24,7 +24,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		doExecute(callableStatement);
 	}
 
-	public void insertCartaCredito(String nCarta, Calendar scadenza, int cvv,String userType, String passData) throws SQLException
+ 	protected void insertCartaCredito(String nCarta, Calendar scadenza, int cvv,String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call insertCartaDiCredito(?, ?, ?)}");
@@ -35,7 +35,7 @@ public class UserNotLoggedDAO extends BaseDAO
 
 	}
 
-	public void register(String username, String eMail, String password, String nome, String cognome, String nTelefono, String userType, String passData) throws SQLException
+	protected void register(String username, String eMail, String password, String nome, String cognome, String nTelefono, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call registerUser(?, ?, ?, ?, ?, ?)}");
@@ -48,7 +48,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		doExecute(callableStatement);
 	}
 
-	public boolean login(String username, String pass, String userType, String passData) throws SQLException
+	protected boolean login(String username, String pass, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call loginUser(?, ?, ?)}");
@@ -58,7 +58,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		return doExecute(callableStatement).getBoolean("esito");
 	}
 
-	public void insertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
+	protected void insertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertIndirizzo(?, ?, ?, ?, ?, ?)}");
 		callableStatement.setString("viaIn", via);
@@ -70,7 +70,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		doExecute(callableStatement);
 	}
 
-	public Map<String, Object> selectProdotto(String codiceABarre, String userType, String passData) throws SQLException
+	protected Map<String, Object> selectProdotto(String codiceABarre, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call selectProdotto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
@@ -96,7 +96,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		return risultati;
 	}
 
-	public ResultSet selectProdottoByCategoria(String categoria, String userType, String passData) throws SQLException
+	protected ResultSet selectProdottoByCategoria(String categoria, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call selectCategoria(?)}");
@@ -105,7 +105,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		return getResult();
 	}
 
-	public ResultSet selectCategoria(String userType, String passData) throws SQLException
+	protected ResultSet selectCategoria(String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call selectCategoria()}");

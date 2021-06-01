@@ -5,7 +5,7 @@ create procedure SelectIndirizzoByUsername(
 )
 begin
 
-    select (VIA,NCIVICO,CITTA,CAP,FLAG,USERNAME) from indirizzo
+    select VIA,NCIVICO,CITTA,CAP,FLAG,USERNAME from indirizzo
     where indirizzo.USERNAME=usernameIn;
 
 end //

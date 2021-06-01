@@ -21,7 +21,11 @@ public class DateUtil
         scanner.useDelimiter(" ");
         calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(scanner.next()));
         scanner.useDelimiter(":");
-        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(scanner.next()));
+        String s=scanner.next();
+        System.out.println(s);
+        s=s.substring(1);
+        System.out.println(s);
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(s));
         calendar.set(Calendar.MINUTE, Integer.parseInt(scanner.next()));
         calendar.set(Calendar.SECOND, Integer.parseInt(scanner.next()));
         return calendar;

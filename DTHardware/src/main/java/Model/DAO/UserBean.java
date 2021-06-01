@@ -1,5 +1,7 @@
 package Model.DAO;
 
+import Model.Address;
+import Model.Cliente;
 import Model.CreditCard;
 
 import java.sql.ResultSet;
@@ -9,32 +11,32 @@ import java.util.Calendar;
 
 public class UserBean extends UserNotLoggedBean
 {
-	public static void callSelectCarteDiCreditoByUsername(String username) throws SQLException
+	public static ArrayList<CreditCard> callSelectCarteDiCreditoByUsername(String username) throws SQLException
 	{
 		UserDAO connection=new UserDAO();
 		connection.selectCarteDiCreditoByUsername(username, "root", "aaaa");
 		ResultSet result=connection.getResult();
 		ArrayList<CreditCard> creditCards=new ArrayList<>();
-		String time="porcodiobastardo";
 		while(result.next())
 		{
-			time=result.getString("scadenza");
-			//creditCards.add(new CreditCard(result.getString("ncarta"), result.getString()))
+			creditCards.add(new CreditCard(result.getString("ncarta"), DateUtil.getCalendarFromString(result.getString("scadenza")), result.getInt("CVV")));
 		}
-		System.out.println(time);
 		connection.destroy();
+		return creditCards;
 	}
 
-	public static void callSelectIndirizzoByUsername(String username) throws SQLException
+	public static ArrayList<Address> callSelectIndirizzoByUsername(String username) throws SQLException
 	{
 		UserDAO connection=new UserDAO();
 		connection.selectIndirizzoByUsername(username, "root", "aaaa");
 		ResultSet result=connection.getResult();
+		ArrayList<Address> addresses=new ArrayList<>();
 		while(result.next())
 		{
-
+			addresses.add(new Address(result.getString("via"), result.getInt("ncivico"), result.getString("citta"), result.getInt("cap"), result.getBoolean("flag")))
 		}
 		connection.destroy();
+		return addresses;
 	}
 
 	public static void callSelectClienteByUsername(String username) throws SQLException
@@ -42,9 +44,10 @@ public class UserBean extends UserNotLoggedBean
 		UserDAO connection=new UserDAO();
 		connection.selectClienteByUsername(username, "root", "aaaa");
 		ResultSet result=connection.getResult();
+		Cliente cliente=null;
 		while(result.next())
 		{
-
+			cliente=new Cliente(result.getString("username"), result.getString("email"), result.getString("nome"), result.getString("cognome"), result.getString("ntelefono"));
 		}
 		connection.destroy();
 	}

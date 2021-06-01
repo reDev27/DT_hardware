@@ -5,7 +5,7 @@ create procedure SelectCartadicreditoByUsername(
 )
 begin
 
-    select (NCARTA,SCADENZA,CVV,USERNAME) from cartadicredito
+    select NCARTA,SCADENZA,CVV,USERNAME from cartadicredito
     where cartadicredito.USERNAME=usernameIn;
 
 end //

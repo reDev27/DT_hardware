@@ -6,7 +6,7 @@ create procedure SelectProdottoByCategorie(
 begin
 
     select (CODICEBARRE,PREZZO,DESCRIZIONE,SPECIFICHE,IMMAGINE,QUANTITA,MARCA,MODELLO) from PRODOTTO,CATEGORIA
-        where PRODOTTO.NOME= categoriaIn;
+        where prodotto.NOME = categoriaIn;
 
 end //
 delimiter ;

@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.DAO.AdminBean;
 import Model.DAO.UserBean;
-import Model.DAO.UserNotLoggedBean;
-import Model.ProductsArray;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,6 +37,7 @@ public class UserServ extends HttpServlet
 		{
 			e.printStackTrace();
 		}*/
+		String s=null;
 		try
 		{
 			//AdminBean.callInsertProdotto("1", 5.89, "ciao", "asd", 6, "barilla", "geforce 2080 rigata");
@@ -52,7 +50,7 @@ public class UserServ extends HttpServlet
 			AdminBean.callInsertCategoria("Schede madri",10,0123);
 			ProductsArray prodotti=new ProductsArray();
 			UserNotLoggedBean.callSelectProdottoByCategoria("schedeMadri");*/
-			UserBean.callSelectCarteDiCreditoByUsername("chicco");
+			s=UserBean.callSelectCarteDiCreditoByUsername("chicco").get(0).getnCarta();
 		}
 		catch (SQLException throwables)
 		{

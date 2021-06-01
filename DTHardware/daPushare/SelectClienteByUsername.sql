@@ -5,7 +5,7 @@ create procedure SelectClienteByUsername(
 )
 begin
 
-    select (USERNAME,EMAIL,PASSW,NOME,COGNOME,NTELEFONO) from CLIENTE
+    select USERNAME,EMAIL,PASSW,NOME,COGNOME,NTELEFONO from CLIENTE
     where cliente.USERNAME=usernameIn;
 
 end //

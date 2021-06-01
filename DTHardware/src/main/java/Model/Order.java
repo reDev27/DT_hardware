@@ -7,9 +7,9 @@ import com.google.gson.JsonObject;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-public class Ordine
+public class Order
 {
-	public Ordine()
+	public Order()
 	{
 		setId(-1);
 		setSconto(-1);
@@ -18,7 +18,7 @@ public class Ordine
 		setUsername("none0123");
 	}
 
-	public Ordine(int id, int sconto, double totale, Calendar dataAcquisto, String username)
+	public Order(int id, int sconto, double totale, Calendar dataAcquisto, String username)
 	{
 		setId(id);
 		setSconto(sconto);
@@ -32,6 +32,8 @@ public class Ordine
 		UserBean.callInsertOrdine(obj.get("id").getAsInt(), obj.get("sconto").getAsInt(), obj.get("totale").getAsDouble(), DateUtil.getCalendarFromString(obj.get("dataAcquisto").getAsString()), obj.get("username").getAsString());
 		UserBean.callInsertCompone(obj.get("nProdotti").getAsInt(), obj.get("id").getAsInt(), obj.get("codiceABarre").getAsString());
 	}
+
+
 
 	private int id;
 	private int sconto;

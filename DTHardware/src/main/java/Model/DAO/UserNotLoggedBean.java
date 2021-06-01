@@ -1,6 +1,7 @@
 package Model.DAO;
 
-import Model.CategorieArray;
+import Model.CategoriesArray;
+import Model.Category;
 import Model.Product;
 
 import java.io.*;
@@ -38,14 +39,14 @@ public class UserNotLoggedBean
 		return resultsArray;
 	}
 
-	public static CategorieArray callSelectCategoria() throws SQLException
+	public static ArrayList<Category> callSelectCategoria() throws SQLException
 	{
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		ResultSet result=connection.selectCategoria("user", "Tav0l1n0");
-		CategorieArray categorie=new CategorieArray();
+		ArrayList<Category> categorie= new ArrayList<>();
 		while(result.next())
 		{
-			categorie.addCategoria(result.getString("nome"), Integer.parseInt(result.getString("quantita")));
+			categorie.add(new Category(result.getString("nome"), Integer.parseInt(result.getString("quantita"))));
 		}
 		connection.destroy();
 		return categorie;

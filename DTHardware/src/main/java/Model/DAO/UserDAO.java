@@ -6,6 +6,29 @@ import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO
 {
+	public void selectCarteDiCreditoByUsername(String username, String userType, String passData)
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectCliente(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	public void selectIndirizzoByUsername(String username, String userType, String passData)
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectCliente(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	public void selectClienteByUsername(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectCliente(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
 
 	public void insertCompone(int nprodotti, int id, String codiceABarre, String userType, String passData) throws SQLException
 	{
@@ -15,7 +38,6 @@ public class UserDAO extends UserNotLoggedDAO
 		callableStatement.setString("idIn", String.valueOf(id));
 		callableStatement.setString("codiceABarreIn", codiceABarre);
 		doExecute(callableStatement);
-
 	}
 
 	public void insertOrdine(int id, int sconto, double totale, Calendar dataacquisto, String username,String userType, String passData) throws SQLException {

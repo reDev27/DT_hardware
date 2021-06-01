@@ -1,12 +1,12 @@
 package Model;
 
-public class Categoria
+public class Category
 {
-	public Categoria()
+	public Category()
 	{
 
 	}
-	public Categoria(String nome, int quantita)
+	public Category(String nome, int quantita)
 	{
 		this.nome = nome;
 		this.quantita = quantita;

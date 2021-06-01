@@ -56,19 +56,11 @@ public class UserServ extends HttpServlet
 		{
 			throwables.printStackTrace();
 		}
-
-		//fileWrite(request.getServletPath());
 		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}
 
-	public static void fileWrite(String genericURL) throws IOException
-	{
-		File f=new File(genericURL + "/src/java/model/userPass");
-		f.createNewFile();
-		PrintWriter printWriter=new PrintWriter(f);
-		printWriter.write("user, Tav0l1n0");
-	}
+
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

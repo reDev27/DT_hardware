@@ -39,7 +39,7 @@ public class UserBean extends UserNotLoggedBean
 		return addresses;
 	}
 
-	public static void callSelectClienteByUsername(String username) throws SQLException
+	public static Cliente callSelectClienteByUsername(String username) throws SQLException
 	{
 		UserDAO connection=new UserDAO();
 		connection.selectClienteByUsername(username, "root", "aaaa");
@@ -50,6 +50,7 @@ public class UserBean extends UserNotLoggedBean
 			cliente=new Cliente(result.getString("username"), result.getString("email"), result.getString("nome"), result.getString("cognome"), result.getString("ntelefono"), callSelectIndirizzoByUsername(username), callSelectCarteDiCreditoByUsername(username));
 		}
 		connection.destroy();
+		return cliente;
 	}
 
 	public static void callInsertCompone(int nprodotti, int id, String codiceABarre) throws SQLException

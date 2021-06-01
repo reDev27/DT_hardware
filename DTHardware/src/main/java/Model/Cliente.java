@@ -16,8 +16,6 @@ public class Cliente
 	}
 
 
-
-
 	private String username;
 	private String email;
 	private String nome;

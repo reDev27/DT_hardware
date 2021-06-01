@@ -6,18 +6,18 @@ import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO
 {
-	public void selectCarteDiCreditoByUsername(String username, String userType, String passData)
+	public void selectCarteDiCreditoByUsername(String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call SelectCliente(?)}");
+		CallableStatement callableStatement=user.prepareCall("{call SelectCartadicreditoByUsername(?)}");
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
 
-	public void selectIndirizzoByUsername(String username, String userType, String passData)
+	public void selectIndirizzoByUsername(String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call SelectCliente(?)}");
+		CallableStatement callableStatement=user.prepareCall("{call SelectIndirizzoByUsername(?)}");
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
@@ -25,7 +25,7 @@ public class UserDAO extends UserNotLoggedDAO
 	public void selectClienteByUsername(String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call SelectCliente(?)}");
+		CallableStatement callableStatement=user.prepareCall("{call SelectClienteByUsername(?)}");
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}

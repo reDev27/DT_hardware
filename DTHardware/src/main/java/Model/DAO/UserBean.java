@@ -33,7 +33,7 @@ public class UserBean extends UserNotLoggedBean
 		ArrayList<Address> addresses=new ArrayList<>();
 		while(result.next())
 		{
-			addresses.add(new Address(result.getString("via"), result.getInt("ncivico"), result.getString("citta"), result.getInt("cap"), result.getBoolean("flag")))
+			addresses.add(new Address(result.getString("via"), result.getInt("ncivico"), result.getString("citta"), result.getInt("cap"), result.getBoolean("flag")));
 		}
 		connection.destroy();
 		return addresses;
@@ -47,7 +47,7 @@ public class UserBean extends UserNotLoggedBean
 		Cliente cliente=null;
 		while(result.next())
 		{
-			cliente=new Cliente(result.getString("username"), result.getString("email"), result.getString("nome"), result.getString("cognome"), result.getString("ntelefono"));
+			cliente=new Cliente(result.getString("username"), result.getString("email"), result.getString("nome"), result.getString("cognome"), result.getString("ntelefono"), callSelectIndirizzoByUsername(username), callSelectCarteDiCreditoByUsername(username));
 		}
 		connection.destroy();
 	}

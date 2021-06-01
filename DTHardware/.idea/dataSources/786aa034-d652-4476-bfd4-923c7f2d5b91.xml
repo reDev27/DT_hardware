@@ -1044,7 +1044,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="304" parent="3" name="SelectProdottoByCategorie">
-      <SourceTextLength>165</SourceTextLength>
+      <SourceTextLength>163</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>

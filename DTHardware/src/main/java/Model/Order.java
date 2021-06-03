@@ -4,6 +4,8 @@ import Model.DAO.DateUtil;
 import Model.DAO.UserBean;
 import com.google.gson.JsonObject;
 
+import javax.servlet.ServletContext;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Calendar;
 
@@ -27,10 +29,10 @@ public class Order
 		setUsername(username);
 	}
 
-	public void ordineEffettuato(JsonObject obj) throws SQLException
+	public void ordineEffettuato(JsonObject obj, ServletContext context) throws SQLException, IOException
 	{
-		UserBean.callInsertOrdine(obj.get("id").getAsInt(), obj.get("sconto").getAsInt(), obj.get("totale").getAsDouble(), DateUtil.getCalendarFromString(obj.get("dataAcquisto").getAsString()), obj.get("username").getAsString());
-		UserBean.callInsertCompone(obj.get("nProdotti").getAsInt(), obj.get("id").getAsInt(), obj.get("codiceABarre").getAsString());
+		UserBean.callInsertOrdine(obj.get("id").getAsInt(), obj.get("sconto").getAsInt(), obj.get("totale").getAsDouble(), DateUtil.getCalendarFromString(obj.get("dataAcquisto").getAsString()), obj.get("username").getAsString(), context);
+		UserBean.callInsertCompone(obj.get("nProdotti").getAsInt(), obj.get("id").getAsInt(), obj.get("codiceABarre").getAsString(), context);
 	}
 
 

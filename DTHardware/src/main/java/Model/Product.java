@@ -2,6 +2,8 @@ package Model;
 
 import Model.DAO.UserNotLoggedBean;
 
+import javax.servlet.ServletContext;
+import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Map;
@@ -43,8 +45,9 @@ public class Product
  * @throws SQLException
  * @return this function return a java.util.Map of all attributes of the specified product
  */
-	public Map<String, Object> getProductByCodiceABarre(String codiceABarre) throws SQLException {
-		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre);
+	public Map<String, Object> getProductByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
+	{
+		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre, context);
 		setCodiceABarre((String) risultati.get("codiceABarreOut"));
 		setMarca((String) risultati.get("marcaOut"));
 		setModello((String) risultati.get("modelloOut"));

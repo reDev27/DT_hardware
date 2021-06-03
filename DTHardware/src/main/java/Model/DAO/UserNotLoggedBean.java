@@ -2,6 +2,7 @@ package Model.DAO;
 
 import Model.CategoriesArray;
 import Model.Category;
+import Model.CrdGiver;
 import Model.Product;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -20,16 +21,18 @@ import java.util.*;
 
 public class UserNotLoggedBean
 {
-	public static ArrayList<Product> callSelectProdottoByCategoria(String categoria) throws SQLException
+	public static ArrayList<Product> callSelectProdottoByCategoria(String categoria, ServletContext context) throws SQLException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		ResultSet result=connection.selectProdottoByCategoria(categoria, "user", "Tav0l1n0");
+		ResultSet result=connection.selectProdottoByCategoria(categoria, crd.getUsername(), crd.getPass());
 		ArrayList<Product> resultsArray=new ArrayList<>();
 		Product prodotto;
 		while(result.next())
 		{
 			prodotto=new Product(
-								result.getString("CODICEABARRE"),
+								result.getString("CODICEBARRE"),
 								result.getString("DESCRIZIONE"),
 								result.getString("SPECIFICHE"),
 								result.getDouble("PREZZO"),
@@ -43,10 +46,12 @@ public class UserNotLoggedBean
 		return resultsArray;
 	}
 
-	public static ArrayList<Category> callSelectCategoria() throws SQLException
+	public static ArrayList<Category> callSelectCategoria(ServletContext context) throws SQLException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		ResultSet result=connection.selectCategoria("user", "Tav0l1n0");
+		ResultSet result=connection.selectCategoria(crd.getUsername(), crd.getPass());
 		ArrayList<Category> categorie= new ArrayList<>();
 		while(result.next())
 		{
@@ -56,38 +61,46 @@ public class UserNotLoggedBean
 		return categorie;
 	}
 
-	public static Map<String, Object> callSelectProdottoByCodiceABarre(String codiceABarre) throws SQLException
+	public static Map<String, Object> callSelectProdottoByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, "root", "aaaa");
+		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, crd.getUsername(), crd.getPass());
 		connection.destroy();
 		return risultati;
 	}
 
-	public static void callInsertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username) throws SQLException
+	public static void callInsertIndirizzo(ServletContext context, String via,int ncivico,String citta, int cap, boolean flag, String username) throws SQLException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, "root", "aaaa");
+		connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 
-	public static void callInsertCartaDiCredito(String username, String nCarta, Calendar scadenza, Integer cvv) throws SQLException
+	public static void callInsertCartaDiCredito(ServletContext context, String username, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertCartaCredito(nCarta, scadenza, cvv, "user", "Tav0l1n0");
-		connection.updateUserCartaDiCredito(username, nCarta,"user", "Tav0l1n0");
+		connection.insertCartaCredito(nCarta, scadenza, cvv, crd.getUsername(), crd.getPass());
+		connection.updateUserCartaDiCredito(username, nCarta,crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 
-	public static int callRegister(String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, NoSuchAlgorithmException
+	public static int callRegister(ServletContext context, String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, NoSuchAlgorithmException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		String passwordPronta=preparaPassword(password);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, "user", "Tav0l1n0");
+		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, crd.getUsername(), crd.getPass());
 		if(nCarta!=null && scadenza!=null && cvv!=null)
 		{
-			connection.insertCartaCredito(nCarta, scadenza, cvv, "user", "Tav0l1n0");
-			connection.updateUserCartaDiCredito(username, nCarta,"user", "Tav0l1n0");
+			connection.insertCartaCredito(nCarta, scadenza, cvv, crd.getUsername(), crd.getPass());
+			connection.updateUserCartaDiCredito(username, nCarta,crd.getUsername(), crd.getPass());
 		}
 		else
 		{
@@ -97,11 +110,13 @@ public class UserNotLoggedBean
 		return 0;
 	}
 
-	public static boolean callLogin(String nickname, String password) throws NoSuchAlgorithmException, SQLException
+	public static boolean callLogin(ServletContext context, String nickname, String password) throws NoSuchAlgorithmException, SQLException, IOException
 	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		String passwordInseritaHashed=preparaPassword(password);
-		boolean b=connection.login(nickname, passwordInseritaHashed, "root", "aaaa");
+		boolean b=connection.login(nickname, passwordInseritaHashed, crd.getUsername(), crd.getPass());
 		connection.destroy();
 		return b;
 	}
@@ -130,31 +145,6 @@ public class UserNotLoggedBean
 		output.flush();
 		output.close();
 		return encoded;
-	}
-
-
-	/**
-		@param userType : 0 is for the admin privileges;
-	 					  1 is for the logged user privileges;
-	 					  2 is for the NOT logged user privileges.
-	 */
-	private static String[] getCrd(ServletContext context, int userType) throws IOException
-	{
-		byte[] jsonFile= context.getResourceAsStream("/WEB-INF/crd.json").readAllBytes();
-		String toConvert=new String(jsonFile);
-		Gson gson=new Gson();
-		JsonObject crd=gson.fromJson(toConvert, JsonObject.class);
-		crd=crd.get("credentials").getAsJsonObject();
-		if(userType==0)
-			crd=crd.getAsJsonObject("admin");
-		else if(userType==1)
-			crd=crd.getAsJsonObject("user");
-		else
-			crd=crd.getAsJsonObject("userNotLogged");
-		JsonElement user=crd.get("username");
-		JsonElement pass=crd.get("password");
-		String[] cred={user.getAsString(), pass.getAsString()};
-		return cred;
 	}
 
 	private static String preparaPassword(String password) throws NoSuchAlgorithmException

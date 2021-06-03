@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/UserServ" method="get">
+<form action="${pageContext.request.contextPath}/getProductServ" method="get">
     <input type="submit" value="test">
 </form>
 </body>

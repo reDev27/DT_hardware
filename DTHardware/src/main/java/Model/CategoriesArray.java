@@ -2,10 +2,12 @@ package Model;
 
 import Model.DAO.UserNotLoggedBean;
 
+import javax.servlet.ServletContext;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class CategoriesArray
+public class CategoriesArray extends gsonUtility
 {
 	public CategoriesArray()
 	{
@@ -18,9 +20,9 @@ public class CategoriesArray
 
 	/////////
 
-	public void initializeCategories() throws SQLException
+	public void initializeCategories(ServletContext context) throws SQLException, IOException
 	{
-		setCategories(UserNotLoggedBean.callSelectCategoria());
+		setCategories(UserNotLoggedBean.callSelectCategoria(context));
 	}
 
 	public void addCategoria(Category categoria)

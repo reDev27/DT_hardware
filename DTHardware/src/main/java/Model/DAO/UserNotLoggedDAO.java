@@ -94,7 +94,7 @@ public class UserNotLoggedDAO extends BaseDAO
 	protected ResultSet selectProdottoByCategoria(String categoria, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call selectCategoria(?)}");
+		CallableStatement callableStatement=user.prepareCall("{call selectProdottoByCategoria(?)}");
 		callableStatement.setString("categoriaIn", categoria);
 		doExecute(callableStatement);
 		return getResult();

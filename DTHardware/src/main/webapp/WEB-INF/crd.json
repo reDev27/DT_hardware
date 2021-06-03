@@ -1,0 +1,20 @@
+{
+  "credentials":
+  {
+    "admin":
+      {
+      "username": "root",
+      "password": "aaaa"
+      },
+    "user":
+    {
+      "username": "user",
+      "password": "Tav0l1n0"
+    },
+    "userNotLogged":
+    {
+      "username": "userNotLogged",
+      "password": "S3di0l1n4"
+    }
+  }
+}

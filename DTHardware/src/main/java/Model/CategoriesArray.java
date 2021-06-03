@@ -43,11 +43,11 @@ public class CategoriesArray
 
 	ArrayList<Category> categories;
 
-public ArrayList<Category> getCategories()
+	public ArrayList<Category> getCategories()
 {
 	return categories;
 }
-public void setCategories(ArrayList<Category> categories)
+	public void setCategories(ArrayList<Category> categories)
 {
 	this.categories = categories;
 }

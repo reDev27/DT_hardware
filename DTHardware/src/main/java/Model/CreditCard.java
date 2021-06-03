@@ -11,7 +11,6 @@ public class CreditCard
 		setScadenza(scadenza);
 		setCVV(CVV);
 		Date c;
-
 	}
 
 

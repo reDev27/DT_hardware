@@ -1,2 +1,0 @@
-#n:registerUser
-#i:(varchar(30),varchar(320),varbinary(100),varchar(30),varchar(30),int,date,int,timestamp(4),int)

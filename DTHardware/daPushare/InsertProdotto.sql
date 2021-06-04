@@ -9,13 +9,14 @@ create procedure InsertProdotto(
     in quantitaIn int,
     in marcaIn varchar(50),
     in modelloIn varchar(50),
-    in nomeIn varchar(50)
+    in nomeIn varchar(50),
+    in datainserimentoIn timestamp
 )
 
 begin
 
     insert into PRODOTTO values
-    (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, immagineIn, quantitaIn,marcaIn,modelloIn,nomeIn);
+    (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, immagineIn, quantitaIn,marcaIn,modelloIn,nomeIn,datainserimentoIn);
 
 end //
 DELIMITER ;

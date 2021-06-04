@@ -11,7 +11,8 @@ create procedure selectProdotto(
     out immagineOut longblob,
     out quantitaOut int,
     out marcaOut varchar(50),
-    out modelloOut varchar(50)
+    out modelloOut varchar(50),
+    out datainserimentoOut timestamp
 )
 begin
 
@@ -23,5 +24,6 @@ begin
     set quantitaOut = (select QUANTITA from prodotto where CODICEBARRE=codiceABarreIn);
     set marcaOut = (select MARCA from prodotto where CODICEBARRE=codiceABarreIn);
     set modelloOut = (select MODELLO from prodotto where CODICEBARRE=codiceABarreIn);
+    set datainserimentoOut = (select DATAINSERIMENTO from prodotto where CODICEBARRE=codiceABarreIn);
 end //
 delimiter ;

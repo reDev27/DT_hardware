@@ -43,6 +43,7 @@ USE DTHW;
 	MARCA VARCHAR(50) NOT NULL,
 	MODELLO VARCHAR(50) NOT NULL,
     NOME VARCHAR(50),
+    DATAINSERIMENTO TIMESTAMP,
     foreign key (NOME) references categoria(NOME)
 	);
        

@@ -3,14 +3,15 @@ package Model.DAO;
 import java.io.InputStream;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 public class AdminDAO extends UserDAO
 {
 
-	public void insertProdotto(String codiceaBarre, double prezzo, String descrizione, String specifiche, InputStream image, int quantita, String marca, String modello, String userType, String passData) throws SQLException
+	public void insertProdotto(String codiceaBarre, double prezzo, String descrizione, String specifiche, InputStream image, int quantita, String marca, String modello, String userType, String passData, Calendar dataInserimento) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement = user.prepareCall("{call InsertProdotto(?, ?, ?, ?, ?, ?, ?, ?)}");
+		CallableStatement callableStatement = user.prepareCall("{call InsertProdotto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
 		callableStatement.setString("codiceabarreIn", codiceaBarre);
 		callableStatement.setString("prezzoIn", String.valueOf(prezzo));
 		callableStatement.setString("descrizioneIn", descrizione);
@@ -19,6 +20,7 @@ public class AdminDAO extends UserDAO
 		callableStatement.setString("quantitaIn", String.valueOf(quantita));
 		callableStatement.setString("marcaIn", marca);
 		callableStatement.setString("modelloIn", modello);
+		callableStatement.setString("dataInserimentoIn", DateUtil.getStringFromCalendar(dataInserimento));
 		doExecute(callableStatement);
 	}
 

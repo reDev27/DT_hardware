@@ -9,23 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornati i bean per supportare il crd.json;&#10;aggiornate le classi ProductsArray e CategoriesArray con funzioni per supportare la conversione IN e DA json;&#10;aggiornata la servlet che fornisce i prodotti della categoria richiesta;&#10;adattamento di tutte le classi ai nuovi metodi;&#10;altri fix minori.">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jQuery_current.js" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="nuovo file jsp per creare la homepage (prime prove ajax/jquery);&#10;aggiunta la libreria jquery;&#10;aggiornata la servlet per le categorie;&#10;altri fix minori.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getProductServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getProductServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/gsonUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/gsonUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getProductServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getProductServ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +37,8 @@
         <option value="HTML File" />
         <option value="package.json" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,7 +79,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunConfigurationTargetLRU" value="d5705029-b4a2-4fe1-bc8a-b867e8edc1dd&#10;786aa034-d652-4476-bfd4-923c7f2d5b91/schema/&quot;dthw&quot;&#10;786aa034-d652-4476-bfd4-923c7f2d5b91&#10;73b80e50-e2c8-4623-babf-721edfaa5518/schema/&quot;dthw&quot;" />
+    <property name="RunConfigurationTargetLRU" value="d5705029-b4a2-4fe1-bc8a-b867e8edc1dd&#10;786aa034-d652-4476-bfd4-923c7f2d5b91/schema/&quot;dthw&quot;&#10;786aa034-d652-4476-bfd4-923c7f2d5b91&#10;73b80e50-e2c8-4623-babf-721edfaa5518/schema/&quot;dthw&quot;&#10;73b80e50-e2c8-4623-babf-721edfaa5518" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -109,14 +104,29 @@
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Database Script.insertCartaCredito.sql and 15 more">
+    <configuration name="ImageUtility" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.ImageUtility" />
+      <module name="DTHardware" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,6 +135,27 @@
       <script-file value="$PROJECT_DIR$/daPushare/SelectProdottoByCategoria.sql" />
       <script-mode>FILE</script-mode>
       <data-source id="73b80e50-e2c8-4623-babf-721edfaa5518" namespace="schema/&quot;dthw&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="insertCartaCredito.sql and 15 more" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/InsertCompone.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/InsertIndirizzo.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/InsertOrdine.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/InsertProdotto.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/loginUser.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/registerUser.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectCartadicreditoByUsername.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectCategoria.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectCliente.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectClienteByUsername.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectIndirizzoByUsername.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/selectProdotto.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectProdottoByCategoria.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/updateUserCartaDiCredito.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="73b80e50-e2c8-4623-babf-721edfaa5518" />
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
@@ -217,11 +248,15 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ImageUtility" />
       <item itemvalue="Database Script.SelectProdottoByCategoria.sql" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.43" />
+      <item itemvalue="Database Script.insertCartaCredito.sql and 15 more" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Database Script.insertCartaCredito.sql and 15 more" />
+        <item itemvalue="Application.ImageUtility" />
         <item itemvalue="Database Script.SelectProdottoByCategoria.sql" />
       </list>
     </recent_temporary>
@@ -274,14 +309,8 @@
       <workItem from="1622727920059" duration="286000" />
       <workItem from="1622728398308" duration="3474000" />
       <workItem from="1622732116736" duration="14360000" />
-      <workItem from="1622792776009" duration="10175000" />
-    </task>
-    <task id="LOCAL-00018" summary="cambiati nomi procedure (base)">
-      <created>1620985961048</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1620985961048</updated>
+      <workItem from="1622792776009" duration="10603000" />
+      <workItem from="1622818433838" duration="14197000" />
     </task>
     <task id="LOCAL-00019" summary="register aggiornata">
       <created>1620986316738</created>
@@ -619,7 +648,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622746698080</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="nuovo file jsp per creare la homepage (prime prove ajax/jquery);&#10;aggiunta la libreria jquery;&#10;aggiornata la servlet per le categorie;&#10;altri fix minori.">
+      <created>1622804725806</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1622804725806</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +675,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="nuove funzioni nel UserBean e UserDAO, aggiunta la possibilità di inserire immagini nel database" />
     <MESSAGE value="procedure aggiornate" />
     <MESSAGE value="aggiustamenti procedure insertCompone e funzioni associate" />
     <MESSAGE value="ti pusho tutto" />
@@ -664,7 +699,8 @@
     <MESSAGE value="creazione file credenziali;&#10;aggiunta funzione di decodifica del json;&#10;aggiornata classe UserServ;&#10;altre modifiche minori." />
     <MESSAGE value="some stuff" />
     <MESSAGE value="aggiornati i bean per supportare il crd.json;&#10;aggiornate le classi ProductsArray e CategoriesArray con funzioni per supportare la conversione IN e DA json;&#10;aggiornata la servlet che fornisce i prodotti della categoria richiesta;&#10;adattamento di tutte le classi ai nuovi metodi;&#10;altri fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornati i bean per supportare il crd.json;&#10;aggiornate le classi ProductsArray e CategoriesArray con funzioni per supportare la conversione IN e DA json;&#10;aggiornata la servlet che fornisce i prodotti della categoria richiesta;&#10;adattamento di tutte le classi ai nuovi metodi;&#10;altri fix minori." />
+    <MESSAGE value="nuovo file jsp per creare la homepage (prime prove ajax/jquery);&#10;aggiunta la libreria jquery;&#10;aggiornata la servlet per le categorie;&#10;altri fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="nuovo file jsp per creare la homepage (prime prove ajax/jquery);&#10;aggiunta la libreria jquery;&#10;aggiornata la servlet per le categorie;&#10;altri fix minori." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,8 +1,6 @@
 package Model;
 
 import Model.DAO.UserNotLoggedBean;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
@@ -32,3 +30,4 @@ public class ProductsArray extends gsonUtility
 	this.prodotti = prodotti;
 }
 }
+

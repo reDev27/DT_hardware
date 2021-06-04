@@ -1,23 +1,20 @@
 package Model.DAO;
 
-import Model.CategoriesArray;
 import Model.Category;
 import Model.CrdGiver;
 import Model.Product;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 import javax.servlet.ServletContext;
-import java.io.*;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Map;
 
 public class UserNotLoggedBean
 {
@@ -26,7 +23,7 @@ public class UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		ResultSet result=connection.selectProdottoByCategoria(categoria, crd.getUsername(), crd.getPass());
+		ResultSet result=connection.selectProdottoByCategoria(categoria,crd.getUsername(), crd.getPass());
 		ArrayList<Product> resultsArray=new ArrayList<>();
 		Product prodotto;
 		while(result.next())
@@ -39,7 +36,8 @@ public class UserNotLoggedBean
 								result.getString("MARCA"),
 								result.getString("MODELLO"),
 								result.getBlob("IMMAGINE"),
-								result.getInt("QUANTITA")
+								result.getInt("QUANTITA"),
+								DateUtil.getCalendarFromString(result.getString("DATAINSERIMENTO"))
 								);
 			resultsArray.add(prodotto);
 		}
@@ -119,32 +117,6 @@ public class UserNotLoggedBean
 		boolean b=connection.login(nickname, passwordInseritaHashed, crd.getUsername(), crd.getPass());
 		connection.destroy();
 		return b;
-	}
-
-	public static String getBase64Image(Blob image) throws IOException
-	{
-		InputStream in=null;
-		int length = 0;
-		try
-		{
-			in=image.getBinaryStream();
-			length = (int) image.length();
-		}
-		catch (SQLException throwables)
-		{
-			throwables.printStackTrace();
-		}
-		ByteArrayOutputStream output = new ByteArrayOutputStream();
-		byte[] immagine=new byte[200000];
-		int i;
-		while ((i = in.read(immagine, 0, length)) != -1)
-		{
-			output.write(immagine, 0, i);
-		}
-		String encoded = Base64.getEncoder().encodeToString(immagine);
-		output.flush();
-		output.close();
-		return encoded;
 	}
 
 	private static String preparaPassword(String password) throws NoSuchAlgorithmException

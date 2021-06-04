@@ -78,6 +78,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		callableStatement.registerOutParameter("quantitaOut", Types.INTEGER);
 		callableStatement.registerOutParameter("marcaOut", Types.VARCHAR);
 		callableStatement.registerOutParameter("modelloOut", Types.VARCHAR);
+		callableStatement.registerOutParameter("datainserimentoOut", Types.TIMESTAMP);
 		callableStatement=doExecute(callableStatement);
 		Map<String, Object> risultati= new HashMap<String, Object>();
 		risultati.put("codiceABarreOut", callableStatement.getString("codiceABarreOut"));
@@ -88,6 +89,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		risultati.put("quantitaOut", callableStatement.getInt("quantitaOut"));
 		risultati.put("marcaOut", callableStatement.getString("marcaOut"));
 		risultati.put("modelloOut", callableStatement.getString("modelloOut"));
+		risultati.put("dataInserimentoOut", callableStatement.getString("datainserimentoOut"));
 		return risultati;
 	}
 

@@ -1,11 +1,13 @@
 package Model;
 
+import Model.DAO.DateUtil;
 import Model.DAO.UserNotLoggedBean;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Map;
 
 public class Product
@@ -23,7 +25,7 @@ public class Product
 		setQuantitaProdotto(0);
 	}
 
-	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, Blob immagine,int quantitaProdotto)
+	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, Blob immagine,int quantitaProdotto, Calendar dataInserimento)
 	{
 		setCodiceABarre(codiceABarre);
 		setMarca(marca);
@@ -37,6 +39,7 @@ public class Product
 		else
 			setDisponibilita(false);
 		setQuantitaProdotto(quantitaProdotto);
+		setDataInserimento(dataInserimento);
 	}
 
 /**
@@ -60,6 +63,7 @@ public class Product
 			setDisponibilita(true);
 		else
 			setDisponibilita(false);
+		setDataInserimento(DateUtil.getCalendarFromString((String) risultati.get("dataInserimentoOut")));
 		return risultati;
 	}
 
@@ -72,6 +76,7 @@ public class Product
 	private Blob immagine;
 	private boolean disponibilita;
 	private int quantitaProdotto;
+	private Calendar dataInserimento;
 
 public String getMarca()
 {
@@ -144,5 +149,13 @@ public boolean isDisponibilita()
 public void setDisponibilita(boolean disponibilita)
 {
 	this.disponibilita = disponibilita;
+}
+public Calendar getDataInserimento()
+{
+	return dataInserimento;
+}
+public void setDataInserimento(Calendar dataInserimento)
+{
+	this.dataInserimento = dataInserimento;
 }
 }

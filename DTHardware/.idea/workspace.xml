@@ -9,7 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornati i bean per supportare il crd.json;&#10;aggiornate le classi ProductsArray e CategoriesArray con funzioni per supportare la conversione IN e DA json;&#10;aggiornata la servlet che fornisce i prodotti della categoria richiesta;&#10;adattamento di tutte le classi ai nuovi metodi;&#10;altri fix minori." />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornati i bean per supportare il crd.json;&#10;aggiornate le classi ProductsArray e CategoriesArray con funzioni per supportare la conversione IN e DA json;&#10;aggiornata la servlet che fornisce i prodotti della categoria richiesta;&#10;adattamento di tutte le classi ai nuovi metodi;&#10;altri fix minori.">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jQuery_current.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getProductServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getProductServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/gsonUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/gsonUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getProductServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getProductServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" afterDir="false" />
+    </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +39,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="HTML File" />
         <option value="package.json" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -74,32 +91,32 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../java_libraries/gson-2.8.7.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/libraries" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4311815" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\libraries" />
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\daPushare" />
       <recent name="C:\Users\rEDOx\AppData\Roaming\JetBrains\IntelliJIdea2021.1\consoles\db\786aa034-d652-4476-bfd4-923c7f2d5b91" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp" />
+      <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -111,7 +128,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/callServletsTest.jsp" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage.jsp" />
       <option name="BROWSER_ID" value="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
       <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
@@ -257,6 +274,7 @@
       <workItem from="1622727920059" duration="286000" />
       <workItem from="1622728398308" duration="3474000" />
       <workItem from="1622732116736" duration="14360000" />
+      <workItem from="1622792776009" duration="10175000" />
     </task>
     <task id="LOCAL-00018" summary="cambiati nomi procedure (base)">
       <created>1620985961048</created>

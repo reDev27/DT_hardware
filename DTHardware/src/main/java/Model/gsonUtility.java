@@ -12,7 +12,6 @@ public abstract class gsonUtility
 		return converter.toJson(obj);
 	}
 
-
 	public JsonObject getJsonFromExtSource(String toConvert)
 	{
 		Gson gson=new Gson();

@@ -21,9 +21,6 @@ public class ProductsArray extends gsonUtility
 		prodotti=UserNotLoggedBean.callSelectProdottoByCategoria(category, context);
 	}
 
-
-
-
 	private ArrayList<Product> prodotti;
 
 	public ArrayList<Product> getProdotti()

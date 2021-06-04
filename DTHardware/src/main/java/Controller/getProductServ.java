@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 
@@ -27,8 +28,23 @@ public class getProductServ extends HttpServlet
 		{
 			e.printStackTrace();
 		}
-		productsArray.getJsonFromThisObj(productsArray.getProdotti());
-		RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
-		dispatcher.forward(request, response);
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter writer=response.getWriter();
+		try
+		{
+			productsArray.getProductsByCategoria("scheda madre", request.getServletContext());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		String s=productsArray.getJsonFromThisObj(productsArray.getProdotti());
+		System.out.println(s);
+		writer.write(s);
+
+		/*RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);*/
 	}
 }

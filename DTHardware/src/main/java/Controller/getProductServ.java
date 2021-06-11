@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class getProductServ extends HttpServlet
 {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		ProductsArray productsArray=new ProductsArray();
 		try
@@ -41,7 +41,6 @@ public class getProductServ extends HttpServlet
 			throwables.printStackTrace();
 		}
 		String s=productsArray.getJsonFromThisObj(productsArray.getProdotti());
-		System.out.println(s);
 		writer.write(s);
 
 		/*RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");

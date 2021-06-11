@@ -9,7 +9,10 @@ public abstract class gsonUtility
 	public String getJsonFromThisObj(Object obj)
 	{
 		Gson converter=new Gson();
-		return converter.toJson(obj);
+		if(obj==null)
+			return converter.toJson(this);
+		else
+			return converter.toJson(obj);
 	}
 
 	public JsonObject getJsonFromExtSource(String toConvert)

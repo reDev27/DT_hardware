@@ -11,11 +11,15 @@ Stored procedure:
 	};
 	Java bean/DAO per tutte le procedure elencate sopra;	//fatto
 	gestione prodotti, carrello e acquisti;					//fatto
+	da modificare la gestione delle immagini lato server;
+	servlets;
 }
 
 Javascript:
 {
 	gestione visualizzazione contenuti;
+	gestione accesso e registrazione;
+	gestione acquisti e carrello;
 	algoritmo di ricerca;
 	front-end.
 }

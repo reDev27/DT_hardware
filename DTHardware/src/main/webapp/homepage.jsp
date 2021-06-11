@@ -2,12 +2,11 @@
   Created by IntelliJ IDEA.
   User: rEDOx
   Date: 04/06/2021
-  Time: 10:52
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <script src="${pageContext.request.contextPath}/libraries/jQuery_current.js"></script>
+<script src="${pageContext.request.contextPath}/libraries/homepageUtilities.js"></script>
 <head>
     <title>Title</title>
 </head>
@@ -20,23 +19,26 @@
 </p>
 </pre>
 <img src=""></img>
-<textarea id="txtSearch"></textarea>
+<textarea id="txtSearch" rows="1" ></textarea>
 <button id="btnCarrello"></button>
 <br>
-<h3 id="names"></h3>
-<script>
-    $(document).ready
-    (
-        function()
-        {
-            $.get("getProductServ", function (resp)
-                {
-                    alert(resp[0].marca);
-                }
-            );
-        }
-    );
-</script>
+<table id="tableCategories">
 
+</table>
+<script>
+    var categorie;
+    $.ajax
+    (
+        {
+            type: "GET",
+            url: "${pageContext.request.contextPath}/getCategoriesServ",
+            dataType: "json",
+            //data
+            success: function (data) {buildTableCategories(data)},
+            error: function (){alert("error")},
+        }
+    )
+
+</script>
 </body>
 </html>

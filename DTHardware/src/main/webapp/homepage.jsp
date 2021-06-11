@@ -34,8 +34,11 @@
             url: "${pageContext.request.contextPath}/getCategoriesServ",
             dataType: "json",
             //data
-            success: function (data) {buildTableCategories(data)},
-            error: function (){alert("error")},
+            success: function (data)
+            {
+                buildTableCategories(data);
+            },
+            error: function (){alert("error")}
         }
     )
 

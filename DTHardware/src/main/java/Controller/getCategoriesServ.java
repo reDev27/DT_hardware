@@ -31,7 +31,6 @@ public class getCategoriesServ extends HttpServlet
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer=response.getWriter();
-
 		writer.write(categorie.getJsonFromThisObj(categorie.getCategories()));
 	}
 }

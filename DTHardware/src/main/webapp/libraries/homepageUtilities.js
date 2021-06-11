@@ -1,11 +1,11 @@
 function buildTableCategories(data)
 {
-    document.getElementById("tableCategories").innerText="<thead>" + "Categorie" + "</thead>";
-    var categorie=data;
-    console.log(categorie[0].nome);
-    for(var i=0; i<categorie.lenght; i++)
+    var newRows="<thead>Categorie</thead>";
+    var n = data.length;
+    for(i=0; i<n; i++)
     {
-        var newRows;
-        document.getElementById("tableCategories").innerText="<tr><td>categorie.nome</td></tr>";
+        newRows+="<tr><td>"+ data[i].nome +"</td></tr>";
     }
+    //$("#tableCategories").html(newRows);
+    document.getElementById("tableCategories").innerHTML=newRows;
 }

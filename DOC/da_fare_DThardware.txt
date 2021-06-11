@@ -1,16 +1,21 @@
+Java:
+{
 Stored procedure:
 	{
 		register user (aggiornare),
 		insert indirizzo, prodotto, ordine, 
-		override register,
+		override register,									//fatte
 		acquisto,
 		prelievo prodotti(select),
 		(...)
 	};
-Java bean/DAO per tutte le procedure elencate sopra;
-gestione prodotti, carrello e acquisti;
-algoritmo di ricerca;
+	Java bean/DAO per tutte le procedure elencate sopra;	//fatto
+	gestione prodotti, carrello e acquisti;					//fatto
+}
 
-gestione visualizzazione contenuti;
-
-front-end.
+Javascript:
+{
+	gestione visualizzazione contenuti;
+	algoritmo di ricerca;
+	front-end.
+}

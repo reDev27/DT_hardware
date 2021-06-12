@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti vari">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori.">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/managerUtilities.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/manager.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getCategoriesServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getCategoriesServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
     </list>
@@ -30,8 +32,8 @@
         <option value="HTML File" />
         <option value="package.json" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -102,6 +104,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="insertCartaCredito.sql and 15 more" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
@@ -279,14 +292,8 @@
       <workItem from="1623255441259" duration="2521000" />
       <workItem from="1623404153072" duration="6306000" />
       <workItem from="1623417511686" duration="11625000" />
-      <workItem from="1623429688918" duration="6080000" />
-    </task>
-    <task id="LOCAL-00022" summary="nuove procedure e userBean Aggiornato">
-      <created>1620990385897</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1620990385897</updated>
+      <workItem from="1623429688918" duration="6181000" />
+      <workItem from="1623493517917" duration="4514000" />
     </task>
     <task id="LOCAL-00023" summary="nuove procedure e userBean Aggiornato">
       <created>1620999726479</created>
@@ -624,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623429227132</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori.">
+      <created>1623435920618</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1623435920619</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +658,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ti pusho tutto" />
     <MESSAGE value="product aggiornato" />
     <MESSAGE value="servlet e bean aggiornato/i" />
     <MESSAGE value="nuove classi per gestione utenti e admin" />
@@ -669,7 +682,8 @@
     <MESSAGE value="creata classe per gestire il downgrade delle immagine da un byte[];&#10;aggiornate le classi di bean e DAO per supportare il nuovo campo &quot;datainserimento&quot;;&#10;aggiornate le classi product e ProductsArray per supportare le nuove funzioni di bean e DAO;&#10;altri fix minori." />
     <MESSAGE value="aggiornata lista cose da fare;&#10;aggiornati i .class;&#10;altri fix minori." />
     <MESSAGE value="aggiornamenti vari" />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti vari" />
+    <MESSAGE value="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

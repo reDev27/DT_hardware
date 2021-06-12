@@ -19,8 +19,8 @@ public class ImageUtility
 	public static byte[] resize(byte[] toResizeImg) throws IOException
 	{
 		//BufferedImage bufferedImage=new BufferedImage(1000, 1000, BufferedImage.TYPE_BYTE_GRAY);
-		ByteArrayInputStream byteOutStream = new ByteArrayInputStream(toResizeImg);
-		BufferedImage bufferedImage = ImageIO.read(byteOutStream);
+		ByteArrayInputStream byteInStream = new ByteArrayInputStream(toResizeImg);
+		BufferedImage bufferedImage = ImageIO.read(byteInStream);
 		Image img=bufferedImage.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
 		BufferedImage resizedImg=convertToBufferedImage(img);
 		byte[] toWriteResizedImg=new byte[700000];

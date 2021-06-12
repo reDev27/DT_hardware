@@ -9,3 +9,8 @@ function buildTableCategories(data)
     //$("#tableCategories").html(newRows);
     document.getElementById("tableCategories").innerHTML=newRows;
 }
+
+function buildTableProductHomepage(data)
+{
+
+}

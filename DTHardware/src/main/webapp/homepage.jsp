@@ -4,9 +4,11 @@
   Date: 04/06/2021
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<link>
 <script src="${pageContext.request.contextPath}/libraries/jQuery_current.js"></script>
 <script src="${pageContext.request.contextPath}/libraries/homepageUtilities.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 <head>
     <title>Title</title>
 </head>
@@ -22,9 +24,14 @@
 <textarea id="txtSearch" rows="1" ></textarea>
 <button id="btnCarrello"></button>
 <br>
-<table id="tableCategories">
+<div id="categoriesList">
+    <table id="tableCategories">
 
-</table>
+    </table>
+</div>
+<div id="productList">
+
+</div>
 <script>
     var categorie;
     $.ajax

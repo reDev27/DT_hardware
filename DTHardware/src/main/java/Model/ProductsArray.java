@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ProductsArray extends gsonUtility
+public class ProductsArray extends GsonUtility
 {
 	public ProductsArray()
 	{

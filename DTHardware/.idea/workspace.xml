@@ -9,13 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/managerUtilities.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/manager.jsp" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="piccoli test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/SetProductServ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/manager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AddOrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AddOrderServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CategoriesArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CategoriesArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/gsonUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/GsonUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/managerUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/managerUtilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AddOrderServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AddOrderServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,12 +35,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="package.json" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -82,7 +88,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/manager.html" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -104,18 +110,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="insertCartaCredito.sql and 15 more" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+    <configuration name="insertCartaCredito.sql and 15 more" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCompone.sql" />
@@ -137,7 +132,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage.jsp" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/manager.html" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
@@ -229,11 +224,6 @@
       <item itemvalue="Database Script.insertCartaCredito.sql and 15 more" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.43" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Database Script.insertCartaCredito.sql and 15 more" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -293,14 +283,10 @@
       <workItem from="1623404153072" duration="6306000" />
       <workItem from="1623417511686" duration="11625000" />
       <workItem from="1623429688918" duration="6181000" />
-      <workItem from="1623493517917" duration="4514000" />
-    </task>
-    <task id="LOCAL-00023" summary="nuove procedure e userBean Aggiornato">
-      <created>1620999726479</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1620999726479</updated>
+      <workItem from="1623493517917" duration="4545000" />
+      <workItem from="1623515976187" duration="6140000" />
+      <workItem from="1623578066519" duration="6483000" />
+      <workItem from="1623601377461" duration="5109000" />
     </task>
     <task id="LOCAL-00024" summary="prova edit config">
       <created>1621000627373</created>
@@ -638,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623435920619</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="piccoli test">
+      <created>1623498724703</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1623498724703</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +651,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="product aggiornato" />
     <MESSAGE value="servlet e bean aggiornato/i" />
     <MESSAGE value="nuove classi per gestione utenti e admin" />
     <MESSAGE value="nuove classi per gestione utenti e admin pt.2" />
@@ -683,7 +675,8 @@
     <MESSAGE value="aggiornata lista cose da fare;&#10;aggiornati i .class;&#10;altri fix minori." />
     <MESSAGE value="aggiornamenti vari" />
     <MESSAGE value="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori." />
+    <MESSAGE value="piccoli test" />
+    <option name="LAST_COMMIT_MESSAGE" value="piccoli test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -698,7 +691,7 @@
         <watch expression="categorie" />
       </configuration>
       <configuration name="JavascriptDebugType">
-        <watch expression="data" language="JavaScript" />
+        <watch expression="canvas.toDataURL(&quot;image/png&quot;)" />
       </configuration>
     </watches-manager>
   </component>

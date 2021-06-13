@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public abstract class gsonUtility
+public abstract class GsonUtility
 {
 	public String getJsonFromThisObj(Object obj)
 	{

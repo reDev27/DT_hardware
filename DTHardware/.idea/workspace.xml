@@ -9,19 +9,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="piccoli test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/SetProductServ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/manager.html" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori.">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.rtl.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.rtl.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.rtl.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.rtl.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.esm.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.esm.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.esm.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/AUTHORS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/external/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/images/ui-icons_444444_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/images/ui-icons_555555_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/images/ui-icons_777777_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/images/ui-icons_cc0000_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/images/ui-icons_ffffff_256x240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.structure.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.structure.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/jquery-ui.theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/jquery-ui-1.12.1/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AddOrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AddOrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CategoriesArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CategoriesArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/gsonUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/GsonUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/managerUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/managerUtilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AddOrderServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AddOrderServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +96,7 @@
         <option value="JavaScript File" />
         <option value="Class" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -89,6 +145,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/manager.html" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -286,14 +343,9 @@
       <workItem from="1623493517917" duration="4545000" />
       <workItem from="1623515976187" duration="6140000" />
       <workItem from="1623578066519" duration="6483000" />
-      <workItem from="1623601377461" duration="5109000" />
-    </task>
-    <task id="LOCAL-00024" summary="prova edit config">
-      <created>1621000627373</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1621000627373</updated>
+      <workItem from="1623601377461" duration="5483000" />
+      <workItem from="1623610767244" duration="453000" />
+      <workItem from="1623659843564" duration="9515000" />
     </task>
     <task id="LOCAL-00025" summary="nuove funzioni nel UserBean e UserDAO, aggiunta la possibilità di inserire immagini nel database">
       <created>1621106467498</created>
@@ -631,7 +683,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623498724703</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori.">
+      <created>1623606911743</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1623606911744</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +710,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="servlet e bean aggiornato/i" />
     <MESSAGE value="nuove classi per gestione utenti e admin" />
     <MESSAGE value="nuove classi per gestione utenti e admin pt.2" />
     <MESSAGE value="db_table" />
@@ -676,7 +734,8 @@
     <MESSAGE value="aggiornamenti vari" />
     <MESSAGE value="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori." />
     <MESSAGE value="piccoli test" />
-    <option name="LAST_COMMIT_MESSAGE" value="piccoli test" />
+    <MESSAGE value="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

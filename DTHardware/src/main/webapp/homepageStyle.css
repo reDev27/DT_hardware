@@ -6,15 +6,25 @@
 #selectable ol { alignment: center;}
 #selectable { cursor: pointer;}
 
+.container {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 0px;
+    padding: 2px;
+}
 
-#intestazione
+.nTelefonotext {
+    font-family: "Courier-new";
+}
+.email
 {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    height: 5%;
-    alignment: top;
-    justify-content: right;
+    margin-left: 15px;
+    font-family: "Courier-new";
+}
+.icon {
+
+    vertical-align: middle;
+    font-size: 40px;
 }
 

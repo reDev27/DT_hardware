@@ -17,11 +17,32 @@
 <link rel="stylesheet" type="text/css" href="homepageStyle.css">
 <link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 
+<div class="container">
+    <span class='icon'></span>
+    <span class="nTelefono">Numero di telefono: 0123456789</span></img>
+    <span class="email">E-mail: DTHardware@gmail.com</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div id="intestazione">
-    <div id="nTelefono">Numero di telefono: 0123456789;</div>
+    <div id="image"></div>
+    <div id="nTelefono">Numero di telefono: 0123456789</div>
     <div id="email">E-mail: DTHardware@gmail.com</div>
 </div>
-<!--<pre id="accediRegistrati">
+
+
+<pre id="accediRegistrati">
 <p><a href="index.jsp" title="Accedi o crea un account">Accedi</a> oppure <a href="index.jsp" title="Accedi o crea un account">crea un account</a>
 </p>
 </pre>
@@ -36,7 +57,7 @@
 <div id="productList">
 
 </div>
--->
+
 <script>
     var categorie;
     $.ajax
@@ -61,7 +82,7 @@
     );
 </script>
 
-<ol id="selectable">
+<<ol id="selectable">
     <li class="ui-state-default">1</li>
     <li class="ui-state-default">2</li>
     <li class="ui-state-default">3</li>
@@ -73,5 +94,6 @@
     <li class="ui-state-default">9</li>
     <li class="ui-state-default">10</li>
 </ol>
+-->
 </body>
 </html>

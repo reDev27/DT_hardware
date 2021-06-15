@@ -4,6 +4,7 @@ import Model.DAO.DateUtil;
 import Model.DAO.UserNotLoggedBean;
 
 import javax.servlet.ServletContext;
+import javax.sql.rowset.serial.SerialBlob;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class Product
 		setQuantitaProdotto(0);
 	}
 
-	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, Blob immagine,int quantitaProdotto, Calendar dataInserimento)
+	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, String immagine,int quantitaProdotto, Calendar dataInserimento)
 	{
 		setCodiceABarre(codiceABarre);
 		setMarca(marca);
@@ -45,26 +46,15 @@ public class Product
 /**
  * this function return a map of all attributes of a specified product
  * @param codiceABarre string used to identify the product of you want to know attributes, is the code that identify the product
- * @throws SQLException
  * @return this function return a java.util.Map of all attributes of the specified product
  */
-	public Map<String, Object> getProductByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
+	public void getProductByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
 	{
-		Map<String, Object> risultati=UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre, context);
-		setCodiceABarre((String) risultati.get("codiceABarreOut"));
-		setMarca((String) risultati.get("marcaOut"));
-		setModello((String) risultati.get("modelloOut"));
-		setPrezzo((Double) risultati.get("prezzoOut"));
-		setDescrizione((String) risultati.get("descrizioneOut"));
-		setSpecifiche((String) risultati.get("specificheOut"));
-		setImmagine((Blob) risultati.get("immagineOut"));
-		setQuantitaProdotto((Integer) risultati.get("quantitaOut"));
+		UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre, context);
 		if(quantitaProdotto>0)
 			setDisponibilita(true);
 		else
 			setDisponibilita(false);
-		setDataInserimento(DateUtil.getCalendarFromString((String) risultati.get("dataInserimentoOut")));
-		return risultati;
 	}
 
 	private String codiceABarre;
@@ -73,7 +63,7 @@ public class Product
 	private Double prezzo;
 	private String descrizione;
 	private String specifiche;
-	private Blob immagine;
+	private String immagine;
 	private boolean disponibilita;
 	private int quantitaProdotto;
 	private Calendar dataInserimento;
@@ -134,11 +124,11 @@ public void setSpecifiche(String specifiche)
 {
 	specifiche = specifiche;
 }
-public Blob getImmagine()
+public String getImmagine()
 {
 	return immagine;
 }
-public void setImmagine(Blob immagine)
+public void setImmagine(String immagine)
 {
 	this.immagine = immagine;
 }

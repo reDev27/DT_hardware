@@ -35,7 +35,7 @@ public class UserNotLoggedBean
 								result.getDouble("PREZZO"),
 								result.getString("MARCA"),
 								result.getString("MODELLO"),
-								result.getBlob("IMMAGINE"),
+								result.getString("IMMAGINE"),
 								result.getInt("QUANTITA"),
 								DateUtil.getCalendarFromString(result.getString("DATAINSERIMENTO"))
 								);
@@ -59,14 +59,26 @@ public class UserNotLoggedBean
 		return categorie;
 	}
 
-	public static Map<String, Object> callSelectProdottoByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
+	public static Product callSelectProdottoByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		Map<String, Object> risultati=connection.selectProdotto(codiceABarre, crd.getUsername(), crd.getPass());
+		ResultSet result=connection.selectProdottoByCodiceABarre(codiceABarre, crd.getUsername(), crd.getPass());
+		result.next();
+		Product prodotto=new Product(
+				result.getString("CODICEBARRE"),
+				result.getString("DESCRIZIONE"),
+				result.getString("SPECIFICHE"),
+				result.getDouble("PREZZO"),
+				result.getString("MARCA"),
+				result.getString("MODELLO"),
+				result.getString("IMMAGINE"),
+				result.getInt("QUANTITA"),
+				DateUtil.getCalendarFromString(result.getString("DATAINSERIMENTO"))
+		);
 		connection.destroy();
-		return risultati;
+		return prodotto;
 	}
 
 	public static void callInsertIndirizzo(ServletContext context, String via,int ncivico,String citta, int cap, boolean flag, String username) throws SQLException, IOException

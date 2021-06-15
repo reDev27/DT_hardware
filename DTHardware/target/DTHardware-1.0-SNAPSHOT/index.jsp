@@ -20,7 +20,7 @@
 <h1 id="hello"><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet" id="uatto" class="ciao" style="text-shadow: crimson; color: aqua; background-color: darkgreen">mannagg</a>
+<a href="${pageContext.request.contextPath}/TestServ" id="uatto" class="ciao" style="text-shadow: crimson; color: aqua; background-color: darkgreen">mannagg</a>
 <p id="jquery01">questo lo midifico con jquery</p>
 <h1 id="uao" style="text-shadow: crimson; color: aqua; background-color: darkmagenta">ciao</h1>
 <script>

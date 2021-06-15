@@ -9,21 +9,22 @@ import java.util.Calendar;
 
 public class AdminBean extends UserBean
 {
+
 	public static void callInsertCategoria(String nome, int quantita, int codiceaBarre, ServletContext context) throws SQLException, IOException
 	{
-		CrdGiver crd=new CrdGiver(context);
+		CrdGiver crd=new CrdGiver(context );
 		crd.aggiornaCrd(0);
 		AdminDAO connection=new AdminDAO();
 		connection.insertCategoria(nome, quantita, codiceaBarre, crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 
-	public static void callInsertProdotto(String codiceABarre, double prezzo, String descrizione, String specifiche, int quantita, String marca, String modello, Calendar dataInserimento, ServletContext context) throws SQLException, IOException
+	public static void callInsertProdotto(String codiceABarre, double prezzo, String descrizione, String specifiche, String immagine,int quantita, String marca, String modello, String nomeCategoria,Calendar dataInserimento, ServletContext context) throws SQLException, IOException
 	{
-		CrdGiver crd=new CrdGiver(context);
+		CrdGiver crd=new CrdGiver(context );
 		crd.aggiornaCrd(0);
 		AdminDAO connection=new AdminDAO();
-		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, null/*preparaImmagine*/, quantita, marca, modello,crd.getUsername(), crd.getPass(), dataInserimento);
+		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, new ByteArrayInputStream(immagine.getBytes()), quantita, marca, modello,crd.getUsername(), crd.getPass(), nomeCategoria,dataInserimento);
 		connection.destroy();
 	}
 

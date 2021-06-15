@@ -4,10 +4,13 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.sql.Blob;
 import java.util.Base64;
 
 public class ImageUtility
 {
+
 	public static String imgResizeAndBase64(byte[] rawImg) throws IOException
 	{
 		//byte[] rawImg=getImageFromPath();

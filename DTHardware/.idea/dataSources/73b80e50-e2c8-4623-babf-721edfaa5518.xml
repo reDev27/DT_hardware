@@ -1031,7 +1031,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="299" parent="3" name="InsertProdotto">
-      <SourceTextLength>150</SourceTextLength>
+      <SourceTextLength>168</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -1056,7 +1056,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="304" parent="3" name="SelectProdottoByCategoria">
-      <SourceTextLength>173</SourceTextLength>
+      <SourceTextLength>189</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -1080,8 +1080,8 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="309" parent="3" name="selectProdotto">
-      <SourceTextLength>719</SourceTextLength>
+    <routine id="309" parent="3" name="selectProdottoByCodiceABarre">
+      <SourceTextLength>181</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -1528,124 +1528,88 @@ NCIVICO</ColNames>
       <Position>9</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="408" parent="300" name="usernameIn">
+    <argument id="408" parent="299" name="datainserimentoIn">
+      <Position>10</Position>
+      <DataType>timestamp|0s</DataType>
+    </argument>
+    <argument id="409" parent="300" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="409" parent="302" name="usernameIn">
+    <argument id="410" parent="302" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="410" parent="303" name="usernameIn">
+    <argument id="411" parent="303" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="411" parent="304" name="categoriaIn">
+    <argument id="412" parent="304" name="categoriaIn">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="412" parent="305" name="ncartaIn">
+    <argument id="413" parent="305" name="ncartaIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="413" parent="305" name="scadenzaIn">
+    <argument id="414" parent="305" name="scadenzaIn">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
     </argument>
-    <argument id="414" parent="305" name="cvvIn">
+    <argument id="415" parent="305" name="cvvIn">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="415" parent="305" name="usernameIn">
+    <argument id="416" parent="305" name="usernameIn">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="416" parent="306" name="usernameIn">
+    <argument id="417" parent="306" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="417" parent="306" name="passwIn">
+    <argument id="418" parent="306" name="passwIn">
       <Position>2</Position>
       <DataType>varbinary(100)|0s</DataType>
     </argument>
-    <argument id="418" parent="306" name="esito">
+    <argument id="419" parent="306" name="esito">
       <Position>3</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>tinyint(1)|0s</DataType>
     </argument>
-    <argument id="419" parent="307" name="usernameIn">
+    <argument id="420" parent="307" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="420" parent="307" name="emailIn">
+    <argument id="421" parent="307" name="emailIn">
       <Position>2</Position>
       <DataType>varchar(320)|0s</DataType>
     </argument>
-    <argument id="421" parent="307" name="passwIn">
+    <argument id="422" parent="307" name="passwIn">
       <Position>3</Position>
       <DataType>varbinary(100)|0s</DataType>
     </argument>
-    <argument id="422" parent="307" name="nomeIn">
+    <argument id="423" parent="307" name="nomeIn">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="423" parent="307" name="cognomeIn">
+    <argument id="424" parent="307" name="cognomeIn">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="424" parent="307" name="ntelefonoIn">
+    <argument id="425" parent="307" name="ntelefonoIn">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="425" parent="309" name="codiceABarreIn">
+    <argument id="426" parent="309" name="codiceABarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="426" parent="309" name="codiceABarreOut">
-      <Position>2</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>char(12)|0s</DataType>
-    </argument>
-    <argument id="427" parent="309" name="prezzoOut">
-      <Position>3</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>double|0s</DataType>
-    </argument>
-    <argument id="428" parent="309" name="descrizioneOut">
-      <Position>4</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>varchar(1000)|0s</DataType>
-    </argument>
-    <argument id="429" parent="309" name="specificheOut">
-      <Position>5</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>varchar(1000)|0s</DataType>
-    </argument>
-    <argument id="430" parent="309" name="immagineOut">
-      <Position>6</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>longblob|0s</DataType>
-    </argument>
-    <argument id="431" parent="309" name="quantitaOut">
-      <Position>7</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>int|0s</DataType>
-    </argument>
-    <argument id="432" parent="309" name="marcaOut">
-      <Position>8</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>varchar(50)|0s</DataType>
-    </argument>
-    <argument id="433" parent="309" name="modelloOut">
-      <Position>9</Position>
-      <ArgumentDirection>O</ArgumentDirection>
-      <DataType>varchar(50)|0s</DataType>
-    </argument>
-    <argument id="434" parent="310" name="usernameIn">
+    <argument id="427" parent="310" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="435" parent="310" name="ncartaIn">
+    <argument id="428" parent="310" name="ncartaIn">
       <Position>2</Position>
       <DataType>char(12)|0s</DataType>
     </argument>

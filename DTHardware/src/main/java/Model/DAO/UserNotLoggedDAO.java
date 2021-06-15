@@ -65,32 +65,13 @@ public class UserNotLoggedDAO extends BaseDAO
 		doExecute(callableStatement);
 	}
 
-	protected Map<String, Object> selectProdotto(String codiceABarre, String userType, String passData) throws SQLException
+	protected ResultSet selectProdottoByCodiceABarre(String codiceABarre, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call selectProdotto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+		CallableStatement callableStatement=user.prepareCall("{call selectProdotto(?)}");
 		callableStatement.setString("codiceABarreIn", codiceABarre);
-		callableStatement.registerOutParameter("codiceABarreOut", Types.CHAR);
-		callableStatement.registerOutParameter("prezzoOut", Types.DOUBLE);
-		callableStatement.registerOutParameter("descrizioneOut", Types.VARCHAR);
-		callableStatement.registerOutParameter("specificheOut", Types.VARCHAR);
-		callableStatement.registerOutParameter("immagineOut", Types.BLOB);
-		callableStatement.registerOutParameter("quantitaOut", Types.INTEGER);
-		callableStatement.registerOutParameter("marcaOut", Types.VARCHAR);
-		callableStatement.registerOutParameter("modelloOut", Types.VARCHAR);
-		callableStatement.registerOutParameter("datainserimentoOut", Types.TIMESTAMP);
-		callableStatement=doExecute(callableStatement);
-		Map<String, Object> risultati= new HashMap<String, Object>();
-		risultati.put("codiceABarreOut", callableStatement.getString("codiceABarreOut"));
-		risultati.put("prezzoOut",callableStatement.getDouble("prezzoOut"));
-		risultati.put("descrizioneOut", callableStatement.getString("descrizioneOut"));
-		risultati.put("specificheOut", callableStatement.getString("specificheOut"));
-		risultati.put("immagineOut", callableStatement.getBlob("immagineOut"));
-		risultati.put("quantitaOut", callableStatement.getInt("quantitaOut"));
-		risultati.put("marcaOut", callableStatement.getString("marcaOut"));
-		risultati.put("modelloOut", callableStatement.getString("modelloOut"));
-		risultati.put("dataInserimentoOut", callableStatement.getString("datainserimentoOut"));
-		return risultati;
+		doExecute(callableStatement);
+		return getResult();
 	}
 
 	protected ResultSet selectProdottoByCategoria(String categoria, String userType, String passData) throws SQLException

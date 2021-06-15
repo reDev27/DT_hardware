@@ -19,8 +19,6 @@ public class CrdGiver
 	 */
 	public void aggiornaCrd(int userType) throws IOException
 	{
-		if(actualLog==userType)
-			return;
 		this.actualLog=userType;
 		byte[] jsonFile= context.getResourceAsStream("/WEB-INF/crd.json").readAllBytes();
 		String toConvert=new String(jsonFile);

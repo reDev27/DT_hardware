@@ -83,6 +83,14 @@ public class UserNotLoggedDAO extends BaseDAO
 		return getResult();
 	}
 
+	protected ResultSet selectMostRecentProducts(String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectMostRecentProducts()}");
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	protected ResultSet selectCategoria(String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

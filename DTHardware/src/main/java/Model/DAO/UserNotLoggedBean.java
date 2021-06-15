@@ -18,6 +18,31 @@ import java.util.Map;
 
 public class UserNotLoggedBean
 {
+	public static ArrayList<Product> callSelectMostRecentProducts(ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		ResultSet result=connection.selectMostRecentProducts(crd.getUsername(), crd.getPass());
+		ArrayList<Product> resultsArray=new ArrayList<>();
+		Product prodotto;
+		while(result.next())
+		{
+			prodotto=new Product(
+					result.getString("CODICEBARRE"),
+					result.getString("DESCRIZIONE"),
+					result.getString("SPECIFICHE"),
+					result.getDouble("PREZZO"),
+					result.getString("MARCA"),
+					result.getString("MODELLO"),
+					result.getString("IMMAGINE"),
+					result.getInt("QUANTITA"),
+					DateUtil.getCalendarFromString(result.getString("DATAINSERIMENTO"))
+			);
+			resultsArray.add(prodotto);
+		}
+		return resultsArray;
+	}
 	public static ArrayList<Product> callSelectProdottoByCategoria(String categoria, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);

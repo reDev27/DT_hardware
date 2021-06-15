@@ -35,26 +35,19 @@ public class Product
 		setDescrizione(descrizione);
 		setSpecifiche(specifiche);
 		setImmagine(immagine);
-		if(quantitaProdotto>0)
-			setDisponibilita(true);
-		else
-			setDisponibilita(false);
+		setDisponibilita(quantitaProdotto > 0);
 		setQuantitaProdotto(quantitaProdotto);
 		setDataInserimento(dataInserimento);
 	}
 
 /**
- * this function return a map of all attributes of a specified product
+ * this function set the instance variables of THIS object with the result retried by database
  * @param codiceABarre string used to identify the product of you want to know attributes, is the code that identify the product
- * @return this function return a java.util.Map of all attributes of the specified product
  */
 	public void getProductByCodiceABarre(String codiceABarre, ServletContext context) throws SQLException, IOException
 	{
 		UserNotLoggedBean.callSelectProdottoByCodiceABarre(codiceABarre, context);
-		if(quantitaProdotto>0)
-			setDisponibilita(true);
-		else
-			setDisponibilita(false);
+		setDisponibilita(quantitaProdotto > 0);
 	}
 
 	private String codiceABarre;

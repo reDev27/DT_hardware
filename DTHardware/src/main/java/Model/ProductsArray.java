@@ -19,6 +19,11 @@ public class ProductsArray extends GsonUtility
 		prodotti=UserNotLoggedBean.callSelectProdottoByCategoria(category, context);
 	}
 
+	public void getMostRecentProducts(ServletContext context) throws SQLException, IOException
+	{
+		prodotti=UserNotLoggedBean.callSelectMostRecentProducts(context);
+	}
+
 	private ArrayList<Product> prodotti;
 
 	public ArrayList<Product> getProdotti()

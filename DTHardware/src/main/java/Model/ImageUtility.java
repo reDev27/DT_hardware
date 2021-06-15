@@ -15,8 +15,7 @@ public class ImageUtility
 	{
 		//byte[] rawImg=getImageFromPath();
 		byte[] resizedImg=resize(rawImg);
-		String resizedBase64Img=getBase64Image(resizedImg);
-		return resizedBase64Img;
+		return getBase64Image(resizedImg);
 	}
 
 	public static byte[] resize(byte[] toResizeImg) throws IOException

@@ -12,5 +12,11 @@ function buildTableCategories(data)
 
 function buildTableProductHomepage(data)
 {
-
+    var n=data.length;
+    var newRows="";
+    for(i=0; i<n; i++)
+    {
+        newRows+= "<li className=\"ui-state-default\">" + data[i].marca + " " + data[i].modello + " " + data[i].prezzo + "</li>";
+    }
+    document.getElementById("selectable").innerHTML=newRows;
 }

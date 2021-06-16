@@ -1,13 +1,12 @@
 function buildTableCategories(data)
 {
-    var newRows="<thead>Categorie</thead>";
+    var newRows="";
     var n = data.length;
     for(i=0; i<n; i++)
     {
-        newRows+="<tr><td>"+ data[i].nome +"</td></tr>";
+        newRows+="<li><a href=\"#productList\">"+ data[i].nome +"</a></li>";
     }
-    //$("#tableCategories").html(newRows);
-    document.getElementById("tableCategories").innerHTML=newRows;
+    document.getElementById("categoriesListUl").innerHTML=newRows;
 }
 
 function buildTableProductHomepage(data)

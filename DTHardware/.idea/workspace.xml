@@ -9,26 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix procedure per prendere un prodotto dal db tramite codice a barre;&#10;fix di tutti i DAO e bean relativi al punto precedente;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/daPushare/SelectMostRecentProducts.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="creazione servlet per mostrare i prodotti recenti;&#10;fix di tutti i bean, DAO e delle classi riguardanti il punto precedente;&#10;aggiunta nuova stored procedure;&#10;fix minori.">
       <change afterPath="$PROJECT_DIR$/src/main/webapp/homepage_duplicata.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ProductsArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +81,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/homepage_duplicata.jsp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/homepage.jsp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -153,7 +138,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage_duplicata.jsp" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage.jsp" />
       <option name="BROWSER_ID" value="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
       <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
@@ -311,14 +296,9 @@
       <workItem from="1623610767244" duration="453000" />
       <workItem from="1623659843564" duration="9814000" />
       <workItem from="1623760748600" duration="2998000" />
-      <workItem from="1623771111868" duration="11850000" />
-    </task>
-    <task id="LOCAL-00027" summary="aggiustamenti procedure insertCompone e funzioni associate">
-      <created>1621164415047</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1621164415047</updated>
+      <workItem from="1623771111868" duration="12049000" />
+      <workItem from="1623786402930" duration="327000" />
+      <workItem from="1623829131678" duration="4914000" />
     </task>
     <task id="LOCAL-00028" summary="ti pusho tutto">
       <created>1621407129293</created>
@@ -656,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623778687302</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="creazione servlet per mostrare i prodotti recenti;&#10;fix di tutti i bean, DAO e delle classi riguardanti il punto precedente;&#10;aggiunta nuova stored procedure;&#10;fix minori.">
+      <created>1623783252457</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1623783252457</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,7 +663,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="db_table" />
     <MESSAGE value="nuova classe categorie e aggiornamenti a userBean e UserNotLoggedBean" />
     <MESSAGE value="Rifacimento DB_TABLES" />
     <MESSAGE value="aggiunta classe per gestire ordini con formato json&#10;aggiunta funzione in DateUtil per gestire il timestamp" />
@@ -701,7 +687,8 @@
     <MESSAGE value="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori." />
     <MESSAGE value="test impaginazione homepage" />
     <MESSAGE value="fix procedure per prendere un prodotto dal db tramite codice a barre;&#10;fix di tutti i DAO e bean relativi al punto precedente;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix procedure per prendere un prodotto dal db tramite codice a barre;&#10;fix di tutti i DAO e bean relativi al punto precedente;&#10;fix minori." />
+    <MESSAGE value="creazione servlet per mostrare i prodotti recenti;&#10;fix di tutti i bean, DAO e delle classi riguardanti il punto precedente;&#10;aggiunta nuova stored procedure;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="creazione servlet per mostrare i prodotti recenti;&#10;fix di tutti i bean, DAO e delle classi riguardanti il punto precedente;&#10;aggiunta nuova stored procedure;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

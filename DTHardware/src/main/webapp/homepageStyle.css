@@ -1,62 +1,15 @@
 
-#selectable .ui-selecting {  }
-#selectable .ui-selected {  }
+#selectable .ui-selecting { background: #FECA40; }
+#selectable .ui-selected { background: #F39814; color: white; }
 #selectable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
-#selectable li { margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 4em; text-align: center; }
+#selectable li { margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 1em; text-align: center; }
 #selectable ol { alignment: center;}
 #selectable { cursor: pointer;}
 
-.container {
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin: 0px;
-    padding: 2px;
-    vertical-align: middle;
-}
-
-.nTelefono{
-    text-align: center;
-
-
-}
-.email
+#intestazione
 {
-    text-align: center;
-    margin-left: 15px;
-
-}
-.nTelefono:before {
-    content: "";
-    display: block;
-    background: url("image/telephone.png") no-repeat center;
-    width: 20px;
-    height: 20px;
-    float: left;
-
-
-
-}
-
-.email:before {
-    content: "";
-    display:block;
-    background: url("image/email.png") no-repeat;
-    width: 20px;
-    height: 20px;
-    margin-top: 0.3%;
-    float: left;
-
-}
-.register {
-    display: inline-block;
-    margin: 0px;
+    border: 1px solid rgba(165, 141, 141, 0.46);
+    border-radius: 6px;
+    margin: 0;
     padding: 2px;
-}
-
-.p {
-    display: block;
-    margin: 0px;
-    padding: 2px;
-    vertical-align: middle;
 }

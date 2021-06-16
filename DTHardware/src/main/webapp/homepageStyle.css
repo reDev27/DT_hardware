@@ -9,7 +9,49 @@
 #intestazione
 {
     border: 1px solid rgba(165, 141, 141, 0.46);
-    border-radius: 6px;
+    border-radius: 1%;
     margin: 0;
-    padding: 2px;
+    padding: 0.15%;
+}
+
+#accediRef
+{
+    position: relative;
+    float: right;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+#searchAndCarrello
+{
+    border: 1px solid rgba(165, 141, 141, 0.46);
+    border-radius: 1%;
+    margin: 0;
+    padding: 0.15%;
+}
+
+#btnCarrello
+{
+    position: relative;
+    float: right;
+}
+
+#btnCarrelloSpan
+{
+    width: 33%;
+    position: relative;
+    float: right;
+}
+
+#txtSearchSpan
+{
+    width: 33%;
+    /*margin-left: 50%;
+    margin-right: -50%;*/
+
+}
+
+#logoSpan
+{
+    width: 33%;
 }

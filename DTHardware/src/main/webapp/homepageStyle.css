@@ -6,12 +6,40 @@
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
 .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
 
-#selectable .ui-selecting { background: #FECA40; }
-#selectable .ui-selected { background: #F39814; color: white; }
-#selectable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
-#selectable li { margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 1em; text-align: center; }
-#selectable ol { alignment: center;}
-#selectable { cursor: pointer;}
+/*#selectableTableProducts .ui-selecting { background: #FECA40; }
+#selectableTableProducts .ui-selected { background: #F39814; color: white; }
+#selectableTableProducts { list-style-type: none; margin: 0; padding: 0; width: 450px; }
+#selectableTableProducts li { margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 1em; text-align: center; }
+#selectableTableProducts ol { alignment: center;}
+#selectableTableProducts { cursor: pointer;}*/
+
+body
+{
+
+    background-image: url("image/tema.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    height: 100%;
+    min-height:100%;
+}
+
+#categoriesList
+{
+    width: 25%;
+    padding: 0;
+    position: initial;
+}
+
+.ui-widget-content
+{
+    border: 0;
+}
+.ui-widget.ui-widget-content
+{
+    border: 0;
+}
 
 #intestazione
 {
@@ -38,8 +66,9 @@
 
 #btnCarrello
 {
-    position: relative;
     float: right;
+    margin-top: 5%;
+    width: 70%;
 }
 
 #btnCarrelloSpan
@@ -52,10 +81,11 @@
 
 #txtSearch
 {
-    margin-top: 20%;
+    margin-top: 5%;
     margin-right: auto;
     margin-left: auto;
     display: block;
+    width: 100%;
 }
 
 #txtSearchSpan

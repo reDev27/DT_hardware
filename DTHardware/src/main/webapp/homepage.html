@@ -5,18 +5,30 @@
     <title>Title</title>
 </head>
 <body>
+
 <link>
 <script src="libraries/homepageUtilities.js"></script>
-<link rel="stylesheet" type="text/css" href="homepageStyle.css">
+<link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
 <script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 
+<style>
+  #selectableTableProducts .ui-selecting
+  {
+    background: #FECA40;
+  }
 
+  #selectableTableProducts .ui-selected
+  {
+    background: #F39814;
+    color: white;
+  }
+</style>
 
-<main id="alfaContainer" style="width: 80%; margin-left: 10%; margin-right: -10%; position: center">
+<main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
   <header class="row" id="intestazione">
     <span>
       <img class="cols-1" src="image/telephone.png"> <span class="cols-1">Numero di telefono: 0123456789</span>
@@ -32,21 +44,53 @@
   </span>
 
 
-  <br>
 
-<div>
-  <h4>Categorie</h4>
-  <div id="categoriesList">
-    <ul id="categoriesListUl">
 
-    </ul>
+<div class="row">
+  <span class="col-3">
+    <h4>Categorie</h4>
+    <div id="categoriesList">
+      <ul id="categoriesListUl"></ul>
+    </div>
+  </span>
+  <span class="col-9">
+    <div id="tableProducts">
+      <ol id="selectableTableProducts"></ol>
+    </div>
+  </span>
+</div>
+
+
+<div class="row jumbotron" style="margin-top: 60%; margin-left:0; margin-right:0; background-color: #3c3f41">
+  <div class="col-4">
+    <span id="infoSpan" class="row">
+      <h5 class="col-12">Informazioni</h5>
+      <a class="col-12" href="homepage.html">Termini e condizioni</a>
+      <a class="col-12" href="homepage.html">Metodi di pagamento</a>
+      <a class="col-12" href="homepage.html">Politiche di reso</a>
+     </span>
+  </div>
+  <div class="col-4">
+    <span id="accountSpan" class="row">
+      <h5 class="col-12 text-center">Il tuo account</h5>
+      <a class="col-12 text-center" href="homepage.html">Informazioni personali</a>
+      <a class="col-12 text-center" href="homepage.html">Ordini</a>
+      <a class="col-12 text-center" href="homepage.html">Indirizzi</a>
+     </span>
+  </div>
+  <div class="col-4">
+    <span id="contattaciSpan" class="row">
+      <h5 class="col-12 text-end">Contattaci</h5>
+      <a class="col-12 text-end" href="homepage.html">Via pippo 5</a>
+      <a class="col-12 text-end" href="homepage.html">0123456789</a>
+      <a class="col-12 text-end" href="homepage.html">ciao@hello.com</a>
+     </span>
   </div>
 </div>
 
 
-  <div id="productList"></div>
 
-  <script>
+<script>
     var categorie;
     $.ajax
     (
@@ -58,6 +102,7 @@
               success: function (data)
               {
                 buildTableCategories(data);
+
               },
               error: function (){alert("error")}
             }
@@ -69,25 +114,37 @@
             }
     );
 
-    $( function()
-    {
-      $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-      $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-    } );
+    var prodotti;
+    $.ajax
+    (
+            {
+              type: "GET",
+              url: "GetMostRecentProductsServ",
+              dataType: "json",
+              //data
+              success: function (data)
+              {
+                buildTableProductHomepage(data);
+                $( "#selectableTableProducts" ).selectable();
+              },
+
+              error: function ()
+              {
+                alert("error")
+              }
+            }
+    );
+    /*$(
+            function()
+            {
+              $( "#selectableTableProducts" ).selectable();
+            }
+    );*/
   </script>
 
-  <!--<ol id="selectable">
-    <li class="ui-state-default">1</li>
-    <li class="ui-state-default">2</li>
-    <li class="ui-state-default">3</li>
-    <li class="ui-state-default">4</li>
-    <li class="ui-state-default">5</li>
-    <li class="ui-state-default">6</li>
-    <li class="ui-state-default">7</li>
-    <li class="ui-state-default">8</li>
-    <li class="ui-state-default">9</li>
-    <li class="ui-state-default">10</li>
-  </ol>-->
+
 </main>
 </body>
 </html>
+
+<!--<li class="ui-state-default">1</li>-->

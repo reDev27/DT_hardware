@@ -7,24 +7,56 @@
 #selectable { cursor: pointer;}
 
 .container {
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
     border-radius: 6px;
     margin: 0px;
     padding: 2px;
+    vertical-align: middle;
 }
 
-.nTelefonotext {
-    font-family: "Courier-new";
+.nTelefono{
+    text-align: center;
+
+
 }
 .email
 {
+    text-align: center;
     margin-left: 15px;
-    font-family: "Courier-new";
-}
-.icon {
 
+}
+.nTelefono:before {
+    content: "";
+    display: block;
+    background: url("image/telephone.png") no-repeat center;
+    width: 20px;
+    height: 20px;
+    float: left;
+
+
+
+}
+
+.email:before {
+    content: "";
+    display:block;
+    background: url("image/email.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-top: 0.3%;
+    float: left;
+
+}
+.register {
+    display: inline-block;
+    margin: 0px;
+    padding: 2px;
+}
+
+.p {
+    display: block;
+    margin: 0px;
+    padding: 2px;
     vertical-align: middle;
-    font-size: 40px;
 }
-

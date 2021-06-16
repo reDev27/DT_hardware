@@ -17,34 +17,27 @@
 <link rel="stylesheet" type="text/css" href="homepageStyle.css">
 <link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 
-<div class="container">
-    <span class='icon'></span>
-    <span class="nTelefono">Numero di telefono: 0123456789</span></img>
-    <span class="email">E-mail: DTHardware@gmail.com</span>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
 <!--
-<div id="intestazione">
-    <div id="image"></div>
-    <div id="nTelefono">Numero di telefono: 0123456789</div>
-    <div id="email">E-mail: DTHardware@gmail.com</div>
+
+<i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+
+-->
+
+
+
+
+
+
+<div class="container">
+    <span class="nTelefono">Numero di telefono: 0123456789</span>
+    <span class="email">E-mail: DTHardware@gmail.com</span>
+    <p class="p" align="right"><a href="index.jsp" title="Accedi o crea un account">Accedi</a> oppure <a href="index.jsp" title="Accedi o crea un account">crea un account</a></p>
 </div>
+
 
 
 <pre id="accediRegistrati">
-<p><a href="index.jsp" title="Accedi o crea un account">Accedi</a> oppure <a href="index.jsp" title="Accedi o crea un account">crea un account</a>
-</p>
+
 </pre>
 <textarea id="txtSearch" rows="1" ></textarea>
 <button id="btnCarrello" style="width: 10% ; height: 5%"></button>

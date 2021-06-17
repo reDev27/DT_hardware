@@ -1,8 +1,11 @@
 package Controller;
 
 import Model.DAO.AdminBean;
-import Model.DAO.AdminDAO;
+import Model.DAO.DateUtil;
+import Model.Product;
 import Model.ProductsArray;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +32,34 @@ public class TestServ extends HttpServlet
 			throwables.printStackTrace();
 		}
 	response.getWriter().write("TUTTO OK");
+	}
+
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	{
+
+		String img=request.getParameter("img");
+		try
+		{
+			AdminBean.callInsertProdotto
+					(
+							"10",
+							56.90,
+							"ottimo prodotto",
+							"balenottera mangia occhiali da vista",
+							img,
+							69,
+							"Casio",
+							"Piastrelle per pavimenti",
+							"scheda madre",
+							Calendar.getInstance(),
+							request.getServletContext()
+					);
+		}
+		catch (SQLException | IOException throwables)
+		{
+			throwables.printStackTrace();
+		}
 	}
 }
 

@@ -22,10 +22,21 @@ function buildTableProductHomepage(data)
     var newRows="";
     for(i=0; i<n; i++)
     {
-        newRows+= "<li className=\"ui-state-default\">" + data[i].marca + " " + data[i].modello + " " + data[i].prezzo + "</li>";
+        newRows+= "<li className=\"ui-state-default\"><img width='170' height='170' src=\"" + data[0].immagine+"\">" + " " + data[0].marca +" "+ data[0].modello + " " + data[0].prezzo + " "+ data[0].disponibilita + "</li>";
     }
     document.getElementById("selectableTableProducts").innerHTML=newRows;
-    $("#selectableTableProducts").css({"cursor": "pointer","list-style-type": "none", "margin": "0", "padding": "0", "width": "450px" });
-    $("#selectableTableProducts li").css({"margin": "3px", "padding": "1px", "float": "left", "width": "100px", "height": "80px", "font-size": "1em", "text-align" : "center" });
+    $("#selectableTableProducts").css({"cursor": "pointer","list-style-type": "none", "margin": "0", "padding": "0", "width": "100%" });
+    $("#selectableTableProducts li").css({"margin": "2%", "padding": "3px", "float": "left", "width": "150px", "height": "275px", "font-size": "1em", "text-align" : "center" });
     $("#selectableTableProducts ol").css("alignment", "center");
 }
+
+/*var n=data.length;
+var newRows="";
+for(i=0; i<n; i++)
+{
+    newRows+= "<li className=\"ui-state-default\">" + data[i].marca + " " + data[i].modello + " " + data[i].prezzo + "</li>";
+}
+document.getElementById("selectableTableProducts").innerHTML=newRows;
+$("#selectableTableProducts").css({"cursor": "pointer","list-style-type": "none", "margin": "0", "padding": "0", "width": "70%" });
+$("#selectableTableProducts li").css({"margin": "2%", "padding": "3px", "float": "left", "width": "200px", "height": "250px", "font-size": "1em", "text-align" : "center" });
+$("#selectableTableProducts ol").css("alignment", "center");*/

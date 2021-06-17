@@ -5,7 +5,7 @@ function buildTableCategories(data)
     for(i=0; i<n; i++)
     {
 
-        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\"><p>"+ data[i].nome +"</p></li>";
+        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\"><a href='#btnCategorie'>"+ data[i].nome +"</a></li>";
     }
     //ui-tabs-active ui-state-active
     document.getElementById("categoriesListUl").innerHTML=newRows;

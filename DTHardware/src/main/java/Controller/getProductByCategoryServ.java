@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class getProductByCategoryServ extends HttpServlet
 {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		ProductsArray productsArray=new ProductsArray();
 		String category=(String)request.getAttribute("category");
@@ -33,6 +33,5 @@ public class getProductByCategoryServ extends HttpServlet
 		PrintWriter writer=response.getWriter();
 		String s=productsArray.getJsonFromThisObj(productsArray.getProdotti());
 		writer.write(s);
-
 	}
 }

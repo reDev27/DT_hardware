@@ -20,7 +20,7 @@ function buildTableProductHomepage(data)
 {
     var n=data.length;
     var newRows="";
-    for(i=0; i<n; i++)
+    for(i=0; i<10; i++)
     {
         newRows+= "<li className=\"ui-state-default\"><img width='160' height='160' src=\"" + data[0].immagine+"\">" + " " + data[0].marca +" "+ data[0].modello + " " + data[0].prezzo + " "+ data[0].disponibilita + "</li>";
     }

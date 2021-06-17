@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori.">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix grafico alla disposizione degli elementi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -289,14 +291,8 @@
       <workItem from="1623877776824" duration="112000" />
       <workItem from="1623880523121" duration="15000" />
       <workItem from="1623884856205" duration="616000" />
-      <workItem from="1623921838344" duration="7262000" />
-    </task>
-    <task id="LOCAL-00033" summary="servlet e bean aggiornato/i">
-      <created>1621577528776</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1621577528776</updated>
+      <workItem from="1623921838344" duration="7459000" />
+      <workItem from="1623936901591" duration="1190000" />
     </task>
     <task id="LOCAL-00034" summary="nuove classi per gestione utenti e admin">
       <created>1621577860376</created>
@@ -634,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623928945033</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="fix grafico alla disposizione degli elementi.">
+      <created>1623929562733</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1623929562734</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +657,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiunte le funzioni DAO e bean per select cliente;&#10;aggiornata la classe CategoriesArray e Categories;&#10;aggiunta la classe order;&#10;aggiornamenti minori" />
     <MESSAGE value="aggiornate le classi Address, CreditCard e Cliente" />
     <MESSAGE value="aggiornamenti a Ai bean per supportare la select dei clienti per username;&#10;correzione procedure;&#10;fix bug DateUtil" />
     <MESSAGE value="fix dateUtil" />
@@ -679,7 +681,8 @@
     <MESSAGE value="correzione barra ricerca e carrello (da finire)" />
     <MESSAGE value="aggiornamenti homepage(da finire)" />
     <MESSAGE value="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori." />
+    <MESSAGE value="fix grafico alla disposizione degli elementi." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix grafico alla disposizione degli elementi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

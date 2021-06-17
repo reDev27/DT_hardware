@@ -11,11 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TestServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/TestServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/manager.html" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -294,14 +289,7 @@
       <workItem from="1623877776824" duration="112000" />
       <workItem from="1623880523121" duration="15000" />
       <workItem from="1623884856205" duration="616000" />
-      <workItem from="1623921838344" duration="6821000" />
-    </task>
-    <task id="LOCAL-00032" summary="product aggiornato">
-      <created>1621577104950</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1621577104950</updated>
+      <workItem from="1623921838344" duration="7262000" />
     </task>
     <task id="LOCAL-00033" summary="servlet e bean aggiornato/i">
       <created>1621577528776</created>
@@ -639,7 +627,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623868646899</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori.">
+      <created>1623928945033</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1623928945033</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

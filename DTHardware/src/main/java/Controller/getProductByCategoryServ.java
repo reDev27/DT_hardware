@@ -2,7 +2,6 @@ package Controller;
 
 import Model.ProductsArray;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,37 +12,27 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 
-@WebServlet(name="getProductServ", value = "/getProductServ")
-public class getProductServ extends HttpServlet
+@WebServlet(name="getProductByCategoryServ", value = "/getProductByCategoryServ")
+public class getProductByCategoryServ extends HttpServlet
 {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
 		ProductsArray productsArray=new ProductsArray();
+		String category=(String)request.getAttribute("category");
 		try
 		{
-			productsArray.getProductsByCategoria((String)request.getAttribute("category"), request.getServletContext());
+			productsArray.getProductsByCategoria(category, request.getServletContext());
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
-
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer=response.getWriter();
-		try
-		{
-			productsArray.getProductsByCategoria("scheda madre", request.getServletContext());
-		}
-		catch (SQLException throwables)
-		{
-			throwables.printStackTrace();
-		}
 		String s=productsArray.getJsonFromThisObj(productsArray.getProdotti());
 		writer.write(s);
 
-		/*RequestDispatcher dispatcher=request.getRequestDispatcher("index.jsp");
-		dispatcher.forward(request, response);*/
 	}
 }

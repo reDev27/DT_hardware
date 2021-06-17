@@ -16,7 +16,7 @@
 body
 {
 
-    background-image: url("image/tema.png");
+    background-image: url("image/tema_verde.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -28,9 +28,15 @@ body
 #categoriesList
 {
     margin: 0;
-    width: 25%;
+    width: 100%;
     padding: 0;
     position: initial;
+}
+
+#categoriesListUl
+{
+    margin-left: 5%;
+    width: 80%;
 }
 
 .ui-widget-content
@@ -92,12 +98,28 @@ body
 #txtSearchSpan
 {
     width: 33%;
-    /*margin-left: 50%;
-    margin-right: -50%;*/
-
 }
 
 #logoSpan
 {
     width: 33%;
+}
+
+#pieDiPagina
+{
+    margin-top: 7.5%;
+    margin-left:0;
+    margin-right:0;
+    background-color: rgb(0, 0, 0)
+}
+
+#pieDiPagina div span a
+{
+    text-decoration-line: none;
+    color: #188e08;
+}
+
+#pieDiPagina div span h5
+{
+    color: white;
 }

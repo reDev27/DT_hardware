@@ -65,7 +65,7 @@
     </div>
   </span>
   <span class="col-9">
-    <h4 style="margin-left: 3%">Novità</h4>
+    <h4 id="intestazioneListaProducts" style="margin-left: 3%"></h4>
     <div id="tableProducts">
       <ol id="selectableTableProducts"></ol>
     </div>
@@ -111,7 +111,6 @@
               success: function (data)
               {
                 buildTableCategories(data);
-
               },
               error: function (){alert("error")}
             }
@@ -123,12 +122,12 @@
             }
     );
 
-    var prodotti;
+    /*var prodotti;
     $.ajax
     (
             {
               type: "GET",
-              url: "GetMostRecentProductsServ",
+              url: "getProductByCategoryServ",
               dataType: "json",
               //data
               success: function (data)
@@ -148,7 +147,7 @@
             {
               $( "#selectableTableProducts" ).selectable();
             }
-    );
+    );*/
   </script>
 
 </main>

@@ -112,15 +112,23 @@
               success: function (data)
               {
                 buildTableCategories(data);
-
               },
               error: function (){alert("error")}
             }
     )
+
+
     $(
             function()
             {
-              $( "#selectable" ).selectable();
+              //$( "#selectable" ).selectable();
+              /*$( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+              $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+              $( "#listItem0" ).removeClass( "ui-state-active" );
+              $( "#listItem0" ).removeClass( "ui-tabs-active" );*/
+              $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+              $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+              $("#categoriesList").css("border", 0);
             }
     );
 
@@ -150,16 +158,6 @@
               $( "#selectableTableProducts" ).selectable();
             }
     );
-
-    $(".btnCategorie").click
-    (
-            function ()
-            {
-              {
-                alert("ok");
-              }
-            }
-    )
 
   </script>
 

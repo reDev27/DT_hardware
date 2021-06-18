@@ -16,10 +16,10 @@ import java.sql.SQLException;
 public class getProductByCategoryServ extends HttpServlet
 {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		ProductsArray productsArray=new ProductsArray();
-		String category=(String)request.getAttribute("category");
+		String category=request.getParameter("category");
 		try
 		{
 			productsArray.getProductsByCategoria(category, request.getServletContext());

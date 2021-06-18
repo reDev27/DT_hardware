@@ -9,13 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="homepage base finita;&#10;nuovo sfondo homapage;&#10;fix minori;">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiustamenti homepage;&#10;inizio script per listare i prodotti;&#10;fix minori.">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/Senzanome.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daPushare/SelectProdottoByCategoria.sql" beforeDir="false" afterPath="$PROJECT_DIR$/daPushare/SelectProdottoByCategoria.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getProductByCategoryServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getProductByCategoryServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/redirectServ.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/visualizzaProdotti.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/visualizzaProdotti.html" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,40 +108,17 @@
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF\view\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="insertCartaCredito.sql and 15 more" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
-      <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/InsertCompone.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/InsertIndirizzo.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/InsertOrdine.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/InsertProdotto.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/loginUser.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/registerUser.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/SelectCartadicreditoByUsername.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/SelectCategoria.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/SelectCliente.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/SelectClienteByUsername.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/SelectIndirizzoByUsername.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/selectProdotto.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/SelectProdottoByCategoria.sql" />
-      <script-file value="$PROJECT_DIR$/daPushare/updateUserCartaDiCredito.sql" />
-      <script-mode>FILE</script-mode>
-      <data-source id="73b80e50-e2c8-4623-babf-721edfaa5518" />
-      <method v="2" />
     </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage.html" />
@@ -230,10 +209,6 @@
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Database Script.insertCartaCredito.sql and 15 more" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.43" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -309,14 +284,8 @@
       <workItem from="1623884856205" duration="616000" />
       <workItem from="1623921838344" duration="7459000" />
       <workItem from="1623936901591" duration="12797000" />
-      <workItem from="1623954577860" duration="2521000" />
-    </task>
-    <task id="LOCAL-00036" summary="db_table">
-      <created>1621578859577</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1621578859577</updated>
+      <workItem from="1623954577860" duration="2607000" />
+      <workItem from="1624002192375" duration="11421000" />
     </task>
     <task id="LOCAL-00037" summary="nuova classe categorie e aggiornamenti a userBean e UserNotLoggedBean">
       <created>1621581487770</created>
@@ -654,7 +623,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623954555060</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="aggiustamenti homepage;&#10;inizio script per listare i prodotti;&#10;fix minori.">
+      <created>1623957198352</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1623957198353</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix dateUtil" />
     <MESSAGE value="correzione UserBean.java" />
     <MESSAGE value="correzione procedure select per prodotto" />
     <MESSAGE value="aggiornate userbean e Cliente per supportare il wrapping dei dati del cliente;&#10;modifiche minori." />
@@ -699,7 +674,8 @@
     <MESSAGE value="fix grafico alla disposizione degli elementi." />
     <MESSAGE value="fix grafico alla disposizione degli elementi(continua)." />
     <MESSAGE value="homepage base finita;&#10;nuovo sfondo homapage;&#10;fix minori;" />
-    <option name="LAST_COMMIT_MESSAGE" value="homepage base finita;&#10;nuovo sfondo homapage;&#10;fix minori;" />
+    <MESSAGE value="aggiustamenti homepage;&#10;inizio script per listare i prodotti;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiustamenti homepage;&#10;inizio script per listare i prodotti;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,6 +685,11 @@
           <line>12</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Model/ProductsArray.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
@@ -716,10 +697,8 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="callableStatement" />
         <watch expression="productsArray" />
-        <watch expression="request.getParameter(&quot;img&quot;)" />
-        <watch expression="object" />
+        <watch expression="getResult()" />
       </configuration>
       <configuration name="JavascriptDebugType">
         <watch expression="data[0].nome" language="JavaScript" />

@@ -2,11 +2,10 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>D.T.Hardware</title>
 </head>
 <body>
 
-<link>
 <script src="libraries/homepageUtilities.js"></script>
 <link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
@@ -16,7 +15,6 @@
 <link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 
 <style>
-
   #selectableTableProducts .ui-selecting
   {
     background: rgba(188, 255, 179, 0.89);
@@ -53,7 +51,7 @@
   </header>
 
   <span class="row" id="searchAndCarrello">
-    <span class="cols-4" id="logoSpan"><img  src="" id="logoIcon"></span>
+    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img  src="image/logo.png" width="100%" id="logoIcon"></a></span>
     <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
     <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
   </span>
@@ -66,7 +64,7 @@
     </div>
   </span>
   <span class="col-9">
-    <h4 style="margin-left: 3%">Novità</h4>
+    <h4 id="headerProducts" style="margin-left: 3%">Novità</h4>
     <div id="tableProducts">
       <ol id="selectableTableProducts"></ol>
     </div>
@@ -116,16 +114,9 @@
               error: function (){alert("error")}
             }
     )
-
-
     $(
             function()
             {
-              //$( "#selectable" ).selectable();
-              /*$( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-              $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-              $( "#listItem0" ).removeClass( "ui-state-active" );
-              $( "#listItem0" ).removeClass( "ui-tabs-active" );*/
               $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
               $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
               $("#categoriesList").css("border", 0);
@@ -143,7 +134,6 @@
               success: function (data)
               {
                 buildTableProductHomepage(data);
-                $( "#selectableTableProducts" ).selectable();
               },
 
               error: function ()
@@ -153,10 +143,10 @@
             }
     );
     $(
-            function()
+            /*function()
             {
               $( "#selectableTableProducts" ).selectable();
-            }
+            }*/
     );
 
   </script>

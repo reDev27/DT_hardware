@@ -15,15 +15,7 @@ public class Product
 {
 	public Product()
 	{
-		setCodiceABarre(null);
-		setMarca("senza nome");
-		setModello("senza nome");
-		setPrezzo(0.0);
-		setDescrizione(null);
-		setSpecifiche(null);
-		setImmagine(null);
-		setDisponibilita(false);
-		setQuantitaProdotto(0);
+
 	}
 
 	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, String immagine,int quantitaProdotto, Calendar dataInserimento)

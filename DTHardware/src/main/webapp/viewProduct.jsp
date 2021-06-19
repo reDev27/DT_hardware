@@ -54,12 +54,13 @@
     </header>
 
   <span class="row" id="searchAndCarrello">
-    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon"></a></span>
+    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
     <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
     <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
   </span>
 
-<div class="row">
+<% Product product=(Product) request.getAttribute("product");%>
+<div class="row" style="margin-top: 3%">
   <span class="col-3">
     <h4 style="margin-left: 5%">Categorie</h4>
     <div id="categoriesList">
@@ -67,9 +68,30 @@
     </div>
   </span>
   <span class="col-9">
-    <h4 id="headerProducts" style="margin-left: 3%"><% Product product=(Product) request.getAttribute("product");%> <%=product.getMarca() + " " + product.getModello()%></h4>
-    <div id="tableProducts">
-        <ol id="selectableTableProducts"></ol>
+    <div id="tableProduct" class="row">
+        <span class="col-6">
+            <img src="<%= product.getImmagine()%>" width="100%">
+        </span>
+        <span class="col-6">
+            <span class="col-12"><h4 id="headerProducts" style="margin-left: 3%"> <%=product.getMarca() + " " + product.getModello()%></h4></span>
+            <span class="col-12"><p>Identificativo: </p><%=product.getCodiceABarre()%></span>
+            <span class="col-12"><p><%=product.getPrezzo()%> &#x20AC</p>  tasse incluse</span>
+            <span class="col-12"><p> <label for="spinner">Amount to donate:</label><input id="spinner" name="spinner" value="5"></p></span>
+            <span class="col-12"><button type="submit" class="btn btn-success">Aggiungi al carrello</button></span>
+            <span class="col-12"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>
+        </span>
+        <div id="tabs">
+      <ul>
+        <li><a href="#divDescrizione">Descrizione</a></li>
+        <li><a href="#divSpecifiche">Specifiche</a></li>
+      </ul>
+      <div id="divDescrizione">
+        <p><%=product.getDescrizione()%></p>
+      </div>
+      <div id="divSpecifiche">
+        <p><%=product.getSpecifiche()%></p>
+      </div>
+    </div>
     </div>
   </span>
 </div>
@@ -125,6 +147,24 @@
             $("#categoriesList").css("border", 0);
         }
     );
+
+    $( function() {
+        $( "#currency" ).on( "change", function() {
+            $( "#spinner" ).spinner( "option", "culture", $( this ).val() );
+        });
+
+        $( "#spinner" ).spinner({
+            min: 5,
+            max: 2500,
+            step: 25,
+            start: 1000,
+            numberFormat: "C"
+        });
+    } );
+
+    $( function() {
+        $( "#tabs" ).tabs();
+    } );
 </script>
 
 </main>

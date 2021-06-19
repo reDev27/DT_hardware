@@ -9,24 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="Homepage ultimata;&#10;aggiornamento ajax per visualizzare i prodotti in base alla categoria;&#10;fix grafici minori;&#10;fix stored procedure SelectProdottoByCategoria;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/GetProductByCodeServ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/image/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/libraries/viewProductUtilities.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/viewProductStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/TestServ.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/image/Senzanome.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/visualizzaProdotti.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProductStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProductStyle.css" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,17 +108,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage.html" />
       <option name="BROWSER_ID" value="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
@@ -298,14 +275,8 @@
       <workItem from="1623954577860" duration="2607000" />
       <workItem from="1624002192375" duration="11632000" />
       <workItem from="1624023902425" duration="5485000" />
-      <workItem from="1624030490951" duration="6688000" />
-    </task>
-    <task id="LOCAL-00038" summary="aggiornamenti vari">
-      <created>1621583820891</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1621583820891</updated>
+      <workItem from="1624030490951" duration="7231000" />
+      <workItem from="1624093164444" duration="8669000" />
     </task>
     <task id="LOCAL-00039" summary="aggiornamenti vari">
       <created>1621584262143</created>
@@ -643,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624014227838</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori.">
+      <created>1624037749569</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1624037749570</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +641,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="correzione procedure select per prodotto" />
     <MESSAGE value="aggiornate userbean e Cliente per supportare il wrapping dei dati del cliente;&#10;modifiche minori." />
     <MESSAGE value="creazione file credenziali;&#10;aggiunta funzione di decodifica del json;&#10;aggiornata classe UserServ;&#10;more minus stuff" />
     <MESSAGE value="creazione file credenziali;&#10;aggiunta funzione di decodifica del json;&#10;aggiornata classe UserServ;&#10;altre modifiche minori." />
@@ -688,7 +665,8 @@
     <MESSAGE value="homepage base finita;&#10;nuovo sfondo homapage;&#10;fix minori;" />
     <MESSAGE value="aggiustamenti homepage;&#10;inizio script per listare i prodotti;&#10;fix minori." />
     <MESSAGE value="Homepage ultimata;&#10;aggiornamento ajax per visualizzare i prodotti in base alla categoria;&#10;fix grafici minori;&#10;fix stored procedure SelectProdottoByCategoria;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="Homepage ultimata;&#10;aggiornamento ajax per visualizzare i prodotti in base alla categoria;&#10;fix grafici minori;&#10;fix stored procedure SelectProdottoByCategoria;&#10;fix minori." />
+    <MESSAGE value="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

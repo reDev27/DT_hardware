@@ -38,7 +38,7 @@ function buildTableProductHomepage(products)
     var newRows="";
     for(let i=0; i<n; i++)
     {
-        newRows+= "<li id='prodotto"+ i +"' class=\"ui-state-default\"><span id='prodottoSpan' class='row' style='padding: 1.75%'><img class='col-12' width='160' height='160' src=\"" + products[i].immagine+"\">" + "<p class='col-12'>" + products[i].marca +"</p> <p class='col-12'>"+ products[i].modello + "</p><p class='col-12'> " + products[i].prezzo + "</p><button type=\"button\" class=\"btn btn-primary cols-12\">Aggiungi al carrello</button><p class='col-12'> "+ products[i].disponibilita + "</p></span></li>";
+        newRows+= "<li id='prodotto"+ i +"' class=\"ui-state-default\"><span id='prodottoSpan' class='row' style='padding: 1.75%'><img class='col-12' width='160' height='160' src=\"" + products[i].immagine+"\">" + "<p class='col-12'>" + products[i].marca +"</p> <p class='col-12'>"+ products[i].modello + "</p><p class='col-12'> " + products[i].prezzo + "</p><button type=\"button\" class=\"btn btn-primary cols-12\">Aggiungi al carrello</button><p class='col-12'> "+ isAvailable(products[i].disponibilita) + "</p></span></li>";
     }
     document.getElementById("selectableTableProducts").innerHTML=newRows;
     $("#selectableTableProducts").css({"cursor": "pointer","list-style-type": "none", "margin": "0", "padding": "0", "width": "100%" });
@@ -51,4 +51,12 @@ function buildTableProductHomepage(products)
             window.location.href="GetProductByCodeServ?codiceABarre=" + products[i].codiceABarre;
         });
     }
+}
+
+function isAvailable(availability)
+{
+    if(availability)
+        return "Disponibile";
+    else
+        return "Esaurito";
 }

@@ -1,4 +1,5 @@
 <%@ page import="Model.Product" %>
+<%@ page import="Model.DAO.DateUtil" %>
 <%--
   Created by IntelliJ IDEA.
   User: rEDOx
@@ -43,6 +44,32 @@
         width: 80%;
         margin: auto;
     }
+
+    #spinnerParag .ui-spinner-down
+    {
+        background-image: url("libraries/jquery-ui-1.12.1/images/ui-icon-down.png");
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat ;
+        display: block;
+        cursor: pointer;
+    }
+
+    #spinnerParag .ui-spinner-up
+    {
+        background-image: url("libraries/jquery-ui-1.12.1/images/ui-icon-up.png");
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat ;
+        display: block;
+        cursor: pointer;
+
+    }
+
+    #spinnerParag span
+    {
+        width: 80%;
+    }
 </style>
 <main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
     <header class="row" id="intestazione">
@@ -73,24 +100,24 @@
             <img src="<%= product.getImmagine()%>" width="100%">
         </span>
         <span class="col-6">
-            <span class="col-12"><h4 id="headerProducts" style="margin-left: 3%"> <%=product.getMarca() + " " + product.getModello()%></h4></span>
-            <span class="col-12"><p>Identificativo: </p><%=product.getCodiceABarre()%></span>
-            <span class="col-12"><p><%=product.getPrezzo()%> &#x20AC</p>  tasse incluse</span>
-            <span class="col-12"><p> <label for="spinner">Amount to donate:</label><input id="spinner" name="spinner" value="5"></p></span>
-            <span class="col-12"><button type="submit" class="btn btn-success">Aggiungi al carrello</button></span>
-            <span class="col-12"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>
+            <span class="col-12"><h4 id="headerProducts"> <%=product.getMarca()%></h4><h5 style="margin-top: 7px"><%=product.getModello()%></h5></span>
+            <span class="col-12" style="display: flex"><p>Identificativo: </p><%=product.getCodiceABarre()%></span>
+            <span class="col-12" style="display: flex"><b class="text-success" style="font-family: Helvetica,serif; font-size: 150%"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 2%; margin-left: 4%">tasse incluse</p></span>
+            <span class="col-12" style="display: flex"><p id="spinnerParag" style="width: 50%"> <label for="quantitaSpinner">Quantità:</label><input id="quantitaSpinner" name="spinner" value="1" style="width: 80% ;margin:1%"></p></span>
+            <span class="col-12" ><button id="btnAggiungiAlCarrello" type="button" class="btn btn-success">Aggiungi al carrello</button></span>
+            <span class="col-12" style="display: block"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>
         </span>
-        <div id="tabs">
-      <ul>
-        <li><a href="#divDescrizione">Descrizione</a></li>
-        <li><a href="#divSpecifiche">Specifiche</a></li>
-      </ul>
-      <div id="divDescrizione">
-        <p><%=product.getDescrizione()%></p>
-      </div>
-      <div id="divSpecifiche">
-        <p><%=product.getSpecifiche()%></p>
-      </div>
+    <div id="specificheDiv" style="width: 90%; margin-top: 5%">
+          <ul>
+            <li><a href="#divDescrizione">Descrizione</a></li>
+            <li><a href="#divSpecifiche">Specifiche</a></li>
+          </ul>
+          <div id="divDescrizione">
+            <p><%=product.getDescrizione()%></p>
+          </div>
+          <div id="divSpecifiche">
+            <p><%=product.getSpecifiche()%></p>
+          </div>
     </div>
     </div>
   </span>
@@ -124,6 +151,33 @@
 </div>
 
 <script>
+    $( function() {
+        $( "#specificheDiv" ).tabs();
+    } );
+
+    $(
+        function()
+        {
+            $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+            $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+            $("#categoriesList").css("border", 0);
+        }
+    );
+
+    $
+    (
+        function ()
+        {
+            $( "#quantitaSpinner" ).spinner({
+                min: 1,
+                max: 2500,
+                step: 1,
+                start: 1,
+                numberFormat: "C"
+            });
+        }
+    )
+
     var categorie;
     $.ajax
     (
@@ -139,32 +193,21 @@
             error: function (){alert("error")}
         }
     )
-    $(
-        function()
+
+    var prodotto=
         {
-            $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-            $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-            $("#categoriesList").css("border", 0);
-        }
-    );
-
-    $( function() {
-        $( "#currency" ).on( "change", function() {
-            $( "#spinner" ).spinner( "option", "culture", $( this ).val() );
-        });
-
-        $( "#spinner" ).spinner({
-            min: 5,
-            max: 2500,
-            step: 25,
-            start: 1000,
-            numberFormat: "C"
-        });
-    } );
-
-    $( function() {
-        $( "#tabs" ).tabs();
-    } );
+            "codiceABarre": "<%= product.getCodiceABarre()%>",
+            "marca": "<%= product.getMarca()%>",
+            "modello": "<%= product.getModello()%>",
+            "prezzo": <%= product.getPrezzo()%>,
+            "descrizione": "<%= product.getDescrizione()%>",
+            "specifiche": "<%= product.getSpecifiche()%>",
+            "immagine": "<%= product.getImmagine()%>",
+            "disponibilita": <%= product.isDisponibilita()%>,
+            "quantitaProdotto": <%= product.getQuantitaProdotto()%>,
+            "dataInserimento": "<%= DateUtil.getStringFromCalendar(product.getDataInserimento())%>"
+        };
+    $("#btnAggiungiAlCarrello").on("click", function (){aggiornaCarrello(prodotto, "aggiungi")})
 </script>
 
 </main>

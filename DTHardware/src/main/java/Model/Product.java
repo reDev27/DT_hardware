@@ -18,7 +18,7 @@ public class Product
 
 	}
 
-	public Product(String codiceABarre, String marca, String modello, Double prezzo, String descrizione, String specifiche, String immagine,int quantitaProdotto, Calendar dataInserimento)
+	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine,int quantitaProdotto, Calendar dataInserimento)
 	{
 		setCodiceABarre(codiceABarre);
 		setMarca(marca);
@@ -99,7 +99,7 @@ public String getDescrizione()
 }
 public void setDescrizione(String descrizione)
 {
-	descrizione = descrizione;
+	this.descrizione = descrizione;
 }
 public String getSpecifiche()
 {
@@ -107,7 +107,7 @@ public String getSpecifiche()
 }
 public void setSpecifiche(String specifiche)
 {
-	specifiche = specifiche;
+	this.specifiche = specifiche;
 }
 public String getImmagine()
 {

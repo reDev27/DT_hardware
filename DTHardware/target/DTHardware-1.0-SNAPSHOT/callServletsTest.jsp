@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/getProductServ" method="get">
+<form action="${pageContext.request.contextPath}/testServ" method="get">
     <input type="submit" id="btn01" value="test">
 </form>
 

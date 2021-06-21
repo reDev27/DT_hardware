@@ -10,10 +10,9 @@
 <% Product product=(Product) request.getAttribute("product");%>
 <head>
     <meta charset="UTF-8">
-    <title><%= product.getMarca() + " " + product.getModello()%>></title>
+    <title><%= product.getMarca() + " " + product.getModello()%></title>
 </head>
-<script src="libraries/homepageUtilities.js"></script>
-<script src="libraries/viewProductUtilities.js"></script>
+<script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
@@ -83,8 +82,8 @@
 
   <span class="row" id="searchAndCarrello">
     <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
-    <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
-    <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
+    <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4"></textarea></span>
+    <span class="cols-4" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
   </span>
 
 
@@ -195,20 +194,26 @@
         }
     )
 
+    var spinner = $( "#quantitaSpinner" ).spinner();
     var prodotto=
         {
-            "codiceABarre": "<%= product.getCodiceABarre()%>",
-            "marca": "<%= product.getMarca()%>",
-            "modello": "<%= product.getModello()%>",
-            "prezzo": <%= product.getPrezzo()%>,
-            "descrizione": "<%= product.getDescrizione()%>",
-            "specifiche": "<%= product.getSpecifiche()%>",
-            "immagine": "<%= product.getImmagine()%>",
-            "disponibilita": <%= product.isDisponibilita()%>,
-            "quantitaProdotto": <%= product.getQuantitaProdotto()%>,
-            "dataInserimento": "<%= DateUtil.getStringFromCalendar(product.getDataInserimento())%>"
+            "codiceABarre" : "<%= product.getCodiceABarre()%>",
+            "marca" : "<%= product.getMarca()%>",
+            "modello" : "<%= product.getModello()%>",
+            "prezzo" : <%= product.getPrezzo()%>,
+            "descrizione" : "<%= product.getDescrizione()%>",
+            "specifiche" : "<%= product.getSpecifiche()%>",
+            "immagine" : "<%= product.getImmagine()%>",
+            "disponibilita" : <%= product.isDisponibilita()%>,
+            "quantitaProdotto" : <%= product.getQuantitaProdotto()%>,
+            "dataInserimento" : "<%= DateUtil.getStringFromCalendar(product.getDataInserimento())%>"
         };
-    $("#btnAggiungiAlCarrello").on("click", function (){aggiornaCarrello(prodotto, "aggiungi")})
+    $("#btnAggiungiAlCarrello").on("click", function ()
+    {
+        prodotto.quantitaCarrello=$("#quantitaSpinner").spinner("value");
+        aggiornaCarrello(prodotto, "aggiungi");
+    });
+    redirectToCarrello();
 </script>
 
 </main>

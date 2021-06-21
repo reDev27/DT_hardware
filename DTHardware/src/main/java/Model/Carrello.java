@@ -15,7 +15,6 @@ public class Carrello extends ProductsArray
 
 	public void aggiungiProdotto(HttpServletRequest request)
 	{
-		HttpSession session=request.getSession();
 		Product product=new Product
 				(
 						request.getParameter("codiceABarre"),
@@ -26,7 +25,8 @@ public class Carrello extends ProductsArray
 						request.getParameter("modello"),
 						request.getParameter("immagine"),
 						Integer.parseInt(request.getParameter("quantitaProdotto")),
-						DateUtil.getCalendarFromString(request.getParameter("dataInserimento"))
+						DateUtil.getCalendarFromString(request.getParameter("dataInserimento")),
+						Integer.parseInt(request.getParameter("quantitaCarrello"))
 				);
 		getProdotti().add(product);
 	}

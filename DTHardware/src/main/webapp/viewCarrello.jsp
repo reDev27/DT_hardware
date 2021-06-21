@@ -1,4 +1,7 @@
-<%--
+<%@ page import="Model.Carrello" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Model.Product" %>
+<%@ page import="Model.DAO.DateUtil" %><%--
   Created by IntelliJ IDEA.
   User: rEDOx
   Date: 21/06/2021
@@ -8,8 +11,8 @@
 <head>
     <title>Carrello</title>
 </head>
-<script src="libraries/homepageUtilities.js"></script>
-<script src="libraries/viewProductUtilities.js"></script>
+<%Carrello carrello=(Carrello) session.getAttribute("carrello");%>
+<script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
@@ -36,8 +39,9 @@
     <div class="row">
             <div class="col-8">
                 <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%">
-                    <div class="card-block" style="padding: 1%">
+                    <div class="card-block row" style="padding: 1%">
                         <h1 class="h1-carrello" style=" margin-bottom:0; margin-top: 0;  margin-left: 2%; font-size: 16px">CARRELLO</h1>
+                        <div id="showProductDiv" class="row"></div>
                     </div>
                 </div>
             </div>
@@ -58,34 +62,64 @@
     </div>
 </div>
 
+  <div id="pieDiPagina" class="row jumbotron">
+      <div class="col-4">
+          <span id="infoSpan" class="row">
+            <h5 class="col-12">Informazioni</h5>
+            <a class="col-12" href="homepage.html">Termini e condizioni</a>
+            <a class="col-12" href="homepage.html">Metodi di pagamento</a>
+            <a class="col-12" href="homepage.html">Politiche di reso</a>
+          </span>
+      </div>
+      <div class="col-4">
+          <span id="accountSpan" class="row">
+            <h5 class="col-12 text-center">Il tuo account</h5>
+            <a class="col-12 text-center" href="homepage.html">Informazioni personali</a>
+            <a class="col-12 text-center" href="homepage.html">Ordini</a>
+            <a class="col-12 text-center" href="homepage.html">Indirizzi</a>
+          </span>
+      </div>
+      <div class="col-4">
+          <span id="contattaciSpan" class="row">
+            <h5 class="col-12 text-end">Contattaci</h5>
+            <a class="col-12 text-end" href="homepage.html">Via pippo 5</a>
+            <a class="col-12 text-end" href="homepage.html">0123456789</a>
+            <a class="col-12 text-end" href="homepage.html">ciao@hello.com</a>
+          </span>
+      </div>
+  </div>
 
+  <script>
+      var products=[];
+      <%
 
-    <div id="pieDiPagina" class="row jumbotron">
-        <div class="col-4">
-    <span id="infoSpan" class="row">
-      <h5 class="col-12">Informazioni</h5>
-      <a class="col-12" href="homepage.html">Termini e condizioni</a>
-      <a class="col-12" href="homepage.html">Metodi di pagamento</a>
-      <a class="col-12" href="homepage.html">Politiche di reso</a>
-     </span>
-        </div>
-        <div class="col-4">
-    <span id="accountSpan" class="row">
-      <h5 class="col-12 text-center">Il tuo account</h5>
-      <a class="col-12 text-center" href="homepage.html">Informazioni personali</a>
-      <a class="col-12 text-center" href="homepage.html">Ordini</a>
-      <a class="col-12 text-center" href="homepage.html">Indirizzi</a>
-     </span>
-        </div>
-        <div class="col-4">
-    <span id="contattaciSpan" class="row">
-      <h5 class="col-12 text-end">Contattaci</h5>
-      <a class="col-12 text-end" href="homepage.html">Via pippo 5</a>
-      <a class="col-12 text-end" href="homepage.html">0123456789</a>
-      <a class="col-12 text-end" href="homepage.html">ciao@hello.com</a>
-     </span>
-        </div>
-    </div>
+         if(carrello!=null)
+         {
+         	ArrayList<Product> prodotti=carrello.getProdotti();
+            for(int i=0;i<prodotti.size(); i++)
+            {
+      %>
+            products.push
+            ({
+                  "codiceABarre": "<%= prodotti.get(i).getCodiceABarre()%>",
+                  "marca": "<%= prodotti.get(i).getMarca()%>",
+                  "modello": "<%= prodotti.get(i).getModello()%>",
+                  "prezzo": <%= prodotti.get(i).getPrezzo()%>,
+                  "descrizione": "<%= prodotti.get(i).getDescrizione()%>",
+                  "specifiche": "<%= prodotti.get(i).getSpecifiche()%>",
+                  "immagine": "<%= prodotti.get(i).getImmagine()%>",
+                  "disponibilita": <%= prodotti.get(i).isDisponibilita()%>,
+                  "quantitaProdotto": <%= prodotti.get(i).getQuantitaProdotto()%>,
+                  "dataInserimento": "<%= DateUtil.getStringFromCalendar(prodotti.get(i).getDataInserimento())%>",
+                  "quantitaCarrello": <%= prodotti.get(i).getQuantitaCarrello()%>
+              });
+      <%
+            }
+         }
+      %>
+      showCarrello(products)
+
+  </script>
 </main>
 </body>
 </html>

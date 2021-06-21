@@ -9,12 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;aggiunta chiamata ajax per permettere la gestione del carrello;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix alla servlet del carrello e alla relativa classe;&#10;nuova jsp per gestire il carrello;&#10;fix minori.">
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/updateCarrelloServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/updateCarrelloServ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Carrello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Carrello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/homepageUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/viewProductUtilities.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" afterDir="false" />
     </list>
@@ -45,7 +51,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -111,19 +116,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/homepage.html" />
+      <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
       <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
         <artifact name="DTHardware:war exploded">
@@ -297,14 +292,8 @@
       <workItem from="1624189168620" duration="3873000" />
       <workItem from="1624209382814" duration="12000" />
       <workItem from="1624213967521" duration="847000" />
-      <workItem from="1624260501736" duration="4504000" />
-    </task>
-    <task id="LOCAL-00041" summary="aggiornamenti vari">
-      <created>1621589935537</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1621589935537</updated>
+      <workItem from="1624260501736" duration="12544000" />
+      <workItem from="1624283407798" duration="13137000" />
     </task>
     <task id="LOCAL-00042" summary="aggiornamenti vari">
       <created>1621589985021</created>
@@ -642,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624200329764</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="fix alla servlet del carrello e alla relativa classe;&#10;nuova jsp per gestire il carrello;&#10;fix minori.">
+      <created>1624267857009</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1624267857010</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,7 +658,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="some stuff" />
     <MESSAGE value="aggiornati i bean per supportare il crd.json;&#10;aggiornate le classi ProductsArray e CategoriesArray con funzioni per supportare la conversione IN e DA json;&#10;aggiornata la servlet che fornisce i prodotti della categoria richiesta;&#10;adattamento di tutte le classi ai nuovi metodi;&#10;altri fix minori." />
     <MESSAGE value="nuovo file jsp per creare la homepage (prime prove ajax/jquery);&#10;aggiunta la libreria jquery;&#10;aggiornata la servlet per le categorie;&#10;altri fix minori." />
     <MESSAGE value="creata classe per gestire il downgrade delle immagine da un byte[];&#10;aggiornate le classi di bean e DAO per supportare il nuovo campo &quot;datainserimento&quot;;&#10;aggiornate le classi product e ProductsArray per supportare le nuove funzioni di bean e DAO;&#10;altri fix minori." />
@@ -687,7 +682,8 @@
     <MESSAGE value="aggiunti tutti i parametri necessari nella finestra di visualizzazione del prodotto;&#10;fix impaginazione nella viewProduct.jsp;&#10;fix minori." />
     <MESSAGE value="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;fix minori." />
     <MESSAGE value="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;aggiunta chiamata ajax per permettere la gestione del carrello;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;aggiunta chiamata ajax per permettere la gestione del carrello;&#10;fix minori." />
+    <MESSAGE value="fix alla servlet del carrello e alla relativa classe;&#10;nuova jsp per gestire il carrello;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix alla servlet del carrello e alla relativa classe;&#10;nuova jsp per gestire il carrello;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -697,14 +693,33 @@
           <line>12</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Model/Carrello.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp</url>
+          <line>98</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js</url>
+          <line>13</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="prodotti" />
+      </configuration>
       <configuration name="JavascriptDebugType">
-        <watch expression="data[0].nome" language="JavaScript" />
+        <watch expression="product" />
       </configuration>
     </watches-manager>
   </component>

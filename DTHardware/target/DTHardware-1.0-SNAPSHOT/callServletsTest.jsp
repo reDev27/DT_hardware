@@ -28,8 +28,13 @@
 
 <h6>
 
-    <% Carrello carrello=(Carrello) session.getAttribute("carrello");%>
-    <%= carrello.getProdotti().get(0).getCodiceABarre()+ ", " + carrello.getProdotti().get(1).getCodiceABarre()%>
+    <%
+        Carrello carrello=(Carrello) session.getAttribute("carrello");
+        for(int i=0;i<carrello.getProdotti().size(); i++)
+        {
+    %>
+    <%= carrello.getProdotti().get(i).getCodiceABarre() + " "%>
+    <%}%>
 </h6>
 </body>
 </html>

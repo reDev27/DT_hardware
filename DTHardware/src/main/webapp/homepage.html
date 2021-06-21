@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<script src="libraries/homepageUtilities.js"></script>
+<script src="libraries/Utilities.js"></script>
 <link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
@@ -53,7 +53,7 @@
   <span class="row" id="searchAndCarrello">
     <span class="cols-4" id="logoSpan"><a href="homepage.html"><img  src="image/logo.png" width="100%" id="logoIcon"></a></span>
     <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
-    <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
+    <span class="cols-4" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
   </span>
 
 <div class="row" style="margin-top: 3%">
@@ -123,7 +123,6 @@
             }
     );
 
-    var prodotti;
     $.ajax
     (
             {
@@ -142,13 +141,7 @@
               }
             }
     );
-    $(
-            /*function()
-            {
-              $( "#selectableTableProducts" ).selectable();
-            }*/
-    );
-
+    redirectToCarrello();
   </script>
 
 </main>

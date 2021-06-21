@@ -33,6 +33,33 @@
   </span>
 
 
+    <div class="row">
+            <div class="col-8">
+                <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%">
+                    <div class="card-block" style="padding: 1%">
+                        <h1 class="h1-carrello" style=" margin-bottom:0; margin-top: 0;  margin-left: 2%; font-size: 16px">CARRELLO</h1>
+                    </div>
+                </div>
+            </div>
+    <div class="col-3 " style="float: right; margin-top: 1.5%; margin-left: 8%">
+        <div class="card cart-summary">
+                <div class="cart-summary-line">
+                    <span class="label"> Articoli </span>
+                    <span class="value" style="float: right; margin-right: 5%"> $</span>
+                </div>
+            <div class = "card-block" style="border: 1px solid rgba(165, 141, 141, 0.46)">
+                <div class="summary">
+                    <span class="label-total">Totale</span>
+                    <span class="value-total" style="float: right; margin-right: 5%">$</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
     <div id="pieDiPagina" class="row jumbotron">
         <div class="col-4">
     <span id="infoSpan" class="row">

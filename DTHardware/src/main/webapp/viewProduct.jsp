@@ -7,9 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="it">
+<% Product product=(Product) request.getAttribute("product");%>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title><%= product.getMarca() + " " + product.getModello()%>></title>
 </head>
 <script src="libraries/homepageUtilities.js"></script>
 <script src="libraries/viewProductUtilities.js"></script>
@@ -86,7 +87,7 @@
     <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
   </span>
 
-<% Product product=(Product) request.getAttribute("product");%>
+
 <div class="row" style="margin-top: 3%">
   <span class="col-3">
     <h4 style="margin-left: 5%">Categorie</h4>
@@ -102,7 +103,7 @@
         <span class="col-6">
             <span class="col-12"><h4 id="headerProducts"> <%=product.getMarca()%></h4><h5 style="margin-top: 7px"><%=product.getModello()%></h5></span>
             <span class="col-12" style="display: flex"><p>Identificativo: </p><%=product.getCodiceABarre()%></span>
-            <span class="col-12" style="display: flex"><b class="text-success" style="font-family: Helvetica,serif; font-size: 150%"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 2%; margin-left: 4%">tasse incluse</p></span>
+            <span class="col-12" style="display: flex"><b class="text-success" style="font-family: Helvetica,serif; font-size: 150%"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 1%; margin-left: 4%">tasse incluse</p></span>
             <span class="col-12" style="display: flex"><p id="spinnerParag" style="width: 50%"> <label for="quantitaSpinner">Quantità:</label><input id="quantitaSpinner" name="spinner" value="1" style="width: 80% ;margin:1%"></p></span>
             <span class="col-12" ><button id="btnAggiungiAlCarrello" type="button" class="btn btn-success">Aggiungi al carrello</button></span>
             <span class="col-12" style="display: block"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Model.Carrello" %><%--
   Created by IntelliJ IDEA.
   User: rEDOx
   Date: 01/06/2021
@@ -25,5 +25,11 @@
         }
     );
 </script>
+
+<h6>
+
+    <% Carrello carrello=(Carrello) session.getAttribute("carrello");%>
+    <%= carrello.getProdotti().get(0).getCodiceABarre()+ ", " + carrello.getProdotti().get(1).getCodiceABarre()%>
+</h6>
 </body>
 </html>

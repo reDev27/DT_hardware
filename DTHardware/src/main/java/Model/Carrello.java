@@ -28,14 +28,10 @@ public class Carrello extends ProductsArray
 						Integer.parseInt(request.getParameter("quantitaProdotto")),
 						DateUtil.getCalendarFromString(request.getParameter("dataInserimento"))
 				);
-		Carrello carrello= (Carrello) session.getAttribute("carrello");
-		if(carrello==null)
-			carrello=new Carrello();
-		carrello.getProdotti().add(product);
-		session.setAttribute("carrello", carrello);
+		getProdotti().add(product);
 	}
 
-	public void eliminaProdotto(String id, HttpSession session)
+	public void eliminaProdotto(String id)
 	{
 		if(id==null)
 			return;
@@ -50,8 +46,5 @@ public class Carrello extends ProductsArray
 			}
 			i++;
 		}
-		Carrello carrello= (Carrello) session.getAttribute("carrello");
-		if(carrello!=null)
-			session.setAttribute("carrello", carrello);
 	}
 }

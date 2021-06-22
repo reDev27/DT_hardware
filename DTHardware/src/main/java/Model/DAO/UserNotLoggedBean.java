@@ -18,6 +18,25 @@ import java.util.Map;
 
 public class UserNotLoggedBean
 {
+	public static String callIsAvailableProduct(String codiceABarre, int quantita, ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		String codiceDaRestituire;
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		ResultSet result=connection.isAvailableProduct(codiceABarre, quantita, crd.getUsername(), crd.getPass());
+		try
+		{
+			result.next();
+			codiceDaRestituire=result.getString("codiceBarre");
+		}
+		catch (SQLException e)
+		{
+			codiceDaRestituire=null;
+		}
+		return codiceDaRestituire;
+	}
+
 	public static ArrayList<Product> callSelectMostRecentProducts(ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
@@ -43,6 +62,7 @@ public class UserNotLoggedBean
 		}
 		return resultsArray;
 	}
+
 	public static ArrayList<Product> callSelectProdottoByCategoria(String categoria, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);

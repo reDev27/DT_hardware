@@ -29,11 +29,11 @@
     </span>
     </header>
 
-    <span class="row" id="searchAndCarrello">
-    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
-    <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
-    <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
-  </span>
+<span class="row" id="searchAndCarrello">
+   <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
+   <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
+   <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
+</span>
 
 
 <div class="row">
@@ -47,16 +47,26 @@
             </div>
     <div class="col-3" style="float: right; margin-top: 1.5%; margin-left: 8%">
         <div class="card cart-summary">
-                <div class="cart-summary-line">
-                    <span class="label"> Quantità </span>
-                    <span id="nQuantitaTotale" class="value" style="float: right; margin-right: 5%"> $</span>
+                <div class="cart-summary-line row">
+                    <span class="">
+                        <span class="label"> Quantità </span>
+                        <span id="nQuantitaTotale" class="value" style="float: right; margin-right: 5%">0</span>
+                    </span>
+                    <span>
+                        <span>Spedizione</span>
+                        <span style="float: right; margin-right: 5%">9.90 &#x20AC</span>
+                    </span>
+                    <span>
+                        <span>Sub-totale</span>
+                        <span id="subTotalValue" style="float: right; margin-right: 5%">0 &#x20AC</span>
+                    </span>
                 </div>
             <div class = "card-block" style="border: 1px solid rgba(165, 141, 141, 0.46)">
                 <div class="summary">
-                    <span class="label-total">Totale</span>
-                    <span class="value-total" style="float: right; margin-right: 5%">$</span>
+                    <span class="label-total row"><h5 class="col-6">Totale</h5><h5 id="totalValue" class="value-total text-end col-6" style="padding-right: 8%">0 &#x20AC</h5></span>
                 </div>
             </div>
+            <button id="btnCheckOut" class="btn btn-success" style="margin-top: 5%">Procedi al check-out</button>
         </div>
     </div>
 </div>
@@ -112,7 +122,7 @@
                   "quantitaProdotto": <%= prodotti.get(i).getQuantitaProdotto()%>,
                   "dataInserimento": "<%= DateUtil.getStringFromCalendar(prodotti.get(i).getDataInserimento())%>",
                   "quantitaCarrello": <%= prodotti.get(i).getQuantitaCarrello()%>
-              });
+            });
       <%
             }
          }
@@ -120,6 +130,8 @@
       var quantitaCarrelloTotale="" + calcolaTotaleQuantita(products);
       document.getElementById("nQuantitaTotale").innerHTML=quantitaCarrelloTotale;
       showCarrello(products);
+      calcolaTotaleSpese(products);
+      checkOut();
   </script>
 </main>
 </body>

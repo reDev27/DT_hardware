@@ -192,7 +192,7 @@
             },
             error: function (){alert("error")}
         }
-    )
+    );
 
     var spinner = $( "#quantitaSpinner" ).spinner();
     var prodotto=
@@ -211,7 +211,7 @@
     $("#btnAggiungiAlCarrello").on("click", function ()
     {
         prodotto.quantitaCarrello=$("#quantitaSpinner").spinner("value");
-        aggiornaCarrello(prodotto, "aggiungi");
+        aggiornaCarrello(prodotto);
     });
     redirectToCarrello();
 </script>

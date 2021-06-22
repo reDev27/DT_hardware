@@ -36,26 +36,25 @@
   </span>
 
 
-    <div class="row">
+<div class="row">
             <div class="col-8">
-                <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%">
-                    <div class="card-block row" style="padding: 1%">
-                        <h1 class="h1-carrello" style=" margin-bottom:0; margin-top: 0;  margin-left: 2%; font-size: 16px">CARRELLO</h1>
+                <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%; margin-left: 1%">
+                    <div class="card-block row" style="padding: 1%; margin: 0 1%">
+                        <h1 class="h1-carrello" style=" margin-bottom:0; margin-top: 0; padding-bottom: 1%; padding-left:0;  font-size: 25px">CARRELLO</h1>
                         <div id="showProductDiv" class="row"></div>
                     </div>
                 </div>
             </div>
-    <div class="col-3 " style="float: right; margin-top: 1.5%; margin-left: 8%">
+    <div class="col-3" style="float: right; margin-top: 1.5%; margin-left: 8%">
         <div class="card cart-summary">
                 <div class="cart-summary-line">
-                    <span class="label"> Articoli </span>
-                    <span class="value" style="float: right; margin-right: 5%"> $</span>
+                    <span class="label"> Quantità </span>
+                    <span id="nQuantitaTotale" class="value" style="float: right; margin-right: 5%"> $</span>
                 </div>
             <div class = "card-block" style="border: 1px solid rgba(165, 141, 141, 0.46)">
                 <div class="summary">
                     <span class="label-total">Totale</span>
                     <span class="value-total" style="float: right; margin-right: 5%">$</span>
-                    </span>
                 </div>
             </div>
         </div>
@@ -90,6 +89,7 @@
   </div>
 
   <script>
+
       var products=[];
       <%
 
@@ -117,8 +117,9 @@
             }
          }
       %>
-      showCarrello(products)
-
+      var quantitaCarrelloTotale="" + calcolaTotaleQuantita(products);
+      document.getElementById("nQuantitaTotale").innerHTML=quantitaCarrelloTotale;
+      showCarrello(products);
   </script>
 </main>
 </body>

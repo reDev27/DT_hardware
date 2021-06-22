@@ -1,17 +1,45 @@
+function calcolaTotaleQuantita(products)
+{
+    let n=products.length;
+    let totale=0;
+    for(let i=0; i<n; i++)
+    {
+        totale+=products[i].quantitaCarrello;
+    }
+    return totale;
+}
+
 function showCarrello(products)
 {
     let newRows="";
-    var n=products.length;
+    let n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<span style='display: flex; border: #022a0c solid; align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span style='display: flex'><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6>" + products[i].prezzo + "</h6><p>" + products[i].quantitaCarrello + "</p></span></span>";
+        newRows += "<span id='prodotto"+i+"' style='display: flex; border: #022a0c solid; align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline' ><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo + "</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
     }
     document.getElementById("showProductDiv").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $( "#quantitaSpinner"+i ).spinner({
+            min: 1,
+            max: 2500,
+            step: 1,
+            start: 1,
+            numberFormat: "C"
+        });
+        $( "#quantitaSpinner"+i).spinner();
+        $("#spanInfoProdotto"+i+" .ui-spinner").css({"width" : "15%", "margin-left" : "3%", "margin-right" : "3%"});
+        $("#quantitaSpinner"+i).change(function (){products[i].quantitaCarrello=$("#quantitaSpinner"+i).spinner("value")-products[i].quantitaCarrello; aggiornaCarrello(products[i]);});
+        $("#spanInfoProdotto"+i+" .ui-spinner a").click(function ()
+        {
+            products[i].quantitaCarrello=$("#quantitaSpinner"+i).spinner("value")-products[i].quantitaCarrello>=0?1:-1;
+            aggiornaCarrello(products[i]);
+        });
+    }
 }
 
-function aggiornaCarrello(product, option)
+function aggiornaCarrello(product)
 {
-    product.option=option;
     $.ajax
     (
         {
@@ -84,7 +112,7 @@ function buildTableProductHomepage(products)
             let s=toStringDate(products[i].dataInserimento);
             products[i].dataInserimento=s;
             products[i].quantitaCarrello=1;
-            aggiornaCarrello(products[i], "aggiungi");
+            aggiornaCarrello(products[i]);
         });
         $("#prodotto"+i + " span img").on("click", function()
         {

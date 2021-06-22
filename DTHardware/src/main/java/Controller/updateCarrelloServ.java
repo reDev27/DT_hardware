@@ -28,18 +28,10 @@ public class updateCarrelloServ extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		HttpSession session=request.getSession();
-		String option= request.getParameter("option");
 		Carrello carrello= (Carrello) session.getAttribute("carrello");
 		if(carrello==null)
 			carrello=new Carrello();
-		if(option.compareToIgnoreCase("aggiungi")==0)
-		{
-			carrello.aggiungiProdotto(request);
-		}
-		else
-		{
-			carrello.eliminaProdotto(request.getParameter("codiceABarre"));
-		}
+		carrello.aggiornaCarrello(request);
 		session.setAttribute("carrello", carrello);
 	}
 }

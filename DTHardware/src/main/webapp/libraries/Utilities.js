@@ -34,9 +34,9 @@ function calcolaTotaleSpese(products)
     {
         totale+=products[i].quantitaCarrello*products[i].prezzo;
     }
-    document.getElementById("subTotalValue").innerHTML="" + totale + "&#x20AC";
+    document.getElementById("subTotalValue").innerHTML="" + totale.toFixed(2) + "&#x20AC";
     totale+=9.90;
-    document.getElementById("totalValue").innerHTML="" + totale + "&#x20AC";
+    document.getElementById("totalValue").innerHTML="" + totale.toFixed(2) + "&#x20AC";
 }
 
 function showCarrello(products)

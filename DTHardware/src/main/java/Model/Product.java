@@ -32,6 +32,21 @@ public class Product
 		setDataInserimento(dataInserimento);
 	}
 
+	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine,int quantitaProdotto, Calendar dataInserimento, int quantitaCarrello)
+	{
+		setCodiceABarre(codiceABarre);
+		setMarca(marca);
+		setModello(modello);
+		setPrezzo(prezzo);
+		setDescrizione(descrizione);
+		setSpecifiche(specifiche);
+		setImmagine(immagine);
+		setDisponibilita(quantitaProdotto > 0);
+		setQuantitaProdotto(quantitaProdotto);
+		setDataInserimento(dataInserimento);
+		setQuantitaCarrello(quantitaCarrello);
+	}
+
 /**
  * this function set the instance variables of THIS object with the result retried by database
  * @param codiceABarre string used to identify the product of you want to know attributes, is the code that identify the product
@@ -52,6 +67,7 @@ public class Product
 	private boolean disponibilita;
 	private int quantitaProdotto;
 	private Calendar dataInserimento;
+	private int quantitaCarrello;
 
 public String getMarca()
 {
@@ -132,5 +148,13 @@ public Calendar getDataInserimento()
 public void setDataInserimento(Calendar dataInserimento)
 {
 	this.dataInserimento = dataInserimento;
+}
+public int getQuantitaCarrello()
+{
+	return quantitaCarrello;
+}
+public void setQuantitaCarrello(int quantitaCarrello)
+{
+	this.quantitaCarrello = quantitaCarrello;
 }
 }

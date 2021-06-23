@@ -91,6 +91,16 @@ public class UserNotLoggedDAO extends BaseDAO
 		return getResult();
 	}
 
+	protected ResultSet isAvailableProduct(String codiceABarre, int quantita, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call isAvailableProduct(?, ?)}");
+		callableStatement.setString("codiceABarreIn", codiceABarre);
+		callableStatement.setInt("quantitaIn", quantita);
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	protected ResultSet selectCategoria(String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

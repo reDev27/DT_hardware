@@ -1,9 +1,21 @@
 package Model;
 
+import Model.DAO.UserNotLoggedBean;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Cliente
 {
+	public Cliente()
+	{
+
+	}
+
 	public Cliente(String username, String email, String nome, String cognome, String nTelefono, ArrayList<Address> addresses, ArrayList<CreditCard> creditCards)
 	{
 		setUsername(username);
@@ -15,6 +27,28 @@ public class Cliente
 		setCreditCards(creditCards);
 	}
 
+	/**
+	 * "a" is for Admin, "l" is for del Logged user, "n" is for the Not logged user
+	 * @param username the
+	 * @param password
+	 * @param context
+	 * @param session isUsed to store the information of the authenticated user;
+	 * @return true if is logged or false if not
+	 * @throws SQLException
+	 * @throws NoSuchAlgorithmException
+	 * @throws IOException
+	 */
+	public boolean authUser(String username, String password, ServletContext context, HttpSession session) throws SQLException, NoSuchAlgorithmException, IOException
+	{
+		boolean isLogged=UserNotLoggedBean.callLogin(context, username, password);
+		if(isLogged && username.compareTo("admin")==0)
+			session.setAttribute("isL", "a");
+		else if(isLogged)
+			session.setAttribute("isL", "l");
+		else
+			session.setAttribute("isL", "n");
+		return isLogged;
+	}
 
 	private String username;
 	private String email;

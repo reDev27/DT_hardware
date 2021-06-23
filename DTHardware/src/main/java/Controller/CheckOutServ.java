@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(name="CheckOutServ" , value = "/CheckOutServ")
 public class CheckOutServ extends HttpServlet
@@ -18,11 +19,11 @@ public class CheckOutServ extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		Carrello carrello= (Carrello) request.getSession().getAttribute("carrello");
+		ArrayList<String> notAvailableProducts;
 		//verifica utente
-		//verifica disponibilità prodotto
 		try
 		{
-			carrello.verifyAvailability(request.getServletContext());
+			notAvailableProducts=carrello.verifyAvailability(request.getServletContext());
 		}
 		catch (SQLException throwables)
 		{

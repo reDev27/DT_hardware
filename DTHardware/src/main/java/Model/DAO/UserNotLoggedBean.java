@@ -34,6 +34,7 @@ public class UserNotLoggedBean
 		{
 			codiceDaRestituire=null;
 		}
+		connection.destroy();
 		return codiceDaRestituire;
 	}
 
@@ -60,6 +61,7 @@ public class UserNotLoggedBean
 			);
 			resultsArray.add(prodotto);
 		}
+		connection.destroy();
 		return resultsArray;
 	}
 

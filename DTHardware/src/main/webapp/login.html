@@ -9,8 +9,13 @@
 	<link rel="stylesheet" href="style.css">
 	
 </head>
+<script src="libraries/jQuery_current.js"></script>
+<script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
+<script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 		<body background="">
-		<form name="frm" action="" method="POST">
+		<form name="frm" action="AuthServ" method="POST">
 	<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo">Benvenuto</span>
@@ -21,20 +26,63 @@
 			</div>
 			<label for="email">Email</label>
 			<br>
-			<input type="text" id="email" placeholder="Email">
+			<input type="text" id="email" name="email" placeholder="Email">
 			<br>
 			<label for="psw">Password</label>
 			<br>
-			<input type="password" id="psw" placeholder="Password">
+			<input type="password" id="psw" name="pass" placeholder="Password">
 			<br>
 			<button type="submit">Sign In</button>
 			<br>
-			<a href=""><p class="small">Non sei ancora registrato? Iscriviti Qui!</p></a>
+			<a href="iscrizione.html"><p class="small">Non sei ancora registrato? Iscriviti Qui!</p></a>
 		</div>
 	</div>
-		
 
+	<script>
+		/*$( function() {
+			$( "#dialogEsito" ).dialog({
+				autoOpen: false,
+				show: {
+					effect: "blind",
+					duration: 1000
+				},
+				hide: {
+					effect: "explode",
+					duration: 1000
+				}
+			});})*/
+		$( function() {
+			$( "#dialogEsito" ).dialog({autoOpen: false});
+		} );
+	</script>
 
+	<div id="dialogEsito" title="Basic dialog">
+		<p id="esitoP"></p>
+	</div>
+<script>
+	var n=window.location.href.search("true");
+	if(n===-1)
+		n=window.location.href.search("false");
+	var end=""+window.location.href;
+	var s=window.location.href.slice(n, end.length);
+	$(document).ready(function (){
+	if(s.search("true")===0)
+	{
+		document.getElementById("esitoP").innerHTML="Login effettuato! Verrai reindirizzato alla homepage a breve.";
+		$("#dialogEsito").dialog("open");
+		setTimeout(function()
+		{
+			window.location.href="homepage.html";
+		},
+			3000
+		);
+	}
+	else if(s.search("false")===0)
+	{
+		document.getElementById("esitoP").innerHTML="Errore in fase di login. Prego, riprovare.";
+		$("#dialogEsito").dialog("open");
+	}})
+</script>
 </form>
 </body>
 </html>

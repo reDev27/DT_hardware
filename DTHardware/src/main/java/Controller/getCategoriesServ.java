@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.CategoriesArray;
+import Model.RequestUtility;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -19,6 +20,7 @@ public class getCategoriesServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
+		RequestUtility.checkIsLogged(request.getSession());
 		CategoriesArray categorie=new CategoriesArray();
 		try
 		{

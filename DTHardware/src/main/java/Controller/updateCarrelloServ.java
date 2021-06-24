@@ -4,6 +4,7 @@ import Model.Carrello;
 import Model.DAO.DateUtil;
 import Model.Product;
 import Model.ProductsArray;
+import Model.RequestUtility;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 
@@ -27,6 +28,7 @@ public class updateCarrelloServ extends HttpServlet
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
+		RequestUtility.checkIsLogged(request.getSession());
 		HttpSession session=request.getSession();
 		Carrello carrello= (Carrello) session.getAttribute("carrello");
 		if(carrello==null)

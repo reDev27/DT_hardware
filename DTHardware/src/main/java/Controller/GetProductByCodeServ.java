@@ -2,6 +2,7 @@ package Controller;
 
 import Model.DAO.UserNotLoggedBean;
 import Model.Product;
+import Model.RequestUtility;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ public class GetProductByCodeServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
+		RequestUtility.checkIsLogged(request.getSession());
 		String codiceABarre=request.getParameter("codiceABarre");
 		Product product=null;
 		try

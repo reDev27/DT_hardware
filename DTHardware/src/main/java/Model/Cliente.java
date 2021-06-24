@@ -40,13 +40,15 @@ public class Cliente
 	 */
 	public boolean authUser(String username, String password, ServletContext context, HttpSession session) throws SQLException, NoSuchAlgorithmException, IOException
 	{
-		boolean isLogged=UserNotLoggedBean.callLogin(context, username, password);
+		boolean isLogged=false;
+		if(username != null && password != null)
+			isLogged=UserNotLoggedBean.callLogin(context, username, password);
 		if(isLogged && username.compareTo("admin")==0)
-			session.setAttribute("isL", "a");
+			session.setAttribute("isLogged", "a");
 		else if(isLogged)
-			session.setAttribute("isL", "l");
+			session.setAttribute("isLogged", "l");
 		else
-			session.setAttribute("isL", "n");
+			session.setAttribute("isLogged", "n");
 		return isLogged;
 	}
 

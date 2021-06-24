@@ -1,3 +1,25 @@
+function isLogged()
+{
+    var bool=false;
+    $(document).ready(function ()
+    {
+        $.ajax
+        (
+            {
+                url : "IsLoggedServ",
+                method : "get",
+                dataType : "json",
+                success : function (data)
+                {
+                    bool=data.L;
+                },
+                error : function (){alert("error")}
+            }
+        );
+    })
+    return bool;
+}
+
 function checkOut()
 {
     $("#btnCheckOut").on("click", function ()

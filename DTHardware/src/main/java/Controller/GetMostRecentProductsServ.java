@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.ProductsArray;
+import Model.RequestUtility;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,7 @@ public class GetMostRecentProductsServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
+		RequestUtility.checkIsLogged(request.getSession());
 		ProductsArray productsArray=new ProductsArray();
 		try
 		{
@@ -28,7 +30,7 @@ public class GetMostRecentProductsServ extends HttpServlet
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer=response.getWriter();
-		String s=productsArray.getJsonFromThisObj(productsArray.getProdotti());
-		writer.write(s);
+		String toSend=productsArray.getJsonFromThisObj(productsArray.getProdotti());
+		writer.write(toSend);
 	}
 }

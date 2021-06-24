@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Cliente;
+import Model.RequestUtility;
 import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
@@ -17,16 +18,13 @@ public class AuthServ extends HttpServlet
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		String s= (String) request.getSession().getAttribute("isL");
-		if(s.compareTo("a")==0 || s.compareTo("l")==0)
-			response.getWriter().write("true");
-		else
-			response.getWriter().write("false");
+		request.getSession().setAttribute("isLogged", "n");
 	}
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
+		RequestUtility.checkIsLogged(request.getSession());
 		Cliente user=new Cliente();
 		boolean isLogged=false;
 		try

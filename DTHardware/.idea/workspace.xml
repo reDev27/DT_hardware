@@ -9,9 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornata servlet per l'autenticazione;&#10;aggiornati bean, DAO e wrapper per supportare la  servlet del punto precedente;&#10;aggiornata pagina di login;&#10;fix minori.">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="login aggiornato.">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/IsLoggedServ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/RequestUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GetProductByCodeServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GetProductByCodeServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/HomepageServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/HomepageServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SetProductServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SetProductServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getCategoriesServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getCategoriesServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getProductByCategoryServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getProductByCategoryServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/updateCarrelloServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/updateCarrelloServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
@@ -34,13 +49,14 @@
         <option value="JavaScript File" />
         <option value="jsp_with_jquery" />
         <option value="Jsp File" />
-        <option value="Servlet template" />
         <option value="Class" />
+        <option value="Servlet template" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -106,6 +122,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/GeneraleServ" />
       <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
@@ -290,28 +317,9 @@
       <workItem from="1624369645872" duration="13376000" />
       <workItem from="1624386143051" duration="420000" />
       <workItem from="1624434945147" duration="11567000" />
-      <workItem from="1624447497996" duration="345000" />
-    </task>
-    <task id="LOCAL-00046" summary="aggiornamenti vari">
-      <created>1621593209485</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1621593209485</updated>
-    </task>
-    <task id="LOCAL-00047" summary="aggiornamenti vari">
-      <created>1621593230429</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1621593230429</updated>
-    </task>
-    <task id="LOCAL-00048" summary="aggiornamenti vari">
-      <created>1622280798669</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1622280798669</updated>
+      <workItem from="1624447497996" duration="433000" />
+      <workItem from="1624458729020" duration="228000" />
+      <workItem from="1624540229224" duration="6460000" />
     </task>
     <task id="LOCAL-00049" summary="aggiornamenti vari">
       <created>1622288505824</created>
@@ -635,7 +643,28 @@
       <option name="project" value="LOCAL" />
       <updated>1624447426500</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="fix all'arrotondamento delle cifre nella pagina del carrello;&#10;fix minori.">
+      <created>1624447922957</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1624447922958</updated>
+    </task>
+    <task id="LOCAL-00096" summary="logo aggiornato.">
+      <created>1624545372479</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1624545372480</updated>
+    </task>
+    <task id="LOCAL-00097" summary="login aggiornato.">
+      <created>1624546178435</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1624546178435</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,9 +684,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornamenti vari" />
-    <MESSAGE value="correzione funzione buildTableCategories per la costruzione della table in base alle categorie;&#10;fix minori." />
-    <MESSAGE value="piccoli test" />
     <MESSAGE value="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori." />
     <MESSAGE value="test impaginazione homepage" />
     <MESSAGE value="fix procedure per prendere un prodotto dal db tramite codice a barre;&#10;fix di tutti i DAO e bean relativi al punto precedente;&#10;fix minori." />
@@ -680,22 +706,13 @@
     <MESSAGE value="aggiornati metordi della classe carrello per una migliore gestione dei prodotti in esso;&#10;aggiornate tutte le pagine per fare in modo che aggiungano o tolgano gli elementi correttamente dal carrello;&#10;aggiornata la libreria utilities.js;&#10;fix minori." />
     <MESSAGE value="aggiornata pagina carrello e ultimata impaginazione;&#10;nuova stored procedure per verificare la disponibilità di un prodotto al momento dell'acquisto;&#10;aggiornati bean e DAO relativi al punto precedente;&#10;nuova servlet per gestire il check-out(al momento supporta calcolo totale e verifica disponibilità);&#10;fix bug quantità dei prodotti presenti nel carrello;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet per l'autenticazione;&#10;aggiornati bean, DAO e wrapper per supportare la  servlet del punto precedente;&#10;aggiornata pagina di login;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornata servlet per l'autenticazione;&#10;aggiornati bean, DAO e wrapper per supportare la  servlet del punto precedente;&#10;aggiornata pagina di login;&#10;fix minori." />
+    <MESSAGE value="fix all'arrotondamento delle cifre nella pagina del carrello;&#10;fix minori." />
+    <MESSAGE value="logo aggiornato." />
+    <MESSAGE value="login aggiornato." />
+    <option name="LAST_COMMIT_MESSAGE" value="login aggiornato." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/DAO/AdminDAO.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/Carrello.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
       </default-breakpoints>

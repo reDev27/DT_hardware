@@ -60,28 +60,62 @@
 		<p id="esitoP"></p>
 	</div>
 <script>
-	var n=window.location.href.search("true");
-	if(n===-1)
-		n=window.location.href.search("false");
-	var end=""+window.location.href;
-	var s=window.location.href.slice(n, end.length);
-	$(document).ready(function (){
-	if(s.search("true")===0)
+
+	//86d804h
+	if(isLogged())
 	{
-		document.getElementById("esitoP").innerHTML="Login effettuato! Verrai reindirizzato alla homepage a breve.";
+
+		document.getElementById("dialogEsito").title="Benvenuto";
+		document.getElementById("esitoP").innerHTML = "Login effettuato! Verrai reindirizzato alla homepage a breve.";
 		$("#dialogEsito").dialog("open");
-		setTimeout(function()
-		{
-			window.location.href="homepage.html";
-		},
+		setTimeout(function ()
+			{
+				window.location.href = "homepage.html";
+			},
 			3000
 		);
 	}
-	else if(s.search("false")===0)
+	else
 	{
-		document.getElementById("esitoP").innerHTML="Errore in fase di login. Prego, riprovare.";
+		document.getElementById("dialogEsito").title="Errore";
+		document.getElementById("esitoP").innerHTML = "Errore in fase di login. Prego, riprovare.";
 		$("#dialogEsito").dialog("open");
-	}})
+	}
+
+
+	$(document).ready(function ()
+	{
+		$.ajax
+		(
+			{
+				url : "IsLoggedServ",
+				method : "get",
+				dataType : "json",
+				success : function (data)
+				{
+					if(data.L)
+					{
+						document.getElementById("dialogEsito").title="Benvenuto";
+						document.getElementById("esitoP").innerHTML = "Login effettuato! Verrai reindirizzato alla homepage a breve.";
+						$("#dialogEsito").dialog("open");
+						setTimeout(function ()
+							{
+								window.location.href = "homepage.html";
+							},
+							3000
+						);
+					}
+					else
+					{
+						document.getElementById("dialogEsito").title="Errore";
+						document.getElementById("esitoP").innerHTML = "Errore in fase di login. Prego, riprovare.";
+						$("#dialogEsito").dialog("open");
+					}
+				},
+				error : function (){alert("error")}
+			}
+		);
+	})
 </script>
 </form>
 </body>

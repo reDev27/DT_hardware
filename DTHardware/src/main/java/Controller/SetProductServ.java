@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.RequestUtility;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +16,11 @@ public class SetProductServ extends HttpServlet
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		request.getParameter("img");
+		if(RequestUtility.checkIsLogged(request.getSession()).compareTo("a")==0)
+		{
+			request.getParameter("img");
+		}
+
 		/*RequestDispatcher dispatcher=request.getRequestDispatcher("");
 		dispatcher.forward(request, response);*/
 	}

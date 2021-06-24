@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.ProductsArray;
+import Model.RequestUtility;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ public class getProductByCategoryServ extends HttpServlet
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
+		RequestUtility.checkIsLogged(request.getSession());
 		ProductsArray productsArray=new ProductsArray();
 		String category=request.getParameter("category");
 		try

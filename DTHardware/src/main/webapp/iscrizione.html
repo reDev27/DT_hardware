@@ -1,40 +1,70 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-	<link rel="icon" href="">
+	<link rel="icon" href="image/logo_DT.png">
 	<meta charset="utf-8">
 	<title>Iscrizione</title>
 	<link rel="stylesheet" href="animate.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body background="">
+<body background="image/tema_verde.png">
 <form name="frm" action="" method="POST">
 	<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo">Benvenuto</span></h1>
-
 		</div>
 		<div class="login-box animated fadeInUp">
 			<div class="box-header">
 			<h2>Iscriviti</h2>
 			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="username" placeholder="Username">
+			<br/>
+			<label for="email">Email</label>
+			<br/>
+			<input type="email" id="email" placeholder="Email@email.com">
+			<br/>
 			<label for="nome">Nome</label>
 			<br/>
 			<input type="text" id="nome" placeholder="Nome">
 			<br/>
 			<label for="cognome">Cognome</label>
-			<br/>
+			</br>
 			<input type="text" id="cognome" placeholder="Cognome">
 			<br/>
-			<label for="email">Email</label>
+			<label for="ntelefono">Numero di Telefono</label>
 			</br>
-			<input type="text" id="email" placeholder="Email">
+			<input type="number" id="ntelefono" placeholder="Numero di telefono">
 			<br/>
-			<label for="psw">Password</label>
+			<label for="AddVia">Via</label>
 			</br>
-			<input type="password" id="psw" placeholder="Password">
+			<input type="text" id="AddVia" placeholder="via pippo">
+			<br/>
+			<label for="AddCivico">Numero Civico</label>
+			</br>
+			<input type="text" id="AddCivico" placeholder="Numero Civico">
+			<br/>
+			<label for="AddCitta">Città</label>
+			</br>
+			<input type="text" id="AddCitta" placeholder="Città">
+			<br/>
+			<label for="AddCap">Codice di avviamento postale</label>
+			</br>
+			<input type="number" id="AddCap" placeholder="CAP">
+			<br/>
+			<label for="NCarta">Numero di carta di credito</label>
+			</br>
+			<input type="number" id="Ncarta" placeholder="Numero di carta di credito">
+			<br/>
+			<label for="Scadenza">Data di scadenza carta</label>
+			</br>
+			<input type="date" id="Scadenza" placeholder="Data di scadenza">
+			<br/>
+			<label for="CVV">CVV</label>
+			</br>
+			<input type="number" id="CVV" placeholder="CVV">
 			<br/>
 			<button type="submit">Sign In</button>
 			<br/>

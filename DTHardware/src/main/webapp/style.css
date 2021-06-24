@@ -78,7 +78,7 @@ p.small {
 }
 
 .login-box .box-header {
-	background-color: blue;
+	background-color: #86d804;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
 }
@@ -118,7 +118,7 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: blue;
+	background-color: #86d804;
 	cursor:pointer;
 	outline: none;
 }

@@ -1,22 +1,19 @@
 function isLogged()
 {
     var bool=false;
-    $(document).ready(function ()
-    {
-        $.ajax
-        (
+    $.ajax
+    (
+        {
+            url : "IsLoggedServ",
+            method : "get",
+            dataType : "json",
+            success : function (data)
             {
-                url : "IsLoggedServ",
-                method : "get",
-                dataType : "json",
-                success : function (data)
-                {
                     bool=data.L;
-                },
-                error : function (){alert("error")}
-            }
-        );
-    })
+            },
+            error : function () {alert("error")}
+        }
+    );
     return bool;
 }
 

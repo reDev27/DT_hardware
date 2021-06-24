@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
 	<link rel="icon" href="image/logo_DT.png">
 	<meta charset="utf-8">
 	<title>Iscrizione</title>
-	<link rel="stylesheet" href="animate.css">
-	<link rel="stylesheet" href="style.css">
 </head>
-
+<link rel="stylesheet" href="animate.css">
+<link rel="stylesheet" href="style.css">
+<script src="libraries/jQuery_current.js"></script>
+<script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
+<script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 <body background="image/tema_verde.png">
-<form name="frm" action="" method="POST">
+<form name="frm" action="RegisterServ" method="POST">
+	<script>
+		$( function() {
+			$( "#checkCarta" ).checkboxradio();
+		} );
+	</script>
 	<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo">Benvenuto</span></h1>
@@ -40,7 +49,7 @@
 			<br/>
 			<label for="ntelefono">Numero di Telefono</label>
 			</br>
-			<input type="number" id="ntelefono" name="ntelefono" placeholder="Numero di telefono">
+			<input type="tel" id="ntelefono" name="ntelefono" placeholder="Numero di telefono">
 			<br/>
 			<label for="AddVia">Via</label>
 			</br>
@@ -51,30 +60,226 @@
 			<input type="text" id="AddCivico" name="AddCivico" placeholder="Numero Civico">
 			<br/>
 			<label for="AddCitta">Città</label>
-			</br>
+			<br>
 			<input type="text" id="AddCitta" name="AddCitta" placeholder="Città">
 			<br/>
 			<label for="AddCap">Codice di avviamento postale</label>
-			</br>
-			<input type="number" id="AddCap" name="AddCap" placeholder="CAP">
+			<input type="text" id="AddCap" name="AddCap" placeholder="CAP">
 			<br/>
+			<input id="checkCarta" type="checkbox" name="checkCarta"><label for="checkCarta" style="margin-left: 5%">Carta di credito</label>
 			<label for="NCarta">Numero di carta di credito</label>
-			</br>
-			<input type="number" id="Ncarta" name="Ncarta" placeholder="Numero di carta di credito">
+			<input type="text" id="Ncarta" name="Ncarta" placeholder="Numero di carta di credito">
 			<br/>
 			<label for="scadenza">Data di scadenza carta</label>
-			</br>
 			<input type="date" id="scadenza" name="scadenza" placeholder="Data di scadenza">
 			<br/>
 			<label for="CVV">CVV</label>
-			</br>
-			<input type="number" id="CVV" name="CVV" placeholder="CVV">
+			<br>
+			<input type="text" id="CVV" name="CVV" placeholder="CVV">
 			<br/>
-			<button type="submit">Sign In</button>
+			<button id="btnInvio" type="submit">Sign In</button>
 			<br/>
 			<a href="login.html"><p class="small">Sei  già registrato? Accedi Qui!</p></a>
+
 		</div>
 	</div>
 </form>
+
+<script>
+	$( function() {
+		$( "#dialogEsito" ).dialog({autoOpen: false});
+	} );
+</script>
+
+<div id="dialogEsito" title="Ciao">
+	<p id="esitoP"></p>
+</div>
+
+<script>
+	//$("button").prop("disabled", true);
+
+	$("#username").change(function ()
+	{
+		var username=document.getElementById("username").value;
+		if(/\s/.test(username) || username.length>30) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Username non può contenere spazi ed ha una lunghezza massima di 30 caratteri.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#psw").change(function ()
+	{
+		var psw=document.getElementById("psw").value;
+		if(/\s/.test(psw) || !/[A-Z]+/.test(psw) || !/[a-z]+/.test(psw) || !/[0-9]+/.test(psw) || psw.length>20 && psw.length<6) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Password non può contenere spazi, ha una lunghezza massima di 20 caratteri, una lunghezza minima di 6 caratteri, " +
+				"Deve contenere almeno una lettera maiuscola, una minuscola e un numero.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#nome").change(function ()
+	{
+		var nome=document.getElementById("nome").value;
+		if(/\s/.test(nome) || nome.length>50 || !/\b[A-Z]/.test(nome)) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Nome non può contenere spazi, ha una lunghezza massima di 50 caratteri e la prima lettera deve essre maiuscola.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#cognome").change(function ()
+	{
+		var cognome=document.getElementById("nome").value;
+		if(/\s/.test(cognome) || cognome.length>50 || !/\b[A-Z]/.test(cognome)) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Cognome non può contenere spazi, ha una lunghezza massima di 50 caratteri e la prima lettera deve essre maiuscola.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#ntelefono").change(function ()
+	{
+		var telefono=document.getElementById("ntelefono").value;
+		if(/\s/.test(telefono) || telefono.length!==10 || !/[0-9]/g.test(telefono)) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Numero di telefono non può contenere spazi, ha una lunghezza fissata di 10 caratteri e può contenere solo cifre numeriche.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#AddVia").change(function ()
+	{
+		var via=document.getElementById("AddVia").value;
+		if(via.length>50) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Via ha una lunghezza massima di 50 caratteri.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#AddCivico").change(function ()
+	{
+		var civico=document.getElementById("AddCivico").value;
+		if(/\s/.test(civico) || !/[0-9]/g.test(civico)) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Numero civico non può contenere spazi e può contenere solo cifre numeriche.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#AddCitta").change(function ()
+	{
+		var citta=document.getElementById("AddCitta").value;
+		if(citta.length>20 || /[0-9]/.test(citta)) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Città ha una lunghezza massima di 20 caratteri e non può contenere cifre numeriche.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#AddCap").change(function ()
+	{
+		var cap=document.getElementById("AddCap").value;
+		if(/\s/.test(cap) || !/[0-9]/g.test(cap) || cap.length!==5) {
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "CAP non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 5.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#Ncarta").change(function ()
+	{
+		var nCarta=document.getElementById("Ncarta").value;
+		if(/\s/.test(nCarta) && nCarta.length!==12 && !/\b[0-9]/g.test(nCarta)) {
+
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "Numero carta non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 12.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+	$("#CVV").change(function ()
+	{
+		var cvv=document.getElementById("CVV").value;
+		if(/\s/.test(cvv) || cvv.length!==3 || !/\b[0-9]/g.test(cvv))
+		{
+			$( "#dialogEsito" ).dialog({
+				title: "Espressione non valida"
+			});
+			document.getElementById("esitoP").innerHTML = "CVV non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 3.";
+			$("#dialogEsito").dialog("open");
+			$("#btnInvio").prop("disabled", true);
+		}
+		else
+		{
+			$("#btnInvio").prop("disabled", false);
+		}
+	})
+
+
+</script>
+
 </body>
 </html>

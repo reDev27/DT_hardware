@@ -9,25 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="login aggiornato.">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/IsLoggedServ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/RequestUtility.java" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti alle servlet per verificare il tipo di utente attualmente connesso;&#10;aggiornato il metodo di autenticazione;&#10;nuova servlet per capire se l'utente attualmente collegato è loggato e meno;&#10;aggiornata la pagina di login(da finire);&#10;fix minori.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/RegisterServ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GetMostRecentProductsServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GetProductByCodeServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GetProductByCodeServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/HomepageServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/HomepageServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SetProductServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SetProductServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getCategoriesServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getCategoriesServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/getProductByCategoryServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/getProductByCategoryServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/updateCarrelloServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/updateCarrelloServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/callServletsTest.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/iscrizione.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/iscrizione.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/callServletsTest.jsp" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +41,7 @@
         <option value="jsp_with_jquery" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="HTTP Request" />
         <option value="Servlet template" />
       </list>
     </option>
@@ -319,14 +311,7 @@
       <workItem from="1624434945147" duration="11567000" />
       <workItem from="1624447497996" duration="433000" />
       <workItem from="1624458729020" duration="228000" />
-      <workItem from="1624540229224" duration="6460000" />
-    </task>
-    <task id="LOCAL-00049" summary="aggiornamenti vari">
-      <created>1622288505824</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1622288505824</updated>
+      <workItem from="1624540229224" duration="20369000" />
     </task>
     <task id="LOCAL-00050" summary="aggiornamenti vari">
       <created>1622304395588</created>
@@ -664,7 +649,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624546178435</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="aggiornamenti alle servlet per verificare il tipo di utente attualmente connesso;&#10;aggiornato il metodo di autenticazione;&#10;nuova servlet per capire se l'utente attualmente collegato è loggato e meno;&#10;aggiornata la pagina di login(da finire);&#10;fix minori.">
+      <created>1624546910601</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1624546910601</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +676,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori." />
     <MESSAGE value="test impaginazione homepage" />
     <MESSAGE value="fix procedure per prendere un prodotto dal db tramite codice a barre;&#10;fix di tutti i DAO e bean relativi al punto precedente;&#10;fix minori." />
     <MESSAGE value="creazione servlet per mostrare i prodotti recenti;&#10;fix di tutti i bean, DAO e delle classi riguardanti il punto precedente;&#10;aggiunta nuova stored procedure;&#10;fix minori." />
@@ -709,23 +700,25 @@
     <MESSAGE value="fix all'arrotondamento delle cifre nella pagina del carrello;&#10;fix minori." />
     <MESSAGE value="logo aggiornato." />
     <MESSAGE value="login aggiornato." />
-    <option name="LAST_COMMIT_MESSAGE" value="login aggiornato." />
+    <MESSAGE value="aggiornamenti alle servlet per verificare il tipo di utente attualmente connesso;&#10;aggiornato il metodo di autenticazione;&#10;nuova servlet per capire se l'utente attualmente collegato è loggato e meno;&#10;aggiornata la pagina di login(da finire);&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti alle servlet per verificare il tipo di utente attualmente connesso;&#10;aggiornato il metodo di autenticazione;&#10;nuova servlet per capire se l'utente attualmente collegato è loggato e meno;&#10;aggiornata la pagina di login(da finire);&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller/RegisterServ.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="request.getRemoteAddr()" />
-        <watch expression="request.getRemoteHost()" />
-      </configuration>
-      <configuration name="JavascriptDebugType">
-        <watch expression="n" />
-        <watch expression="&quot;&quot;+window.location.href" />
-        <watch expression="s" />
+        <watch expression="request.getParameter(&quot;psw&quot;)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

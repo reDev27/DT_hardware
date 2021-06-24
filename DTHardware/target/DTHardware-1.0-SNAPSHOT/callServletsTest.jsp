@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/testServ" method="get">
+<form action="${pageContext.request.contextPath}/test" method="get">
     <input type="submit" id="btn01" value="test">
 </form>
 
@@ -25,16 +25,5 @@
         }
     );
 </script>
-
-<h6>
-
-    <%
-        Carrello carrello=(Carrello) session.getAttribute("carrello");
-        for(int i=0;i<carrello.getProdotti().size(); i++)
-        {
-    %>
-    <%= carrello.getProdotti().get(i).getCodiceABarre() + " "%>
-    <%}%>
-</h6>
 </body>
 </html>

@@ -26,20 +26,14 @@ public class AuthServ extends HttpServlet
 	{
 		RequestUtility.checkIsLogged(request.getSession());
 		Cliente user=new Cliente();
-		boolean isLogged=false;
 		try
 		{
-			isLogged=user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession());
+			user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession());
 		}
 		catch (SQLException | NoSuchAlgorithmException | IOException throwables)
 		{
 			throwables.printStackTrace();
 		}
-		if(isLogged)
-		{
-			response.sendRedirect("login.html?esito=true");
-		}
-		else
-			response.sendRedirect("login.html?esito=false");
+		response.sendRedirect("login.html?e");
 	}
 }

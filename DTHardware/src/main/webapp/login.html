@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
 	<link rel="icon" href="image/logo_DT.png">
 	
@@ -32,89 +32,64 @@
 			<br>
 			<input type="password" id="psw" name="pass" placeholder="Password">
 			<br>
-			<button type="submit">Sign In</button>
+			<button id="btnInvio" type="submit">Sign In</button>
 			<br>
 			<a href="iscrizione.html"><p class="small">Non sei ancora registrato? Iscriviti Qui!</p></a>
 		</div>
 	</div>
 
 	<script>
-		/*$( function() {
-			$( "#dialogEsito" ).dialog({
-				autoOpen: false,
-				show: {
-					effect: "blind",
-					duration: 1000
-				},
-				hide: {
-					effect: "explode",
-					duration: 1000
-				}
-			});})*/
 		$( function() {
 			$( "#dialogEsito" ).dialog({autoOpen: false});
 		} );
 	</script>
 
-	<div id="dialogEsito" title="Basic dialog">
+	<div id="dialogEsito" title="Ciao">
 		<p id="esitoP"></p>
 	</div>
 <script>
 
-	//86d804h
-	if(isLogged())
-	{
-
-		document.getElementById("dialogEsito").title="Benvenuto";
-		document.getElementById("esitoP").innerHTML = "Login effettuato! Verrai reindirizzato alla homepage a breve.";
-		$("#dialogEsito").dialog("open");
-		setTimeout(function ()
-			{
-				window.location.href = "homepage.html";
-			},
-			3000
-		);
-	}
-	else
-	{
-		document.getElementById("dialogEsito").title="Errore";
-		document.getElementById("esitoP").innerHTML = "Errore in fase di login. Prego, riprovare.";
-		$("#dialogEsito").dialog("open");
-	}
-
-
 	$(document).ready(function ()
 	{
-		$.ajax
-		(
-			{
-				url : "IsLoggedServ",
-				method : "get",
-				dataType : "json",
-				success : function (data)
+		var x=window.location.href.substr(window.location.href.length-1, 1);
+		if(x === 'e')
+		{
+			$.ajax
+			(
 				{
-					if(data.L)
-					{
-						document.getElementById("dialogEsito").title="Benvenuto";
-						document.getElementById("esitoP").innerHTML = "Login effettuato! Verrai reindirizzato alla homepage a breve.";
-						$("#dialogEsito").dialog("open");
-						setTimeout(function ()
+					url: "IsLoggedServ",
+					method: "get",
+					dataType: "json",
+					success: function (data) {
+
+						{
+							if (data.L)
 							{
-								window.location.href = "homepage.html";
-							},
-							3000
-						);
+								$( "#dialogEsito" ).dialog({
+									title: "Benvenuto!"
+								});
+								document.getElementById("esitoP").innerHTML = "Login effettuato! Verrai reindirizzato alla homepage a breve.";
+								$("#dialogEsito").dialog("open");
+								setTimeout(function () {
+										window.location.href = "homepage.html";
+									},
+									3000
+								);
+							} else {
+								$( "#dialogEsito" ).dialog({
+									title: "Errore!"
+								});
+								document.getElementById("esitoP").innerHTML = "Errore in fase di login. Prego, riprovare.";
+								$("#dialogEsito").dialog("open");
+							}
+						}
+					},
+					error: function () {
+						alert("error")
 					}
-					else
-					{
-						document.getElementById("dialogEsito").title="Errore";
-						document.getElementById("esitoP").innerHTML = "Errore in fase di login. Prego, riprovare.";
-						$("#dialogEsito").dialog("open");
-					}
-				},
-				error : function (){alert("error")}
-			}
-		);
+				}
+			);
+		}
 	})
 </script>
 </form>

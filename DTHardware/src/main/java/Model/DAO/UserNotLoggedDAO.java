@@ -53,7 +53,7 @@ public class UserNotLoggedDAO extends BaseDAO
 		return doExecute(callableStatement).getBoolean("esito");
 	}
 
-	protected void insertIndirizzo(String via,int ncivico,String citta, int cap, int flag, String username, String userType, String passData) throws SQLException {
+	protected void insertIndirizzo(String via, int ncivico,String citta, int cap, int flag, String username, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertIndirizzo(?, ?, ?, ?, ?, ?)}");
 		callableStatement.setString("viaIn", via);
@@ -61,6 +61,16 @@ public class UserNotLoggedDAO extends BaseDAO
 		callableStatement.setString("cittaIn", citta);
 		callableStatement.setString("capIn", String.valueOf(cap));
 		callableStatement.setInt("flagIn", flag);
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	protected void insertRisiede(String via, int ncivico, String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call InsertRisiede(?, ?, ?)}");
+		callableStatement.setString("viaIn", via);
+		callableStatement.setInt("nCivicoIn", ncivico);
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}
@@ -87,6 +97,15 @@ public class UserNotLoggedDAO extends BaseDAO
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call SelectMostRecentProducts()}");
+		doExecute(callableStatement);
+		return getResult();
+	}
+
+	protected ResultSet selectUsername(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectUsername(?)}");
+		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 		return getResult();
 	}

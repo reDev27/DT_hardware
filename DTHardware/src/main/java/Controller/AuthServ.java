@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Cliente;
 import Model.RequestUtility;
-import com.google.gson.JsonObject;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +18,7 @@ public class AuthServ extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		request.getSession().setAttribute("isLogged", "n");
+		request.getSession().removeAttribute("username");
 	}
 
 	@Override
@@ -28,7 +28,8 @@ public class AuthServ extends HttpServlet
 		Cliente user=new Cliente();
 		try
 		{
-			user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession());
+			if(user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession()))
+				request.getSession().setAttribute("user", request.getParameter("email"));
 		}
 		catch (SQLException | NoSuchAlgorithmException | IOException throwables)
 		{

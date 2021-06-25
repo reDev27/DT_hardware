@@ -14,10 +14,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Map;
 
 public class UserNotLoggedBean
 {
+	public static boolean callSelectUsername(String username, ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		ResultSet result = connection.selectUsername(username, crd.getUsername(), crd.getPass());
+		boolean esito=false;
+		try
+		{
+			result.next();
+			result.getString("username");
+		}
+		catch(SQLException e)
+		{
+			esito = true;
+		}
+		connection.destroy();
+		return esito;
+	}
+
 	public static String callIsAvailableProduct(String codiceABarre, int quantita, ServletContext context) throws IOException, SQLException
 	{
 		CrdGiver crd=new CrdGiver(context);
@@ -134,6 +153,16 @@ public class UserNotLoggedBean
 		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, crd.getUsername(), crd.getPass());
+		callInsertRisiede(via, ncivico, username, context);
+		connection.destroy();
+	}
+
+	public static void callInsertRisiede(String via, int ncivico, String username, ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		connection.insertRisiede(via, ncivico, username, crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 

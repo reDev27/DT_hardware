@@ -51,14 +51,6 @@ public class RegisterServ extends HttpServlet
 								DateUtil.getCalendarFromString(scadenza),
 								cvv
 						);
-			}
-			catch (SQLException | NoSuchAlgorithmException | IOException e)
-				{
-					esito=false;
-					e.printStackTrace();
-				}
-			try
-			{
 				UserNotLoggedBean.callInsertIndirizzo
 						(
 								request.getServletContext(),
@@ -70,11 +62,11 @@ public class RegisterServ extends HttpServlet
 								request.getParameter("username")
 						);
 			}
-			catch (SQLException | IOException e)
-			{
-				esito=false;
-				e.printStackTrace();
-			}
+			catch (SQLException | NoSuchAlgorithmException | IOException e)
+				{
+					esito=false;
+					e.printStackTrace();
+				}
 		}
 
 		response.sendRedirect("homepage.html");

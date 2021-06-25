@@ -1,3 +1,81 @@
+function checkRegisterForm(checkHelp)
+{
+    let esito = true;
+    var username = document.getElementById("username").value;
+    if (username.length < 1)
+    {
+        document.getElementById("esitoP").innerHTML = "Username non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        esito = false;
+    }
+
+    var psw = document.getElementById("psw").value;
+    if (psw.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Password non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        esito = false;
+    }
+
+    var nome = document.getElementById("nome").value;
+    if (nome.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Nome non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        esito=false;
+    }
+
+    var cognome = document.getElementById("nome").value;
+    if (cognome.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Cognome non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    var telefono = document.getElementById("ntelefono").value;
+    if (telefono.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Numero di telefono non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    var via = document.getElementById("AddVia").value;
+    if (via.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Via non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    var civico = document.getElementById("AddCivico").value;
+    if (civico.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Numero civico non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    var citta = document.getElementById("AddCitta").value;
+    if (citta.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Città non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    var cap = document.getElementById("AddCap").value;
+    if (cap.length < 1) {
+        document.getElementById("esitoP").innerHTML = "CAP non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    esito = esito && checkHelp.username && checkHelp.email && checkHelp.password && checkHelp.nome && checkHelp.cognome
+            && checkHelp.ntelefono && checkHelp.via && checkHelp.numeroCivico && checkHelp.citta && checkHelp.cap;
+    return esito;
+}
+
 function isLogged()
 {
     var bool=false;

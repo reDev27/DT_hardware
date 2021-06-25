@@ -128,7 +128,7 @@ public class UserNotLoggedBean
 		return prodotto;
 	}
 
-	public static void callInsertIndirizzo(ServletContext context, String via,int ncivico,String citta, int cap, boolean flag, String username) throws SQLException, IOException
+	public static void callInsertIndirizzo(ServletContext context, String via,int ncivico,String citta, int cap, int flag, String username) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(2);
@@ -147,7 +147,7 @@ public class UserNotLoggedBean
 		connection.destroy();
 	}
 
-	public static int callRegister(ServletContext context, String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, NoSuchAlgorithmException, IOException
+	public static void callRegister(ServletContext context, String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, NoSuchAlgorithmException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(2);
@@ -159,12 +159,7 @@ public class UserNotLoggedBean
 			connection.insertCartaCredito(nCarta, scadenza, cvv, crd.getUsername(), crd.getPass());
 			connection.updateUserCartaDiCredito(username, nCarta,crd.getUsername(), crd.getPass());
 		}
-		else
-		{
-			//carta di credito non registrata
-		}
 		connection.destroy();
-		return 0;
 	}
 
 	public static boolean callLogin(ServletContext context, String nickname, String password) throws NoSuchAlgorithmException, SQLException, IOException

@@ -53,14 +53,14 @@ public class UserNotLoggedDAO extends BaseDAO
 		return doExecute(callableStatement).getBoolean("esito");
 	}
 
-	protected void insertIndirizzo(String via,int ncivico,String citta, int cap, boolean flag, String username, String userType, String passData) throws SQLException {
+	protected void insertIndirizzo(String via,int ncivico,String citta, int cap, int flag, String username, String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
 		CallableStatement callableStatement = user.prepareCall("{call InsertIndirizzo(?, ?, ?, ?, ?, ?)}");
 		callableStatement.setString("viaIn", via);
 		callableStatement.setString("ncivicoIn", String.valueOf(ncivico));
 		callableStatement.setString("cittaIn", citta);
 		callableStatement.setString("capIn", String.valueOf(cap));
-		callableStatement.setString("flagIn", String.valueOf(flag));
+		callableStatement.setInt("flagIn", flag);
 		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 	}

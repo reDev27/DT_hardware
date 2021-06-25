@@ -7,12 +7,15 @@ import java.util.Scanner;
 public class DateUtil
 {
     public static String getStringFromCalendar(Calendar data) {
-        String stringDate = data.get(Calendar.YEAR)+"-"+ prepMonth(data) +"-"+ data.get(Calendar.DAY_OF_MONTH)+" "+ data.get(Calendar.HOUR_OF_DAY)+":"+ data.get(Calendar.MINUTE)+":"+ data.get(Calendar.SECOND);
-        return stringDate;
+        if(data==null)
+            return null;
+        return data.get(Calendar.YEAR)+"-"+ prepMonth(data) +"-"+ data.get(Calendar.DAY_OF_MONTH)+" "+ data.get(Calendar.HOUR_OF_DAY)+":"+ data.get(Calendar.MINUTE)+":"+ data.get(Calendar.SECOND);
     }
 
     public static Calendar getCalendarFromString(String data)
     {
+        if(data==null)
+            return null;
         Calendar calendar=Calendar.getInstance();
         Scanner scanner=new Scanner(data);
         scanner.useDelimiter("-");

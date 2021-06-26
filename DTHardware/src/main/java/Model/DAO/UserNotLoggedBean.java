@@ -17,6 +17,26 @@ import java.util.Calendar;
 
 public class UserNotLoggedBean
 {
+	public static boolean callSelectMail(String email, ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		UserNotLoggedDAO connection=new UserNotLoggedDAO();
+		ResultSet result = connection.selectEmail(email, crd.getUsername(), crd.getPass());
+		boolean esito=false;
+		try
+		{
+			result.next();
+			result.getString("email");
+		}
+		catch(SQLException e)
+		{
+			esito = true;
+		}
+		connection.destroy();
+		return esito;
+	}
+
 	public static boolean callSelectUsername(String username, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
@@ -152,7 +172,14 @@ public class UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, crd.getUsername(), crd.getPass());
+		try
+		{
+			connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
 		callInsertRisiede(via, ncivico, username, context);
 		connection.destroy();
 	}

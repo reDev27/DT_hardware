@@ -35,5 +35,9 @@ public class CheckOutServ extends HttpServlet
 			RequestDispatcher dispatcher = request.getRequestDispatcher("");
 			dispatcher.forward(request, response);
 		}
+		else
+		{
+			response.getWriter().write("error");
+		}
 	}
 }

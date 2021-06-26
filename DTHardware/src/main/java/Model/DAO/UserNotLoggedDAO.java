@@ -101,6 +101,15 @@ public class UserNotLoggedDAO extends BaseDAO
 		return getResult();
 	}
 
+	protected ResultSet selectEmail(String email, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectMail(?)}");
+		callableStatement.setString("mailIn", email);
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	protected ResultSet selectUsername(String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

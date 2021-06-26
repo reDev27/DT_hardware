@@ -13,7 +13,8 @@ public class Cliente
 {
 	public Cliente()
 	{
-
+		setAddresses(new ArrayList<>());
+		setCreditCards(new ArrayList<>());
 	}
 
 	public Cliente(String username, String email, String nome, String cognome, String nTelefono, ArrayList<Address> addresses, ArrayList<CreditCard> creditCards)

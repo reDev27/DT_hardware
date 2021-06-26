@@ -22,16 +22,18 @@ public class ValidateValuesServ extends HttpServlet
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		boolean esito=false;
+		boolean esitoUsername=false;
+		boolean esitoMail=false;
 		try
 		{
-			esito=UserNotLoggedBean.callSelectUsername(request.getParameter("username"), request.getServletContext());
+			esitoUsername=UserNotLoggedBean.callSelectUsername(request.getParameter("username"), request.getServletContext());
+			esitoMail=UserNotLoggedBean.callSelectMail(request.getParameter("email"), request.getServletContext());
 		}
 		catch (SQLException throwables)
 		{
 			throwables.printStackTrace();
 		}
-		if(esito)
+		if(esitoUsername && esitoMail)
 			request.getRequestDispatcher("RegisterServ").forward(request, response);
 		else
 			response.getWriter().write("errore");

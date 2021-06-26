@@ -13,11 +13,7 @@ public class Order
 {
 	public Order()
 	{
-		setId(-1);
-		setSconto(-1);
-		setTotale(-1.0);
-		setDataAcquisto(Calendar.getInstance());
-		setUsername("none0123");
+
 	}
 
 	public Order(int id, int sconto, double totale, Calendar dataAcquisto, String username)

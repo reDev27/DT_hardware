@@ -29,7 +29,9 @@ public class AuthServ extends HttpServlet
 		try
 		{
 			if(user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession()))
+			{
 				request.getSession().setAttribute("user", request.getParameter("email"));
+			}
 		}
 		catch (SQLException | NoSuchAlgorithmException | IOException throwables)
 		{

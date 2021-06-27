@@ -151,6 +151,43 @@
 </div>
 
 <script>
+    $(document).ready
+    (
+        $.ajax
+        (
+            {
+                url : "IsLoggedServ",
+                method : "get",
+                dataType : "json",
+                success : function (data)
+                {
+                    if(data.L)
+                    {
+                        document.getElementById("accediRef").innerHTML = "<a href=\"#accediRef\" id='refLogout' title=\"Log-out\">Esci</a>";
+                        $("#refLogout").on("click",
+                            function ()
+                            {
+                                $.ajax
+                                (
+                                    {
+                                        url : "AuthServ",
+                                        method: "get",
+                                    }
+                                )
+                                window.location.href="homepage.html";
+                            }
+                        )
+                    }
+                },
+                error : function () {alert("error")}
+            }
+        )
+    )
+</script>
+
+<script>
+
+
     $( function() {
         $( "#specificheDiv" ).tabs();
     } );

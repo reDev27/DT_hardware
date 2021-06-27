@@ -1056,7 +1056,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="304" parent="3" name="SelectClienteByUsername">
-      <SourceTextLength>118</SourceTextLength>
+      <SourceTextLength>112</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
@@ -1557,17 +1557,17 @@ NCIVICO</ColNames>
       <Position>10</Position>
       <DataType>timestamp|0s</DataType>
     </argument>
-    <argument id="414" parent="300" name="viaIn">
+    <argument id="414" parent="300" name="usernameIn">
       <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="415" parent="300" name="viaIn">
+      <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="415" parent="300" name="nCivicoIn">
-      <Position>2</Position>
-      <DataType>int|0s</DataType>
-    </argument>
-    <argument id="416" parent="300" name="usernameIn">
+    <argument id="416" parent="300" name="nCivicoIn">
       <Position>3</Position>
-      <DataType>varchar(30)|0s</DataType>
+      <DataType>int|0s</DataType>
     </argument>
     <argument id="417" parent="301" name="codiceABarreIn">
       <Position>1</Position>

@@ -9,22 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornata servlet per la registrazione;&#10;aggiunte 3 nuove stored procedure per supportare la verifica dei dati lato server al momento della registrazione;&#10;fix di iscrizione.html e Utilities.js, non controllavano correttamente gli input dell'utente;&#10;modificata AuthServ in modo tale da conservare anche lo username dell'utente loggato nella session;&#10;nuova servlet per controllare gli input dell'utente anche lato server;&#10;modificato DB_TABLES.sql;&#10;aggiornati bean e DAO per supportare la nuove stored procedure;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/daPushare/SelectMail.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ValidateCheckOutServ.java" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornata servlet di verifica form di registrazione per verificare che anche la mail sia univoca;&#10;aggiornati procedure, bean e DAO inerenti al punto precedente;&#10;fix minori.">
+      <change beforePath="$PROJECT_DIR$/../DOC/E-R dt hardware.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/E-R dt hardware.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DOC/E-R dt hardware.png" beforeDir="false" afterPath="$PROJECT_DIR$/../DOC/E-R dt hardware.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daPushare/SelectIndirizzoByUsername.sql" beforeDir="false" afterPath="$PROJECT_DIR$/daPushare/SelectIndirizzoByUsername.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ValidateValuesServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ValidateValuesServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/daPushare/SelectClienteByUsername.sql" beforeDir="false" afterPath="$PROJECT_DIR$/daPushare/SelectClienteByUsername.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ValidateCheckOutServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ValidateCheckOutServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DT_DATABASE/DB_TABLES.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../DT_DATABASE/DB_TABLES.sql" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,26 +125,25 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="insertCartaCredito.sql and 17 more" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+    <configuration name="21 procedures" type="DatabaseScript" editBeforeRun="true" temporary="true">
       <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCompone.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertIndirizzo.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertOrdine.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertProdotto.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/InsertRisiede.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/IsAvailableProduct.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/loginUser.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/registerUser.sql" />
@@ -149,9 +152,11 @@
       <script-file value="$PROJECT_DIR$/daPushare/SelectCliente.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/SelectClienteByUsername.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/SelectIndirizzoByUsername.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectMail.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/SelectMostRecentProducts.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/SelectProdottoByCategoria.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/selectProdottoByCodiceABarre.sql" />
+      <script-file value="$PROJECT_DIR$/daPushare/SelectUsername.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/updateUserCartaDiCredito.sql" />
       <script-mode>FILE</script-mode>
       <data-source id="73b80e50-e2c8-4623-babf-721edfaa5518" />
@@ -249,9 +254,13 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Database Script.21 procedures" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.43" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Database Script.insertCartaCredito.sql and 17 more" />
+        <item itemvalue="Database Script.21 procedures" />
       </list>
     </recent_temporary>
   </component>
@@ -351,14 +360,8 @@
       <workItem from="1624540229224" duration="20739000" />
       <workItem from="1624608928127" duration="12186000" />
       <workItem from="1624632111633" duration="9950000" />
-      <workItem from="1624725361418" duration="7799000" />
-    </task>
-    <task id="LOCAL-00053" summary="aggiunta classe per gestire ordini con formato json&#10;aggiunta funzione in DateUtil per gestire il timestamp">
-      <created>1622313319644</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1622313319644</updated>
+      <workItem from="1624725361418" duration="7892000" />
+      <workItem from="1624787991649" duration="4775000" />
     </task>
     <task id="LOCAL-00054" summary="servlet per gestire gli ordini effettuati">
       <created>1622313862668</created>
@@ -696,7 +699,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624642119506</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="aggiornata servlet di verifica form di registrazione per verificare che anche la mail sia univoca;&#10;aggiornati procedure, bean e DAO inerenti al punto precedente;&#10;fix minori.">
+      <created>1624733714144</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1624733714145</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -716,7 +726,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="css tests" />
     <MESSAGE value="correzione barra ricerca e carrello (da finire)" />
     <MESSAGE value="aggiornamenti homepage(da finire)" />
     <MESSAGE value="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori." />
@@ -741,7 +750,8 @@
     <MESSAGE value="aggiornata pagina registrazione per garantire la correttezza degli input;&#10;fix al logout;&#10;le servlet ora controllano ad ogni request che tipo di utente è collegato;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet per la registrazione;&#10;aggiornata pagina per la registrazione;&#10;aggiornati bean e DAO per la registrazione;&#10;fix alla classe DateUtil;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet per la registrazione;&#10;aggiunte 3 nuove stored procedure per supportare la verifica dei dati lato server al momento della registrazione;&#10;fix di iscrizione.html e Utilities.js, non controllavano correttamente gli input dell'utente;&#10;modificata AuthServ in modo tale da conservare anche lo username dell'utente loggato nella session;&#10;nuova servlet per controllare gli input dell'utente anche lato server;&#10;modificato DB_TABLES.sql;&#10;aggiornati bean e DAO per supportare la nuove stored procedure;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornata servlet per la registrazione;&#10;aggiunte 3 nuove stored procedure per supportare la verifica dei dati lato server al momento della registrazione;&#10;fix di iscrizione.html e Utilities.js, non controllavano correttamente gli input dell'utente;&#10;modificata AuthServ in modo tale da conservare anche lo username dell'utente loggato nella session;&#10;nuova servlet per controllare gli input dell'utente anche lato server;&#10;modificato DB_TABLES.sql;&#10;aggiornati bean e DAO per supportare la nuove stored procedure;&#10;fix minori." />
+    <MESSAGE value="aggiornata servlet di verifica form di registrazione per verificare che anche la mail sia univoca;&#10;aggiornati procedure, bean e DAO inerenti al punto precedente;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornata servlet di verifica form di registrazione per verificare che anche la mail sia univoca;&#10;aggiornati procedure, bean e DAO inerenti al punto precedente;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -761,11 +771,6 @@
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
-        <watch expression="result.getString(&quot;email&quot;);" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

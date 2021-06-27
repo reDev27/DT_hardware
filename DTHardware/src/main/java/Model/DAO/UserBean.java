@@ -19,8 +19,7 @@ public class UserBean extends UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.selectCarteDiCreditoByUsername(username, crd.getUsername(), crd.getPass());
-		ResultSet result=connection.getResult();
+		ResultSet result=connection.selectCarteDiCreditoByUsername(username, crd.getUsername(), crd.getPass());
 		ArrayList<CreditCard> creditCards=new ArrayList<>();
 		while(result.next())
 		{
@@ -35,8 +34,7 @@ public class UserBean extends UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.selectIndirizzoByUsername(username, crd.getUsername(), crd.getPass());
-		ResultSet result=connection.getResult();
+		ResultSet result=connection.selectIndirizzoByUsername(username, crd.getUsername(), crd.getPass());
 		ArrayList<Address> addresses=new ArrayList<>();
 		while(result.next())
 		{
@@ -51,8 +49,7 @@ public class UserBean extends UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.selectClienteByUsername(username, crd.getUsername(), crd.getPass());
-		ResultSet result=connection.getResult();
+		ResultSet result=connection.selectClienteByUsername(username, crd.getUsername(), crd.getPass());
 		Cliente cliente=null;
 		while(result.next())
 		{

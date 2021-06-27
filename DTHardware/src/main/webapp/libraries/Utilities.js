@@ -113,6 +113,11 @@ function isLogged()
     return bool;
 }
 
+function displayUserInfo(cliente)
+{
+
+}
+
 function checkOut()
 {
     $("#btnCheckOut").on("click", function ()
@@ -120,10 +125,10 @@ function checkOut()
         $.ajax
         (
             {
-                url: "CheckOutServ",
+                url: "ValidateCheckOutServ",
                 method: "get",
                 dataType: "json",
-                success: function (){},
+                success: function (data){displayUserInfo(data)},
                 error: function () {alert("error");}
             }
         )
@@ -178,8 +183,7 @@ function showCarrello(products)
         {
             products[i].quantitaCarrello=$("#quantitaSpinner"+i).spinner("value")-products[i].quantitaCarrello;
             aggiornaCarrello(products[i]);
-            var quantitaCarrelloTotale="" + calcolaTotaleQuantita(products);
-            document.getElementById("nQuantitaTotale").innerHTML=quantitaCarrelloTotale;
+            document.getElementById("nQuantitaTotale").innerHTML="" + calcolaTotaleQuantita(products);
             calcolaTotaleSpese(products);
         });
         $("#spanInfoProdotto"+i+" .ui-spinner a").click(function ()

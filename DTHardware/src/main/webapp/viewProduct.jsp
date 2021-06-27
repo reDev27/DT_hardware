@@ -192,7 +192,8 @@
         $( "#specificheDiv" ).tabs();
     } );
 
-    $(
+    $
+    (
         function()
         {
             $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
@@ -225,7 +226,7 @@
             //data
             success: function (data)
             {
-                buildTableCategories(data);
+                buildTableCategoriesProductPage(data);
             },
             error: function (){alert("error")}
         }

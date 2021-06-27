@@ -124,24 +124,48 @@
             }
     );
 
-    $.ajax
-    (
-            {
-              type: "GET",
-              url: "GetMostRecentProductsServ",
-              dataType: "json",
-              //data
-              success: function (data)
-              {
-                buildTableProductHomepage(data);
-              },
+	const category={"category" : sessionStorage.getItem("category")};
+    if(category.category!==null)
+	{
+		$.ajax
+		(
+			{
+				type: "post",
+				url: "getProductByCategoryServ",
+				dataType: "json",
+				data: category,
+				success: function (data) {
+					buildTableProductHomepage(data);
+				},
 
-              error: function ()
-              {
-                alert("error")
-              }
-            }
-    );
+				error: function () {
+					alert("error")
+				}
+			}
+		);
+		document.getElementById("headerProducts").innerText=category.category;
+		sessionStorage.removeItem("category");
+	}
+    else
+    {
+		$.ajax
+		(
+			{
+				type: "get",
+				url: "GetMostRecentProductsServ",
+				dataType: "json",
+				//data
+				success: function (data) {
+					buildTableProductHomepage(data);
+				},
+
+				error: function () {
+					alert("error")
+				}
+			}
+		);
+	}
+
     redirectToCarrello();
 
 	$(document).ready

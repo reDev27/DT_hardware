@@ -240,6 +240,27 @@ function redirectToCarrello()
     });
 }
 
+function buildTableCategoriesProductPage(categories)
+{
+    var newRows="";
+    var n = categories.length;
+    for(let i=0; i<n; i++)
+    {
+        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\"><p style='margin-top: 5%; margin-bottom: 5%; cursor: pointer'>"+ categories[i].nome +"</p></li>";
+    }
+    document.getElementById("categoriesListUl").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $( "#listItem" + i ).on( "click", function()
+        {
+            //document.getElementById("headerProducts").innerText=categories[i].nome;
+            //var category={"category" : categories[i].nome};
+            sessionStorage.setItem("category", categories[i].nome);
+            window.location.href="homepage.html";
+        });
+    }
+}
+
 function buildTableCategories(categories)
 {
     var newRows="";

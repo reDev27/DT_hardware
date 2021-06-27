@@ -4,6 +4,7 @@ import Model.Cliente;
 import Model.DAO.UserBean;
 import com.google.gson.Gson;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import java.sql.SQLException;
 public class ValidateCheckOutServ extends HttpServlet
 {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
 		HttpSession session=request.getSession();
 		Cliente cliente=null;
@@ -32,7 +33,9 @@ public class ValidateCheckOutServ extends HttpServlet
 				throwables.printStackTrace();
 			}
 			Gson gson=new Gson();
+			session.setAttribute("cliente", cliente);
 			response.getWriter().write(gson.toJson(cliente));
+			/*request.getRequestDispatcher("CheckOutServ").forward(request, response);*/
 		}
 		else
 		{

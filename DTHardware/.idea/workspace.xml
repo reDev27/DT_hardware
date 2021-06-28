@@ -9,12 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornata procedure per avere informazioni utente in base al suo username;&#10;fix al collegamento per il log-out nell'intestazione(non veniva mostrato correttamente);&#10;modifiche al database (cambiato il campo sconto in fattura);&#10;aggiornata ValidateCheckOutServ per mostrare i dati all'utente al momento del check-out;&#10;aggiornati i bean e i DAO per supportare l'aggiornamento del punto precedente;&#10;aggiornato lo schema E-R;&#10;aggiornata la classe cliente per supportare meglio lo storage dei dati;&#10;fix minori.">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix alla viewProduct.jsp che non reindirizzava correttamente alla pagina per visualizzare i prodotti per categoria;&#10;fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ValidateCheckOutServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ValidateCheckOutServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,14 +105,25 @@
       <recent name="C:\Users\rEDOx\AppData\Roaming\JetBrains\IntelliJIdea2021.1\consoles\db\786aa034-d652-4476-bfd4-923c7f2d5b91" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp" />
+      <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF" />
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\daPushare" />
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\libraries" />
       <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF\lib" />
-      <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF" />
-      <recent name="D:\Program Files (x86)\Dt_hardware\DT_hardware\DTHardware\src\main\webapp\WEB-INF\view\lib" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="21 procedures" type="DatabaseScript" editBeforeRun="true" temporary="true">
       <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
@@ -337,14 +350,9 @@
       <workItem from="1624632111633" duration="9950000" />
       <workItem from="1624725361418" duration="7892000" />
       <workItem from="1624787991649" duration="5066000" />
-      <workItem from="1624801641552" duration="4440000" />
-    </task>
-    <task id="LOCAL-00055" summary="aggiunte le funzioni DAO e bean per select cliente;&#10;aggiornata la classe CategoriesArray e Categories;&#10;aggiunta la classe order;&#10;aggiornamenti minori">
-      <created>1622540022417</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1622540022417</updated>
+      <workItem from="1624801641552" duration="4529000" />
+      <workItem from="1624871626555" duration="683000" />
+      <workItem from="1624885642454" duration="16723000" />
     </task>
     <task id="LOCAL-00056" summary="aggiornate le classi Address, CreditCard e Cliente">
       <created>1622543287773</created>
@@ -682,7 +690,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624793112707</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="fix alla viewProduct.jsp che non reindirizzava correttamente alla pagina per visualizzare i prodotti per categoria;&#10;fix minori.">
+      <created>1624807182732</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1624807182732</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -702,7 +717,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornamenti homepage(da finire)" />
     <MESSAGE value="aggiornamenti homepage(da finire);&#10;fix vari a libreria js e css;&#10;fix minori." />
     <MESSAGE value="fix grafico alla disposizione degli elementi." />
     <MESSAGE value="fix grafico alla disposizione degli elementi(continua)." />
@@ -727,31 +741,22 @@
     <MESSAGE value="aggiornata servlet per la registrazione;&#10;aggiunte 3 nuove stored procedure per supportare la verifica dei dati lato server al momento della registrazione;&#10;fix di iscrizione.html e Utilities.js, non controllavano correttamente gli input dell'utente;&#10;modificata AuthServ in modo tale da conservare anche lo username dell'utente loggato nella session;&#10;nuova servlet per controllare gli input dell'utente anche lato server;&#10;modificato DB_TABLES.sql;&#10;aggiornati bean e DAO per supportare la nuove stored procedure;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet di verifica form di registrazione per verificare che anche la mail sia univoca;&#10;aggiornati procedure, bean e DAO inerenti al punto precedente;&#10;fix minori." />
     <MESSAGE value="aggiornata procedure per avere informazioni utente in base al suo username;&#10;fix al collegamento per il log-out nell'intestazione(non veniva mostrato correttamente);&#10;modifiche al database (cambiato il campo sconto in fattura);&#10;aggiornata ValidateCheckOutServ per mostrare i dati all'utente al momento del check-out;&#10;aggiornati i bean e i DAO per supportare l'aggiornamento del punto precedente;&#10;aggiornato lo schema E-R;&#10;aggiornata la classe cliente per supportare meglio lo storage dei dati;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornata procedure per avere informazioni utente in base al suo username;&#10;fix al collegamento per il log-out nell'intestazione(non veniva mostrato correttamente);&#10;modifiche al database (cambiato il campo sconto in fattura);&#10;aggiornata ValidateCheckOutServ per mostrare i dati all'utente al momento del check-out;&#10;aggiornati i bean e i DAO per supportare l'aggiornamento del punto precedente;&#10;aggiornato lo schema E-R;&#10;aggiornata la classe cliente per supportare meglio lo storage dei dati;&#10;fix minori." />
+    <MESSAGE value="fix alla viewProduct.jsp che non reindirizzava correttamente alla pagina per visualizzare i prodotti per categoria;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix alla viewProduct.jsp che non reindirizzava correttamente alla pagina per visualizzare i prodotti per categoria;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedDAO.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller/ValidateValuesServ.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/Controller/ValidateCheckOutServ.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JavascriptDebugType">
-        <watch expression="category" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

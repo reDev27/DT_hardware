@@ -56,7 +56,7 @@ public class Cliente
 	private String username;
 	private String email;
 	private String nome;
-	private String Cognome;
+	private String cognome;
 	private String nTelefono;
 	private ArrayList<Address> addresses;
 	private ArrayList<CreditCard> creditCards;
@@ -87,11 +87,11 @@ public class Cliente
 	}
 	public String getCognome()
 	{
-		return Cognome;
+		return cognome;
 	}
 	public void setCognome(String cognome)
 	{
-		Cognome = cognome;
+		this.cognome = cognome;
 	}
 	public String getnTelefono()
 	{

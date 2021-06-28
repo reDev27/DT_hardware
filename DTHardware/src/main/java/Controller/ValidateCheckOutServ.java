@@ -35,11 +35,11 @@ public class ValidateCheckOutServ extends HttpServlet
 			Gson gson=new Gson();
 			session.setAttribute("cliente", cliente);
 			response.getWriter().write(gson.toJson(cliente));
-			/*request.getRequestDispatcher("CheckOutServ").forward(request, response);*/
 		}
 		else
 		{
-			response.getWriter().write("error");
+			throw new IOException(); //da cambiare con nostra exception
+			//response.getWriter().write("n");
 		}
 	}
 

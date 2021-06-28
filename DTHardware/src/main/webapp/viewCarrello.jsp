@@ -7,7 +7,7 @@
   Date: 21/06/2021
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="it">
 <head>
     <title>Carrello</title>
 </head>
@@ -70,6 +70,14 @@
         </div>
     </div>
 </div>
+
+<span id="riepilogoOrdineSpan" style="border : 1px solid rgba(0,0,0,.125); display: grid; margin: 2% 1%; padding-left: 1.5%">
+    <h3>Riepilogo ordine</h3>
+    <span class="row" style="padding-left: 1%">
+        <span id="userInfo" class="col-8"></span>
+        <span id="btnOrdinaSpan" class="col-3" style="margin-left: 8%"><button id="btnOrdina" class="btn btn-success" type="button" style="width: 100%">Ordina e paga</button></span>
+    </span>
+</span>
 
   <div id="pieDiPagina" class="row jumbotron">
       <div class="col-4">
@@ -134,6 +142,11 @@
 </script>
 
   <script>
+      //$("#riepilogoOrdineSpan").hide();
+      $("#btnCheckOut").on("click", function ()
+      {
+            checkOut();
+      })
 
       var products=[];
       <%
@@ -166,7 +179,7 @@
       document.getElementById("nQuantitaTotale").innerHTML=quantitaCarrelloTotale;
       showCarrello(products);
       calcolaTotaleSpese(products);
-      checkOut();
+      //checkOut();
   </script>
 </main>
 </body>

@@ -115,24 +115,106 @@ function isLogged()
 
 function displayUserInfo(cliente)
 {
+    var nAddress=cliente.addresses.length;
+    var nCard=cliente.creditCards.length;
+    var newRows="";
+    newRows += "<span><p>"+cliente.nome+"</p><p>"+cliente.cognome+"</p><p>"+cliente.nTelefono+"</p><p>"+cliente.email+"</p></span>";
+    for(let iAddress=0; iAddress<nAddress; iAddress++)
+    {
+        newRows += "<span id='addressSpan"+iAddress+"' style='margin-right: 5%'><input type='radio' name='indirizzo"+iAddress+"' id='radioAddress"+iAddress+"'><label>" + cliente.addresses[iAddress].via + " " + cliente.addresses[iAddress].nCivico +"</label></span>";
+    }
+    newRows += "<span id='newAddressSpan' style='margin-top: 3%'><button class='btn btn-success' style='margin-bottom: 3%'>aggiungi indirizzo</button><span id='textBoxNewAddress'></span></span><br>"
+    for(let iCard=0; iCard<nCard; iCard++)
+    {
+        newRows += "<span id='creditCardSpan' style='margin-right: 5%'><p>" + cliente.creditCards[iCard].nCarta + "</p></span>";
+    }
+    newRows += "<span id='newCreditCardSpan' style='margin-top: 3%'><button class='btn btn-success'>aggiungi carta di credito</button><span id='textBoxNewCard'></span></span>"
+    document.getElementById("userInfo").innerHTML=newRows;
+    $("#newAddressSpan button").on("click", function ()
+    {
+        newRows = "<input type=\"text\" id=\"via\" name=\"AddVia\" placeholder=\"Via\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"civico\" name=\"AddCivico\" placeholder=\"Numero Civico\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"citta\" name=\"AddCitta\" placeholder=\"Città\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"cap\" name=\"AddCap\" placeholder=\"CAP\">"
+            + "<br>"
+            + "<button id='btnInvioAddress' type='button' class='btn btn-success'>Invio</button>"
+            + "<div id=\"dialogConfirmAddress\" title=\"Memorizzare indirizzo?\">\n"
+            + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questo indirizzo per i prossimi acquisti?</p>\n"
+            + "</div>";
+        document.getElementById("textBoxNewAddress").innerHTML = newRows;
+        $( function() {
+            $( "#dialogConfirmAddress" ).dialog({
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Memorizza": function() {
+                        $( this ).dialog( "close" );
+                    },
+                    Cancel: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+        } );
+        $( "#btnInvioAddress" ).on("click",function (){$( "#dialogConfirmAddress" ).dialog("open");});
+    });
 
+    $("#newCreditCardSpan button").on("click", function ()
+    {
+        newRows = "<br><input type=\"text\" id=\"nCarta\" name=\"nCarta\" placeholder=\"Numero carta\">"
+            + "<br>"
+            + "<input type=\"date\" id=\"scadenza\" name=\"scadenza\" placeholder=\"Data di scadenza\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"cvv\" name=\"cvv\" placeholder=\"CVV\">"
+            + "<button id='btnInvioCard' type='button' class='btn btn-success'>Invio</button>"
+            + "<div id=\"dialogConfirmCard\" title=\"Memorizzare carta di credito?\">\n"
+            + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questa carta di credito per i prossimi acquisti?</p>\n"
+            + "</div><br>";
+        document.getElementById("textBoxNewCard").innerHTML = newRows;
+        $( function() {
+            $( "#dialogConfirmCard" ).dialog({
+                autoOpen: false,
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Memorizza": function() {
+                        $( this ).dialog( "close" );
+                    },
+                    Cancel: function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+        } );
+        $( "#btnInvioCard" ).on("click",function (){$( "#dialogConfirmCard" ).dialog("open");});
+    })
 }
+
 
 function checkOut()
 {
-    $("#btnCheckOut").on("click", function ()
-    {
-        $.ajax
-        (
-            {
-                url: "ValidateCheckOutServ",
-                method: "get",
-                dataType: "json",
-                success: function (data){displayUserInfo(data)},
-                error: function () {alert("error");}
+    $.ajax
+    (
+        {
+            url: "ValidateCheckOutServ",
+            method: "get",
+            dataType: "json",
+            success: function (data) {
+                displayUserInfo(data);
+            },
+            error: function () {
+                alert("error");
             }
-        )
-    })
+        }
+    )
 }
 
 function calcolaTotaleQuantita(products)
@@ -165,7 +247,7 @@ function showCarrello(products)
     let n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<span id='prodotto"+i+"' style='display: flex; border: #022a0c solid; align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline' ><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
+        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline' ><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
     }
     document.getElementById("showProductDiv").innerHTML=newRows;
     for(let i=0; i<n; i++)

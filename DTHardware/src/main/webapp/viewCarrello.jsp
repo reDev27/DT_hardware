@@ -106,6 +106,16 @@
       </div>
   </div>
 
+    <script>
+        $( function() {
+            $( "#dialogEsito" ).dialog({autoOpen: false});
+        } );
+    </script>
+
+    <div id="dialogEsito" title="Espressione non valida">
+        <p id="esitoP"></p>
+    </div>
+
 <script>
     $(document).ready
     (
@@ -145,7 +155,7 @@
       //$("#riepilogoOrdineSpan").hide();
       $("#btnCheckOut").on("click", function ()
       {
-            checkOut();
+          checkOut();
       })
 
       var products=[];

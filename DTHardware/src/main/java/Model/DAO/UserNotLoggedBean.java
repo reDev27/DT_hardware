@@ -198,8 +198,7 @@ public class UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(2);
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
-		connection.insertCartaCredito(nCarta, scadenza, cvv, crd.getUsername(), crd.getPass());
-		connection.updateUserCartaDiCredito(username, nCarta,crd.getUsername(), crd.getPass());
+		connection.insertCartaCredito(nCarta, scadenza, cvv, username,crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 
@@ -212,8 +211,7 @@ public class UserNotLoggedBean
 		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, crd.getUsername(), crd.getPass());
 		if(nCarta!=null && scadenza!=null && cvv!=null)
 		{
-			connection.insertCartaCredito(nCarta, scadenza, cvv, crd.getUsername(), crd.getPass());
-			connection.updateUserCartaDiCredito(username, nCarta,crd.getUsername(), crd.getPass());
+			connection.insertCartaCredito(nCarta, scadenza, cvv, username,crd.getUsername(), crd.getPass());
 		}
 		connection.destroy();
 	}

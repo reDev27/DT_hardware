@@ -38,8 +38,9 @@ public class ValidateCheckOutServ extends HttpServlet
 		}
 		else
 		{
-			throw new IOException(); //da cambiare con nostra exception
+			//throw new IOException(); //da cambiare con nostra exception
 			//response.getWriter().write("n");
+			response.sendRedirect("login.html");
 		}
 	}
 

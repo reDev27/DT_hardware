@@ -10,7 +10,6 @@ public class CreditCard
 		setnCarta(nCarta);
 		setScadenza(scadenza);
 		setCVV(CVV);
-		Date c;
 	}
 
 

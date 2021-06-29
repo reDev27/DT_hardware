@@ -105,7 +105,7 @@ function isLogged()
             dataType : "json",
             success : function (data)
             {
-                    bool=data.L;
+                return data.L;
             },
             error : function () {alert("error")}
         }
@@ -113,15 +113,144 @@ function isLogged()
     return bool;
 }
 
+function validateAddress(checkHelp)
+{
+    var via = document.getElementById("AddVia").value;
+    if (via.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Via non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.via=false;
+    }
+    else
+        checkHelp.via=true;
+
+    var civico = document.getElementById("AddCivico").value;
+    if (civico.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Numero civico non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.numeroCivico=false;
+    }
+    else
+        checkHelp.numeroCivico=true;
+
+    var citta = document.getElementById("AddCitta").value;
+    if (citta.length < 1) {
+        document.getElementById("esitoP").innerHTML = "Città non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.citta=false;
+    }
+    else
+        checkHelp.citta=true;
+
+    var cap = document.getElementById("AddCap").value;
+    if (cap.length < 1) {
+        document.getElementById("esitoP").innerHTML = "CAP non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.cap=false;
+    }
+    else
+        checkHelp.cap=true;
+
+    return checkHelp.via && checkHelp.numeroCivico && checkHelp.citta && checkHelp.cap;
+}
+
+function ajaxAddress(address, checkHelp)
+{
+    let esito=validateAddress(checkHelp);
+    if(!esito) return;
+    $.ajax
+    (
+        {
+            url : "UpdateIndirizzoServ",
+            method : "post",
+            data: address,
+            success : function () {},
+            error : function () {},
+        }
+    )
+}
+
+function validateCard(checkHelp)
+{
+    var nCarta = document.getElementById("Ncarta").value;
+    if (nCarta.length < 1)
+    {
+        document.getElementById("esitoP").innerHTML = "Numero carta non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.nCarta=false;
+    }
+    else
+        checkHelp.nCarta=true;
+
+    var scadenza = document.getElementById("scadenza").value;
+    if (scadenza.length < 1)
+    {
+        document.getElementById("esitoP").innerHTML = "Data di scadenza non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.scadenza=false;
+    }
+    else
+        checkHelp.scadenza=true;
+
+    var cvv = document.getElementById("CVV").value;
+    if (cvv.length < 1)
+    {
+        document.getElementById("esitoP").innerHTML = "CVV non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        checkHelp.cvv=false;
+    }
+    else
+        checkHelp.cvv=true;
+
+    return checkHelp.nCarta && checkHelp.scadenza && checkHelp.cvv;
+}
+
+function ajaxCard(card, checkHelp)
+{
+    let esito=validateCard(checkHelp);
+    if(!esito) return;
+    $.ajax
+    (
+        {
+            url : "UpdateCartaServ",
+            method : "post",
+            data: card,
+            success : function () {},
+            error : function () {alert("error");},
+        }
+    )
+}
+
 function displayUserInfo(cliente)
 {
+    var checkHelpAddress=
+        {
+            via: true,
+            numeroCivico: true,
+            citta: true,
+            cap: true
+        };
+    var checkHelpCard=
+        {
+            nCarta: true,
+            data: true,
+            cvv: true
+        };
+
     var nAddress=cliente.addresses.length;
     var nCard=cliente.creditCards.length;
     var newRows="";
     newRows += "<span><p>"+cliente.nome+"</p><p>"+cliente.cognome+"</p><p>"+cliente.nTelefono+"</p><p>"+cliente.email+"</p></span>";
     for(let iAddress=0; iAddress<nAddress; iAddress++)
     {
-        newRows += "<span id='addressSpan"+iAddress+"' style='margin-right: 5%'><input type='radio' name='indirizzo"+iAddress+"' id='radioAddress"+iAddress+"'><label>" + cliente.addresses[iAddress].via + " " + cliente.addresses[iAddress].nCivico +"</label></span>";
+        newRows += "<span id='addressSpan"+iAddress+"' style='margin-right: 5%'><input type='radio' name='indirizzo"+iAddress+"' id='radioAddress"+iAddress+"'><label for='radioAddress"+iAddress+"'>" + cliente.addresses[iAddress].via + " " + cliente.addresses[iAddress].nCivico +"</label></span>";
     }
     newRows += "<span id='newAddressSpan' style='margin-top: 3%'><button class='btn btn-success' style='margin-bottom: 3%'>aggiungi indirizzo</button><span id='textBoxNewAddress'></span></span><br>"
     for(let iCard=0; iCard<nCard; iCard++)
@@ -130,53 +259,157 @@ function displayUserInfo(cliente)
     }
     newRows += "<span id='newCreditCardSpan' style='margin-top: 3%'><button class='btn btn-success'>aggiungi carta di credito</button><span id='textBoxNewCard'></span></span>"
     document.getElementById("userInfo").innerHTML=newRows;
+
     $("#newAddressSpan button").on("click", function ()
     {
-        newRows = "<input type=\"text\" id=\"via\" name=\"AddVia\" placeholder=\"Via\">"
+        newRows = "<br><input type=\"text\" id=\"AddVia\" name=\"AddVia\" placeholder=\"Via\">"
             + "<br>"
-            + "<input type=\"text\" id=\"civico\" name=\"AddCivico\" placeholder=\"Numero Civico\">"
+            + "<input type=\"text\" id=\"AddCivico\" name=\"AddCivico\" placeholder=\"Numero Civico\">"
             + "<br>"
-            + "<input type=\"text\" id=\"citta\" name=\"AddCitta\" placeholder=\"Città\">"
+            + "<input type=\"text\" id=\"AddCitta\" name=\"AddCitta\" placeholder=\"Città\">"
             + "<br>"
-            + "<input type=\"text\" id=\"cap\" name=\"AddCap\" placeholder=\"CAP\">"
+            + "<input type=\"text\" id=\"AddCap\" name=\"AddCap\" placeholder=\"CAP\">"
             + "<br>"
-            + "<button id='btnInvioAddress' type='button' class='btn btn-success'>Invio</button>"
+            + "<button id='btnInvioAddress' type='button' style='margin-bottom: 3%' class='btn btn-success'>Invio</button>"
             + "<div id=\"dialogConfirmAddress\" title=\"Memorizzare indirizzo?\">\n"
             + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questo indirizzo per i prossimi acquisti?</p>\n"
             + "</div>";
         document.getElementById("textBoxNewAddress").innerHTML = newRows;
-        $( function() {
-            $( "#dialogConfirmAddress" ).dialog({
+
+        var addressToSend;
+        $( function()
+        {
+            $( "#dialogConfirmAddress" ).dialog
+            ({
                 autoOpen: false,
                 resizable: false,
                 height: "auto",
                 width: 400,
                 modal: true,
-                buttons: {
-                    "Memorizza": function() {
+                buttons:
+                    {
+                    "Memorizza": function()
+                    {
                         $( this ).dialog( "close" );
+                        addressToSend=
+                             {
+                                 via : "" + document.getElementById("AddVia").value,
+                                 nCivico : "" + document.getElementById("AddCivico").value,
+                                 citta : "" + document.getElementById("AddCitta").value,
+                                 CAP : "" + document.getElementById("AddCap").value,
+                                 isToStore : true
+                             };
+                        ajaxAddress(addressToSend, checkHelpAddress);
                     },
-                    Cancel: function() {
+                    "Annulla": function()
+                    {
                         $( this ).dialog( "close" );
+                        addressToSend=
+                            {
+                                via : "" + document.getElementById("AddVia").value,
+                                nCivico : "" + document.getElementById("AddCivico").value,
+                                citta : "" + document.getElementById("AddCitta").value,
+                                CAP : "" + document.getElementById("AddCap").value,
+                                isToStore : false
+                            };
+                        ajaxAddress(addressToSend, checkHelpAddress);
                     }
                 }
             });
         } );
         $( "#btnInvioAddress" ).on("click",function (){$( "#dialogConfirmAddress" ).dialog("open");});
+        $("#AddVia").change(function ()
+        {
+            var via=document.getElementById("AddVia").value;
+            if(via.length>50)
+            {
+                document.getElementById("esitoP").innerHTML = "Via ha una lunghezza massima di 50 caratteri.";
+                $("#dialogEsito").dialog("open");
+                $("#btnInvioAddress").prop("disabled", true);
+                checkHelpAddress.via=false;
+            }
+            else
+            {
+                if(!checkHelpAddress.via)
+                {
+                    checkHelpAddress.via = true;
+                    $("#btnInvioAddress").prop("disabled", false);
+                }
+            }
+        })
+        $("#AddCivico").change(function ()
+        {
+            var civico=document.getElementById("AddCivico").value;
+            if(/\s/.test(civico) || !/[0-9]/g.test(civico))
+            {
+                document.getElementById("esitoP").innerHTML = "Numero civico non può contenere spazi e può contenere solo cifre numeriche.";
+                $("#dialogEsito").dialog("open");
+                $("#btnInvioAddress").prop("disabled", true);
+                checkHelpAddress.numeroCivico=false;
+            }
+            else
+            {
+                if(!checkHelpAddress.numeroCivico)
+                {
+                    checkHelpAddress.numeroCivico = true;
+                    $("#btnInvioAddress").prop("disabled", false);
+                }
+            }
+        })
+        $("#AddCitta").change(function ()
+        {
+            var citta=document.getElementById("AddCitta").value;
+            if(citta.length>20 || /[0-9]/.test(citta))
+            {
+                document.getElementById("esitoP").innerHTML = "Città ha una lunghezza massima di 20 caratteri e non può contenere cifre numeriche.";
+                $("#dialogEsito").dialog("open");
+                $("#btnInvioAddress").prop("disabled", true);
+                checkHelpAddress.citta=false;
+            }
+            else
+            {
+                if(!checkHelpAddress.citta)
+                {
+                    checkHelpAddress.citta = true;
+                    $("#btnInvioAddress").prop("disabled", false);
+                }
+            }
+        })
+        $("#AddCap").change(function ()
+        {
+            var cap=document.getElementById("AddCap").value;
+            if(/\s/.test(cap) || !/[0-9]/g.test(cap) || cap.length!==5)
+            {
+                document.getElementById("esitoP").innerHTML = "CAP non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 5.";
+                $("#dialogEsito").dialog("open");
+                $("#btnInvioAddress").prop("disabled", true);
+                checkHelpAddress.cap=false;
+            }
+            else
+            {
+                if(!checkHelpAddress.cap)
+                {
+                    checkHelpAddress.cap = true;
+                    $("#btnInvioAddress").prop("disabled", false);
+                }
+            }
+        })
     });
+
 
     $("#newCreditCardSpan button").on("click", function ()
     {
-        newRows = "<br><input type=\"text\" id=\"nCarta\" name=\"nCarta\" placeholder=\"Numero carta\">"
+        newRows = "<br><input type=\"text\" id=\"Ncarta\" name=\"nCarta\" placeholder=\"Numero carta\">"
             + "<br>"
             + "<input type=\"date\" id=\"scadenza\" name=\"scadenza\" placeholder=\"Data di scadenza\">"
             + "<br>"
-            + "<input type=\"text\" id=\"cvv\" name=\"cvv\" placeholder=\"CVV\">"
+            + "<input type=\"text\" id=\"CVV\" name=\"cvv\" placeholder=\"CVV\">"
             + "<button id='btnInvioCard' type='button' class='btn btn-success'>Invio</button>"
             + "<div id=\"dialogConfirmCard\" title=\"Memorizzare carta di credito?\">\n"
             + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questa carta di credito per i prossimi acquisti?</p>\n"
             + "</div><br>";
         document.getElementById("textBoxNewCard").innerHTML = newRows;
+        var cardToSend;
         $( function() {
             $( "#dialogConfirmCard" ).dialog({
                 autoOpen: false,
@@ -187,14 +420,67 @@ function displayUserInfo(cliente)
                 buttons: {
                     "Memorizza": function() {
                         $( this ).dialog( "close" );
+                        cardToSend=
+                            {
+                                nCarta : document.getElementById("Ncarta").value,
+                                scadenza : document.getElementById("scadenza").value,
+                                CVV : document.getElementById("CVV").value,
+                                isToStore : true
+                            };
+                            ajaxCard(cardToSend, checkHelpCard);
                     },
                     Cancel: function() {
                         $( this ).dialog( "close" );
+                        cardToSend=
+                            {
+                                nCarta : document.getElementById("Ncarta").value,
+                                scadenza : document.getElementById("scadenza").value,
+                                CVV : document.getElementById("CVV").value,
+                                isToStore : false
+                            };
+                        ajaxCard(cardToSend, checkHelpCard);
                     }
                 }
             });
         } );
         $( "#btnInvioCard" ).on("click",function (){$( "#dialogConfirmCard" ).dialog("open");});
+        $("#Ncarta").change(function ()
+        {
+            var nCarta=document.getElementById("Ncarta").value;
+            if(/\s/.test(nCarta) || nCarta.length!==12 || !/\b[0-9]/g.test(nCarta))
+            {
+                document.getElementById("esitoP").innerHTML = "Numero carta non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 12.";
+                $("#dialogEsito").dialog("open");
+                $("#btnInvioCard").prop("disabled", true);
+                checkHelpCard.nCarta=false;
+            }
+            else
+            {
+                if(!checkHelpCard.nCarta)
+                {
+                    checkHelpCard.nCarta = true;
+                    $("#btnInvioCard").prop("disabled", false);
+                }
+            }
+        })
+        $("#CVV").change(function ()
+        {
+            var cvv=document.getElementById("CVV").value;
+            if(/\s/.test(cvv) || cvv.length!==3 || !/\b[0-9]/g.test(cvv))
+            {
+                document.getElementById("esitoP").innerHTML = "CVV non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 3.";
+                $("#dialogEsito").dialog("open");
+                $("#btnInvioCard").prop("disabled", true);
+                checkHelpCard.cvv=false;
+            }
+            else
+            {
+                if(!checkHelpCard.cvv) {
+                    checkHelpCard.cvv = true;
+                    $("#btnInvioCard").prop("disabled", false);
+                }
+            }
+        })
     })
 }
 
@@ -211,7 +497,7 @@ function checkOut()
                 displayUserInfo(data);
             },
             error: function () {
-                alert("error");
+                window.location.href="login.html";
             }
         }
     )

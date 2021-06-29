@@ -10,22 +10,14 @@ import java.util.Map;
 
 public class UserNotLoggedDAO extends BaseDAO
 {
-	protected void updateUserCartaDiCredito(String username, String nCarta, String userType, String passData) throws SQLException
+ 	protected void insertCartaCredito(String nCarta, Calendar scadenza, int cvv, String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call updateUserCartaDiCredito(?, ?)}");
-		callableStatement.setString("usernameIn", username);
-		callableStatement.setString("ncartaIn", nCarta);
-		doExecute(callableStatement);
-	}
-
- 	protected void insertCartaCredito(String nCarta, Calendar scadenza, int cvv,String userType, String passData) throws SQLException
-	{
-		openConnection(userType, passData);
-		CallableStatement callableStatement=user.prepareCall("{call insertCartaDiCredito(?, ?, ?)}");
+		CallableStatement callableStatement=user.prepareCall("{call insertCartaDiCredito(?, ?, ?, ?)}");
 		callableStatement.setString("ncartaIn", nCarta);
 		callableStatement.setString("scadenzaIn", DateUtil.getStringFromCalendar(scadenza));
 		callableStatement.setString("cvvIn", String.valueOf(cvv));
+		callableStatement.setString("usernameIn", username);
 		doExecute(callableStatement);
 
 	}

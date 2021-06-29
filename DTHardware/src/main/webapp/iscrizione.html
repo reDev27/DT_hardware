@@ -261,13 +261,13 @@
 			document.getElementById("esitoP").innerHTML = "Città ha una lunghezza massima di 20 caratteri e non può contenere cifre numeriche.";
 			$("#dialogEsito").dialog("open");
 			$("#btnInvio").prop("disabled", true);
-			checkHelp.numeroCivico=false;
+			checkHelp.citta=false;
 		}
 		else
 		{
 			if(!checkHelp.citta)
 			{
-				checkHelp.numeroCivico = true;
+				checkHelp.citta = true;
 				$("#btnInvio").prop("disabled", false);
 			}
 		}
@@ -294,7 +294,7 @@
 	$("#Ncarta").change(function ()
 	{
 		var nCarta=document.getElementById("Ncarta").value;
-		if(/\s/.test(nCarta) && nCarta.length!==12 && !/\b[0-9]/g.test(nCarta))
+		if(/\s/.test(nCarta) || nCarta.length!==12 || !/\b[0-9]/g.test(nCarta))
 		{
 			document.getElementById("esitoP").innerHTML = "Numero carta non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 12.";
 			$("#dialogEsito").dialog("open");

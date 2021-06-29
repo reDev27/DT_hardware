@@ -11,6 +11,15 @@ public class Address
 		setActive(isActive);
 	}
 
+	public Address(String via, int nCivico, String citta, int CAP)
+	{
+		setVia(via);
+		setnCivico(nCivico);
+		setCitta(citta);
+		setCAP(CAP);
+		setActive(false);
+	}
+
 
 	private String via;
 	private int nCivico;

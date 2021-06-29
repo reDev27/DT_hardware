@@ -18,6 +18,7 @@ public class IsLoggedServ extends HttpServlet
 		String isLogged= (String) request.getSession().getAttribute("isLogged");
 		if(isLogged==null)
 			isLogged=RequestUtility.checkIsLogged(request.getSession());
+		response.setContentType("application/json");
 		PrintWriter writer=response.getWriter();
 		if(isLogged.compareTo("n")==0)
 			writer.write("{\"L\":false}");

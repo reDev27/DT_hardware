@@ -1,7 +1,5 @@
 package Model;
 
-import Model.DAO.DateUtil;
-import Model.DAO.UserBean;
 import com.google.gson.JsonObject;
 
 import javax.servlet.ServletContext;
@@ -16,25 +14,23 @@ public class Order
 
 	}
 
-	public Order(int id, int sconto, double totale, Calendar dataAcquisto, String username)
+	public Order(String fattura, double totale, Calendar dataAcquisto, String username)
 	{
-		setId(id);
-		setSconto(sconto);
+		setFattura(fattura);
 		setTotale(totale);
 		setDataAcquisto(dataAcquisto);
 		setUsername(username);
 	}
 
-	public void ordineEffettuato(JsonObject obj, ServletContext context) throws SQLException, IOException
+	public void ordineEffettuato(ServletContext context) throws SQLException, IOException
 	{
-		UserBean.callInsertOrdine(obj.get("id").getAsInt(), obj.get("sconto").getAsInt(), obj.get("totale").getAsDouble(), DateUtil.getCalendarFromString(obj.get("dataAcquisto").getAsString()), obj.get("username").getAsString(), context);
-		UserBean.callInsertCompone(obj.get("nProdotti").getAsInt(), obj.get("id").getAsInt(), obj.get("codiceABarre").getAsString(), context);
+
 	}
 
 
 
 	private int id;
-	private int sconto;
+	private String fattura;
 	private double totale;
 	private Calendar dataAcquisto;
 	private String username;
@@ -47,13 +43,13 @@ public class Order
 	{
 		this.id = id;
 	}
-	public int getSconto()
+	public String getFattura()
 	{
-		return sconto;
+		return fattura;
 	}
-	public void setSconto(int sconto)
+	public void setFattura(String fattura)
 	{
-		this.sconto = sconto;
+		this.fattura = fattura;
 	}
 	public double getTotale()
 	{

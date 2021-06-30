@@ -20,6 +20,10 @@ public class Address
 		setActive(false);
 	}
 
+	public String toString()
+	{
+		return getVia() + " " + getnCivico() + " " + getCitta() + " " + getCAP();
+	}
 
 	private String via;
 	private int nCivico;

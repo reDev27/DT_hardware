@@ -1,43 +1,33 @@
 package Controller;
 
 import Model.Carrello;
-import Model.RequestUtility;
+import Model.Cliente;
+import Model.Order;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Calendar;
 
-@WebServlet(name="CheckOutServ" , value = "/CheckOutServ")
+@WebServlet(name = "CheckOutServ", value = "/CheckOutServ")
 public class CheckOutServ extends HttpServlet
 {
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		if(RequestUtility.checkIsLogged(request.getSession()).compareTo("l") == 0)
-		{
-			Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
-			ArrayList<String> notAvailableProducts;
-			try
-			{
-				notAvailableProducts = carrello.verifyAvailability(request.getServletContext());
-			}
-			catch (SQLException throwables)
-			{
-				throwables.printStackTrace();
-			}
-			carrello.getTotale();
-			RequestDispatcher dispatcher = request.getRequestDispatcher("");
-			dispatcher.forward(request, response);
-		}
-		else
-		{
-			response.getWriter().write("error");
-		}
+
+	}
+
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	{
+		HttpSession session=request.getSession();
+		Cliente cliente= (Cliente) session.getAttribute("cliente");
+		Carrello carrello= (Carrello) session.getAttribute("carrello");
+		String fattura=null;
+		Order order=new Order(fattura, carrello.getTotale()+9.90, Calendar.getInstance(), (String) session.getAttribute("user"));
 	}
 }

@@ -1,5 +1,7 @@
 package Model;
 
+import Model.DAO.DateUtil;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -12,6 +14,11 @@ public class CreditCard
 		setCVV(CVV);
 	}
 
+	public String toString()
+	{
+		String nCartaCensored=nCarta.substring(0, 4) + "****" + nCarta.substring(7,11);
+		return nCartaCensored + " " + DateUtil.getStringFromCalendar(scadenza).substring(0, 6);
+	}
 
 	private String nCarta;
 	private Calendar scadenza;

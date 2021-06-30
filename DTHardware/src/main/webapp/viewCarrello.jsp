@@ -75,7 +75,7 @@
     <h3>Riepilogo ordine</h3>
     <span class="row" style="padding-left: 1%">
         <span id="userInfo" class="col-8"></span>
-        <span id="btnOrdinaSpan" class="col-3" style="margin-left: 8%"><button id="btnOrdina" class="btn btn-success" type="button" style="width: 100%">Ordina e paga</button></span>
+        <span id="btnOrdinaSpan" class="col-3" style="margin-left: 8%"><button id="btnOrdina" class="btn btn-success" type="submit" style="width: 100%">Ordina</button></span>
     </span>
 </span>
 
@@ -117,6 +117,9 @@
     </div>
 
 <script>
+
+
+
     $(document).ready
     (
         $.ajax
@@ -156,6 +159,25 @@
       $("#btnCheckOut").on("click", function ()
       {
           checkOut();
+      })
+
+      $("#btnOrdina").click(function ()
+      {
+          var selectedParameters=
+              {
+                  selectedAddress : sessionStorage.getItem("selectedAddress"),
+                  selectedCard : sessionStorage.getItem("selectedCard")
+              }
+          $.ajax
+          (
+              {
+                  url : "BeforeCheckOutServ",
+                  method : "post",
+                  data : selectedParameters,
+                  success : function (){window.location.href="riepilogoCheckout.jsp";},
+                  error : function () {alert("error");}
+              }
+          )
       })
 
       var products=[];

@@ -44,11 +44,10 @@ public class UserDAO extends UserNotLoggedDAO
 		doExecute(callableStatement);
 	}
 
-	public void insertOrdine(int id, int sconto, double totale, Calendar dataacquisto, String username,String userType, String passData) throws SQLException {
+	public void insertOrdine(String fattura, double totale, Calendar dataacquisto, String username,String userType, String passData) throws SQLException {
 		openConnection(userType, passData);
-		CallableStatement callableStatement = user.prepareCall("{call InsertOrdine(?, ?, ?, ?, ?)}");
-		callableStatement.setString("idIn", String.valueOf(id));
-		callableStatement.setString("scontoIn", String.valueOf(sconto));
+		CallableStatement callableStatement = user.prepareCall("{call InsertOrdine(?, ?, ?, ?)}");
+		callableStatement.setString("scontoIn", fattura);
 		callableStatement.setString("totaleIn", String.valueOf(totale));
 		callableStatement.setString("dataacquistoIn", DateUtil.getStringFromCalendar(dataacquisto));
 		callableStatement.setString("usernameIn", username);

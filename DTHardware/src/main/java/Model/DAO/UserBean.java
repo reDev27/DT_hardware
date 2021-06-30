@@ -68,12 +68,12 @@ public class UserBean extends UserNotLoggedBean
 		connection.destroy();
 	}
 
-	public static  void callInsertOrdine(int id, int sconto, double totale, Calendar dataAcquisto, String username, ServletContext context) throws SQLException, IOException
+	public static  void callInsertOrdine(String fattura, double totale, Calendar dataAcquisto, String username, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.insertOrdine(id, sconto, totale,dataAcquisto,username, crd.getUsername(), crd.getPass());
+		connection.insertOrdine(fattura, totale,dataAcquisto,username, crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 }

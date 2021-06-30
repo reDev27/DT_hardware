@@ -250,16 +250,27 @@ function displayUserInfo(cliente)
     newRows += "<span><p>"+cliente.nome+"</p><p>"+cliente.cognome+"</p><p>"+cliente.nTelefono+"</p><p>"+cliente.email+"</p></span>";
     for(let iAddress=0; iAddress<nAddress; iAddress++)
     {
-        newRows += "<span id='addressSpan"+iAddress+"' style='margin-right: 5%'><input type='radio' name='indirizzo"+iAddress+"' id='radioAddress"+iAddress+"'><label for='radioAddress"+iAddress+"'>" + cliente.addresses[iAddress].via + " " + cliente.addresses[iAddress].nCivico +"</label></span>";
+        newRows += "<span id='addressSpan"+iAddress+"' style='margin-right: 5%'><input type='radio' name='indirizzo' id='radioAddress"+iAddress+"'><label for='radioAddress"+iAddress+"'>" + cliente.addresses[iAddress].via + " " + cliente.addresses[iAddress].nCivico +"</label></span>";
     }
     newRows += "<span id='newAddressSpan' style='margin-top: 3%'><button class='btn btn-success' style='margin-bottom: 3%'>aggiungi indirizzo</button><span id='textBoxNewAddress'></span></span><br>"
     for(let iCard=0; iCard<nCard; iCard++)
     {
-        newRows += "<span id='creditCardSpan' style='margin-right: 5%'><p>" + cliente.creditCards[iCard].nCarta + "</p></span>";
+        newRows += "<span id='creditCardSpan' style='margin-right: 5%'><input type='radio' id='radioCard"+iCard+"' name='card'><label for='radioCard"+iCard+"'>" + cliente.creditCards[iCard].nCarta + "</label></span>";
     }
     newRows += "<span id='newCreditCardSpan' style='margin-top: 3%'><button class='btn btn-success'>aggiungi carta di credito</button><span id='textBoxNewCard'></span></span>"
     document.getElementById("userInfo").innerHTML=newRows;
-
+    for(let iAddress=0; iAddress<nAddress; iAddress++)
+    {
+        $("#radioAddress" + iAddress).change(function () {
+            sessionStorage.setItem("selectedAddress", "" + iAddress);
+        })
+    }
+    for(let iCard=0; iCard<nCard; iCard++)
+    {
+        $("#radioCard" + iCard).change(function () {
+            sessionStorage.setItem("selectedCard", "" + iCard);
+        })
+    }
     $("#newAddressSpan button").on("click", function ()
     {
         newRows = "<br><input type=\"text\" id=\"AddVia\" name=\"AddVia\" placeholder=\"Via\">"
@@ -317,7 +328,7 @@ function displayUserInfo(cliente)
                 }
             });
         } );
-        $( "#btnInvioAddress" ).on("click",function (){$( "#dialogConfirmAddress" ).dialog("open");});
+        $( "#btnInvioAddress" ).on("click",function (){$( "#dialogConfirmAddress" ).dialog("open"); sessionStorage.setItem("selectedAddress", "" + -1)});
         $("#AddVia").change(function ()
         {
             var via=document.getElementById("AddVia").value;
@@ -443,7 +454,7 @@ function displayUserInfo(cliente)
                 }
             });
         } );
-        $( "#btnInvioCard" ).on("click",function (){$( "#dialogConfirmCard" ).dialog("open");});
+        $( "#btnInvioCard" ).on("click",function (){$( "#dialogConfirmCard" ).dialog("open"); sessionStorage.setItem("selectedCard", "" + -1)});
         $("#Ncarta").change(function ()
         {
             var nCarta=document.getElementById("Ncarta").value;
@@ -483,7 +494,6 @@ function displayUserInfo(cliente)
         })
     })
 }
-
 
 function checkOut()
 {

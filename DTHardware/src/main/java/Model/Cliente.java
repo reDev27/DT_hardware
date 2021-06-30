@@ -53,6 +53,18 @@ public class Cliente
 		return isLogged;
 	}
 
+	public void resizeArray(int addressIndex, int cardIndex)
+	{
+		if(addressIndex<0 || cardIndex<0)
+			return;
+		ArrayList<Address> addressesApp=new ArrayList<>();
+		addressesApp.add(getAddresses().get(addressIndex));
+		setAddresses(addressesApp);
+		ArrayList<CreditCard> creditCardsApp=new ArrayList<>();
+		creditCardsApp.add(creditCards.get(cardIndex));
+		setCreditCards(creditCardsApp);
+	}
+
 	private String username;
 	private String email;
 	private String nome;

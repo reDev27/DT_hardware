@@ -1,8 +1,7 @@
 DELIMITER //
 drop procedure if exists InsertOrdine;
 create procedure InsertOrdine(
-    in idIn int,
-    in scontoIn int,
+    in fatturaIn varchar(1000),
     in totaleIn double,
     in dataacquistoIn timestamp,
     in usernameIn varchar(50)
@@ -10,8 +9,8 @@ create procedure InsertOrdine(
 
 begin
 
-    insert into ORDINE values
-    (idIn,scontoIn,totaleIn,dataacquistoIn,usernameIn);
+    insert into ORDINE (fattura, totale, dataacquisto, username) values
+    (fatturaIn,totaleIn,dataacquistoIn,usernameIn);
 
 end //
 DELIMITER ;

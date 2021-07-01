@@ -1,10 +1,14 @@
 package Model;
 
+import Model.DAO.DateUtil;
+import Model.DAO.UserBean;
 import com.google.gson.JsonObject;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Order
@@ -12,6 +16,13 @@ public class Order
 	public Order()
 	{
 
+	}
+
+	public Order(double totale, Calendar dataAcquisto, String username)
+	{
+		setTotale(totale);
+		setDataAcquisto(dataAcquisto);
+		setUsername(username);
 	}
 
 	public Order(String fattura, double totale, Calendar dataAcquisto, String username)
@@ -22,12 +33,49 @@ public class Order
 		setUsername(username);
 	}
 
-	public void ordineEffettuato(ServletContext context) throws SQLException, IOException
+	public Order(int id, String fattura, double totale, Calendar dataAcquisto, String username)
 	{
-
+		setId(id);
+		setFattura(fattura);
+		setTotale(totale);
+		setDataAcquisto(dataAcquisto);
+		setUsername(username);
 	}
 
+	public void ordineEffettuato(Carrello carrello, ServletContext context) throws SQLException, IOException
+	{
+		ArrayList<Product> products=carrello.getProdotti();
+		try
+		{
+			UserBean.callInsertOrdine(getFattura(), totale, getDataAcquisto(), username, context);
+			for(Product product : products)
+			{
+				UserBean.callInsertCompone(product.getQuantitaCarrello(), product.getCodiceABarre(), context);
+			}
+		}
+		catch (SQLException | IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 
+	public String creaFattura(Cliente cliente, Carrello carrello)
+	{
+		String fattura = "Nome: " + cliente.getNome() + ";\nCognome: " + cliente.getCognome() + ";\nUsername" + getUsername() + ";\nE-mail: " + cliente.getEmail() +
+				";\nNumero di telefono: " + cliente.getnTelefono() + ";\nIndirizzo: " + cliente.getAddresses().get(0) + ";\nCarta di Credito: " +
+				 cliente.getCreditCards().get(0) + ";\nCarrello:\n";
+		ArrayList<Product> products=carrello.getProdotti();
+		for(Product prodotto : products)
+		{
+			fattura += "Marca: " + prodotto.getMarca() + ", modello: " + prodotto.getModello() + ", prezzo: €" + prodotto.getPrezzo() + ", quantità: " +
+					prodotto.getQuantitaCarrello() + ";\n";
+		}
+		DecimalFormat decimalFormat=new DecimalFormat("#.##");
+		fattura += "Quantità prodotti acquistati: " + carrello.getQuantitaTotaleCarrello() + ";\nSubtotale: " + decimalFormat.format(carrello.getTotale()) +
+					";\nSpedizione: €9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: " + totale;
+		setFattura(fattura);
+		return getFattura();
+	}
 
 	private int id;
 	private String fattura;

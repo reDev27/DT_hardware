@@ -31,6 +31,17 @@ public class Carrello extends ProductsArray
 		return codiciProdottiEsauriti;
 	}
 
+	public int getQuantitaTotaleCarrello()
+	{
+		ArrayList<Product> products=getProdotti();
+		int totale=0;
+		for(Product product : products)
+		{
+			totale += product.getQuantitaCarrello();
+		}
+		return totale;
+	}
+
 	public double getTotale()
 	{
 		ArrayList<Product> products=getProdotti();

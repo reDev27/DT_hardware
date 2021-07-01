@@ -1,9 +1,6 @@
 package Model.DAO;
 
-import Model.Address;
-import Model.Cliente;
-import Model.CrdGiver;
-import Model.CreditCard;
+import Model.*;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
@@ -14,6 +11,28 @@ import java.util.Calendar;
 
 public class UserBean extends UserNotLoggedBean
 {
+	public static ArrayList<Order> callSelectOrderByUsername(String username, ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(1);
+		UserDAO connection=new UserDAO();
+		ResultSet result=connection.selectOrdersByUsername(username, crd.getUsername(), crd.getPass());
+		ArrayList<Order> orders=new ArrayList<>();
+		while (result.next())
+		{
+			orders.add(
+					new Order(
+							result.getInt("id"),
+							result.getString("fattura"),
+							result.getDouble("totale"),
+							DateUtil.getCalendarFromString(result.getString("dataacquisto")),
+							result.getString("username")
+					)
+			);
+		}
+		return orders;
+	}
+
 	public static ArrayList<CreditCard> callSelectCarteDiCreditoByUsername(String username, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
@@ -59,12 +78,12 @@ public class UserBean extends UserNotLoggedBean
 		return cliente;
 	}
 
-	public static void callInsertCompone(int nprodotti, int id, String codiceABarre, ServletContext context) throws SQLException, IOException
+	public static void callInsertCompone(int nprodotti, String codiceABarre, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.insertCompone(nprodotti, id, codiceABarre, crd.getUsername(), crd.getPass());
+		connection.insertCompone(nprodotti, codiceABarre, crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 

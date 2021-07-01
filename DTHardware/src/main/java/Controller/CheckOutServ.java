@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Calendar;
 
 @WebServlet(name = "CheckOutServ", value = "/CheckOutServ")
@@ -25,9 +26,22 @@ public class CheckOutServ extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		HttpSession session=request.getSession();
-		Cliente cliente= (Cliente) session.getAttribute("cliente");
-		Carrello carrello= (Carrello) session.getAttribute("carrello");
-		String fattura=null;
-		Order order=new Order(fattura, carrello.getTotale()+9.90, Calendar.getInstance(), (String) session.getAttribute("user"));
+		if(((String)session.getAttribute("isLogged")).compareTo("l")==0)
+		{
+			Cliente cliente = (Cliente) session.getAttribute("cliente");
+			Carrello carrello = (Carrello) session.getAttribute("carrello");
+			Order order = new Order(carrello.getTotale() + 9.90, Calendar.getInstance(), (String) session.getAttribute("user"));
+			order.creaFattura(cliente, carrello);
+			try
+			{
+				order.ordineEffettuato(carrello, request.getServletContext());
+			}
+			catch (SQLException | IOException throwables)
+			{
+				throwables.printStackTrace();
+			}
+		}
+		else
+			throw new Error();
 	}
 }

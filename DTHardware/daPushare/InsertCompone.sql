@@ -2,14 +2,16 @@ DELIMITER //
 drop procedure if exists InsertCompone;
 create procedure InsertCompone(
     in nprodottiIn int,
-    in idIn int,
     in codiceABarreIn char(12)
 )
 
 begin
+    declare idIn int;
+
+    set idIn = (select max(ID) from ordine);
 
     insert into COMPONE values
-    (nprodottiIn, idIn, codiceABarreIn);
+    (codiceABarreIn, idIn, nprodottiIn);
 
 end //
 DELIMITER ;

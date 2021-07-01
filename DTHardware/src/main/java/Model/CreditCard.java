@@ -14,9 +14,14 @@ public class CreditCard
 		setCVV(CVV);
 	}
 
+	public String getCensoredCard()
+	{
+		return nCarta.substring(0, 4) + "****" + nCarta.substring(7, 11);
+	}
+
 	public String toString()
 	{
-		String nCartaCensored=nCarta.substring(0, 4) + "****" + nCarta.substring(7,11);
+		String nCartaCensored = getCensoredCard();
 		return nCartaCensored + " " + DateUtil.getStringFromCalendar(scadenza).substring(0, 6);
 	}
 

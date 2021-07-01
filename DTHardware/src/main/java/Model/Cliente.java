@@ -1,5 +1,6 @@
 package Model;
 
+import Model.DAO.UserBean;
 import Model.DAO.UserNotLoggedBean;
 
 import javax.servlet.ServletContext;
@@ -63,6 +64,16 @@ public class Cliente
 		ArrayList<CreditCard> creditCardsApp=new ArrayList<>();
 		creditCardsApp.add(creditCards.get(cardIndex));
 		setCreditCards(creditCardsApp);
+	}
+
+	public ArrayList<Order> getOrdersByUsername(String username, ServletContext context) throws SQLException, IOException
+	{
+		return UserBean.callSelectOrderByUsername(username, context);
+	}
+
+	public ArrayList<Order> getOrdersByUsername(ServletContext context) throws SQLException, IOException
+	{
+		return UserBean.callSelectOrderByUsername(getUsername(), context);
 	}
 
 	private String username;

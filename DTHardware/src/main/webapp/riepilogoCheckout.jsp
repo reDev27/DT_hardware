@@ -97,7 +97,7 @@
             </span>
         </span>
         <span id="btnOrdinaSpan" class="col-3" style="margin-left: 8%">
-            <button id="btnOrdina" class="btn btn-success" type="button" style="width: 100%; margin-bottom: 20%">Ordina e paga</button>
+            <button id="btnOrdina" class="btn btn-success" type="button" style="width: 100%; margin-bottom: 20%"><div id="spinnerOrdina" class="spinner-grow text-success spinner-border-sm" style="color: #dbd259 !important;"></div><span>Ordina e paga</span></button>
             <button id="btnAnnulla" class="btn btn-danger" type="button" style="width: 100%; align-self: end">Annulla</button>
         </span>
     </span>
@@ -130,9 +130,18 @@
         </div>
     </div>
 
-    <!--<div class="spinner-border text-success" style=""></div>-->
+    <script>
+        $( function() {
+            $( "#dialogEsito" ).dialog({autoOpen: false});
+        } );
+    </script>
+
+    <div id="dialogEsito" title="Espressione non valida">
+        <p id="esitoP"></p>
+    </div>
 
     <script>
+        $("#spinnerOrdina").hide();
 
         document.getElementById("quantitaTotaleProdotti").innerHTML="Quantità totale prodotti: " + quantitaTotale;
 
@@ -141,15 +150,26 @@
         })
 
         $("#btnOrdina").click(function () {
-            $(
+            $.ajax(
                 {
                     url : "CheckOutServ",
                     method : "post",
+                    success : function (){
+                        document.getElementById("esitoP").innerHTML = "Acquisto effettuato con successo! Verrai reindirizzato alla homepage a breve.";
+                        $("#dialogEsito").dialog("open");
+                        setTimeout(function () {
+                            window.location.href = "homepage.html";
+                        }, 4000);
+                    },
+                    error : function () {
+                        document.getElementById("esitoP").innerHTML = "Errore in fare di check-out. Per favore riprova, se il problema persiste contatta il nostro centro assistenza.";
+                        $("#dialogEsito").dialog("open");
+                    },
                     beforeSend : function () {
-
+                        $("#spinnerOrdina").show();
                     },
                     complete : function () {
-
+                        $("#spinnerOrdina").hide();
                     }
                 }
             )

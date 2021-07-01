@@ -9,26 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornata la pagina del carrello per dare la possibilità di aggiungere una carta di credito e un indirizzo in fase di riepilogo ordine (ed eventualmente salvarli);&#10;aggiornati tutti bean e DAO inerenti al punto precedente;&#10;due nuove servlet per gestire l'inserimento di indirizzo e carta di credito;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/BeforeCheckOutServ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/riepilogoCheckout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornate creditCard e Address per supportare i parametri modificati;&#10;modificata la tabella order per far si che id si autoincrementi;&#10;mdificata insertOrdine e aggiornati bean e DAO per adattarsi al punto precedente;&#10;Creata nuova pagina di riepilogo ordine;&#10;creata nuova servlet per gestire gli indirizzi e le carte di credito scelti dall'utente con i radio box;&#10;fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daPushare/InsertOrdine.sql" beforeDir="false" afterPath="$PROJECT_DIR$/daPushare/InsertOrdine.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CheckOutServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CreditCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Address.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CreditCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CreditCard.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -376,14 +358,7 @@
       <workItem from="1624954564660" duration="93000" />
       <workItem from="1624972478541" duration="13150000" />
       <workItem from="1625058522073" duration="579000" />
-      <workItem from="1625060485476" duration="13791000" />
-    </task>
-    <task id="LOCAL-00058" summary="aggiornamenti a Ai bean per supportare la select dei clienti per username;&#10;correzione procedure;&#10;fix bug DateUtil">
-      <created>1622548054050</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1622548054050</updated>
+      <workItem from="1625060485476" duration="13994000" />
     </task>
     <task id="LOCAL-00059" summary="aggiornamenti vari">
       <created>1622553394143</created>
@@ -721,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624987259460</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="aggiornate creditCard e Address per supportare i parametri modificati;&#10;modificata la tabella order per far si che id si autoincrementi;&#10;mdificata insertOrdine e aggiornati bean e DAO per adattarsi al punto precedente;&#10;Creata nuova pagina di riepilogo ordine;&#10;creata nuova servlet per gestire gli indirizzi e le carte di credito scelti dall'utente con i radio box;&#10;fix minori.">
+      <created>1625074589174</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1625074589174</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,7 +723,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix grafico alla disposizione degli elementi(continua)." />
     <MESSAGE value="homepage base finita;&#10;nuovo sfondo homapage;&#10;fix minori;" />
     <MESSAGE value="aggiustamenti homepage;&#10;inizio script per listare i prodotti;&#10;fix minori." />
     <MESSAGE value="Homepage ultimata;&#10;aggiornamento ajax per visualizzare i prodotti in base alla categoria;&#10;fix grafici minori;&#10;fix stored procedure SelectProdottoByCategoria;&#10;fix minori." />
@@ -766,7 +747,8 @@
     <MESSAGE value="fix alla viewProduct.jsp che non reindirizzava correttamente alla pagina per visualizzare i prodotti per categoria;&#10;fix minori." />
     <MESSAGE value="aggiornata la pagina del carrello per supportare il riepilogo dell'ordine;&#10;fix minori." />
     <MESSAGE value="aggiornata la pagina del carrello per dare la possibilità di aggiungere una carta di credito e un indirizzo in fase di riepilogo ordine (ed eventualmente salvarli);&#10;aggiornati tutti bean e DAO inerenti al punto precedente;&#10;due nuove servlet per gestire l'inserimento di indirizzo e carta di credito;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornata la pagina del carrello per dare la possibilità di aggiungere una carta di credito e un indirizzo in fase di riepilogo ordine (ed eventualmente salvarli);&#10;aggiornati tutti bean e DAO inerenti al punto precedente;&#10;due nuove servlet per gestire l'inserimento di indirizzo e carta di credito;&#10;fix minori." />
+    <MESSAGE value="aggiornate creditCard e Address per supportare i parametri modificati;&#10;modificata la tabella order per far si che id si autoincrementi;&#10;mdificata insertOrdine e aggiornati bean e DAO per adattarsi al punto precedente;&#10;Creata nuova pagina di riepilogo ordine;&#10;creata nuova servlet per gestire gli indirizzi e le carte di credito scelti dall'utente con i radio box;&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornate creditCard e Address per supportare i parametri modificati;&#10;modificata la tabella order per far si che id si autoincrementi;&#10;mdificata insertOrdine e aggiornati bean e DAO per adattarsi al punto precedente;&#10;Creata nuova pagina di riepilogo ordine;&#10;creata nuova servlet per gestire gli indirizzi e le carte di credito scelti dall'utente con i radio box;&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -29,6 +29,7 @@ public class ShowOrdini extends HttpServlet
 		{
 			String username = (String) session.getAttribute("user");
 			Cliente cliente = (Cliente) session.getAttribute("cliente");
+			ArrayList<Order> orders=null;
 			if(cliente==null)
 			{
 				try
@@ -42,13 +43,15 @@ public class ShowOrdini extends HttpServlet
 			}
 			try
 			{
-				ArrayList<Order> orders=cliente.getOrdersByUsername(username, context);
+				if(cliente!=null)
+					orders=cliente.getOrdersByUsername(username, context);
 			}
 			catch (SQLException | NullPointerException throwables)
 			{
 				throwables.printStackTrace();
 			}
-			ProductsOfAnOrder products=new ProductsOfAnOrder();
+			request.setAttribute("cliente", cliente);
+			request.setAttribute("orders", orders);
 			context.getRequestDispatcher("/WEB-INF/showOrdini.jsp").forward(request, response);
 		}
 	}

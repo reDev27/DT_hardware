@@ -68,12 +68,7 @@ public class Cliente
 
 	public ArrayList<Order> getOrdersByUsername(String username, ServletContext context) throws SQLException, IOException
 	{
-		return UserBean.callSelectOrderByUsername(username, context);
-	}
-
-	public ArrayList<Order> getOrdersByUsername(ServletContext context) throws SQLException, IOException
-	{
-		return UserBean.callSelectOrderByUsername(getUsername(), context);
+		return UserBean.callSelectOrdersByUsername(username, context);
 	}
 
 	private String username;

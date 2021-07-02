@@ -7,6 +7,15 @@ import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO
 {
+	public ResultSet selectProductsByOrderId(int id, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectProductsByOrderId(?)}");
+		callableStatement.setInt("idIn", id);
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	public ResultSet selectOrdersByUsername(String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

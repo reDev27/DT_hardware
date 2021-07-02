@@ -65,6 +65,11 @@
         cursor: pointer;
 
     }
+    #btnCarrello{
+        background-color: #86d804;
+    }
+
+
 
     #spinnerParag span
     {
@@ -76,7 +81,7 @@
     <span>
       <img class="cols-1" src="image/telephone.png"> <span class="cols-1">Numero di telefono: 0123456789</span>
       <img class="cols-1" src="image/email.png" style="margin-left: 2%"> <span class="cols-8" >E-mail: DTHardware@gmail.com</span>
-      <span class="cols-1" id="accediRef"><a href="index.jsp" title="Accedi o crea un account">Accedi</a> oppure <a href="index.jsp" title="Accedi o crea un account">crea un account</a></span>
+      <span class="cols-1" id="accediRef"><a href="login.html" title="Accedi o crea un account">Accedi</a> oppure <a href="iscrizione.html" title="Accedi o crea un account">crea un account</a></span>
     </span>
     </header>
 

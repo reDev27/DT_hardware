@@ -83,9 +83,9 @@
       <div class="col-4">
           <span id="infoSpan" class="row">
             <h5 class="col-12">Informazioni</h5>
-            <a class="col-12" href="homepage.html">Termini e condizioni</a>
-            <a class="col-12" href="homepage.html">Metodi di pagamento</a>
-            <a class="col-12" href="homepage.html">Politiche di reso</a>
+            <a class="col-12" href="terminiECondizioni.html">Termini e condizioni</a>
+            <a class="col-12" href="metodiDiPagamento.html">Metodi di pagamento</a>
+            <a class="col-12" href="politicheReso.html">Politiche di reso</a>
           </span>
       </div>
       <div class="col-4">
@@ -155,11 +155,17 @@
 </script>
 
   <script>
-      //$("#riepilogoOrdineSpan").hide();
+      $("#riepilogoOrdineSpan").hide();
       $("#btnCheckOut").on("click", function ()
       {
           checkOut();
+          $("#riepilogoOrdineSpan").show();
       })
+
+      window.onbeforeunload=function () {
+          sessionStorage.removeItem("selectedAddress");
+          sessionStorage.removeItem("selectedCard");
+      }
 
       $("#btnOrdina").click(function ()
       {
@@ -168,17 +174,40 @@
                   selectedAddress : sessionStorage.getItem("selectedAddress"),
                   selectedCard : sessionStorage.getItem("selectedCard")
               }
-          $.ajax
-          (
+          if(selectedParameters.selectedCard!==null && selectedParameters.selectedAddress!==null)
+          {
+              $.ajax
+              (
+                  {
+                      url: "BeforeCheckOutServ",
+                      method: "post",
+                      data: selectedParameters,
+                      success: function () {
+                          window.location.href = "riepilogoCheckout.jsp";
+                      },
+                      error: function () {
+                          alert("error");
+                      }
+                  }
+              )
+              sessionStorage.removeItem("selectedAddress");
+              sessionStorage.removeItem("selectedCard");
+          }
+          else
+          {
+              if(selectedParameters.selectedAddress===null)
               {
-                  url : "BeforeCheckOutServ",
-                  method : "post",
-                  data : selectedParameters,
-                  success : function (){window.location.href="riepilogoCheckout.jsp";},
-                  error : function () {alert("error");}
+                  document.getElementById("esitoP").innerHTML = "Non è stato inserito ne selezionato alcun indirizzo. Prego, riprovare.";
+                  $("#dialogEsito").dialog("open");
               }
-          )
+              if(selectedParameters.selectedCard===null)
+              {
+                  document.getElementById("esitoP").innerHTML = "Non è stato inserita ne selezionata alcuna carta di credito. Prego, riprovare.";
+                  $("#dialogEsito").dialog("open");
+              }
+          }
       })
+
 
       var products=[];
       <%

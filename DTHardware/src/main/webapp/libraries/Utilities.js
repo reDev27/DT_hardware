@@ -1,3 +1,8 @@
+function showDettagliOrdine(index)
+{
+    alert(index);
+}
+
 function checkRegisterForm(checkHelp)
 {
     let esito;

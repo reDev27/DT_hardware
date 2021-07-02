@@ -50,9 +50,13 @@ public class ShowOrdini extends HttpServlet
 			{
 				throwables.printStackTrace();
 			}
-			request.setAttribute("cliente", cliente);
-			request.setAttribute("orders", orders);
-			context.getRequestDispatcher("/WEB-INF/showOrdini.jsp").forward(request, response);
+			session.setAttribute("cliente", cliente);
+			session.setAttribute("orders", orders);
+			request.getRequestDispatcher("/showOrdini.jsp").forward(request, response);
+		}
+		else
+		{
+			response.sendRedirect("login.html");
 		}
 	}
 

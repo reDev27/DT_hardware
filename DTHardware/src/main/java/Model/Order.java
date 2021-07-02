@@ -85,7 +85,7 @@ public class Order
 		}
 		DecimalFormat decimalFormat=new DecimalFormat("#.##");
 		fattura += "Quantità prodotti acquistati: " + carrello.getQuantitaTotaleCarrello() + ";\nSubtotale: " + decimalFormat.format(carrello.getTotale()) +
-					";\nSpedizione: €9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: " + totale;
+					";\nSpedizione: €9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: " + decimalFormat.format(totale);
 		setFattura(fattura);
 		return getFattura();
 	}

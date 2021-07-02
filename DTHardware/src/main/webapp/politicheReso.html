@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<title>Politiche di reso</title>
+</head>
+<body>
+<script src="libraries/Utilities.js"></script>
+<link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
+<script src="libraries/jQuery_current.js"></script>
+<script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
+<script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
+
+<style>
+	#selectableTableProducts .ui-selecting
+	{
+		background: rgba(188, 255, 179, 0.89);
+	}
+
+	#selectableTableProducts .ui-selected
+	{
+		background: #188e08;
+		color: #000000;
+	}
+
+	#prodottoSpan p
+	{
+		max-width: 80%;
+		width: 80%;
+		margin: auto;
+		padding: .5%;
+	}
+	#prodottoSpan button
+	{
+		width: 80%;
+		margin: auto;
+	}
+
+</style>
+
+<main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
+	<header class="row" id="intestazione">
+    <span>
+      <img class="cols-1" src="image/telephone.png"> <span class="cols-1">Numero di telefono: 0123456789</span>
+      <img class="cols-1" src="image/email.png" style="margin-left: 2%"> <span class="cols-8" >E-mail: DTHardware@gmail.com</span>
+      <span class="cols-1" id="accediRef"><a href="login.html" title="Accedi o crea un account">Accedi</a> oppure <a href="iscrizione.html" title="Accedi o crea un account">crea un account</a></span>
+    </span>
+	</header>
+
+	<span class="row" id="searchAndCarrello">
+    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo_DT.png" width="100%" id="logoIcon"></a></span>
+    <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
+    <span class="cols-4" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
+  </span>
+
+	<div style="margin-right: 3%; margin-left: 3%">
+		<h5>Politiche di reso</h5>
+		<span>Premessa
+			<p>
+				Le presenti condizioni generali di fornitura si applicano integralmente ad ogni ordine salvo deroghe particolari scritte inviate da D.T.Hardware al Cliente. Il conferimento dell'ordine comporta l'accettazione integrale delle presenti condizioni generali di vendita.
+			</p>
+			Resi e rientri per riparazione o sostituzione<br>
+			<p>
+				Il rientro della merce, in tutti i casi, deve essere prima espressamente autorizzato da D.T.Hardware. Il rientro può essere richiesto per errato ordine, errata fornitura, riparazione (o sostituzione) in garanzia, o per riparazione fuori garanzia. La richiesta di rientro per errato ordine o errata fornitura può essere inoltrata per chiedere la sostituzione con altre apparecchiature o per chiedere il reso ovvero il rimborso di quanto pagato. La richiesta di rientro per errato ordine o errata fornitura deve essere inoltrata entro e non oltre 14 giorni dalla ricezione della merce. Si ricorda inoltre che non è possibile richiedere il reso per quei prodotti personalizzati da richieste del cliente, come ad esempio PC assemblati. In seguito alla richiesta di rientro, se questa viene autorizzata, verrà comunicato a mezzo mail. Il cliente deve spedire la merce da rientrare all'indirizzo che verrà comunicato, indicando bene in vista sulla confezione del pacco data e ora della nostra mail di autorizzazione. Le apparecchiature vanno spedite in porto franco, pena il mancato ritiro da parte del centro di ricezione. E' importante che l'imballaggio delle apparecchiature venga effettuato con la massima cura, adottando tutte le precauzioni necessarie per evitare danneggiamenti durante il trasporto. Le apparecchiature verranno prima controllate, quindi si deciderà, a seconda delle circostanze, se inviarle in assistenza, sostituirle, o procedere con il rimborso (nel caso di richiesta di reso). Nel caso di richiesta di sostituzione per errato ordine, è indispensabile che il cliente faccia pervenire contestualmente alla richiesta di rientro anche l'ordine relativo alle apparecchiature con cui effettuare la sostituzione.
+			</p>
+			<p>
+			Sarà consentita la restituzione a cui seguirà il riaccredito di quanto pagato (al netto delle spese di spedizione ed eventuali altri oneri previsti per il reso) solo se la richiesta sarà effettuata nei termini o in caso di recesso, ove previsto. Si ricorda che per gli articoli forniti solo su ordinazione (indicato nella descrizione prodotto) non sarà prevista la sostituzione. Le spese di imballaggio, di spedizione e di assicurazione e ogni altro onere accessorio (sia per la spedizione che per la restituzione delle apparecchiature) saranno a carico del cliente, oltre, ovviamente, alle eventuali spese di riparazione, ove dovute.
+			</p>
+			<p>
+				In caso di rientro di apparecchiature per riparazione in garanzia, l'eventuale accertamento di assenza del difetto lamentato dal cliente potrebbe comportare l'applicazione di una penale di Euro 35,00 iva compresa. Le apparecchiature verranno prima controllate, quindi si deciderà, a seconda delle circostanze, se inviarle in assistenza, sostituirle, o procedere con il rimborso. Il tempo minimo medio per la procedura RMA è di 2 settimane, e comunque entro i termini di legge di 60 giorni.
+			</p>
+			<p>
+				In caso di rientro per riparazione fuori garanzia, verrà comunicato al cliente il preventivo di spesa per la riparazione dell'apparecchiatura rientrata. La non accettazione del preventivo comporterà in ogni caso un addebito di Euro 35,00 iva compresa, per spese di gestione e diagnosi.
+			</p>
+		</span>
+	</div>
+
+	<div id="pieDiPagina" class="row jumbotron">
+		<div class="col-4">
+    <span id="infoSpan" class="row">
+      <h5 class="col-12">Informazioni</h5>
+      <a class="col-12" href="terminiECondizioni.html">Termini e condizioni</a>
+      <a class="col-12" href="metodiDiPagamento.html">Metodi di pagamento</a>
+      <a class="col-12" href="politicheReso.html">Politiche di reso</a>
+     </span>
+		</div>
+		<div class="col-4">
+    <span id="accountSpan" class="row">
+      <h5 class="col-12 text-center">Il tuo account</h5>
+      <a class="col-12 text-center" href="homepage.html">Informazioni personali</a>
+      <a class="col-12 text-center" href="ShowOrdini">Ordini</a>
+      <a class="col-12 text-center" href="homepage.html">Indirizzi</a>
+     </span>
+		</div>
+		<div class="col-4">
+    <span id="contattaciSpan" class="row">
+      <h5 class="col-12 text-end">Contattaci</h5>
+      <a class="col-12 text-end" href="homepage.html">Via pippo 5</a>
+      <a class="col-12 text-end" href="homepage.html">0123456789</a>
+      <a class="col-12 text-end" href="homepage.html">ciao@hello.com</a>
+     </span>
+		</div>
+	</div>
+
+
+	<script>
+		redirectToCarrello();
+
+		$(document).ready
+		(
+			$.ajax
+			(
+				{
+					url : "IsLoggedServ",
+					method : "get",
+					dataType : "json",
+					success : function (data)
+					{
+						if(data.L)
+						{
+							document.getElementById("accediRef").innerHTML = "<a href=\"#accediRef\" id='refLogout' title=\"Log-out\">Esci</a>";
+							$("#refLogout").on("click",
+								function ()
+								{
+									$.ajax
+									(
+										{
+											url : "AuthServ",
+											method: "get",
+										}
+									)
+									window.location.href="homepage.html";
+								}
+							)
+						}
+					},
+					error : function () {alert("error")}
+				}
+			)
+		)
+
+	</script>
+
+</main>
+</body>
+</html>

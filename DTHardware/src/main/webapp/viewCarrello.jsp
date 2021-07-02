@@ -155,10 +155,16 @@
 </script>
 
   <script>
-      //$("#riepilogoOrdineSpan").hide();
+      $("#riepilogoOrdineSpan").hide();
       $("#btnCheckOut").on("click", function ()
       {
+          $("#riepilogoOrdineSpan").show();
           checkOut();
+      })
+
+      window.onbeforeunload(function () {
+          sessionStorage.removeItem("selectedAddress");
+          sessionStorage.removeItem("selectedCard");
       })
 
       $("#btnOrdina").click(function ()
@@ -168,16 +174,38 @@
                   selectedAddress : sessionStorage.getItem("selectedAddress"),
                   selectedCard : sessionStorage.getItem("selectedCard")
               }
-          $.ajax
-          (
+          if(sessionStorage.getItem("selectedAddress")!==null && sessionStorage.getItem("selectedCard")!==null)
+          {
+              $.ajax
+              (
+                  {
+                      url: "BeforeCheckOutServ",
+                      method: "post",
+                      data: selectedParameters,
+                      success: function () {
+                          window.location.href = "riepilogoCheckout.jsp";
+                      },
+                      error: function () {
+                          alert("error");
+                      }
+                  }
+              )
+              sessionStorage.removeItem("selectedAddress");
+              sessionStorage.removeItem("selectedCard");
+          }
+          else
+          {
+              if(sessionStorage.getItem("selectedAddress")===null)
               {
-                  url : "BeforeCheckOutServ",
-                  method : "post",
-                  data : selectedParameters,
-                  success : function (){window.location.href="riepilogoCheckout.jsp";},
-                  error : function () {alert("error");}
+                  document.getElementById("esitoP").innerHTML = "Indirizzo non inserito ne selezionato. Prego, riprovare.";
+                  $("#dialogEsito").dialog("open");
               }
-          )
+              if(sessionStorage.getItem("selectedCard")===null)
+              {
+                  document.getElementById("esitoP").innerHTML = "Carta di credito non inserita ne selezionata. Prego, riprovare.";
+                  $("#dialogEsito").dialog("open");
+              }
+          }
       })
 
       var products=[];
@@ -211,7 +239,6 @@
       document.getElementById("nQuantitaTotale").innerHTML=quantitaCarrelloTotale;
       showCarrello(products);
       calcolaTotaleSpese(products);
-      //checkOut();
   </script>
 </main>
 </body>

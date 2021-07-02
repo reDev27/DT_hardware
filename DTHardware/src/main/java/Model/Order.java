@@ -33,6 +33,16 @@ public class Order
 		setUsername(username);
 	}
 
+	public Order(int id, String fattura, double totale, Calendar dataAcquisto, String username, ProductsOfAnOrder products)
+	{
+		setId(id);
+		setFattura(fattura);
+		setTotale(totale);
+		setDataAcquisto(dataAcquisto);
+		setUsername(username);
+		setProducts(products);
+	}
+
 	public Order(int id, String fattura, double totale, Calendar dataAcquisto, String username)
 	{
 		setId(id);
@@ -44,24 +54,27 @@ public class Order
 
 	public void ordineEffettuato(Carrello carrello, ServletContext context) throws SQLException, IOException
 	{
-		ArrayList<Product> products=carrello.getProdotti();
-		try
+		synchronized (this)
 		{
-			UserBean.callInsertOrdine(getFattura(), totale, getDataAcquisto(), username, context);
-			for(Product product : products)
+			ArrayList<Product> products = carrello.getProdotti();
+			try
 			{
-				UserBean.callInsertCompone(product.getQuantitaCarrello(), product.getCodiceABarre(), context);
+				UserBean.callInsertOrdine(getFattura(), totale, getDataAcquisto(), username, context);
+				for (Product product : products)
+				{
+					UserBean.callInsertCompone(product.getQuantitaCarrello(), product.getCodiceABarre(), context);
+				}
 			}
-		}
-		catch (SQLException | IOException e)
-		{
-			e.printStackTrace();
+			catch (SQLException | IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 
 	public String creaFattura(Cliente cliente, Carrello carrello)
 	{
-		String fattura = "Nome: " + cliente.getNome() + ";\nCognome: " + cliente.getCognome() + ";\nUsername" + getUsername() + ";\nE-mail: " + cliente.getEmail() +
+		String fattura = "Nome: " + cliente.getNome() + ";\nCognome: " + cliente.getCognome() + ";\nUsername: " + getUsername() + ";\nE-mail: " + cliente.getEmail() +
 				";\nNumero di telefono: " + cliente.getnTelefono() + ";\nIndirizzo: " + cliente.getAddresses().get(0) + ";\nCarta di Credito: " +
 				 cliente.getCreditCards().get(0) + ";\nCarrello:\n";
 		ArrayList<Product> products=carrello.getProdotti();
@@ -81,6 +94,7 @@ public class Order
 	private String fattura;
 	private double totale;
 	private Calendar dataAcquisto;
+	private ProductsOfAnOrder products;
 	private String username;
 
 	public int getId()
@@ -122,5 +136,13 @@ public class Order
 	public void setUsername(String username)
 	{
 		this.username = username;
+	}
+	public ProductsOfAnOrder getProducts()
+	{
+		return products;
+	}
+	public void setProducts(ProductsOfAnOrder products)
+	{
+		this.products = products;
 	}
 }

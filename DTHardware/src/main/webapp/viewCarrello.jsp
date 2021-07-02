@@ -155,10 +155,17 @@
 </script>
 
   <script>
-      //$("#riepilogoOrdineSpan").hide();
+      $("#riepilogoOrdineSpan").hide();
       $("#btnCheckOut").on("click", function ()
       {
           checkOut();
+          $("#riepilogoOrdineSpan").show();
+      })
+
+      window.onbeforeunload(function ()
+      {
+          sessionStorage.removeItem("selectedAddress");
+          sessionStorage.removeItem("selectedCard");
       })
 
       $("#btnOrdina").click(function ()
@@ -168,16 +175,38 @@
                   selectedAddress : sessionStorage.getItem("selectedAddress"),
                   selectedCard : sessionStorage.getItem("selectedCard")
               }
-          $.ajax
-          (
-              {
-                  url : "BeforeCheckOutServ",
-                  method : "post",
-                  data : selectedParameters,
-                  success : function (){window.location.href="riepilogoCheckout.jsp";},
-                  error : function () {alert("error");}
+          if(selectedParameters.selectedCard!==null && selectedParameters.selectedAddress!==null)
+          {
+              $.ajax
+              (
+                  {
+                      url: "BeforeCheckOutServ",
+                      method: "post",
+                      data: selectedParameters,
+                      success: function () {
+                          window.location.href = "riepilogoCheckout.jsp";
+                      },
+                      error: function () {
+                          alert("error");
+                      }
+                  }
+
+              )
+              sessionStorage.removeItem("selectedAddress");
+              sessionStorage.removeItem("selectedCard");
+          }
+          else
+          {
+              if(selectedParameters.selectedAddress===null) {
+                  document.getElementById("esitoP").innerHTML = "Non è stato selezionato ne inserito nessun indirizzo. Prego, riprovare.";
+                  $("#dialogEsito").dialog("open");
               }
-          )
+              if(selectedParameters.selectedCard===null)
+              {
+                  document.getElementById("esitoP").innerHTML = "Non è stata selezionata ne inserito nessuna carta di credito. Prego, riprovare.";
+                  $("#dialogEsito").dialog("open");
+              }
+          }
       })
 
       var products=[];

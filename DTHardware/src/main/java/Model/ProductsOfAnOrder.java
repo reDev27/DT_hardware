@@ -14,19 +14,14 @@ public class ProductsOfAnOrder extends ProductsArray
 		setId(id);
 	}
 
-	public void getProductsByOrderId(String username, ServletContext context)
-	{
-
-	}
-
 	private int id;
 
-public int getId()
-{
-	return id;
-}
-public void setId(int id)
-{
-	this.id = id;
-}
+	public int getId()
+	{
+		return id;
+	}
+	public void setId(int id)
+	{
+		this.id = id;
+	}
 }

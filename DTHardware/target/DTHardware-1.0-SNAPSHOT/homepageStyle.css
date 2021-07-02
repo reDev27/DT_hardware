@@ -1,0 +1,119 @@
+
+.ui-tabs-vertical { width: 30%; }
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 30%;}
+
+body
+{
+
+    background-image: url("image/tema_verde.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    height: 100%;
+    min-height:100%;
+}
+
+#categoriesList
+{
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    position: initial;
+}
+
+#categoriesListUl
+{
+    margin-left: 5%;
+    width: 80%;
+}
+
+.ui-widget-content
+{
+    border: 0;
+}
+.ui-widget.ui-widget-content
+{
+    border: 0;
+}
+
+#intestazione
+{
+    
+    border: 1px solid rgba(165, 141, 141, 0.46);
+    border-radius: 1%;
+    margin: 0;
+    padding: 0.15%;
+}
+
+#accediRef
+{
+    position: relative;
+    float: right;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+#searchAndCarrello
+{
+    border-radius: 1%;
+    margin: 0;
+    padding: 0.15%;
+}
+
+#btnCarrello
+{
+    float: right;
+    margin-top: 5%;
+    width: 70%;
+    background-color:  #86d804;
+}
+
+#btnCarrelloSpan
+{
+    padding-right: 0;
+    width: 33%;
+    position: relative;
+    float: right;
+}
+
+#txtSearch
+{
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 100%;
+}
+
+#txtSearchSpan
+{
+    width: 33%;
+}
+
+#logoSpan
+{
+    width: 33%;
+}
+
+#pieDiPagina
+{
+    margin-top: 7.5%;
+    margin-left:0;
+    margin-right:0;
+    background-color: rgb(0, 0, 0)
+}
+
+#pieDiPagina div span a
+{
+    text-decoration-line: none;
+    color:  #86d804;
+}
+
+#pieDiPagina div span h5
+{
+    color: white;
+}

@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<link rel="icon" href="image/logo_DT.png">
+	
+	<title>Login</title>
+	<link rel="stylesheet" href="animate.css">
+	<link rel="stylesheet" href="style.css">
+	
+</head>
+<script src="libraries/jQuery_current.js"></script>
+<script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
+<script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
+		<body background="image/tema_verde.png">
+		<form name="frm" action="AuthServ" method="POST">
+	<div class="container">
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo">Benvenuto</span>
+		</h1></div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log-in</h2>
+			</div>
+			<label for="email">Email</label>
+			<br>
+			<input type="text" id="email" name="email" placeholder="Email">
+			<br>
+			<label for="psw">Password</label>
+			<br>
+			<input type="password" id="psw" name="pass" placeholder="Password">
+			<br>
+			<button id="btnInvio" type="submit">Sign In</button>
+			<br>
+			<a href="iscrizione.html"><p class="small">Non sei ancora registrato? Iscriviti Qui!</p></a>
+		</div>
+	</div>
+
+	<script>
+		$( function() {
+			$( "#dialogEsito" ).dialog({autoOpen: false});
+		} );
+	</script>
+
+	<div id="dialogEsito" title="Ciao">
+		<p id="esitoP"></p>
+	</div>
+<script>
+
+	$(document).ready(function ()
+	{
+		var x=window.location.href.substr(window.location.href.length-1, 1);
+		if(x === 'e')
+		{
+			$.ajax
+			(
+				{
+					url: "IsLoggedServ",
+					method: "get",
+					dataType: "json",
+					success: function (data) {
+
+						{
+							if (data.L)
+							{
+								$( "#dialogEsito" ).dialog({
+									title: "Benvenuto!"
+								});
+								document.getElementById("esitoP").innerHTML = "Login effettuato! Verrai reindirizzato alla homepage a breve.";
+								$("#dialogEsito").dialog("open");
+								setTimeout(function () {
+										window.location.href = "homepage.html";
+									},
+									3000
+								);
+							} else {
+								$( "#dialogEsito" ).dialog({
+									title: "Errore!"
+								});
+								document.getElementById("esitoP").innerHTML = "Errore in fase di login. Prego, riprovare.";
+								$("#dialogEsito").dialog("open");
+							}
+						}
+					},
+					error: function () {
+						alert("error")
+					}
+				}
+			);
+		}
+	})
+</script>
+</form>
+</body>
+</html>

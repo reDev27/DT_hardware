@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="libraries/managerUtilities.js"></script>
+<script src="libraries/jQuery_current.js"></script>
+<body>
+<input type="text" id="nome">
+<input type="file" id="imageFile" />
+<button id="btnInvioImg"></button>
+<!--<input type="button" id="btnInvioImg">-->
+<script>
+    var imgConverted
+    document.getElementById("imageFile").onchange = function()
+    {
+        var reader = new FileReader();
+        reader.onload = function (e)
+        {
+            imgConverted=e.target.result;
+        };
+        reader.readAsDataURL(this.files[0]);
+    }
+    $("#btnInvioImg").click
+    ( function ()
+        {
+            const objToSent = {"img": imgConverted};
+            $.ajax
+            (
+                {
+                    url: "TestServ",
+                    method: "post",
+                    data: objToSent,
+                    success: function ()
+                    {
+                        alert("Success");
+                    },
+                    error: function ()
+                    {
+                        alert("error");
+                    }
+                }
+            )
+        }
+    )
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@ import Model.Cliente;
 import Model.DAO.UserBean;
 import Model.Order;
 import Model.ProductsOfAnOrder;
+import com.google.gson.Gson;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -52,6 +53,9 @@ public class ShowOrdini extends HttpServlet
 			}
 			session.setAttribute("cliente", cliente);
 			session.setAttribute("orders", orders);
+			Gson gson=new Gson();
+			session.setAttribute("ordersJson", gson.toJson(orders));
+			session.setAttribute("clieteJson", gson.toJson(cliente));
 			request.getRequestDispatcher("/showOrdini.jsp").forward(request, response);
 		}
 		else

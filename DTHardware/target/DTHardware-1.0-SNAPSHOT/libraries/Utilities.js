@@ -1,6 +1,9 @@
-function showDettagliOrdine(index)
+function showDettagliOrdine(orders, index)
 {
-    alert(index);
+    let newRows="";
+    
+
+    document.getElementById("dettagliOrdineDiv").innerHTML= "ciao " ;
 }
 
 function checkRegisterForm(checkHelp)

@@ -59,7 +59,7 @@
             for(Order order:orders)
             {
         %>
-                <tr onclick='showDettagliOrdine(<%= order.getId()%>)'>
+                <tr onclick='showDettagliOrdine(ordersJson, clienteJson,<%= i%>)'>
                     <td id="idProduct<%= i%>"><%= order.getId()%></td>
                     <td id="idTotaleProduct"><%= order.getTotale()%></td>
                     <td id="idDataAcquisto"><%= DateUtil.getStringFromCalendar(order.getDataAcquisto())%></td>
@@ -72,7 +72,9 @@
     </table>
 </div>
 
+<div id="dettagliOrdineDiv">
 
+</div>
 
     <div id="pieDiPagina" class="row jumbotron">
         <div class="col-4">
@@ -112,9 +114,8 @@
     </div>
 
     <script>
-
-
-
+        var ordersJson=<%= session.getAttribute("ordersJson")%>;
+        var clienteJson=<%= session.getAttribute("clienteJson")%>;
         $(document).ready
         (
             $.ajax

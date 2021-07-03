@@ -1,6 +1,13 @@
-function showDettagliOrdine(index)
+function showDettagliOrdine(orders, cliente, index)
 {
-    alert(index);
+    let newRows="";
+    let products=orders[index].products.prodotti;
+    let n=products.length;
+    for(let i=0; i<n; i++)
+    {
+        newRows += clienti.username ;
+    }
+    document.getElementById("dettagliOrdineDiv").innerHTML= "ciao " ;
 }
 
 function checkRegisterForm(checkHelp)

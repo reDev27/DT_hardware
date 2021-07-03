@@ -9,32 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix alla pagina carrello che mostrava il riepilogo dell'ordine nonostante non fosse stato richiesto;&#10;fix al riepilogo ordine, che permetteva l'ordine anche senza aver inserito/selezionate carta di credito e indirizzo;&#10;fix minori.">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/terminiECondizioni.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_07_2021_15_22__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_07_2021_15_22__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornate tutte le pagine per reindirizzare alle pagine di info correttamente;&#10;fix alla pagina per visualizzare gli ordini(da finire);&#10;fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ShowOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ShowOrdini.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/showOrdini.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showOrdini.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/riepilogoCheckout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/riepilogoCheckout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/showOrdini.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showOrdini.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ShowOrdini.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ShowOrdini.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/showOrdini.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/riepilogoCheckout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/riepilogoCheckout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/ShowOrdini.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ShowOrdini.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Order.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,17 +112,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.43">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="21 procedures" type="DatabaseScript" editBeforeRun="true" temporary="true">
       <script-file value="$PROJECT_DIR$/daPushare/insertCartaCredito.sql" />
       <script-file value="$PROJECT_DIR$/daPushare/InsertCategoria.sql" />
@@ -384,13 +354,8 @@
       <workItem from="1625060485476" duration="13994000" />
       <workItem from="1625146528310" duration="13136000" />
       <workItem from="1625219224684" duration="6473000" />
-    </task>
-    <task id="LOCAL-00062" summary="correzione procedure select per prodotto">
-      <created>1622554780899</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1622554780899</updated>
+      <workItem from="1625306827507" duration="67000" />
+      <workItem from="1625321208005" duration="6763000" />
     </task>
     <task id="LOCAL-00063" summary="aggiornate userbean e Cliente per supportare il wrapping dei dati del cliente;&#10;modifiche minori.">
       <created>1622559736710</created>
@@ -728,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625234623188</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="aggiornate tutte le pagine per reindirizzare alle pagine di info correttamente;&#10;fix alla pagina per visualizzare gli ordini(da finire);&#10;fix minori.">
+      <created>1625245513303</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1625245513303</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -748,7 +720,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori." />
     <MESSAGE value="aggiunti tutti i parametri necessari nella finestra di visualizzazione del prodotto;&#10;fix impaginazione nella viewProduct.jsp;&#10;fix minori." />
     <MESSAGE value="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;fix minori." />
     <MESSAGE value="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;aggiunta chiamata ajax per permettere la gestione del carrello;&#10;fix minori." />
@@ -773,17 +744,30 @@
     <MESSAGE value="aggiornata DB_TABLES.sql;&#10;fix minori." />
     <MESSAGE value="aggiornata DB_TABLES.sql;&#10;completato riepilogo Checkout;&#10;aggiunte 2 nuove procedure per prendere i dati degli ordini passati in base all'utente;&#10;Aggiornate varie classi del model;&#10;fix minori." />
     <MESSAGE value="fix alla pagina carrello che mostrava il riepilogo dell'ordine nonostante non fosse stato richiesto;&#10;fix al riepilogo ordine, che permetteva l'ordine anche senza aver inserito/selezionate carta di credito e indirizzo;&#10;fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix alla pagina carrello che mostrava il riepilogo dell'ordine nonostante non fosse stato richiesto;&#10;fix al riepilogo ordine, che permetteva l'ordine anche senza aver inserito/selezionate carta di credito e indirizzo;&#10;fix minori." />
+    <MESSAGE value="aggiornate tutte le pagine per reindirizzare alle pagine di info correttamente;&#10;fix alla pagina per visualizzare gli ordini(da finire);&#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornate tutte le pagine per reindirizzare alle pagine di info correttamente;&#10;fix alla pagina per visualizzare gli ordini(da finire);&#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js</url>
+          <line>5</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint log-message="true" log-stack="true" type="javascript-exception" />
       </default-breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="gson.toJson(orders)" />
+      </configuration>
       <configuration name="JavascriptDebugType">
-        <watch expression="data.L" />
+        <watch expression="orders[0]" language="JavaScript" />
+        <watch expression="orders[2].products.prodotti[0]" language="JavaScript" />
       </configuration>
     </watches-manager>
   </component>

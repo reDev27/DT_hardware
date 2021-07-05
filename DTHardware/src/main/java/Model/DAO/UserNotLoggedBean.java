@@ -174,7 +174,7 @@ public class UserNotLoggedBean
 		UserNotLoggedDAO connection=new UserNotLoggedDAO();
 		try
 		{
-			connection.insertIndirizzo(via, ncivico, citta, cap, flag, username, crd.getUsername(), crd.getPass());
+			connection.insertIndirizzo(via, ncivico, citta, cap, flag, crd.getUsername(), crd.getPass());
 		}
 		catch (SQLException e)
 		{

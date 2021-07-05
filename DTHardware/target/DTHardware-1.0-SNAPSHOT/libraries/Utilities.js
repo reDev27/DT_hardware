@@ -1,9 +1,205 @@
+function formatFattura(fattura)
+{
+    let fatturaAppoggio;
+    do
+    {
+        fatturaAppoggio=fattura;
+        fattura=fattura.replace("\n", "<br>");
+    }while(fattura.normalize() !== fatturaAppoggio.normalize())
+    return fattura;
+}
+
+function showAddressChange(addresses)
+{
+    var checkHelpAddress=
+        {
+            via: true,
+            numeroCivico: true,
+            citta: true,
+            cap: true
+        };
+    var checkHelpCard=
+        {
+            nCarta: true,
+            data: true,
+            cvv: true
+        };
+    let n=addresses.length;
+    let newRows="";
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<span id='address" + i + "' style='display: flex; align-items: center; margin-bottom: 3%; justify-content: space-between'>"+addresses[i].via + " " + addresses[i].nCivico + " " + addresses[i].citta + " " + addresses[i].CAP + "<button class='btn btn-danger' type='button'>Elimina</button></span>";
+    }
+    newRows += "<button id='btnAggiungiAddress' class='btn btn-success' type='button' style='margin-bottom: 3%'>Aggiungi</button><span id='inputAddress'></span>";
+    document.getElementById("addresses").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $("#address" + i + " button").on("click", function ()
+        {
+            var toEliminate={via : addresses[i].via, nCivico : addresses[i].nCivico};
+            $.ajax
+            (
+                {
+                    url : "DeleteAddressServ",
+                    method : "post",
+                    data : toEliminate,
+                    success : function () {window.location.reload();}
+                }
+            )
+        })
+    }
+    newRows="";
+    $("#btnAggiungiAddress").on("click", function ()
+    {
+        document.getElementById("inputAddress").innerHTML="<br><input type=\"text\" id=\"AddVia\" name=\"AddVia\" placeholder=\"Via\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"AddCivico\" name=\"AddCivico\" placeholder=\"Numero Civico\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"AddCitta\" name=\"AddCitta\" placeholder=\"Città\">"
+            + "<br>"
+            + "<input type=\"text\" id=\"AddCap\" name=\"AddCap\" placeholder=\"CAP\">"
+            + "<br>"
+            + "<button id='btnInvioAddress' type='button' style='margin-bottom: 3%' class='btn btn-success'>Invio</button>"
+            + "<div id=\"dialogConfirmAddress\" title=\"Espressione non valida\">\n"
+            + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questo indirizzo per i prossimi acquisti?</p>\n"
+            + "</div>";
+        $("#btnInvioAddress").click(function ()
+        {
+            var addressToSend=
+                {
+                    via : "" + document.getElementById("AddVia").value,
+                    nCivico : "" + document.getElementById("AddCivico").value,
+                    citta : "" + document.getElementById("AddCitta").value,
+                    CAP : "" + document.getElementById("AddCap").value
+                }
+            if(validateAddress(checkHelpAddress))
+            {
+                $.ajax
+                (
+                    {
+                        url : "AddAddressServ",
+                        method : "post",
+                        data : addressToSend,
+                        success : function () {window.location.reload();}
+                    }
+                );
+
+            }
+        });
+    });
+
+    $("#AddVia").change(function ()
+    {
+        var via=document.getElementById("AddVia").value;
+        if(via.length>50)
+        {
+            document.getElementById("esitoP").innerHTML = "Via ha una lunghezza massima di 50 caratteri.";
+            $("#dialogEsito").dialog("open");
+            $("#btnInvioAddress").prop("disabled", true);
+            checkHelpAddress.via=false;
+        }
+        else
+        {
+            if(!checkHelpAddress.via)
+            {
+                checkHelpAddress.via = true;
+                $("#btnInvioAddress").prop("disabled", false);
+            }
+        }
+    });
+    $("#AddCivico").change(function ()
+    {
+        var civico=document.getElementById("AddCivico").value;
+        if(/\s/.test(civico) || !/[0-9]/g.test(civico))
+        {
+            document.getElementById("esitoP").innerHTML = "Numero civico non può contenere spazi e può contenere solo cifre numeriche.";
+            $("#dialogEsito").dialog("open");
+            $("#btnInvioAddress").prop("disabled", true);
+            checkHelpAddress.numeroCivico=false;
+        }
+        else
+        {
+            if(!checkHelpAddress.numeroCivico)
+            {
+                checkHelpAddress.numeroCivico = true;
+                $("#btnInvioAddress").prop("disabled", false);
+            }
+        }
+    });
+    $("#AddCitta").change(function ()
+    {
+        var citta=document.getElementById("AddCitta").value;
+        if(citta.length>20 || /[0-9]/.test(citta))
+        {
+            document.getElementById("esitoP").innerHTML = "Città ha una lunghezza massima di 20 caratteri e non può contenere cifre numeriche.";
+            $("#dialogEsito").dialog("open");
+            $("#btnInvioAddress").prop("disabled", true);
+            checkHelpAddress.citta=false;
+        }
+        else
+        {
+            if(!checkHelpAddress.citta)
+            {
+                checkHelpAddress.citta = true;
+                $("#btnInvioAddress").prop("disabled", false);
+            }
+        }
+    });
+    $("#AddCap").change(function ()
+    {
+        var cap=document.getElementById("AddCap").value;
+        if(/\s/.test(cap) || !/[0-9]/g.test(cap) || cap.length!==5)
+        {
+            document.getElementById("esitoP").innerHTML = "CAP non può contenere spazi, può contenere solo cifre numeriche e la sua lunghezza è fissata a 5.";
+            $("#dialogEsito").dialog("open");
+            $("#btnInvioAddress").prop("disabled", true);
+            checkHelpAddress.cap=false;
+        }
+        else
+        {
+            if(!checkHelpAddress.cap)
+            {
+                checkHelpAddress.cap = true;
+                $("#btnInvioAddress").prop("disabled", false);
+            }
+        }
+    });
+}
+
+function showAnagrafica(cliente)
+{
+    $("#infoUser h5").html("Utente: " + cliente.username)
+    document.getElementById("anagrafica").innerHTML=   "Nome: " + cliente.nome + ";<br>Cognome: " + cliente.cognome +";<br>Email: " + cliente.email +
+                                                                ";<br>Numero di Telefono: " + cliente.nTelefono;
+    let addresses=cliente.addresses;
+    let n=addresses.length;
+    let newRows="";
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<span id='address" + i + "'>Via: "+addresses[i].via + " " + addresses[i].nCivico + " " + addresses[i].citta + " " + addresses[i].CAP + ";</span><br>"
+    }
+    newRows += "<br>";
+    document.getElementById("address").innerHTML=newRows;
+    let cards=cliente.creditCards;
+    n=cards.length;
+    newRows="";
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<span id='card"+i+"'>Numero carta: "+cards[i].nCarta+ ";<br>Data di scadenza: "+ toStringDateMonthYear(cards[i].scadenza) +";</span><br>";
+    }
+    document.getElementById("cards").innerHTML=newRows;
+}
+
 function showDettagliOrdine(orders, index)
 {
     let newRows="";
-    
-
-    document.getElementById("dettagliOrdineDiv").innerHTML= "ciao " ;
+    let products=orders[index].products.prodotti;
+    let n=products.length;
+    /*for(let i=0; i<n; i++)
+    {
+        newRows += ;
+    }*/
+    document.getElementById("dettagliOrdineDiv").innerHTML= "<h5>Dettagli ordine:</h5><br>" + formatFattura(orders[index].fattura);
 }
 
 function checkRegisterForm(checkHelp)
@@ -723,4 +919,9 @@ function isAvailable(availability)
 function toStringDate(toConvert)
 {
     return "" + toConvert.year + "-" + toConvert.month + "-" + toConvert.dayOfMonth + " " + toConvert.hourOfDay + ":" + toConvert.minute + ":" + toConvert.second;
+}
+
+function toStringDateMonthYear(toConvert)
+{
+    return "" + toConvert.year + "-" + toConvert.month;
 }

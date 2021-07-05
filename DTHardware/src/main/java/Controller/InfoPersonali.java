@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Cliente;
 import Model.DAO.UserBean;
-import Model.Order;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletContext;
@@ -14,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-@WebServlet(name = "ShowOrdini", value = "/ShowOrdini")
-public class ShowOrdini extends HttpServlet
+@WebServlet(name = "InfoPersonali", value = "/InfoPersonali")
+public class InfoPersonali extends HttpServlet
 {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
@@ -26,40 +24,43 @@ public class ShowOrdini extends HttpServlet
 		ServletContext context=request.getServletContext();
 		if(((String)session.getAttribute("isLogged")).compareTo("l")==0)
 		{
-			String username = (String) session.getAttribute("user");
-			Cliente cliente = (Cliente) session.getAttribute("cliente");
-			ArrayList<Order> orders=null;
-			if(cliente==null)
+			Cliente cliente=null;
+			try
+			{
+				cliente= UserBean.callSelectClienteByUsername((String) session.getAttribute("user"), context);
+			}
+			catch (SQLException throwables)
+			{
+				throwables.printStackTrace();
+			}
+			if(cliente!=null)
 			{
 				try
 				{
-					cliente=UserBean.callSelectClienteByUsername(username, context);
+					cliente.setCreditCards(UserBean.callSelectCarteDiCreditoByUsername((String) session.getAttribute("user"), context));
 				}
 				catch (SQLException throwables)
 				{
 					throwables.printStackTrace();
 				}
 			}
-			try
+			if(cliente!=null)
 			{
-				if(cliente!=null)
-					orders=cliente.getOrdersByUsername(username, context);
+				try
+				{
+					cliente.setAddresses(UserBean.callSelectIndirizzoByUsername((String) session.getAttribute("user"), context));
+				}
+				catch (SQLException throwables)
+				{
+					throwables.printStackTrace();
+				}
 			}
-			catch (SQLException | NullPointerException throwables)
-			{
-				throwables.printStackTrace();
-			}
-			session.setAttribute("cliente", cliente);
-			session.setAttribute("orders", orders);
 			Gson gson=new Gson();
-			session.setAttribute("ordersJson", gson.toJson(orders));
-			//session.setAttribute("clieteJson", gson.toJson(cliente));
-			request.getRequestDispatcher("/showOrdini.jsp").forward(request, response);
+			session.setAttribute("clienteJson", gson.toJson(cliente));
+			request.getRequestDispatcher("/infoPersonali.jsp").forward(request, response);
 		}
 		else
-		{
-			response.sendRedirect("login.html");
-		}
+			throw new Error();
 	}
 
 	@Override

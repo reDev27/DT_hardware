@@ -76,16 +76,16 @@ public class Order
 	{
 		String fattura = "Nome: " + cliente.getNome() + ";\nCognome: " + cliente.getCognome() + ";\nUsername: " + getUsername() + ";\nE-mail: " + cliente.getEmail() +
 				";\nNumero di telefono: " + cliente.getnTelefono() + ";\nIndirizzo: " + cliente.getAddresses().get(0) + ";\nCarta di Credito: " +
-				 cliente.getCreditCards().get(0) + ";\nCarrello:\n";
+				 cliente.getCreditCards().get(0) + ";\n\nCarrello:\n";
 		ArrayList<Product> products=carrello.getProdotti();
 		for(Product prodotto : products)
 		{
 			fattura += "Marca: " + prodotto.getMarca() + ", modello: " + prodotto.getModello() + ", prezzo: €" + prodotto.getPrezzo() + ", quantità: " +
 					prodotto.getQuantitaCarrello() + ";\n";
 		}
-		DecimalFormat decimalFormat=new DecimalFormat("#.##");
-		fattura += "Quantità prodotti acquistati: " + carrello.getQuantitaTotaleCarrello() + ";\nSubtotale: " + decimalFormat.format(carrello.getTotale()) +
-					";\nSpedizione: €9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: " + decimalFormat.format(totale);
+		//DecimalFormat decimalFormat=new DecimalFormat("#.##");
+		fattura += "\nQuantità prodotti acquistati: " + carrello.getQuantitaTotaleCarrello() + ";\nSubtotale: &#x20AC " + carrello.getTotale() +
+					";\nSpedizione: € 9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: &#x20AC " + totale;
 		setFattura(fattura);
 		return getFattura();
 	}

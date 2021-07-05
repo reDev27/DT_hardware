@@ -5,14 +5,13 @@ create procedure InsertIndirizzo(
     in ncivicoIn int,
     in cittaIn varchar(20),
     in capIn int,
-    in flagIn boolean,
-    in usernameIn varchar(30)
+    in flagIn boolean
 )
 
 begin
 
     insert into INDIRIZZO values
-    (viaIn,ncivicoIn,cittaIn,capIn,flagIn,usernameIn);
+    (viaIn,ncivicoIn,cittaIn,capIn,flagIn);
 
 end //
 DELIMITER ;

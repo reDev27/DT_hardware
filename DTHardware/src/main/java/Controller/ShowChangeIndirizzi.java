@@ -1,8 +1,8 @@
 package Controller;
 
+import Model.Address;
 import Model.Cliente;
 import Model.DAO.UserBean;
-import Model.Order;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletContext;
@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet(name = "ShowOrdini", value = "/ShowOrdini")
-public class ShowOrdini extends HttpServlet
+@WebServlet(name = "ShowChangeIndirizzi", value = "/ShowChangeIndirizzi")
+public class ShowChangeIndirizzi extends HttpServlet
 {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
@@ -26,40 +26,21 @@ public class ShowOrdini extends HttpServlet
 		ServletContext context=request.getServletContext();
 		if(((String)session.getAttribute("isLogged")).compareTo("l")==0)
 		{
-			String username = (String) session.getAttribute("user");
-			Cliente cliente = (Cliente) session.getAttribute("cliente");
-			ArrayList<Order> orders=null;
-			if(cliente==null)
-			{
+			ArrayList<Address> addresses=null;
 				try
 				{
-					cliente=UserBean.callSelectClienteByUsername(username, context);
+					addresses = UserBean.callSelectIndirizzoByUsername((String) session.getAttribute("user"), context);
 				}
 				catch (SQLException throwables)
 				{
 					throwables.printStackTrace();
 				}
-			}
-			try
-			{
-				if(cliente!=null)
-					orders=cliente.getOrdersByUsername(username, context);
-			}
-			catch (SQLException | NullPointerException throwables)
-			{
-				throwables.printStackTrace();
-			}
-			session.setAttribute("cliente", cliente);
-			session.setAttribute("orders", orders);
 			Gson gson=new Gson();
-			session.setAttribute("ordersJson", gson.toJson(orders));
-			//session.setAttribute("clieteJson", gson.toJson(cliente));
-			request.getRequestDispatcher("/showOrdini.jsp").forward(request, response);
+			session.setAttribute("addressesJson", gson.toJson(addresses));
+			request.getRequestDispatcher("/showChangeAddresses.jsp").forward(request, response);
 		}
 		else
-		{
-			response.sendRedirect("login.html");
-		}
+			throw new Error();
 	}
 
 	@Override

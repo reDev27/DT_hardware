@@ -11,6 +11,14 @@ import java.util.Calendar;
 
 public class UserBean extends UserNotLoggedBean
 {
+	public static void callDeleteAddressByVia(String via, int nCivico, String username, ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(1);
+		UserDAO connection=new UserDAO();
+		ResultSet result = connection.deleteAddressByVia(via, nCivico, username, crd.getUsername(), crd.getPass());
+	}
+
 	public static ProductsOfAnOrder callSelectProductsByOrderId(int id, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);

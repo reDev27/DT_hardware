@@ -7,6 +7,17 @@ import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO
 {
+	public ResultSet deleteAddressByVia(String via, int nCivico, String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call DeleteAddressByVia(?, ?, ?)}");
+		callableStatement.setString("viaIn", via);
+		callableStatement.setInt("nCivicoIn", nCivico);
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	public ResultSet selectProductsByOrderId(int id, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

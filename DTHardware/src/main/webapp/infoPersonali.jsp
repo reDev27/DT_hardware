@@ -1,20 +1,11 @@
-<%@ page import="Model.Cliente" %>
-<%@ page import="Model.Order" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="Model.DAO.DateUtil" %>
 <%--
   Created by IntelliJ IDEA.
   User: rEDOx
-  Date: 01/07/2021
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="it">
-<%
-    Cliente cliente= (Cliente) session.getAttribute("cliente");
-    ArrayList<Order> orders= (ArrayList<Order>) session.getAttribute("orders");
-%>
+<html>
 <head>
-    <title><%= cliente.getUsername()%></title>
+    <title>Title</title>
 </head>
 <script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
@@ -24,6 +15,7 @@
 <script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
 <body>
+
 <main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
     <header class="row" id="intestazione">
     <span>
@@ -39,41 +31,11 @@
    <span class="cols-4" id="btnCarrelloSpan"><button type="button" class="btn btn-success cols-4" id="btnCarrello">Carrello</button></span>
 </span>
 
-<div class="container">
-    <h5>Ordini</h5>
-    <!--<div class="row">
-
-        <span id="ordineSpan"></span>
-    </div>-->
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Identificativo</th>
-            <th>Totale</th>
-            <th>Data d'acquisto</th>
-        </tr>
-        </thead>
-        <tbody id="bodyTable">
-        <%
-            int i=0;
-            for(Order order:orders)
-            {
-        %>
-                <tr onclick='showDettagliOrdine(ordersJson,<%= i%>)'>
-                    <td id="idProduct<%= i%>"><%= order.getId()%></td>
-                    <td id="idTotaleProduct"><%= order.getTotale()%></td>
-                    <td id="idDataAcquisto"><%= DateUtil.getStringFromCalendar(order.getDataAcquisto())%></td>
-                </tr>
-        <%
-                i++;
-            }
-        %>
-        </tbody>
-    </table>
-</div>
-
-<div id="dettagliOrdineDiv" style="padding-left: 2%">
-
+<div id="infoUser" class="container-fluid">
+    <h5></h5>
+    <span id="anagrafica"></span>
+    <h6>Indirizzi</h6><span id="address"></span>
+    <h6>Carte di credito</h6><span id="cards"></span>
 </div>
 
     <div id="pieDiPagina" class="row jumbotron">
@@ -149,6 +111,14 @@
             )
         )
     </script>
+
+    <script>
+        var cliente= <%= session.getAttribute("clienteJson")%>;
+        $("title").html(cliente.username);
+        showAnagrafica(cliente);
+    </script>
+
 </main>
+
 </body>
 </html>

@@ -3,6 +3,7 @@ package Model.DAO;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO

@@ -6,6 +6,8 @@
 </head>
 <body>
 
+<link href="libraries/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" type="text/css">
+<script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>
 <script src="libraries/Utilities.js"></script>
 <link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
@@ -50,10 +52,10 @@
     </span>
   </header>
 
-  <span class="row" id="searchAndCarrello">
-    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo_DT.png" width="100%" id="logoIcon"></a></span>
-    <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4 "></textarea></span>
-    <span class="cols-4" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
+  <span class="row" id="searchAndCarrello" style="flex-wrap: nowrap; width: 92%">
+    <span class="col-4" id="logoSpan"><a href="homepage.html"><img src="image/logo_DT.png" width="100%" id="logoIcon"></a></span>
+	  <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" className="list-group"></div></span><span class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-success" onclick="searchProductsRedirect()"><i class="fas fa-search"></i></button></span>
+    <span class="col-3" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
   </span>
 
 <div class="row" style="margin-top: 3%">

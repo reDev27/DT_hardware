@@ -1,3 +1,69 @@
+function searchProductsRedirect()
+{
+    var toSearch = document.getElementById("txtSearch").value;
+    if(toSearch.length>1)
+    {
+        var keyWord = {keyToSearch: toSearch};
+        $.ajax
+        (
+            {
+                url: "SearchRedirectServ",
+                method: "get",
+                data: keyWord,
+                dataType: "json",
+                success: function (data)
+                {
+                    buildTableProductHomepage(data);
+                    document.getElementById("headerProducts").innerHTML="Risultati trovati: " + data.length;
+                },
+                error: function ()
+                {
+                    alert("error");
+                },
+            }
+        )
+    }
+}
+
+function searchProducts()
+{
+    var toSearch = document.getElementById("txtSearch").value;
+    if(toSearch.length>1)
+    {
+        var keyWord = {keyToSearch: toSearch};
+        $.ajax
+        (
+            {
+                url: "SearchServ",
+                method: "get",
+                data: keyWord,
+                dataType: "json",
+                success: function (data)
+                {
+                    showSuggerimenti(data);
+                },
+                error: function ()
+                {
+                    alert("error");
+                },
+            }
+        )
+    }
+    else
+        document.getElementById("suggerimentiDiv").innerHTML="";
+}
+
+function showSuggerimenti(products)
+{
+    var newRows="";
+    var n=products.length;
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<a href=\"GetProductByCodeServ?codiceABarre=" + products[i].codiceABarre + "\" class=\"list-group-item list-group-item-action\">" + products[i].marca + " " + products[i].modello +"</a>";
+    }
+    document.getElementById("suggerimentiDiv").innerHTML=newRows;
+}
+
 function formatFattura(fattura)
 {
     let fatturaAppoggio;

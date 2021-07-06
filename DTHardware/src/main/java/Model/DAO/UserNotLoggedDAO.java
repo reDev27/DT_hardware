@@ -127,4 +127,13 @@ public class UserNotLoggedDAO extends BaseDAO
 		doExecute(callableStatement);
 		return getResult();
 	}
+
+	protected ResultSet searchProdotto(String toSearch, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SearchProducts(?)}");
+		callableStatement.setString("toSearchIn", toSearch);
+		doExecute(callableStatement);
+		return getResult();
+	}
 }

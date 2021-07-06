@@ -26,11 +26,13 @@ public class CheckOutServ extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		HttpSession session=request.getSession();
+		Calendar ora=Calendar.getInstance();
+
 		if(((String)session.getAttribute("isLogged")).compareTo("l")==0)
 		{
 			Cliente cliente = (Cliente) session.getAttribute("cliente");
 			Carrello carrello = (Carrello) session.getAttribute("carrello");
-			Order order = new Order(carrello.getTotale() + 9.90, Calendar.getInstance(), (String) session.getAttribute("user"));
+			Order order = new Order(carrello.getTotale() + 9.90, ora, (String) session.getAttribute("user"));
 			order.creaFattura(cliente, carrello);
 			try
 			{

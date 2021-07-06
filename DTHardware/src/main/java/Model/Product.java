@@ -18,6 +18,13 @@ public class Product
 
 	}
 
+	public Product(String codiceABarre, String marca, String modello)
+	{
+		setCodiceABarre(codiceABarre);
+		setMarca(marca);
+		setModello(modello);
+	}
+
 	public Product(String codiceABarre, double prezzo, String immagine, int quantitaProdotto, String marca, String modello)
 	{
 		setCodiceABarre(codiceABarre);

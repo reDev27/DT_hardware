@@ -58,7 +58,7 @@ public class UserBean extends UserNotLoggedBean
 							id,
 							result.getString("fattura"),
 							result.getDouble("totale"),
-							DateUtil.getCalendarFromString(result.getString("dataacquisto")),
+							DateUtil.getCalendarFromStringWithSubstring(result.getString("dataacquisto")),
 							username,
 							callSelectProductsByOrderId(id, context)
 					)
@@ -126,7 +126,7 @@ public class UserBean extends UserNotLoggedBean
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.insertOrdine(fattura, totale,dataAcquisto,username, crd.getUsername(), crd.getPass());
+		connection.insertOrdine(fattura, totale, dataAcquisto,username, crd.getUsername(), crd.getPass());
 		connection.destroy();
 	}
 }

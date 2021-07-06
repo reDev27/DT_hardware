@@ -17,6 +17,58 @@ import java.util.Calendar;
 
 public class UserNotLoggedBean
 {
+	public static ArrayList<Product> callSearchProductsRedirect(String toSearch, ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd = new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		UserNotLoggedDAO connection = new UserNotLoggedDAO();
+		ResultSet result = connection.searchProdotto(toSearch, crd.getUsername(), crd.getPass());
+		ResultSet resultTableProducts;
+		ArrayList<Product> products=new ArrayList<>();
+		while(result.next())
+		{
+			resultTableProducts=connection.selectProdottoByCodiceABarre(result.getString("codicebarre"), crd.getUsername(),crd.getPass());
+			resultTableProducts.next();
+			products.add
+					(
+							new Product(
+									resultTableProducts.getString("CODICEBARRE"),
+									resultTableProducts.getString("DESCRIZIONE"),
+									resultTableProducts.getString("SPECIFICHE"),
+									resultTableProducts.getDouble("PREZZO"),
+									resultTableProducts.getString("MARCA"),
+									resultTableProducts.getString("MODELLO"),
+									resultTableProducts.getString("IMMAGINE"),
+									resultTableProducts.getInt("QUANTITA"),
+									DateUtil.getCalendarFromString(resultTableProducts.getString("DATAINSERIMENTO"))
+							)
+					);
+		}
+		connection.destroy();
+		return products;
+	}
+
+	public static ArrayList<Product> callSearchProducts(String toSearch, ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd = new CrdGiver(context);
+		crd.aggiornaCrd(2);
+		UserNotLoggedDAO connection = new UserNotLoggedDAO();
+		ResultSet result = connection.searchProdotto(toSearch, crd.getUsername(), crd.getPass());
+		ArrayList<Product> products=new ArrayList<>();
+		while(result.next())
+		{
+			products.add
+					(
+							new Product(
+									result.getString("codicebarre"),
+									result.getString("marca"),
+									result.getString("modello")
+							)
+					);
+		}
+		return products;
+	}
+
 	public static boolean callSelectMail(String email, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);

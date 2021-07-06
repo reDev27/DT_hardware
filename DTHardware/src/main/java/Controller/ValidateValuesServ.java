@@ -36,6 +36,6 @@ public class ValidateValuesServ extends HttpServlet
 		if(esitoUsername && esitoMail)
 			request.getRequestDispatcher("RegisterServ").forward(request, response);
 		else
-			response.getWriter().write("errore");
+			response.getWriter().write("errore, username o email già registrati");
 	}
 }

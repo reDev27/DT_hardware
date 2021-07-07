@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -18,25 +19,30 @@ public class AuthServ extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		request.getSession().setAttribute("isLogged", "n");
-		request.getSession().removeAttribute("username");
+		request.getSession().removeAttribute("user");
 	}
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-		RequestUtility.checkIsLogged(request.getSession());
+		HttpSession session=request.getSession();
+		RequestUtility.checkIsLogged(session);
 		Cliente user=new Cliente();
 		try
 		{
 			if(user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession()))
 			{
-				request.getSession().setAttribute("user", request.getParameter("email"));
+				session.setAttribute("user", request.getParameter("email"));
 			}
 		}
 		catch (SQLException | NoSuchAlgorithmException | IOException throwables)
 		{
 			throwables.printStackTrace();
 		}
-		response.sendRedirect("login.html?e");
+		String username= (String) session.getAttribute("user");
+		if(username.compareTo("admin")==0)
+			response.sendRedirect("manager.html");
+		else
+			response.sendRedirect("login.html?e");
 	}
 }

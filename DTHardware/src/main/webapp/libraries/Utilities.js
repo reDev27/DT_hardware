@@ -1,3 +1,120 @@
+function verificaInputs()
+{
+    let esito=true;
+    let codiceABarre=document.getElementById("codiceABarre").value;
+    if(/\s/.test(codiceABarre) || codiceABarre.length>12 || codiceABarre.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Codice a barre non può contenere spazi, deve avere una lunghezza massima di 12 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let marca=document.getElementById("marca").value;
+    if(marca.length<1 || marca.length>50)
+    {
+        document.getElementById("esitoP").innerHTML = "Marca ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let modello=document.getElementById("modello").value;
+    if(modello<1 || modello.length>50)
+    {
+        document.getElementById("esitoP").innerHTML = "Modello ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let prezzo=document.getElementById("prezzo").value;
+    if(!/([0-9])/.test(prezzo) || prezzo.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Prezzo può contenere solo cifre da 0 a 9(per separare la parte decimale e quella intera usi il .) e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let categoria=document.getElementById("categoria").value;
+    if(!/[a-z]/i.test(categoria) || categoria.length>50 || categoria.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "La categoria può contenere solo lettere, ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let quantita=document.getElementById("quantita").value;
+    if(!/[0-9]/.test(quantita) || quantita.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Quantità magazzino può contenere solo cifre numeriche e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let descrizione=document.getElementById("descrizione").value;
+    if(descrizione.length>1000)
+    {
+        document.getElementById("esitoP").innerHTML = "Descrizione ha una lunghezza massima di 1000 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let specifiche=document.getElementById("specifiche").value;
+    if(specifiche.length<1 || specifiche.length>1000)
+    {
+        document.getElementById("esitoP").innerHTML = "Specifiche ha una lunghezza massima di 1000 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let product;
+
+    if(esito)
+    {
+        product=
+            {
+                codiceABarre : codiceABarre,
+                marca : marca,
+                modello : modello,
+                prezzo : prezzo,
+                categoria : categoria,
+                quantita : quantita,
+                descrizione : descrizione,
+                specifiche : specifiche,
+                image : imgConverted
+            };
+        $.ajax
+        (
+            {
+                url : "AddProductServ",
+                method : "post",
+                data : product,
+                success : function(){alert("success")},
+                error : function(){alert("error")}
+            }
+        );
+    }
+
+}
+
+function showProductsGestione(products)
+{
+    let newRows="";
+    let n=products.length;
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<tr id='product"+i+"' style='cursor: pointer'><td>"+products[i].codiceABarre+"</td><td>"+products[i].prezzo+"</td><td>"+products[i].marca+"</td>" +
+            "<td>"+products[i].modello+"</td><td>"+products[i].quantitaProdotto+"</td><td>"+toStringDatePlusMonth(products[i].dataInserimento)+"</td></tr>";
+    }
+    document.getElementById("tableGestioneProducts").innerHTML=newRows;
+}
+
 function searchProductsRedirect()
 {
     var toSearch = document.getElementById("txtSearch").value;
@@ -980,6 +1097,12 @@ function isAvailable(availability)
         return "Disponibile";
     else
         return "Esaurito";
+}
+
+function toStringDatePlusMonth(toConvert)
+{
+    let month=1+toConvert.month;
+    return "" + toConvert.year + "-" + month + "-" + toConvert.dayOfMonth + " " + toConvert.hourOfDay + ":" + toConvert.minute + ":" + toConvert.second;
 }
 
 function toStringDate(toConvert)

@@ -2,11 +2,19 @@ package Model.DAO;
 
 import java.io.InputStream;
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 
 public class AdminDAO extends UserDAO
 {
+	public ResultSet selectProducts(String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectProducts()}");
+		doExecute(callableStatement);
+		return getResult();
+	}
 
 	public void insertProdotto(String codiceaBarre, double prezzo, String descrizione, String specifiche, InputStream image, int quantita, String marca, String modello, String userType, String passData, String nomeCategoria, Calendar dataInserimento) throws SQLException
 	{

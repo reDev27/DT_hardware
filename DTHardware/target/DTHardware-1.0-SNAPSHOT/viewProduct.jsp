@@ -1,5 +1,6 @@
 <%@ page import="Model.Product" %>
 <%@ page import="Model.DAO.DateUtil" %>
+<%@ page import="Model.StringUtility" %>
 <%--
   Created by IntelliJ IDEA.
   User: rEDOx
@@ -91,6 +92,37 @@
     <span class="cols-4" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
   </span>
 
+    <script>
+        $( function() {
+            $( "#specificheDiv" ).tabs();
+        } );
+
+        $
+        (
+            function()
+            {
+                $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+                $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+                $("#categoriesList").css("border", 0);
+            }
+        );
+
+        $
+        (
+            function ()
+            {
+                $( "#quantitaSpinner" ).spinner({
+                    min: 1,
+                    max: 2500,
+                    step: 1,
+                    start: 1,
+                    numberFormat: "C"
+                });
+            }
+        )
+
+        var spinner = $( "#quantitaSpinner" ).spinner();
+    </script>
 
 <div class="row" style="margin-top: 3%">
   <span class="col-3">
@@ -118,10 +150,10 @@
             <li><a href="#divSpecifiche">Specifiche</a></li>
           </ul>
           <div id="divDescrizione">
-            <p><%=product.getDescrizione()%></p>
+              <p><%=StringUtility.subBlankNWithBR(product.getDescrizione())%></p>
           </div>
           <div id="divSpecifiche">
-            <p><%=product.getSpecifiche()%></p>
+              <p><%= StringUtility.subBlankNWithBR(product.getSpecifiche())%></p>
           </div>
     </div>
     </div>
@@ -192,35 +224,6 @@
 
 <script>
 
-
-    $( function() {
-        $( "#specificheDiv" ).tabs();
-    } );
-
-    $
-    (
-        function()
-        {
-            $( "#categoriesList" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-            $( "#categoriesList li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-            $("#categoriesList").css("border", 0);
-        }
-    );
-
-    $
-    (
-        function ()
-        {
-            $( "#quantitaSpinner" ).spinner({
-                min: 1,
-                max: 2500,
-                step: 1,
-                start: 1,
-                numberFormat: "C"
-            });
-        }
-    )
-
     var categorie;
     $.ajax
     (
@@ -237,15 +240,15 @@
         }
     );
 
-    var spinner = $( "#quantitaSpinner" ).spinner();
+
     var prodotto=
         {
             "codiceABarre" : "<%= product.getCodiceABarre()%>",
             "marca" : "<%= product.getMarca()%>",
             "modello" : "<%= product.getModello()%>",
             "prezzo" : <%= product.getPrezzo()%>,
-            "descrizione" : "<%= product.getDescrizione()%>",
-            "specifiche" : "<%= product.getSpecifiche()%>",
+            "descrizione" : "<%= StringUtility.subBlankNWithSpace(product.getDescrizione())%>",
+            "specifiche" : "<%= StringUtility.subBlankNWithSpace(product.getSpecifiche())%>",
             "immagine" : "<%= product.getImmagine()%>",
             "disponibilita" : <%= product.isDisponibilita()%>,
             "quantitaProdotto" : <%= product.getQuantitaProdotto()%>,

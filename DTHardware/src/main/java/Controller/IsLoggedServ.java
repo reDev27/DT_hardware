@@ -27,8 +27,16 @@ public class IsLoggedServ extends HttpServlet
 	}
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-
+		String isLogged= (String) request.getSession().getAttribute("isLogged");
+		if(isLogged==null)
+			isLogged=RequestUtility.checkIsLogged(request.getSession());
+		response.setContentType("application/json");
+		PrintWriter writer=response.getWriter();
+		if(isLogged.compareTo("a")==0)
+			writer.write("{\"L\":true}");
+		else
+			writer.write("{\"L\":false}");
 	}
 }

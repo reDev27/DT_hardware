@@ -36,7 +36,7 @@ public class Product
 		setQuantitaProdotto(quantitaProdotto);
 	}
 
-	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine,int quantitaProdotto, Calendar dataInserimento)
+	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine, int quantitaProdotto, Calendar dataInserimento)
 	{
 		setCodiceABarre(codiceABarre);
 		setMarca(marca);
@@ -50,7 +50,7 @@ public class Product
 		setDataInserimento(dataInserimento);
 	}
 
-	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine,int quantitaProdotto, Calendar dataInserimento, int quantitaCarrello)
+	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine, int quantitaProdotto, Calendar dataInserimento, int quantitaCarrello)
 	{
 		setCodiceABarre(codiceABarre);
 		setMarca(marca);
@@ -63,6 +63,21 @@ public class Product
 		setQuantitaProdotto(quantitaProdotto);
 		setDataInserimento(dataInserimento);
 		setQuantitaCarrello(quantitaCarrello);
+	}
+
+	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine, int quantitaProdotto, Calendar dataInserimento, String nomeCategoria)
+	{
+		setCodiceABarre(codiceABarre);
+		setMarca(marca);
+		setModello(modello);
+		setPrezzo(prezzo);
+		setDescrizione(descrizione);
+		setSpecifiche(specifiche);
+		setImmagine(immagine);
+		setDisponibilita(quantitaProdotto > 0);
+		setQuantitaProdotto(quantitaProdotto);
+		setDataInserimento(dataInserimento);
+		setNomeCategoria(nomeCategoria);
 	}
 
 /**
@@ -86,6 +101,7 @@ public class Product
 	private int quantitaProdotto;
 	private Calendar dataInserimento;
 	private int quantitaCarrello;
+	private String nomeCategoria;
 
 public String getMarca()
 {
@@ -174,5 +190,13 @@ public int getQuantitaCarrello()
 public void setQuantitaCarrello(int quantitaCarrello)
 {
 	this.quantitaCarrello = quantitaCarrello;
+}
+public String getNomeCategoria()
+{
+	return nomeCategoria;
+}
+public void setNomeCategoria(String nomeCategoria)
+{
+	this.nomeCategoria = nomeCategoria;
 }
 }

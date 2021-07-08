@@ -67,7 +67,7 @@
         <input type="text" id="marca" name="marca" placeholder="Marca" style="margin-bottom: 2%"><br>
         <input type="text" id="modello" name="modello" placeholder="Modello" style="margin-bottom: 2%"><br>
         <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" style="margin-bottom: 2%"><br>
-        <input type="text" id="categoria" name="categoria" placeholder="Categoria" style="margin-bottom: 2%"><br>
+        <select class="form-control" id="selectCategory" name="selectCategory" style="margin-bottom: 2%; width: 20%; display: inline"></select><br>
         <input type="text" id="quantita" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
         <textarea id="descrizione" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
         <textarea id="specifiche" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
@@ -76,11 +76,21 @@
     </div>
 
     <div id="modificaOption" class="container-fluid" style="margin-top: 5%">
-        <h1>ciao</h1>
+        <input type="text" id="codiceABarreModify" name="codiceABarre" placeholder="Codice a barre" style="margin-bottom: 2%" disabled><br>
+        <input type="text" id="marcaModify" name="marca" placeholder="Marca" style="margin-bottom: 2%"><br>
+        <input type="text" id="modelloModify" name="modello" placeholder="Modello" style="margin-bottom: 2%"><br>
+        <input type="text" id="prezzoModify" name="prezzo" placeholder="Prezzo" style="margin-bottom: 2%"><br>
+        <select class="form-control" id="selectCategoryModify" name="selectCategory" style="margin-bottom: 2%; width: 20%; display: inline"></select><br>
+        <input type="text" id="quantitaModify" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
+        <textarea id="descrizioneModify" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
+        <textarea id="specificheModify" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
+        <input type="file" id="imageFileModify" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
+        <button id="btnInvioProductModify" class="btn btn-success">Invio</button><br>
     </div>
 
     <div id="eliminaOption" class="container-fluid" style="margin-top: 5%">
-        <h1>Hello</h1>
+        <p>Sei sicuro di voler eliminare il seguente prodotto: <mark id="toEliminateProductId"></mark> <mark id="toEliminateProduct"></mark></p>
+        <button id="btnInvioProductDelete" class="btn btn-danger">Invio</button>
     </div>
 
     <script>
@@ -144,11 +154,32 @@
             $("#aggiungiOption").hide();
             $("#modificaOption").hide();
         })
-
         $("#btnInvioProduct").click(function ()
         {
             verificaInputs();
         })
+        $("#btnInvioProductModify").click(function () {
+            verificaInputsModify();
+        })
+        $("#btnInvioProductDelete").click(function () {
+            deleteProduct();
+        })
+        $.ajax
+        (
+            {
+                url : "getCategoriesServ",
+                method : "get",
+                dataType: "json",
+                success : function (data)
+                {
+                    buildSelectCategory(data);
+                },
+                error : function ()
+                {
+                    alert("error");
+                }
+            }
+        )
     </script>
 
     <script>
@@ -192,7 +223,17 @@
         var imgConverted;
         document.getElementById("imageFile").onchange = function()
         {
-            var reader = new FileReader();
+            let reader = new FileReader();
+            reader.onload = function (e)
+            {
+                imgConverted=e.target.result;
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+
+        document.getElementById("imageFileModify").onchange = function()
+        {
+            let reader = new FileReader();
             reader.onload = function (e)
             {
                 imgConverted=e.target.result;

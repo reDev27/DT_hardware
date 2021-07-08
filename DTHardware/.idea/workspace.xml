@@ -9,33 +9,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="css della homepage aggiornato.">
-      <change afterPath="$PROJECT_DIR$/procedures/SelectProducts.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/AddProductServ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/GestioneProdRedirectServ.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/StringUtility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="Nuova pagina per amministratore per modificare diversi parametri;&#10;nuova pagina per gestire tutti i prodotti presenti nel database;&#10;aggiornato il sistema di autenticazione;&#10;fix sistema di autenticazione;&#10;nuova procedure per prendere tutti i prodotti dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;nuova classe(model) di utilità per le stringhe;&#10;fix alla pagina di visualizzazione di un prodotto, che non permetteva di visualizzare correttamente descrizione, specifiche e categorie; &#10;fix minori.">
+      <change afterPath="$PROJECT_DIR$/procedures/DeleteComponeByCodiceABarre.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/DeleteProduct.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/procedures/UpdateProduct.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/DeleteProductServ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UpdateProductServ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/IsLoggedServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/IsLoggedServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procedures/InsertProdotto.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/InsertProdotto.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DAO/AdminDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/IsLoggedServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/IsLoggedServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AuthServ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/IsLoggedServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/IsLoggedServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/AdminBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/AdminBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/AdminDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Product.class" afterDir="false" />
@@ -61,8 +55,8 @@
         <option value="jsp_with_jquery" />
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="Servlet template" />
         <option value="Class" />
+        <option value="Servlet template" />
       </list>
     </option>
   </component>
@@ -138,13 +132,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -355,14 +351,8 @@
       <workItem from="1625500566175" duration="5272000" />
       <workItem from="1625505999651" duration="4560000" />
       <workItem from="1625577162194" duration="15592000" />
-      <workItem from="1625663955279" duration="18671000" />
-    </task>
-    <task id="LOCAL-00067" summary="nuovo file jsp per creare la homepage (prime prove ajax/jquery);&#10;aggiunta la libreria jquery;&#10;aggiornata la servlet per le categorie;&#10;altri fix minori.">
-      <created>1622804725806</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1622804725806</updated>
+      <workItem from="1625663955279" duration="19365000" />
+      <workItem from="1625732681140" duration="9777000" />
     </task>
     <task id="LOCAL-00068" summary="creata classe per gestire il downgrade delle immagine da un byte[];&#10;aggiornate le classi di bean e DAO per supportare il nuovo campo &quot;datainserimento&quot;;&#10;aggiornate le classi product e ProductsArray per supportare le nuove funzioni di bean e DAO;&#10;altri fix minori.">
       <created>1622832979425</created>
@@ -700,7 +690,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625592893781</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Nuova pagina per amministratore per modificare diversi parametri;&#10;nuova pagina per gestire tutti i prodotti presenti nel database;&#10;aggiornato il sistema di autenticazione;&#10;fix sistema di autenticazione;&#10;nuova procedure per prendere tutti i prodotti dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;nuova classe(model) di utilità per le stringhe;&#10;fix alla pagina di visualizzazione di un prodotto, che non permetteva di visualizzare correttamente descrizione, specifiche e categorie; &#10;fix minori.">
+      <created>1625683507164</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1625683507164</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,7 +717,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornata classe per gestire i prodotti per immagazzinare il numero di prodotti nel carrello;&#10;fix bug nel quale il numero di prodotti nel carrello non veniva impostato correttamente;&#10;aggiornate pagine html e jsp per reindirizzare alla pagina del carrello quando richiesto dall'utente;&#10;impaginazione carrello(da finire);&#10;fix minori." />
     <MESSAGE value="aggiornati metordi della classe carrello per una migliore gestione dei prodotti in esso;&#10;aggiornate tutte le pagine per fare in modo che aggiungano o tolgano gli elementi correttamente dal carrello;&#10;aggiornata la libreria utilities.js;&#10;fix minori." />
     <MESSAGE value="aggiornata pagina carrello e ultimata impaginazione;&#10;nuova stored procedure per verificare la disponibilità di un prodotto al momento dell'acquisto;&#10;aggiornati bean e DAO relativi al punto precedente;&#10;nuova servlet per gestire il check-out(al momento supporta calcolo totale e verifica disponibilità);&#10;fix bug quantità dei prodotti presenti nel carrello;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet per l'autenticazione;&#10;aggiornati bean, DAO e wrapper per supportare la  servlet del punto precedente;&#10;aggiornata pagina di login;&#10;fix minori." />
@@ -745,7 +741,8 @@
     <MESSAGE value="Aggiunta pagina per visualizzare i dettagli dell'account;&#10;Aggiunta procedure per eliminare indirizzi dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;aggiunte servlet per mostrare i dati dell'account, eliminare e cancellare indirizzi;&#10;fix minori." />
     <MESSAGE value="fix bean per mostrare l'ora nella pagina degli ordini;&#10;nuova servlet per mostrare i suggerimenti nella barra di ricerca;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;nuova procedure per prendere i suggerimenti run-time dal database;&#10;nuova servlet per prendere i prodotti risultanti da una ricerca;&#10;aggionati bean e DAO per supportare il punto precedente;&#10;aggiornata la libreria Utilities.js;&#10;aggiornata la homepage per supportare la ricerca(da finire);&#10;fix minori." />
     <MESSAGE value="css della homepage aggiornato." />
-    <option name="LAST_COMMIT_MESSAGE" value="css della homepage aggiornato." />
+    <MESSAGE value="Nuova pagina per amministratore per modificare diversi parametri;&#10;nuova pagina per gestire tutti i prodotti presenti nel database;&#10;aggiornato il sistema di autenticazione;&#10;fix sistema di autenticazione;&#10;nuova procedure per prendere tutti i prodotti dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;nuova classe(model) di utilità per le stringhe;&#10;fix alla pagina di visualizzazione di un prodotto, che non permetteva di visualizzare correttamente descrizione, specifiche e categorie; &#10;fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nuova pagina per amministratore per modificare diversi parametri;&#10;nuova pagina per gestire tutti i prodotti presenti nel database;&#10;aggiornato il sistema di autenticazione;&#10;fix sistema di autenticazione;&#10;nuova procedure per prendere tutti i prodotti dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;nuova classe(model) di utilità per le stringhe;&#10;fix alla pagina di visualizzazione di un prodotto, che non permetteva di visualizzare correttamente descrizione, specifiche e categorie; &#10;fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

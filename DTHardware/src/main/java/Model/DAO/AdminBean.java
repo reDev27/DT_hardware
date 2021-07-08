@@ -12,6 +12,39 @@ import java.util.Calendar;
 
 public class AdminBean extends UserBean
 {
+	public static void callDeleteProduct(String codiceABarre, ServletContext context) throws IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		try
+		{
+			connection.deleteComponeByCodiceABarre(codiceABarre, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		try
+		{
+			connection.deleteProdotto(codiceABarre, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+	}
+
+	public static void callUpdateProduct(Product product, ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context );
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		connection.updateProdotto(	product.getCodiceABarre(), product.getPrezzo(), product.getDescrizione(), product.getSpecifiche(),
+									new ByteArrayInputStream(product.getImmagine().getBytes()), product.getQuantitaProdotto(), product.getMarca(),
+									product.getModello(), crd.getUsername(), crd.getPass(), product.getNomeCategoria());
+	}
+
 	public static ArrayList<Product> callSelectProducts(ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context );

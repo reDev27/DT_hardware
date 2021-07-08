@@ -80,6 +80,20 @@ public class Product
 		setNomeCategoria(nomeCategoria);
 	}
 
+	public Product(String codiceABarre, String descrizione, String specifiche, Double prezzo, String marca, String modello, String immagine, int quantitaProdotto, String nomeCategoria)
+	{
+		setCodiceABarre(codiceABarre);
+		setMarca(marca);
+		setModello(modello);
+		setPrezzo(prezzo);
+		setDescrizione(descrizione);
+		setSpecifiche(specifiche);
+		setImmagine(immagine);
+		setDisponibilita(quantitaProdotto > 0);
+		setQuantitaProdotto(quantitaProdotto);
+		setNomeCategoria(nomeCategoria);
+	}
+
 /**
  * this function set the instance variables of THIS object with the result retried by database
  * @param codiceABarre string used to identify the product of you want to know attributes, is the code that identify the product

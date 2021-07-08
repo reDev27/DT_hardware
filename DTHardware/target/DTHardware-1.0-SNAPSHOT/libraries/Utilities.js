@@ -1,3 +1,137 @@
+function deleteProduct()
+{
+    let productToEliminate={toEliminate : document.getElementById("toEliminateProductId").innerText};
+    $.ajax
+    (
+        {
+            url : "DeleteProductServ",
+            method : "post",
+            data : productToEliminate,
+            success : function (){window.location.reload();},
+            error : function () {
+                alert("error");
+            }
+        }
+    );
+}
+
+function buildSelectCategory(categories)
+{
+    let newRows="";
+    let n=categories.length;
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<option>"+categories[i].nome+"</option>";
+    }
+    document.getElementById("selectCategory").innerHTML = newRows;
+    document.getElementById("selectCategoryModify").innerHTML = newRows;
+}
+
+function verificaInputsModify()
+{
+    let esito=true;
+    let codiceABarre=document.getElementById("codiceABarreModify").value;
+    if(/\s/.test(codiceABarre) || codiceABarre.length>12 || codiceABarre.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Codice a barre non può contenere spazi, deve avere una lunghezza massima di 12 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let marca=document.getElementById("marcaModify").value;
+    if(marca.length<1 || marca.length>50)
+    {
+        document.getElementById("esitoP").innerHTML = "Marca ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let modello=document.getElementById("modelloModify").value;
+    if(modello<1 || modello.length>50)
+    {
+        document.getElementById("esitoP").innerHTML = "Modello ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let prezzo=document.getElementById("prezzoModify").value;
+    if(!/([0-9])/.test(prezzo) || prezzo.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Prezzo può contenere solo cifre da 0 a 9(per separare la parte decimale e quella intera usi il .) e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let categoria=document.getElementById("selectCategoryModify").value;
+    if(!/[a-z]/i.test(categoria) || categoria.length>50 || categoria.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "La categoria può contenere solo lettere, ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let quantita=document.getElementById("quantitaModify").value;
+    if(!/[0-9]/.test(quantita) || quantita.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Quantità magazzino può contenere solo cifre numeriche e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let descrizione=document.getElementById("descrizioneModify").value;
+    if(descrizione.length>1000)
+    {
+        document.getElementById("esitoP").innerHTML = "Descrizione ha una lunghezza massima di 1000 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let specifiche=document.getElementById("specificheModify").value;
+    if(specifiche.length<1 || specifiche.length>1000)
+    {
+        document.getElementById("esitoP").innerHTML = "Specifiche ha una lunghezza massima di 1000 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let product;
+
+    if(esito)
+    {
+        product=
+            {
+                codiceABarre : codiceABarre,
+                marca : marca,
+                modello : modello,
+                prezzo : prezzo,
+                categoria : categoria,
+                quantita : quantita,
+                descrizione : descrizione,
+                specifiche : specifiche,
+                image : imgConverted
+            };
+        $.ajax
+        (
+            {
+                url : "UpdateProductServ",
+                method : "post",
+                data : product,
+                success : function(){alert("success")},
+                error : function(){alert("error")}
+            }
+        );
+    }
+
+}
+
 function verificaInputs()
 {
     let esito=true;
@@ -37,7 +171,7 @@ function verificaInputs()
         esito=false;
     }
 
-    let categoria=document.getElementById("categoria").value;
+    let categoria=document.getElementById("selectCategory").value;
     if(!/[a-z]/i.test(categoria) || categoria.length>50 || categoria.length<1)
     {
         document.getElementById("esitoP").innerHTML = "La categoria può contenere solo lettere, ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
@@ -113,6 +247,25 @@ function showProductsGestione(products)
             "<td>"+products[i].modello+"</td><td>"+products[i].quantitaProdotto+"</td><td>"+toStringDatePlusMonth(products[i].dataInserimento)+"</td></tr>";
     }
     document.getElementById("tableGestioneProducts").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $("#product"+i).click
+        (
+            function ()
+            {
+                document.getElementById("codiceABarreModify").value=products[i].codiceABarre;
+                document.getElementById("marcaModify").value=products[i].marca;
+                document.getElementById("modelloModify").value=products[i].modello;
+                document.getElementById("prezzoModify").value=products[i].prezzo;
+                document.getElementById("selectCategoryModify").value=products[i].nomeCategoria;
+                document.getElementById("quantitaModify").value=products[i].quantitaProdotto;
+                document.getElementById("descrizioneModify").value=products[i].descrizione;
+                document.getElementById("specificheModify").value=products[i].specifiche;
+                document.getElementById("toEliminateProductId").innerHTML="" + products[i].codiceABarre;
+                document.getElementById("toEliminateProduct").innerHTML= "" + products[i].marca + " " + products[i].modello;
+            }
+        )
+    }
 }
 
 function searchProductsRedirect()
@@ -378,10 +531,6 @@ function showDettagliOrdine(orders, index)
     let newRows="";
     let products=orders[index].products.prodotti;
     let n=products.length;
-    /*for(let i=0; i<n; i++)
-    {
-        newRows += ;
-    }*/
     document.getElementById("dettagliOrdineDiv").innerHTML= "<h5>Dettagli ordine:</h5><br>" + formatFattura(orders[index].fattura);
 }
 

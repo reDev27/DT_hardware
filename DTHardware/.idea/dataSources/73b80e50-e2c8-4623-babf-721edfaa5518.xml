@@ -1015,711 +1015,781 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="296" parent="3" name="DeleteComponeByCodiceABarre">
+    <routine id="296" parent="3" name="DeleteCartaDiCreditoByUsername">
+      <SourceTextLength>73</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="297" parent="3" name="DeleteClienteByUsername">
+      <SourceTextLength>66</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="298" parent="3" name="DeleteComponeByCodiceABarre">
       <SourceTextLength>74</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="297" parent="3" name="DeleteProduct">
+    <routine id="299" parent="3" name="DeleteComponeById">
+      <SourceTextLength>60</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="300" parent="3" name="DeleteOrdineByUsername">
+      <SourceTextLength>65</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="301" parent="3" name="DeleteProduct">
       <SourceTextLength>74</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="298" parent="3" name="InsertCategoria">
+    <routine id="302" parent="3" name="DeleteRisiedeByUsername">
+      <SourceTextLength>66</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="303" parent="3" name="InsertCategoria">
       <SourceTextLength>69</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="299" parent="3" name="InsertCompone">
+    <routine id="304" parent="3" name="InsertCompone">
       <SourceTextLength>151</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="300" parent="3" name="InsertIndirizzo">
+    <routine id="305" parent="3" name="InsertIndirizzo">
       <SourceTextLength>88</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="301" parent="3" name="InsertOrdine">
+    <routine id="306" parent="3" name="InsertOrdine">
       <SourceTextLength>135</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="302" parent="3" name="InsertProdotto">
+    <routine id="307" parent="3" name="InsertProdotto">
       <SourceTextLength>168</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="303" parent="3" name="InsertRisiede">
+    <routine id="308" parent="3" name="InsertRisiede">
       <SourceTextLength>103</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="304" parent="3" name="IsAvailableProduct">
+    <routine id="309" parent="3" name="IsAvailableProduct">
       <SourceTextLength>106</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="305" parent="3" name="SearchProducts">
+    <routine id="310" parent="3" name="SearchProducts">
       <SourceTextLength>848</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="306" parent="3" name="SelectCartadicreditoByUsername">
+    <routine id="311" parent="3" name="SelectCartadicreditoByUsername">
       <SourceTextLength>117</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="307" parent="3" name="SelectCliente">
-      <SourceTextLength>80</SourceTextLength>
+    <routine id="312" parent="3" name="SelectCliente">
+      <SourceTextLength>74</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="308" parent="3" name="SelectClienteByUsername">
+    <routine id="313" parent="3" name="SelectClienteByUsername">
       <SourceTextLength>112</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="309" parent="3" name="SelectComponeById">
+    <routine id="314" parent="3" name="SelectComponeById">
       <SourceTextLength>98</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="310" parent="3" name="SelectIndirizzoByUsername">
+    <routine id="315" parent="3" name="SelectIndirizzoByUsername">
       <SourceTextLength>208</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="311" parent="3" name="SelectMail">
+    <routine id="316" parent="3" name="SelectMail">
       <SourceTextLength>61</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="312" parent="3" name="SelectMostRecentProducts">
+    <routine id="317" parent="3" name="SelectMostRecentProducts">
       <SourceTextLength>88</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="313" parent="3" name="SelectOrdiniByUsername">
+    <routine id="318" parent="3" name="SelectOrdiniByUsername">
       <SourceTextLength>103</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="314" parent="3" name="SelectProdottoByCategoria">
+    <routine id="319" parent="3" name="SelectProdottoByCategoria">
       <SourceTextLength>222</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="315" parent="3" name="SelectProducts">
+    <routine id="320" parent="3" name="SelectProducts">
       <SourceTextLength>151</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="316" parent="3" name="SelectProductsByOrderId">
+    <routine id="321" parent="3" name="SelectProductsByOrderId">
       <SourceTextLength>159</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="317" parent="3" name="SelectUsername">
+    <routine id="322" parent="3" name="SelectUsername">
       <SourceTextLength>71</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="318" parent="3" name="UpdateProduct">
+    <routine id="323" parent="3" name="UpdateCliente">
+      <SourceTextLength>162</SourceTextLength>
+      <Definer>root@localhost</Definer>
+      <RoutineKind>procedure</RoutineKind>
+    </routine>
+    <routine id="324" parent="3" name="UpdateProduct">
       <SourceTextLength>314</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="319" parent="3" name="insertCartaDiCredito">
+    <routine id="325" parent="3" name="insertCartaDiCredito">
       <SourceTextLength>94</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="320" parent="3" name="loginUser">
+    <routine id="326" parent="3" name="loginUser">
       <SourceTextLength>188</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="321" parent="3" name="registerUser">
+    <routine id="327" parent="3" name="registerUser">
       <SourceTextLength>110</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="322" parent="3" name="selectCategoria">
+    <routine id="328" parent="3" name="selectCategoria">
       <SourceTextLength>53</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="323" parent="3" name="selectProdottoByCodiceABarre">
+    <routine id="329" parent="3" name="selectProdottoByCodiceABarre">
       <SourceTextLength>181</SourceTextLength>
       <Definer>root@localhost</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <column id="324" parent="287" name="NCARTA">
+    <column id="330" parent="287" name="NCARTA">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="325" parent="287" name="SCADENZA">
+    <column id="331" parent="287" name="SCADENZA">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="326" parent="287" name="CVV">
+    <column id="332" parent="287" name="CVV">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="327" parent="287" name="USERNAME">
+    <column id="333" parent="287" name="USERNAME">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <index id="328" parent="287" name="USERNAME">
+    <index id="334" parent="287" name="USERNAME">
       <ColNames>USERNAME</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="329" parent="287" name="PRIMARY">
+    <key id="335" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NCARTA</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="330" parent="287" name="cartadicredito_ibfk_1">
+    <foreign-key id="336" parent="287" name="cartadicredito_ibfk_1">
       <ColNames>USERNAME</ColNames>
       <RefTableName>cliente</RefTableName>
       <RefColNames>USERNAME</RefColNames>
     </foreign-key>
-    <column id="331" parent="288" name="NOME">
+    <column id="337" parent="288" name="NOME">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="332" parent="288" name="QUANTITA">
+    <column id="338" parent="288" name="QUANTITA">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="333" parent="288" name="PRIMARY">
+    <key id="339" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NOME</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="334" parent="289" name="USERNAME">
+    <column id="340" parent="289" name="USERNAME">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="335" parent="289" name="EMAIL">
+    <column id="341" parent="289" name="EMAIL">
       <Position>2</Position>
       <DataType>varchar(320)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="336" parent="289" name="PASSW">
+    <column id="342" parent="289" name="PASSW">
       <Position>3</Position>
       <DataType>varbinary(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="337" parent="289" name="NOME">
+    <column id="343" parent="289" name="NOME">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="338" parent="289" name="COGNOME">
+    <column id="344" parent="289" name="COGNOME">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="339" parent="289" name="NTELEFONO">
+    <column id="345" parent="289" name="NTELEFONO">
       <Position>6</Position>
       <DataType>char(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="340" parent="289" name="EMAIL">
+    <index id="346" parent="289" name="EMAIL">
       <ColNames>EMAIL</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="341" parent="289" name="PRIMARY">
+    <key id="347" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USERNAME</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="342" parent="289" name="EMAIL">
+    <key id="348" parent="289" name="EMAIL">
       <ColNames>EMAIL</ColNames>
       <UnderlyingIndexName>EMAIL</UnderlyingIndexName>
     </key>
-    <column id="343" parent="290" name="CODICEABARRE">
+    <column id="349" parent="290" name="CODICEABARRE">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </column>
-    <column id="344" parent="290" name="IDORDINE">
+    <column id="350" parent="290" name="IDORDINE">
       <Position>2</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="345" parent="290" name="NPRODOTTI">
+    <column id="351" parent="290" name="NPRODOTTI">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="346" parent="290" name="CODICEABARRE">
+    <index id="352" parent="290" name="CODICEABARRE">
       <ColNames>CODICEABARRE</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="347" parent="290" name="IDORDINE">
+    <index id="353" parent="290" name="IDORDINE">
       <ColNames>IDORDINE</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="348" parent="290" name="compone_ibfk_1">
+    <foreign-key id="354" parent="290" name="compone_ibfk_1">
       <ColNames>CODICEABARRE</ColNames>
       <RefTableName>prodotto</RefTableName>
       <RefColNames>CODICEBARRE</RefColNames>
     </foreign-key>
-    <foreign-key id="349" parent="290" name="compone_ibfk_2">
+    <foreign-key id="355" parent="290" name="compone_ibfk_2">
       <ColNames>IDORDINE</ColNames>
       <RefTableName>ordine</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="350" parent="291" name="VIA">
+    <column id="356" parent="291" name="VIA">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="351" parent="291" name="NCIVICO">
+    <column id="357" parent="291" name="NCIVICO">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="352" parent="291" name="CITTA">
+    <column id="358" parent="291" name="CITTA">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="353" parent="291" name="CAP">
+    <column id="359" parent="291" name="CAP">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="354" parent="291" name="FLAG">
+    <column id="360" parent="291" name="FLAG">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <index id="355" parent="291" name="via_index">
+    <index id="361" parent="291" name="via_index">
       <ColNames>VIA</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="356" parent="291" name="indirizzo_NCIVICO_VIA_index">
+    <index id="362" parent="291" name="indirizzo_NCIVICO_VIA_index">
       <ColNames>NCIVICO
 VIA</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="357" parent="291" name="nCivico_index">
+    <index id="363" parent="291" name="nCivico_index">
       <ColNames>NCIVICO</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="358" parent="291" name="PRIMARY">
+    <key id="364" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>VIA
 NCIVICO</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="359" parent="292" name="ID">
+    <column id="365" parent="292" name="ID">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="360" parent="292" name="FATTURA">
+    <column id="366" parent="292" name="FATTURA">
       <Position>2</Position>
       <DataType>varchar(1000)|0s</DataType>
     </column>
-    <column id="361" parent="292" name="TOTALE">
+    <column id="367" parent="292" name="TOTALE">
       <Position>3</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="362" parent="292" name="DATAACQUISTO">
+    <column id="368" parent="292" name="DATAACQUISTO">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="363" parent="292" name="USERNAME">
+    <column id="369" parent="292" name="USERNAME">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <index id="364" parent="292" name="USERNAME">
+    <index id="370" parent="292" name="USERNAME">
       <ColNames>USERNAME</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="365" parent="292" name="PRIMARY">
+    <key id="371" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="366" parent="292" name="ordine_ibfk_1">
+    <foreign-key id="372" parent="292" name="ordine_ibfk_1">
       <ColNames>USERNAME</ColNames>
       <RefTableName>cliente</RefTableName>
       <RefColNames>USERNAME</RefColNames>
     </foreign-key>
-    <column id="367" parent="293" name="CODICEBARRE">
+    <column id="373" parent="293" name="CODICEBARRE">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="368" parent="293" name="PREZZO">
+    <column id="374" parent="293" name="PREZZO">
       <Position>2</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="369" parent="293" name="DESCRIZIONE">
+    <column id="375" parent="293" name="DESCRIZIONE">
       <Position>3</Position>
       <DataType>varchar(1000)|0s</DataType>
     </column>
-    <column id="370" parent="293" name="SPECIFICHE">
+    <column id="376" parent="293" name="SPECIFICHE">
       <Position>4</Position>
       <DataType>varchar(1000)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="371" parent="293" name="IMMAGINE">
+    <column id="377" parent="293" name="IMMAGINE">
       <Position>5</Position>
       <DataType>longblob|0s</DataType>
     </column>
-    <column id="372" parent="293" name="QUANTITA">
+    <column id="378" parent="293" name="QUANTITA">
       <Position>6</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="373" parent="293" name="MARCA">
+    <column id="379" parent="293" name="MARCA">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="374" parent="293" name="MODELLO">
+    <column id="380" parent="293" name="MODELLO">
       <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="375" parent="293" name="NOME">
+    <column id="381" parent="293" name="NOME">
       <Position>9</Position>
       <DataType>varchar(50)|0s</DataType>
     </column>
-    <column id="376" parent="293" name="DATAINSERIMENTO">
+    <column id="382" parent="293" name="DATAINSERIMENTO">
       <Position>10</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <index id="377" parent="293" name="NOME">
+    <index id="383" parent="293" name="NOME">
       <ColNames>NOME</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="378" parent="293" name="PRIMARY">
+    <key id="384" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>CODICEBARRE</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="379" parent="293" name="prodotto_ibfk_1">
+    <foreign-key id="385" parent="293" name="prodotto_ibfk_1">
       <ColNames>NOME</ColNames>
       <RefTableName>categoria</RefTableName>
       <RefColNames>NOME</RefColNames>
     </foreign-key>
-    <column id="380" parent="294" name="USERNAME">
+    <column id="386" parent="294" name="USERNAME">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <column id="381" parent="294" name="VIA">
+    <column id="387" parent="294" name="VIA">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="382" parent="294" name="NCIVICO">
+    <column id="388" parent="294" name="NCIVICO">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="383" parent="294" name="USERNAME">
+    <index id="389" parent="294" name="USERNAME">
       <ColNames>USERNAME</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="384" parent="294" name="VIA">
+    <index id="390" parent="294" name="VIA">
       <ColNames>VIA</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="385" parent="294" name="NCIVICO">
+    <index id="391" parent="294" name="NCIVICO">
       <ColNames>NCIVICO</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="386" parent="294" name="risiede_ibfk_1">
+    <foreign-key id="392" parent="294" name="risiede_ibfk_1">
       <ColNames>USERNAME</ColNames>
       <RefTableName>cliente</RefTableName>
       <RefColNames>USERNAME</RefColNames>
     </foreign-key>
-    <foreign-key id="387" parent="294" name="risiede_ibfk_2">
+    <foreign-key id="393" parent="294" name="risiede_ibfk_2">
       <ColNames>VIA</ColNames>
       <RefTableName>indirizzo</RefTableName>
       <RefColNames>VIA</RefColNames>
     </foreign-key>
-    <foreign-key id="388" parent="294" name="risiede_ibfk_3">
+    <foreign-key id="394" parent="294" name="risiede_ibfk_3">
       <ColNames>NCIVICO</ColNames>
       <RefTableName>indirizzo</RefTableName>
       <RefColNames>NCIVICO</RefColNames>
     </foreign-key>
-    <argument id="389" parent="295" name="viaIn">
+    <argument id="395" parent="295" name="viaIn">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="390" parent="295" name="nCivicoIn">
+    <argument id="396" parent="295" name="nCivicoIn">
       <Position>2</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="391" parent="295" name="usernameIn">
+    <argument id="397" parent="295" name="usernameIn">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="392" parent="296" name="codiceabarreIn">
+    <argument id="398" parent="296" name="usernameIn">
+      <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="399" parent="297" name="usernameIn">
+      <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="400" parent="298" name="codiceabarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="393" parent="297" name="codiceabarreIn">
+    <argument id="401" parent="299" name="idIn">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="402" parent="300" name="usernameIn">
+      <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="403" parent="301" name="codiceabarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="394" parent="298" name="nomeIn">
+    <argument id="404" parent="302" name="usernameIn">
+      <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="405" parent="303" name="nomeIn">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="395" parent="298" name="quantitaIn">
+    <argument id="406" parent="303" name="quantitaIn">
       <Position>2</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="396" parent="299" name="nprodottiIn">
+    <argument id="407" parent="304" name="nprodottiIn">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="397" parent="299" name="codiceABarreIn">
+    <argument id="408" parent="304" name="codiceABarreIn">
       <Position>2</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="398" parent="300" name="viaIn">
+    <argument id="409" parent="305" name="viaIn">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="399" parent="300" name="ncivicoIn">
+    <argument id="410" parent="305" name="ncivicoIn">
       <Position>2</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="400" parent="300" name="cittaIn">
+    <argument id="411" parent="305" name="cittaIn">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
     </argument>
-    <argument id="401" parent="300" name="capIn">
+    <argument id="412" parent="305" name="capIn">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="402" parent="300" name="flagIn">
+    <argument id="413" parent="305" name="flagIn">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
     </argument>
-    <argument id="403" parent="301" name="fatturaIn">
+    <argument id="414" parent="306" name="fatturaIn">
       <Position>1</Position>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="404" parent="301" name="totaleIn">
+    <argument id="415" parent="306" name="totaleIn">
       <Position>2</Position>
       <DataType>double|0s</DataType>
     </argument>
-    <argument id="405" parent="301" name="dataacquistoIn">
+    <argument id="416" parent="306" name="dataacquistoIn">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
     </argument>
-    <argument id="406" parent="301" name="usernameIn">
+    <argument id="417" parent="306" name="usernameIn">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="407" parent="302" name="codiceabarreIn">
+    <argument id="418" parent="307" name="codiceabarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="408" parent="302" name="prezzoIn">
+    <argument id="419" parent="307" name="prezzoIn">
       <Position>2</Position>
       <DataType>double|0s</DataType>
     </argument>
-    <argument id="409" parent="302" name="descrizioneIn">
+    <argument id="420" parent="307" name="descrizioneIn">
       <Position>3</Position>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="410" parent="302" name="specificheIn">
+    <argument id="421" parent="307" name="specificheIn">
       <Position>4</Position>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="411" parent="302" name="immagineIn">
+    <argument id="422" parent="307" name="immagineIn">
       <Position>5</Position>
       <DataType>longblob|0s</DataType>
     </argument>
-    <argument id="412" parent="302" name="quantitaIn">
+    <argument id="423" parent="307" name="quantitaIn">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="413" parent="302" name="marcaIn">
+    <argument id="424" parent="307" name="marcaIn">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="414" parent="302" name="modelloIn">
+    <argument id="425" parent="307" name="modelloIn">
       <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="415" parent="302" name="nomeIn">
+    <argument id="426" parent="307" name="nomeIn">
       <Position>9</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="416" parent="302" name="datainserimentoIn">
+    <argument id="427" parent="307" name="datainserimentoIn">
       <Position>10</Position>
       <DataType>timestamp|0s</DataType>
     </argument>
-    <argument id="417" parent="303" name="usernameIn">
+    <argument id="428" parent="308" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="418" parent="303" name="viaIn">
+    <argument id="429" parent="308" name="viaIn">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="419" parent="303" name="nCivicoIn">
+    <argument id="430" parent="308" name="nCivicoIn">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="420" parent="304" name="codiceABarreIn">
+    <argument id="431" parent="309" name="codiceABarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="421" parent="304" name="quantitaIn">
+    <argument id="432" parent="309" name="quantitaIn">
       <Position>2</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="422" parent="305" name="toSearchIn">
+    <argument id="433" parent="310" name="toSearchIn">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="423" parent="306" name="usernameIn">
+    <argument id="434" parent="311" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="424" parent="308" name="usernameIn">
+    <argument id="435" parent="313" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="425" parent="309" name="idIn">
+    <argument id="436" parent="314" name="idIn">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="426" parent="310" name="usernameIn">
+    <argument id="437" parent="315" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="427" parent="311" name="mailIn">
+    <argument id="438" parent="316" name="mailIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="428" parent="313" name="usernameIn">
+    <argument id="439" parent="318" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="429" parent="314" name="categoriaIn">
+    <argument id="440" parent="319" name="categoriaIn">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="430" parent="316" name="idIn">
+    <argument id="441" parent="321" name="idIn">
       <Position>1</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="431" parent="317" name="usernameIn">
+    <argument id="442" parent="322" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="432" parent="318" name="codiceabarreIn">
+    <argument id="443" parent="323" name="usernameIn">
+      <Position>1</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="444" parent="323" name="emailIn">
+      <Position>2</Position>
+      <DataType>varchar(320)|0s</DataType>
+    </argument>
+    <argument id="445" parent="323" name="nomeIn">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="446" parent="323" name="cognomeIn">
+      <Position>4</Position>
+      <DataType>varchar(30)|0s</DataType>
+    </argument>
+    <argument id="447" parent="323" name="ntelefonoIn">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+    </argument>
+    <argument id="448" parent="324" name="codiceabarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="433" parent="318" name="prezzoIn">
+    <argument id="449" parent="324" name="prezzoIn">
       <Position>2</Position>
       <DataType>double|0s</DataType>
     </argument>
-    <argument id="434" parent="318" name="descrizioneIn">
+    <argument id="450" parent="324" name="descrizioneIn">
       <Position>3</Position>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="435" parent="318" name="specificheIn">
+    <argument id="451" parent="324" name="specificheIn">
       <Position>4</Position>
       <DataType>varchar(1000)|0s</DataType>
     </argument>
-    <argument id="436" parent="318" name="immagineIn">
+    <argument id="452" parent="324" name="immagineIn">
       <Position>5</Position>
       <DataType>longblob|0s</DataType>
     </argument>
-    <argument id="437" parent="318" name="quantitaIn">
+    <argument id="453" parent="324" name="quantitaIn">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="438" parent="318" name="marcaIn">
+    <argument id="454" parent="324" name="marcaIn">
       <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="439" parent="318" name="modelloIn">
+    <argument id="455" parent="324" name="modelloIn">
       <Position>8</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="440" parent="318" name="nomeIn">
+    <argument id="456" parent="324" name="nomeIn">
       <Position>9</Position>
       <DataType>varchar(50)|0s</DataType>
     </argument>
-    <argument id="441" parent="319" name="ncartaIn">
+    <argument id="457" parent="325" name="ncartaIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>
-    <argument id="442" parent="319" name="scadenzaIn">
+    <argument id="458" parent="325" name="scadenzaIn">
       <Position>2</Position>
       <DataType>timestamp|0s</DataType>
     </argument>
-    <argument id="443" parent="319" name="cvvIn">
+    <argument id="459" parent="325" name="cvvIn">
       <Position>3</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="444" parent="319" name="usernameIn">
+    <argument id="460" parent="325" name="usernameIn">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="445" parent="320" name="usernameIn">
+    <argument id="461" parent="326" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="446" parent="320" name="passwIn">
+    <argument id="462" parent="326" name="passwIn">
       <Position>2</Position>
       <DataType>varbinary(100)|0s</DataType>
     </argument>
-    <argument id="447" parent="320" name="esito">
+    <argument id="463" parent="326" name="esito">
       <Position>3</Position>
       <ArgumentDirection>O</ArgumentDirection>
       <DataType>tinyint(1)|0s</DataType>
     </argument>
-    <argument id="448" parent="321" name="usernameIn">
+    <argument id="464" parent="327" name="usernameIn">
       <Position>1</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="449" parent="321" name="emailIn">
+    <argument id="465" parent="327" name="emailIn">
       <Position>2</Position>
       <DataType>varchar(320)|0s</DataType>
     </argument>
-    <argument id="450" parent="321" name="passwIn">
+    <argument id="466" parent="327" name="passwIn">
       <Position>3</Position>
       <DataType>varbinary(100)|0s</DataType>
     </argument>
-    <argument id="451" parent="321" name="nomeIn">
+    <argument id="467" parent="327" name="nomeIn">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="452" parent="321" name="cognomeIn">
+    <argument id="468" parent="327" name="cognomeIn">
       <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
     </argument>
-    <argument id="453" parent="321" name="ntelefonoIn">
+    <argument id="469" parent="327" name="ntelefonoIn">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </argument>
-    <argument id="454" parent="323" name="codiceABarreIn">
+    <argument id="470" parent="329" name="codiceABarreIn">
       <Position>1</Position>
       <DataType>char(12)|0s</DataType>
     </argument>

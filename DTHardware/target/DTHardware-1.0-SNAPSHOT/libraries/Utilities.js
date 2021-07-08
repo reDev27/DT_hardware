@@ -1,3 +1,201 @@
+function deleteCliente()
+{
+    let clienteToEliminate={toEliminate : document.getElementById("toEliminateClienteId").innerText};
+    $.ajax
+    (
+        {
+            url : "DeleteClienteServ",
+            method : "post",
+            data : clienteToEliminate,
+            success : function (){window.location.reload();},
+            error : function () {alert("error");}
+        }
+    );
+}
+
+function modifyCliente()
+{
+    let esito=true;
+    let username=document.getElementById("usernameModify").value;
+    if(/\s/.test(username) || username.length>30 || username.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Username non può contenere spazi, non può essere vuoto ed ha una lunghezza massima di 30 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let email=document.getElementById("emailModify").value;
+    if(email.length<1 || email.length>320 || !/[@]+/.test(email))
+    {
+        document.getElementById("esitoPModify").innerHTML = "E-mail ha una lunghezza massima di 320 caratteri, e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nome=document.getElementById("nomeModify").value;
+    if(/\s/.test(nome) || nome.length>50 || !/\b[A-Z]/.test(nome) || nome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Nome non può contenere spazi, non può essere vuoto, ha una lunghezza massima di 50 caratteri e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cognome=document.getElementById("cognomeModify").value;
+    if(/\s/.test(cognome) || cognome.length>50 || !/\b[A-Z]/.test(cognome) || cognome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Cognome non può contenere spazi, ha una lunghezza massima di 50 caratteri, non può essere vuoto e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nTelefono=document.getElementById("nTelefonoModify").value;
+    if(/\s/.test(nTelefono) || nTelefono.length!==10 || !/[0-9]/g.test(nTelefono) || nTelefono.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Numero di telefono non può contenere spazi, ha una lunghezza fissata di 10 caratteri, non può essere vuoto e può contenere solo cifre numeriche.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cliente;
+    if(esito)
+    {
+        cliente=
+            {
+                username : username,
+                email : email,
+                nome : nome,
+                cognome : cognome,
+                ntelefono : nTelefono
+            };
+        $.ajax
+        (
+            {
+                url : "ModifyClienteServ",
+                method : "post",
+                data : cliente,
+                success : function(){window.location.reload();},
+                error : function(){alert("error")}
+            }
+        );
+    }
+}
+
+function addCliente()
+{
+    let esito=true;
+    let username=document.getElementById("username").value;
+    if(/\s/.test(username) || username.length>30 || username.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Username non può contenere spazi, non può essere vuoto ed ha una lunghezza massima di 30 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let email=document.getElementById("email").value;
+    if(email.length<1 || email.length>320 || !/[@]+/.test(email))
+    {
+        document.getElementById("esitoP").innerHTML = "E-mail ha una lunghezza massima di 320 caratteri, e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let psw=document.getElementById("pwd").value;
+    if(/\s/.test(psw) || !/[A-Z]+/.test(psw) || !/[a-z]+/.test(psw) || !/[0-9]+/.test(psw) || psw.length>20 || psw.length<6)
+    {
+        document.getElementById("esitoP").innerHTML = "Password non può contenere spazi, ha una lunghezza massima di 20 caratteri, una lunghezza minima di 6 caratteri, " +
+            "Deve contenere almeno una lettera maiuscola, una minuscola e un numero.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nome=document.getElementById("nome").value;
+    if(/\s/.test(nome) || nome.length>50 || !/\b[A-Z]/.test(nome) || nome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Nome non può contenere spazi, non può essere vuoto, ha una lunghezza massima di 50 caratteri e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cognome=document.getElementById("cognome").value;
+    if(/\s/.test(cognome) || cognome.length>50 || !/\b[A-Z]/.test(cognome) || cognome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Cognome non può contenere spazi, ha una lunghezza massima di 50 caratteri, non può essere vuoto e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nTelefono=document.getElementById("nTelefono").value;
+    if(/\s/.test(nTelefono) || nTelefono.length!==10 || !/[0-9]/g.test(nTelefono) || nTelefono.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Numero di telefono non può contenere spazi, ha una lunghezza fissata di 10 caratteri, non può essere vuoto e può contenere solo cifre numeriche.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cliente;
+    if(esito)
+    {
+        cliente=
+            {
+                username : username,
+                email : email,
+                psw : psw,
+                nome : nome,
+                cognome : cognome,
+                ntelefono : nTelefono
+            };
+        $.ajax
+        (
+            {
+                url : "RegisterServ",
+                method : "post",
+                data : cliente,
+                success : function(){alert("success")},
+                error : function(){alert("error")}
+            }
+        );
+    }
+}
+
+function showClientiGestione(clienti)
+{
+    let n=clienti.length;
+    let newRows="";
+    for(let i=0; i<n; i++)
+    {
+        newRows +=  "<tr id='cliente"+i+"' style='cursor: pointer'><td>"+clienti[i].username+"</td><td>"+clienti[i].email+"</td>" +
+                    "<td>"+clienti[i].nome+"</td><td>"+clienti[i].cognome+"</td><td>"+clienti[i].nTelefono+"</td></tr>";
+    }
+    document.getElementById("tableGestioneClienti").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $("#cliente"+i).click
+        (
+            function ()
+            {
+                document.getElementById("usernameModify").value=clienti[i].username;
+                document.getElementById("emailModify").value=clienti[i].email;
+                document.getElementById("nomeModify").value=clienti[i].nome;
+                document.getElementById("cognomeModify").value=clienti[i].cognome;
+                document.getElementById("nTelefonoModify").value=clienti[i].nTelefono;
+                document.getElementById("toEliminateClienteId").innerHTML="" + clienti[i].username;
+                document.getElementById("toEliminateCliente").innerHTML= "" + clienti[i].cognome + " " + clienti[i].nome;
+            }
+        )
+    }
+}
+
 function deleteProduct()
 {
     let productToEliminate={toEliminate : document.getElementById("toEliminateProductId").innerText};
@@ -208,7 +406,6 @@ function verificaInputs()
     }
 
     let product;
-
     if(esito)
     {
         product=
@@ -234,7 +431,6 @@ function verificaInputs()
             }
         );
     }
-
 }
 
 function showProductsGestione(products)

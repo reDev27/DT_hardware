@@ -8,10 +8,58 @@ import java.util.Calendar;
 
 public class AdminDAO extends UserDAO
 {
+	public void deleteClienteByUsername(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call DeleteClienteByUsername(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	public void deleteComponeById(int id, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call DeleteComponeById(?)}");
+		callableStatement.setInt("idIn", id);
+		doExecute(callableStatement);
+	}
+
+	public void deleteOrdineByUsername(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call DeleteOrdineByUsername(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	public void deleteRisiedeByUsername(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call DeleteRisiedeByUsername(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	public void deleteCartaDiCreditoByUsername(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call DeleteCartaDiCreditoByUsername(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
 	public ResultSet selectProducts(String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call SelectProducts()}");
+		doExecute(callableStatement);
+		return getResult();
+	}
+
+	public ResultSet selectClienti(String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectCliente()}");
 		doExecute(callableStatement);
 		return getResult();
 	}
@@ -46,6 +94,18 @@ public class AdminDAO extends UserDAO
 		callableStatement.setString("marcaIn", marca);
 		callableStatement.setString("modelloIn", modello);
 		callableStatement.setString("nomeIn", nomeCategoria);
+		doExecute(callableStatement);
+	}
+
+	public void updateCliente(String username, String eMail, String nome, String cognome, String nTelefono, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call UpdateCliente(?, ?, ?, ?, ?)}");
+		callableStatement.setString("usernameIn", username);
+		callableStatement.setString("emailIn", eMail);
+		callableStatement.setString("nomeIn", nome);
+		callableStatement.setString("cognomeIn", cognome);
+		callableStatement.setString("ntelefonoIn", nTelefono);
 		doExecute(callableStatement);
 	}
 

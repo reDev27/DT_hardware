@@ -35,7 +35,7 @@
 	</span>
 
     <div class="container-fluid">
-        <h5>Gestione prodotti</h5>
+        <h5>Gestione prodotti.</h5>
 
         <div class="container">
             <table class="table table-hover">

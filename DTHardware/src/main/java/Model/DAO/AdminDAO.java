@@ -12,6 +12,14 @@ import java.util.Calendar;
 
 public class AdminDAO extends UserDAO
 {
+	public void deleteOrderById(int id, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call DeleteOrderById(?)}");
+		callableStatement.setInt("idIn", id);
+		doExecute(callableStatement);
+	}
+
 	public void updateOrder(int id, String fattura, double totale, Calendar dataAcquisto, String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

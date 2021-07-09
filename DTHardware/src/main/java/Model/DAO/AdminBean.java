@@ -15,6 +15,29 @@ import java.util.Calendar;
 
 public class AdminBean extends UserBean
 {
+	public static void callDeleteOrder(int id, ServletContext context) throws IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		try
+		{
+			connection.deleteComponeById(id, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		try
+		{
+			connection.deleteOrderById(id, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+	}
+
 	public static void callUpdateOrder(Order order,ServletContext context) throws IOException, SQLException
 	{
 		CrdGiver crd=new CrdGiver(context );

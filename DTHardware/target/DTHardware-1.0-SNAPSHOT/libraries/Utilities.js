@@ -1,6 +1,7 @@
 function deleteOrder()
 {
-    let clienteToEliminate={toEliminate : document.getElementById("toEliminateClienteId").innerText};
+    alert("ciao");
+    let clienteToEliminate={toEliminate : document.getElementById("toEliminateOrderId").innerText};
     $.ajax
     (
         {
@@ -1376,7 +1377,7 @@ function showCarrello(products)
     let n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline' ><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
+        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline;  justify-content: space-between'><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
     }
     document.getElementById("showProductDiv").innerHTML=newRows;
     for(let i=0; i<n; i++)

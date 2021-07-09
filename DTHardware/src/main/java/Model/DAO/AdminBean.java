@@ -1,10 +1,13 @@
 package Model.DAO;
 
+import Model.Cliente;
 import Model.CrdGiver;
+import Model.Order;
 import Model.Product;
 
 import javax.servlet.ServletContext;
 import java.io.*;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,6 +15,114 @@ import java.util.Calendar;
 
 public class AdminBean extends UserBean
 {
+	public static void callDeleteCliente(String username, ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		ArrayList<Order> orders=callSelectOrdersByUsername(username, context);
+		for(Order order:orders)
+		{
+			connection.deleteComponeById(order.getId(), crd.getUsername(), crd.getPass());
+		}
+		try
+		{
+			connection.deleteCartaDiCreditoByUsername(username, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		try
+		{
+			connection.deleteRisiedeByUsername(username, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		try
+		{
+			connection.deleteOrdineByUsername(username, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		try
+		{
+			connection.deleteClienteByUsername(username, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+	}
+
+	public static void callDeleteProduct(String codiceABarre, ServletContext context) throws IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		try
+		{
+			connection.deleteComponeByCodiceABarre(codiceABarre, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+		try
+		{
+			connection.deleteProdotto(codiceABarre, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+	}
+
+	public static void callUpdateProduct(Product product, ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context );
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		connection.updateProdotto(	product.getCodiceABarre(), product.getPrezzo(), product.getDescrizione(), product.getSpecifiche(),
+									new ByteArrayInputStream(product.getImmagine().getBytes()), product.getQuantitaProdotto(), product.getMarca(),
+									product.getModello(), crd.getUsername(), crd.getPass(), product.getNomeCategoria());
+	}
+
+	public static void callUpdateCliente(Cliente cliente,ServletContext context) throws IOException, SQLException, NoSuchAlgorithmException
+	{
+		CrdGiver crd=new CrdGiver(context );
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		connection.updateCliente(cliente.getUsername(), cliente.getEmail(), cliente.getNome(),
+								cliente.getCognome(), cliente.getnTelefono(), crd.getUsername(), crd.getPass());
+	}
+
+	public static ArrayList<Cliente> callSelectClienti(ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context );
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		ResultSet result=connection.selectClienti(crd.getUsername(), crd.getPass());
+		ArrayList<Cliente> clienti=new ArrayList<>();
+		while(result.next())
+		{
+			clienti.add(new Cliente
+					(
+							result.getString("username"),
+							result.getString("email"),
+							result.getString("nome"),
+							result.getString("cognome"),
+							result.getString("ntelefono")
+					));
+		}
+		connection.destroy();
+		return clienti;
+	}
+
 	public static ArrayList<Product> callSelectProducts(ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context );

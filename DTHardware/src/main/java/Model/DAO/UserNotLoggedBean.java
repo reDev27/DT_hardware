@@ -279,7 +279,7 @@ public class UserNotLoggedBean
 		return b;
 	}
 
-	private static String preparaPassword(String password) throws NoSuchAlgorithmException
+	protected static String preparaPassword(String password) throws NoSuchAlgorithmException
 	{
 		MessageDigest digest=MessageDigest.getInstance("SHA-1");
 		digest.reset();

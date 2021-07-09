@@ -1,9 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
   User: rEDOx
-  Date: 07/07/2021
-  Time: 16:42
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="it">
@@ -35,21 +32,20 @@
 	</span>
 
     <div class="container-fluid">
-        <h5>Gestione prodotti</h5>
+        <h5>Gestione clienti</h5>
 
         <div class="container">
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Codice a barre</th>
-                    <th>Prezzo</th>
-                    <th>Marca</th>
-                    <th>Modello</th>
-                    <th>Quantità</th>
-                    <th>Data d'inserimento</th>
+                    <th>Username</th>
+                    <th>E-mail</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Numero di telefono</th>
                 </tr>
                 </thead>
-                <tbody id="tableGestioneProducts">
+                <tbody id="tableGestioneClienti">
                 </tbody>
             </table>
         </div>
@@ -63,33 +59,26 @@
 
 
     <div id="aggiungiOption" class="container-fluid" style="margin-top: 5%">
-        <input type="text" id="codiceABarre" name="codiceABarre" placeholder="Codice a barre" style="margin-bottom: 2%"><br>
-        <input type="text" id="marca" name="marca" placeholder="Marca" style="margin-bottom: 2%"><br>
-        <input type="text" id="modello" name="modello" placeholder="Modello" style="margin-bottom: 2%"><br>
-        <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" style="margin-bottom: 2%"><br>
-        <select class="form-control" id="selectCategory" name="selectCategory" style="margin-bottom: 2%; width: 20%; display: inline"></select><br>
-        <input type="text" id="quantita" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
-        <textarea id="descrizione" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <textarea id="specifiche" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <input type="file" id="imageFile" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
+        <input type="text" id="username" name="username" placeholder="Username" style="margin-bottom: 2%"><br>
+        <input type="email" id="email" name="email" placeholder="E-mail" style="margin-bottom: 2%"><br>
+        <input type="password" id="pwd" name="pwd" placeholder="Password" style="margin-bottom: 2%"><br>
+        <input type="text" id="nome" name="nome" placeholder="Nome" style="margin-bottom: 2%"><br>
+        <input type="text" id="cognome" name="cognome" placeholder="Cognome" style="margin-bottom: 2%"><br>
+        <input type="text" id="nTelefono" name="nTelefono" placeholder="Numero di telefono" style="margin-bottom: 2%"><br>
         <button id="btnInvioProduct" class="btn btn-success">Invio</button><br>
     </div>
 
     <div id="modificaOption" class="container-fluid" style="margin-top: 5%">
-        <input type="text" id="codiceABarreModify" name="codiceABarre" placeholder="Codice a barre" style="margin-bottom: 2%" disabled><br>
-        <input type="text" id="marcaModify" name="marca" placeholder="Marca" style="margin-bottom: 2%"><br>
-        <input type="text" id="modelloModify" name="modello" placeholder="Modello" style="margin-bottom: 2%"><br>
-        <input type="text" id="prezzoModify" name="prezzo" placeholder="Prezzo" style="margin-bottom: 2%"><br>
-        <select class="form-control" id="selectCategoryModify" name="selectCategory" style="margin-bottom: 2%; width: 20%; display: inline"></select><br>
-        <input type="text" id="quantitaModify" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
-        <textarea id="descrizioneModify" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <textarea id="specificheModify" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <input type="file" id="imageFileModify" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
+        <input type="text" id="usernameModify" name="username" placeholder="Username" style="margin-bottom: 2%" disabled><br>
+        <input type="email" id="emailModify" name="email" placeholder="E-mail" style="margin-bottom: 2%"><br>
+        <input type="text" id="nomeModify" name="nome" placeholder="Nome" style="margin-bottom: 2%"><br>
+        <input type="text" id="cognomeModify" name="cognome" placeholder="Cognome" style="margin-bottom: 2%"><br>
+        <input type="text" id="nTelefonoModify" name="nTelefono" placeholder="Numero di telefono" style="margin-bottom: 2%; width: 20%; display: inline"><br>
         <button id="btnInvioProductModify" class="btn btn-success">Invio</button><br>
     </div>
 
     <div id="eliminaOption" class="container-fluid" style="margin-top: 5%">
-        <p>Sei sicuro di voler eliminare il seguente prodotto: <mark id="toEliminateProductId"></mark> <mark id="toEliminateProduct"></mark></p>
+        <p>Sei sicuro di voler eliminare il seguente cliente: <mark id="toEliminateClienteId"></mark> <mark id="toEliminateCliente"></mark></p>
         <button id="btnInvioProductDelete" class="btn btn-danger">Invio</button>
     </div>
 
@@ -115,9 +104,9 @@
         <div class="col-4">
     <span id="accountSpan" class="row">
       <h5 class="col-12 text-center">Il tuo account</h5>
-      <a class="col-12 text-center" href="InfoPersonali">Informazioni personali</a>
-      <a class="col-12 text-center" href="ShowOrdini">Ordini</a>
-      <a class="col-12 text-center" href="ShowChangeIndirizzi">Indirizzi</a>
+      <a class="col-12 text-center" href="InfoPersonali" disabled>Informazioni personali</a>
+      <a class="col-12 text-center" href="ShowOrdini" disabled>Ordini</a>
+      <a class="col-12 text-center" href="ShowChangeIndirizzi" disabled>Indirizzi</a>
      </span>
         </div>
         <div class="col-4">
@@ -131,8 +120,8 @@
     </div>
 
     <script>
-        var products=<%= request.getAttribute("productsJson")%>;
-        showProductsGestione(products);
+        var clienti=<%= request.getAttribute("clientiJson")%>;
+        showClientiGestione(clienti);
         $("#aggiungiOption").hide();
         $("#modificaOption").hide();
         $("#eliminaOption").hide();
@@ -156,30 +145,16 @@
         })
         $("#btnInvioProduct").click(function ()
         {
-            verificaInputs();
+            addCliente();
         })
-        $("#btnInvioProductModify").click(function () {
-            verificaInputsModify();
+        $("#btnInvioProductModify").click(function ()
+        {
+            modifyCliente();
         })
-        $("#btnInvioProductDelete").click(function () {
-            deleteProduct();
+        $("#btnInvioProductDelete").click(function ()
+        {
+            deleteCliente();
         })
-        $.ajax
-        (
-            {
-                url : "getCategoriesServ",
-                method : "get",
-                dataType: "json",
-                success : function (data)
-                {
-                    buildSelectCategory(data);
-                },
-                error : function ()
-                {
-                    alert("error");
-                }
-            }
-        )
     </script>
 
     <script>
@@ -215,32 +190,9 @@
                 },
                 error : function () {alert("error")}
             }
-
         )
     </script>
 
-    <script>
-        var imgConverted;
-        document.getElementById("imageFile").onchange = function()
-        {
-            let reader = new FileReader();
-            reader.onload = function (e)
-            {
-                imgConverted=e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-
-        document.getElementById("imageFileModify").onchange = function()
-        {
-            let reader = new FileReader();
-            reader.onload = function (e)
-            {
-                imgConverted=e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-    </script>
 </main>
 
 </body>

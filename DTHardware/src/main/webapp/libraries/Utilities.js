@@ -1,3 +1,335 @@
+function deleteCliente()
+{
+    let clienteToEliminate={toEliminate : document.getElementById("toEliminateClienteId").innerText};
+    $.ajax
+    (
+        {
+            url : "DeleteClienteServ",
+            method : "post",
+            data : clienteToEliminate,
+            success : function (){window.location.reload();},
+            error : function () {alert("error");}
+        }
+    );
+}
+
+function modifyCliente()
+{
+    let esito=true;
+    let username=document.getElementById("usernameModify").value;
+    if(/\s/.test(username) || username.length>30 || username.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Username non può contenere spazi, non può essere vuoto ed ha una lunghezza massima di 30 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let email=document.getElementById("emailModify").value;
+    if(email.length<1 || email.length>320 || !/[@]+/.test(email))
+    {
+        document.getElementById("esitoPModify").innerHTML = "E-mail ha una lunghezza massima di 320 caratteri, e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nome=document.getElementById("nomeModify").value;
+    if(/\s/.test(nome) || nome.length>50 || !/\b[A-Z]/.test(nome) || nome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Nome non può contenere spazi, non può essere vuoto, ha una lunghezza massima di 50 caratteri e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cognome=document.getElementById("cognomeModify").value;
+    if(/\s/.test(cognome) || cognome.length>50 || !/\b[A-Z]/.test(cognome) || cognome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Cognome non può contenere spazi, ha una lunghezza massima di 50 caratteri, non può essere vuoto e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nTelefono=document.getElementById("nTelefonoModify").value;
+    if(/\s/.test(nTelefono) || nTelefono.length!==10 || !/[0-9]/g.test(nTelefono) || nTelefono.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Numero di telefono non può contenere spazi, ha una lunghezza fissata di 10 caratteri, non può essere vuoto e può contenere solo cifre numeriche.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cliente;
+    if(esito)
+    {
+        cliente=
+            {
+                username : username,
+                email : email,
+                nome : nome,
+                cognome : cognome,
+                ntelefono : nTelefono
+            };
+        $.ajax
+        (
+            {
+                url : "ModifyClienteServ",
+                method : "post",
+                data : cliente,
+                success : function(){window.location.reload();},
+                error : function(){alert("error")}
+            }
+        );
+    }
+}
+
+function addCliente()
+{
+    let esito=true;
+    let username=document.getElementById("username").value;
+    if(/\s/.test(username) || username.length>30 || username.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Username non può contenere spazi, non può essere vuoto ed ha una lunghezza massima di 30 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let email=document.getElementById("email").value;
+    if(email.length<1 || email.length>320 || !/[@]+/.test(email))
+    {
+        document.getElementById("esitoP").innerHTML = "E-mail ha una lunghezza massima di 320 caratteri, e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let psw=document.getElementById("pwd").value;
+    if(/\s/.test(psw) || !/[A-Z]+/.test(psw) || !/[a-z]+/.test(psw) || !/[0-9]+/.test(psw) || psw.length>20 || psw.length<6)
+    {
+        document.getElementById("esitoP").innerHTML = "Password non può contenere spazi, ha una lunghezza massima di 20 caratteri, una lunghezza minima di 6 caratteri, " +
+            "Deve contenere almeno una lettera maiuscola, una minuscola e un numero.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nome=document.getElementById("nome").value;
+    if(/\s/.test(nome) || nome.length>50 || !/\b[A-Z]/.test(nome) || nome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Nome non può contenere spazi, non può essere vuoto, ha una lunghezza massima di 50 caratteri e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cognome=document.getElementById("cognome").value;
+    if(/\s/.test(cognome) || cognome.length>50 || !/\b[A-Z]/.test(cognome) || cognome.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Cognome non può contenere spazi, ha una lunghezza massima di 50 caratteri, non può essere vuoto e la prima lettera deve essre maiuscola.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let nTelefono=document.getElementById("nTelefono").value;
+    if(/\s/.test(nTelefono) || nTelefono.length!==10 || !/[0-9]/g.test(nTelefono) || nTelefono.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Numero di telefono non può contenere spazi, ha una lunghezza fissata di 10 caratteri, non può essere vuoto e può contenere solo cifre numeriche.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let cliente;
+    if(esito)
+    {
+        cliente=
+            {
+                username : username,
+                email : email,
+                psw : psw,
+                nome : nome,
+                cognome : cognome,
+                ntelefono : nTelefono
+            };
+        $.ajax
+        (
+            {
+                url : "RegisterServ",
+                method : "post",
+                data : cliente,
+                success : function(){alert("success")},
+                error : function(){alert("error")}
+            }
+        );
+    }
+}
+
+function showClientiGestione(clienti)
+{
+    let n=clienti.length;
+    let newRows="";
+    for(let i=0; i<n; i++)
+    {
+        newRows +=  "<tr id='cliente"+i+"' style='cursor: pointer'><td>"+clienti[i].username+"</td><td>"+clienti[i].email+"</td>" +
+                    "<td>"+clienti[i].nome+"</td><td>"+clienti[i].cognome+"</td><td>"+clienti[i].nTelefono+"</td></tr>";
+    }
+    document.getElementById("tableGestioneClienti").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $("#cliente"+i).click
+        (
+            function ()
+            {
+                document.getElementById("usernameModify").value=clienti[i].username;
+                document.getElementById("emailModify").value=clienti[i].email;
+                document.getElementById("nomeModify").value=clienti[i].nome;
+                document.getElementById("cognomeModify").value=clienti[i].cognome;
+                document.getElementById("nTelefonoModify").value=clienti[i].nTelefono;
+                document.getElementById("toEliminateClienteId").innerHTML="" + clienti[i].username;
+                document.getElementById("toEliminateCliente").innerHTML= "" + clienti[i].cognome + " " + clienti[i].nome;
+            }
+        )
+    }
+}
+
+function deleteProduct()
+{
+    let productToEliminate={toEliminate : document.getElementById("toEliminateProductId").innerText};
+    $.ajax
+    (
+        {
+            url : "DeleteProductServ",
+            method : "post",
+            data : productToEliminate,
+            success : function (){window.location.reload();},
+            error : function () {
+                alert("error");
+            }
+        }
+    );
+}
+
+function buildSelectCategory(categories)
+{
+    let newRows="";
+    let n=categories.length;
+    for(let i=0; i<n; i++)
+    {
+        newRows += "<option>"+categories[i].nome+"</option>";
+    }
+    document.getElementById("selectCategory").innerHTML = newRows;
+    document.getElementById("selectCategoryModify").innerHTML = newRows;
+}
+
+function verificaInputsModify()
+{
+    let esito=true;
+    let codiceABarre=document.getElementById("codiceABarreModify").value;
+    if(/\s/.test(codiceABarre) || codiceABarre.length>12 || codiceABarre.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Codice a barre non può contenere spazi, deve avere una lunghezza massima di 12 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let marca=document.getElementById("marcaModify").value;
+    if(marca.length<1 || marca.length>50)
+    {
+        document.getElementById("esitoP").innerHTML = "Marca ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let modello=document.getElementById("modelloModify").value;
+    if(modello<1 || modello.length>50)
+    {
+        document.getElementById("esitoP").innerHTML = "Modello ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let prezzo=document.getElementById("prezzoModify").value;
+    if(!/([0-9])/.test(prezzo) || prezzo.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Prezzo può contenere solo cifre da 0 a 9(per separare la parte decimale e quella intera usi il .) e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let categoria=document.getElementById("selectCategoryModify").value;
+    if(!/[a-z]/i.test(categoria) || categoria.length>50 || categoria.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "La categoria può contenere solo lettere, ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let quantita=document.getElementById("quantitaModify").value;
+    if(!/[0-9]/.test(quantita) || quantita.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Quantità magazzino può contenere solo cifre numeriche e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let descrizione=document.getElementById("descrizioneModify").value;
+    if(descrizione.length>1000)
+    {
+        document.getElementById("esitoP").innerHTML = "Descrizione ha una lunghezza massima di 1000 caratteri.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let specifiche=document.getElementById("specificheModify").value;
+    if(specifiche.length<1 || specifiche.length>1000)
+    {
+        document.getElementById("esitoP").innerHTML = "Specifiche ha una lunghezza massima di 1000 caratteri e non può essere vuoto.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let product;
+
+    if(esito)
+    {
+        product=
+            {
+                codiceABarre : codiceABarre,
+                marca : marca,
+                modello : modello,
+                prezzo : prezzo,
+                categoria : categoria,
+                quantita : quantita,
+                descrizione : descrizione,
+                specifiche : specifiche,
+                image : imgConverted
+            };
+        $.ajax
+        (
+            {
+                url : "UpdateProductServ",
+                method : "post",
+                data : product,
+                success : function(){alert("success")},
+                error : function(){alert("error")}
+            }
+        );
+    }
+
+}
+
 function verificaInputs()
 {
     let esito=true;
@@ -37,7 +369,7 @@ function verificaInputs()
         esito=false;
     }
 
-    let categoria=document.getElementById("categoria").value;
+    let categoria=document.getElementById("selectCategory").value;
     if(!/[a-z]/i.test(categoria) || categoria.length>50 || categoria.length<1)
     {
         document.getElementById("esitoP").innerHTML = "La categoria può contenere solo lettere, ha una lunghezza massima di 50 caratteri e non può essere vuoto.";
@@ -74,7 +406,6 @@ function verificaInputs()
     }
 
     let product;
-
     if(esito)
     {
         product=
@@ -100,7 +431,6 @@ function verificaInputs()
             }
         );
     }
-
 }
 
 function showProductsGestione(products)
@@ -113,6 +443,25 @@ function showProductsGestione(products)
             "<td>"+products[i].modello+"</td><td>"+products[i].quantitaProdotto+"</td><td>"+toStringDatePlusMonth(products[i].dataInserimento)+"</td></tr>";
     }
     document.getElementById("tableGestioneProducts").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $("#product"+i).click
+        (
+            function ()
+            {
+                document.getElementById("codiceABarreModify").value=products[i].codiceABarre;
+                document.getElementById("marcaModify").value=products[i].marca;
+                document.getElementById("modelloModify").value=products[i].modello;
+                document.getElementById("prezzoModify").value=products[i].prezzo;
+                document.getElementById("selectCategoryModify").value=products[i].nomeCategoria;
+                document.getElementById("quantitaModify").value=products[i].quantitaProdotto;
+                document.getElementById("descrizioneModify").value=products[i].descrizione;
+                document.getElementById("specificheModify").value=products[i].specifiche;
+                document.getElementById("toEliminateProductId").innerHTML="" + products[i].codiceABarre;
+                document.getElementById("toEliminateProduct").innerHTML= "" + products[i].marca + " " + products[i].modello;
+            }
+        )
+    }
 }
 
 function searchProductsRedirect()
@@ -378,10 +727,6 @@ function showDettagliOrdine(orders, index)
     let newRows="";
     let products=orders[index].products.prodotti;
     let n=products.length;
-    /*for(let i=0; i<n; i++)
-    {
-        newRows += ;
-    }*/
     document.getElementById("dettagliOrdineDiv").innerHTML= "<h5>Dettagli ordine:</h5><br>" + formatFattura(orders[index].fattura);
 }
 

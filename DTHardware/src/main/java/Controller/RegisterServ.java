@@ -26,13 +26,13 @@ public class RegisterServ extends HttpServlet
 	{
 		boolean esito=true;
 		String scadenza=request.getParameter("scadenza");
-		if(scadenza.compareTo("")!=0)
+		if(scadenza!=null && scadenza.compareTo("")!=0)
 			scadenza+= " 00:00:00";
 		else
 			scadenza=null;
 		Integer cvv=null;
 		String appoggio=request.getParameter("CVV");
-		if(appoggio.compareTo("")!=0)
+		if(appoggio!=null && appoggio.compareTo("")!=0)
 			cvv=Integer.parseInt(appoggio);
 		if(RequestUtility.checkIsLogged(request.getSession()).compareTo("n")==0);
 		{
@@ -68,7 +68,6 @@ public class RegisterServ extends HttpServlet
 					e.printStackTrace();
 				}
 		}
-
 		response.sendRedirect("homepage.html");
 	}
 }

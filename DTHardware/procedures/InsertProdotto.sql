@@ -1,7 +1,7 @@
 DELIMITER //
 drop procedure if exists InsertProdotto;
 create procedure InsertProdotto(
-    in codiceabarreIn int,
+    in codiceabarreIn char(12),
     in prezzoIn double,
     in descrizioneIn varchar(1000),
     in specificheIn varchar(1000),

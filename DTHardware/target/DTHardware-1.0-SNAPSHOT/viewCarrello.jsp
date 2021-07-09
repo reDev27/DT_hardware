@@ -1,7 +1,8 @@
 <%@ page import="Model.Carrello" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Model.Product" %>
-<%@ page import="Model.DAO.DateUtil" %><%--
+<%@ page import="Model.DAO.DateUtil" %>
+<%@ page import="Model.StringUtility" %><%--
   Created by IntelliJ IDEA.
   User: rEDOx
   Date: 21/06/2021
@@ -211,7 +212,6 @@
 
       var products=[];
       <%
-
          if(carrello!=null)
          {
          	ArrayList<Product> prodotti=carrello.getProdotti();
@@ -224,8 +224,8 @@
                   "marca": "<%= prodotti.get(i).getMarca()%>",
                   "modello": "<%= prodotti.get(i).getModello()%>",
                   "prezzo": <%= prodotti.get(i).getPrezzo()%>,
-                  "descrizione": "<%= prodotti.get(i).getDescrizione()%>",
-                  "specifiche": "<%= prodotti.get(i).getSpecifiche()%>",
+                  "descrizione": "<%= StringUtility.subBlankNWithSpace(prodotti.get(i).getDescrizione())%>",
+                  "specifiche": "<%= StringUtility.subBlankNWithSpace(prodotti.get(i).getSpecifiche())%>",
                   "immagine": "<%= prodotti.get(i).getImmagine()%>",
                   "disponibilita": <%= prodotti.get(i).isDisponibilita()%>,
                   "quantitaProdotto": <%= prodotti.get(i).getQuantitaProdotto()%>,
@@ -240,7 +240,6 @@
       document.getElementById("nQuantitaTotale").innerHTML=quantitaCarrelloTotale;
       showCarrello(products);
       calcolaTotaleSpese(products);
-      //checkOut();
   </script>
 </main>
 </body>

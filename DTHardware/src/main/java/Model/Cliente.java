@@ -29,6 +29,15 @@ public class Cliente
 		setCreditCards(creditCards);
 	}
 
+	public Cliente(String username, String email, String nome, String cognome, String nTelefono)
+	{
+		setUsername(username);
+		setEmail(email);
+		setNome(nome);
+		setCognome(cognome);
+		setnTelefono(nTelefono);
+	}
+
 	/**
 	 * "a" is for Admin, "l" is for del Logged user, "n" is for the Not logged user
 	 * @param username the

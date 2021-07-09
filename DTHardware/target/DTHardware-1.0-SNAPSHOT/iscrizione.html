@@ -72,7 +72,7 @@
 			<br/>
 			<label for="AddVia">Via</label>
 			<br/>
-			<input type="text" id="AddVia" name="AddVia" placeholder="via pippo">
+			<input type="text" id="AddVia" name="AddVia" placeholder="Via">
 			<br/>
 			<label for="AddCivico">Numero Civico</label>
 			<br/>
@@ -141,7 +141,7 @@
 	$("#psw").change(function ()
 	{
 		var psw=document.getElementById("psw").value;
-		if(/\s/.test(psw) || !/[A-Z]+/.test(psw) || !/[a-z]+/.test(psw) || !/[0-9]+/.test(psw) || psw.length>20 && psw.length<6)
+		if(/\s/.test(psw) || !/[A-Z]+/.test(psw) || !/[a-z]+/.test(psw) || !/[0-9]+/.test(psw) || psw.length>20 || psw.length<6)
 		{
 			document.getElementById("esitoP").innerHTML = "Password non può contenere spazi, ha una lunghezza massima di 20 caratteri, una lunghezza minima di 6 caratteri, " +
 				"Deve contenere almeno una lettera maiuscola, una minuscola e un numero.";

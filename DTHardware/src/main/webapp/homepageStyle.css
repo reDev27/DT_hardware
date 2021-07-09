@@ -117,3 +117,8 @@ body
 {
     color: white;
 }
+
+#btnSearch svg
+{
+    color: #86d804;
+}

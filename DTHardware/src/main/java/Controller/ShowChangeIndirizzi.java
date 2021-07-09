@@ -40,7 +40,7 @@ public class ShowChangeIndirizzi extends HttpServlet
 			request.getRequestDispatcher("/showChangeAddresses.jsp").forward(request, response);
 		}
 		else
-			throw new Error();
+			response.sendRedirect("login.html");
 	}
 
 	@Override

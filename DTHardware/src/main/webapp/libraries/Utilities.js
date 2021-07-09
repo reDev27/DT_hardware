@@ -568,7 +568,7 @@ function showProductsGestione(products)
 
 function searchProductsRedirect()
 {
-    var toSearch = document.getElementById("txtSearch").value;
+    let toSearch=document.getElementById("txtSearch").value;
     if(toSearch.length>1)
     {
         var keyWord = {keyToSearch: toSearch};
@@ -591,6 +591,12 @@ function searchProductsRedirect()
             }
         )
     }
+}
+
+function searchRedirectUtility()
+{
+    sessionStorage.setItem('toSearch', document.getElementById('txtSearch').value);
+    window.location.href="homepage.html";
 }
 
 function searchProducts()
@@ -1512,7 +1518,7 @@ function buildTableProductHomepage(products)
     var newRows="";
     for(let i=0; i<n; i++)
     {
-        newRows+= "<li id='prodotto"+ i +"' class=\"ui-state-default\"><span id='prodottoSpan' class='row' style='padding: 1.75%'><img class='col-12' width='160' height='160' src=\"" + products[i].immagine+"\">" + "<p class='col-12'>" + products[i].marca +"</p> <p class='col-12'>"+ products[i].modello + "</p><p class='col-12'> " + products[i].prezzo + "</p><button id='btnz' type=\"button\" class=\"btn btn-primary cols-12\">Aggiungi al carrello</button><p class='col-12'> "+ isAvailable(products[i].disponibilita) + "</p></span></li>";
+        newRows+= "<li id='prodotto"+ i +"' class=\"ui-state-default\"><span id='prodottoSpan' class='row' style='padding: 1.75%'><img class='col-12' width='160' height='160' src=\"" + products[i].immagine+"\">" + "<p class='col-12'>" + products[i].marca +"</p> <p class='col-12'>"+ products[i].modello + "</p><p class='col-12'> " + products[i].prezzo + "</p><button id='btnAggiungi"+i+"' type=\"button\" class=\"btn btn-primary cols-12\">Aggiungi al carrello</button><p class='col-12'> "+ isAvailable(products[i].disponibilita) + "</p></span></li>";
     }
     document.getElementById("selectableTableProducts").innerHTML=newRows;
     $("#selectableTableProducts").css({"cursor": "pointer","list-style-type": "none", "margin": "0", "padding": "0", "width": "100%" });
@@ -1520,6 +1526,9 @@ function buildTableProductHomepage(products)
     $("#selectableTableProducts ol").css("alignment", "center");
     for(let i=0; i<n; i++)
     {
+        if(products[i].disponibilita===false)
+            $("#prodotto"+i + " span button").prop("disabled", true);
+
         $("#prodotto"+i + " span button").on("click", function()
         {
             let s=toStringDate(products[i].dataInserimento);

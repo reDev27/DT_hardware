@@ -60,7 +60,7 @@ public class InfoPersonali extends HttpServlet
 			request.getRequestDispatcher("/infoPersonali.jsp").forward(request, response);
 		}
 		else
-			throw new Error();
+			response.sendRedirect("login.html");
 	}
 
 	@Override

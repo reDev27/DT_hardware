@@ -8,9 +8,11 @@ create procedure InsertOrdine(
 )
 
 begin
+start transaction;
 
     insert into ORDINE (fattura, totale, dataacquisto, username) values
     (fatturaIn,totaleIn,dataacquistoIn,usernameIn);
 
+commit;
 end //
 DELIMITER ;

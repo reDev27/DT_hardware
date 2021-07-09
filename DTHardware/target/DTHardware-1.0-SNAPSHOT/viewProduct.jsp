@@ -13,6 +13,8 @@
     <meta charset="UTF-8">
     <title><%= product.getMarca() + " " + product.getModello()%></title>
 </head>
+<link href="libraries/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" type="text/css">
+<script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>
 <script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
 <script src="libraries/jQuery_current.js"></script>
@@ -70,11 +72,14 @@
         background-color: #86d804;
     }
 
-
-
     #spinnerParag span
     {
         width: 80%;
+    }
+
+    #btnSearch svg
+    {
+        color: #86d804;
     }
 </style>
 <main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
@@ -86,10 +91,10 @@
     </span>
     </header>
 
-  <span class="row" id="searchAndCarrello">
+  <span class="row" id="searchAndCarrello" style="flex-wrap: nowrap; width: 92%">
     <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
-    <span class="cols-4" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4"></textarea></span>
-    <span class="cols-4" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
+    <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" className="list-group"></div></span><span class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
+    <span class="col-3" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
   </span>
 
     <script>
@@ -172,9 +177,9 @@
         <div class="col-4">
     <span id="accountSpan" class="row">
       <h5 class="col-12 text-center">Il tuo account</h5>
-      <a class="col-12 text-center" href="homepage.html">Informazioni personali</a>
-      <a class="col-12 text-center" href="homepage.html">Ordini</a>
-      <a class="col-12 text-center" href="homepage.html">Indirizzi</a>
+      <a class="col-12 text-center" href="InfoPersonali">Informazioni personali</a>
+      <a class="col-12 text-center" href="ShowOrdini">Ordini</a>
+      <a class="col-12 text-center" href="ShowChangeIndirizzi">Indirizzi</a>
      </span>
         </div>
         <div class="col-4">
@@ -240,6 +245,9 @@
         }
     );
 
+    let disponibilita= <%= product.isDisponibilita()%>;
+    if(!disponibilita)
+        $("#btnAggiungiAlCarrello").prop("disabled", true);
 
     var prodotto=
         {

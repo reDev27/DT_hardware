@@ -41,56 +41,35 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Codice a barre</th>
-                    <th>Prezzo</th>
-                    <th>Marca</th>
-                    <th>Modello</th>
-                    <th>Quantità</th>
-                    <th>Data d'inserimento</th>
+                    <th>Id</th>
+                    <th>Totale</th>
+                    <th>Data d'acquisto</th>
+                    <th>Username</th>
                 </tr>
                 </thead>
-                <tbody id="tableGestioneProducts">
+                <tbody id="tableGestioneOrders">
                 </tbody>
             </table>
         </div>
     </div>
 
     <div class="row">
-        <span class="col-4" style="display: grid; place-items: center"><button id="btnAggiungi" class="btn btn-success">Aggiungi</button></span>
-        <span class="col-4" style="display: grid; place-items: center"><button id="btnModifica" class="btn btn-light">Modifica</button></span>
-        <span class="col-4" style="display: grid; place-items: center"><button id="btnElimina" class="btn btn-danger">Elimina</button></span>
-    </div>
-
-
-    <div id="aggiungiOption" class="container-fluid" style="margin-top: 5%">
-        <input type="text" id="codiceABarre" name="codiceABarre" placeholder="Codice a barre" style="margin-bottom: 2%"><br>
-        <input type="text" id="marca" name="marca" placeholder="Marca" style="margin-bottom: 2%"><br>
-        <input type="text" id="modello" name="modello" placeholder="Modello" style="margin-bottom: 2%"><br>
-        <input type="text" id="prezzo" name="prezzo" placeholder="Prezzo" style="margin-bottom: 2%"><br>
-        <select class="form-control" id="selectCategory" name="selectCategory" style="margin-bottom: 2%; width: 20%; display: inline"></select><br>
-        <input type="text" id="quantita" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
-        <textarea id="descrizione" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <textarea id="specifiche" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <input type="file" id="imageFile" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
-        <button id="btnInvioProduct" class="btn btn-success">Invio</button><br>
+        <span class="col-6" style="display: grid; place-items: center"><button id="btnModifica" class="btn btn-light">Modifica</button></span>
+        <span class="col-6" style="display: grid; place-items: center"><button id="btnElimina" class="btn btn-danger">Elimina</button></span>
     </div>
 
     <div id="modificaOption" class="container-fluid" style="margin-top: 5%">
-        <input type="text" id="codiceABarreModify" name="codiceABarre" placeholder="Codice a barre" style="margin-bottom: 2%" disabled><br>
-        <input type="text" id="marcaModify" name="marca" placeholder="Marca" style="margin-bottom: 2%"><br>
-        <input type="text" id="modelloModify" name="modello" placeholder="Modello" style="margin-bottom: 2%"><br>
-        <input type="text" id="prezzoModify" name="prezzo" placeholder="Prezzo" style="margin-bottom: 2%"><br>
-        <select class="form-control" id="selectCategoryModify" name="selectCategory" style="margin-bottom: 2%; width: 20%; display: inline"></select><br>
-        <input type="text" id="quantitaModify" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
-        <textarea id="descrizioneModify" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <textarea id="specificheModify" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <input type="file" id="imageFileModify" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
-        <button id="btnInvioProductModify" class="btn btn-success">Invio</button><br>
+        <input type="text" id="idModify" name="idModify" placeholder="id" style="margin-bottom: 2%" disabled><br>
+        <textarea type="text" id="fatturaModify" name="fatturaModify" placeholder="Fattura" style="margin-bottom: 2%; height: 65%; width: 50%"></textarea><br>
+        <input type="text" id="totaleModify" name="totaleModify" placeholder="Totale" style="margin-bottom: 2%"><br>
+        <input type="text" id="dataAcquistoModify" name="dataAcquistoModify" placeholder="Data d'acquisto" style="margin-bottom: 2%"><br>
+        <input type="text" id="usernameModify" name="usernameModify" placeholder="Username" style="margin-bottom: 2%" disabled><br>
+        <button id="btnInvioOrderModify" class="btn btn-success">Invio</button><br>
     </div>
 
     <div id="eliminaOption" class="container-fluid" style="margin-top: 5%">
-        <p>Sei sicuro di voler eliminare il seguente prodotto: <mark id="toEliminateProductId"></mark> <mark id="toEliminateProduct"></mark></p>
-        <button id="btnInvioProductDelete" class="btn btn-danger">Invio</button>
+        <p>Sei sicuro di voler eliminare il seguente ordine: <mark id="toEliminateOrderId"></mark> <mark id="toEliminateOrder"></mark></p>
+        <button id="btnInvioOrderDelete" class="btn btn-danger">Invio</button>
     </div>
 
     <script>
@@ -131,117 +110,66 @@
     </div>
 
     <script>
-        var products=<%= request.getAttribute("productsJson")%>;
-        showProductsGestione(products);
-        $("#aggiungiOption").hide();
+        var orders=<%= request.getAttribute("ordersJson")%>;
+        showOrdersGestione(orders);
         $("#modificaOption").hide();
         $("#eliminaOption").hide();
-        $("#btnAggiungi").click(function ()
-        {
-            $("#aggiungiOption").show();
-            $("#modificaOption").hide();
-            $("#eliminaOption").hide();
-        });
         $("#btnModifica").click(function ()
         {
             $("#modificaOption").show();
-            $("#aggiungiOption").hide();
             $("#eliminaOption").hide();
         });
         $("#btnElimina").click(function ()
         {
             $("#eliminaOption").show();
-            $("#aggiungiOption").hide();
             $("#modificaOption").hide();
-        })
-        $("#btnInvioProduct").click(function ()
+        });
+        $("#btnInvioOrderModify").click(function ()
         {
-            verificaInputs();
-        })
-        $("#btnInvioProductModify").click(function () {
-            verificaInputsModify();
-        })
-        $("#btnInvioProductDelete").click(function () {
-            deleteProduct();
-        })
-        $.ajax
-        (
-            {
-                url : "getCategoriesServ",
-                method : "get",
-                dataType: "json",
-                success : function (data)
-                {
-                    buildSelectCategory(data);
-                },
-                error : function ()
-                {
-                    alert("error");
-                }
-            }
-        )
+            modifyOrder();
+        });
+        $("#btnInvioOrderDelete").click(function ()
+        {
+            deleteOrder();
+        });
     </script>
 
-    <script>
-        $.ajax
-        (
+        <script>
+            $.ajax
+            (
             {
                 url : "IsLoggedServ",
                 method : "post",
                 dataType : "json",
                 success : function (data)
-                {
-                    if(data.L)
-                    {
-                        document.getElementById("accediRef").innerHTML = "<a href=\"#accediRef\" id='refLogout' title=\"Log-out\">Esci</a>";
-                        $("#refLogout").on("click",
-                            function ()
-                            {
-                                $.ajax
-                                (
-                                    {
-                                        url : "AuthServ",
-                                        method: "get",
-                                    }
-                                )
-                                window.location.href="homepage.html";
-                            }
-                        )
-                    }
-                    else
-                    {
-                        window.location.href="homepage.html";
-                    }
-                },
+            {
+                if(data.L)
+            {
+                document.getElementById("accediRef").innerHTML = "<a href=\"#accediRef\" id='refLogout' title=\"Log-out\">Esci</a>";
+                $("#refLogout").on("click",
+                function ()
+            {
+                $.ajax
+                (
+            {
+                url : "AuthServ",
+                method: "get",
+            }
+                )
+                window.location.href="homepage.html";
+            }
+                )
+            }
+                else
+            {
+                window.location.href="homepage.html";
+            }
+            },
                 error : function () {alert("error")}
             }
-
-        )
+            )
     </script>
 
-    <script>
-        var imgConverted;
-        document.getElementById("imageFile").onchange = function()
-        {
-            let reader = new FileReader();
-            reader.onload = function (e)
-            {
-                imgConverted=e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-
-        document.getElementById("imageFileModify").onchange = function()
-        {
-            let reader = new FileReader();
-            reader.onload = function (e)
-            {
-                imgConverted=e.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-    </script>
 </main>
-
 </body>
 </html>

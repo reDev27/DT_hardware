@@ -1,5 +1,9 @@
 package Model.DAO;
 
+import Model.CrdGiver;
+
+import javax.servlet.ServletContext;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -8,6 +12,26 @@ import java.util.Calendar;
 
 public class AdminDAO extends UserDAO
 {
+	public void updateOrder(int id, String fattura, double totale, Calendar dataAcquisto, String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement = user.prepareCall("{call UpdateOrder(?, ?, ?, ?, ?)}");
+		callableStatement.setInt("idIn", id);
+		callableStatement.setString("fatturaIn", fattura);
+		callableStatement.setDouble("totaleIn", totale);
+		callableStatement.setString("dataacquistoIn", DateUtil.getStringFromCalendar(dataAcquisto));
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+	}
+
+	public ResultSet selectOrders(String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectOrders()}");
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	public void deleteClienteByUsername(String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

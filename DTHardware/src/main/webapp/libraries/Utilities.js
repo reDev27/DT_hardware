@@ -1,3 +1,104 @@
+function deleteOrder()
+{
+    let clienteToEliminate={toEliminate : document.getElementById("toEliminateClienteId").innerText};
+    $.ajax
+    (
+        {
+            url : "DeleteOrderServ",
+            method : "post",
+            data : clienteToEliminate,
+            success : function (){window.location.reload();},
+            error : function () {alert("error");}
+        }
+    );
+}
+
+function modifyOrder()
+{
+    let esito=true;
+    let id=document.getElementById("idModify").value;
+
+    let fattura=document.getElementById("fatturaModify").value;
+    if(fattura.length<1 || fattura.length>1000)
+    {
+        document.getElementById("esitoPModify").innerHTML = "Fattura ha una lunghezza massima di 1000 caratteri, e non può essere vuota.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let totale=document.getElementById("totaleModify").value;
+    if(/\s/.test(totale) || !/[0-9]/.test(totale) || totale.length<1)
+    {
+        document.getElementById("esitoP").innerHTML = "Totale non può contenere spazi, non può essere vuoto e può contenere unicamente cifre numeriche.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let dataAcquisto=document.getElementById("dataAcquistoModify").value;
+    if(!/([0-9] | [-] | [:])/.test(dataAcquisto) || dataAcquisto.length>19 )             //!/:{2}/g.test(dataAcquisto) || !/-{2}/g.test(dataAcquisto) ||
+    {
+        document.getElementById("esitoP").innerHTML = "Data d'acquisto, formato accettato: YYYY-MM-GG HH:MM:SS.";
+        $("#dialogEsito").dialog("open");
+        $("#btnInvio").prop("disabled", true);
+        esito=false;
+    }
+
+    let username=document.getElementById("usernameModify").value;
+
+    let order;
+    if(esito)
+    {
+        order=
+            {
+                id : id,
+                fattura : fattura,
+                totale : totale,
+                dataAcquisto : dataAcquisto,
+                username : username
+            };
+        $.ajax
+        (
+            {
+                url : "UpdateOrderServ",
+                method : "post",
+                data : order,
+                success : function(){window.location.reload();},
+                error : function(){alert("error")}
+            }
+        );
+    }
+}
+
+function showOrdersGestione(orders)
+{
+    let n=orders.length;
+    let newRows="";
+    for(let i=0; i<n; i++)
+    {
+        newRows +=  "<tr id='order"+i+"' style='cursor: pointer'><td>"+orders[i].id+"</td><td>"+orders[i].totale.toFixed(2)+"</td><td>"+toStringDatePlusMonth(orders[i].dataAcquisto)+
+            "</td><td>"+orders[i].username+"</td></tr>";
+    }
+    document.getElementById("tableGestioneOrders").innerHTML=newRows;
+    for(let i=0; i<n; i++)
+    {
+        $("#order"+i).click
+        (
+            function ()
+            {
+                document.getElementById("idModify").value=orders[i].id;
+                document.getElementById("fatturaModify").value=orders[i].fattura;
+                document.getElementById("totaleModify").value=orders[i].totale.toFixed(2);
+                document.getElementById("dataAcquistoModify").value=toStringDatePlusMonth(orders[i].dataAcquisto);
+                document.getElementById("usernameModify").value=orders[i].username;
+                document.getElementById("toEliminateOrderId").innerHTML="" + orders[i].id;
+                document.getElementById("toEliminateOrder").innerHTML= "" + orders[i].totale + " " + orders[i].dataAcquisto;
+            }
+        )
+    }
+}
+
 function deleteCliente()
 {
     let clienteToEliminate={toEliminate : document.getElementById("toEliminateClienteId").innerText};

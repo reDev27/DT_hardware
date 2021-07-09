@@ -15,6 +15,36 @@ import java.util.Calendar;
 
 public class AdminBean extends UserBean
 {
+	public static void callUpdateOrder(Order order,ServletContext context) throws IOException, SQLException
+	{
+		CrdGiver crd=new CrdGiver(context );
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		connection.updateOrder(order.getId(), order.getFattura(), order.getTotale(), order.getDataAcquisto(), order.getUsername(), crd.getUsername(), crd.getPass());
+	}
+
+	public static ArrayList<Order> callSelectOrders(ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		ResultSet result=connection.selectOrders(crd.getUsername(), crd.getPass());
+		ArrayList<Order> orders=new ArrayList<>();
+		while(result.next())
+		{
+			orders.add(new Order
+					(
+							result.getInt("id"),
+							result.getString("fattura"),
+							result.getDouble("totale"),
+							DateUtil.getCalendarFromStringWithSubstring(result.getString("dataacquisto")),
+							result.getString("username")
+					));
+		}
+		connection.destroy();
+		return orders;
+	}
+
 	public static void callDeleteCliente(String username, ServletContext context) throws IOException, SQLException
 	{
 		CrdGiver crd=new CrdGiver(context);

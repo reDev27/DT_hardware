@@ -29,3 +29,10 @@ Javascript:
 	pagina informazioni generali;
 	front-end.
 }
+
+Rifiniture
+{
+	aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);
+	aggiornare il numero di prodotti al momento dell'ordine;
+	
+}

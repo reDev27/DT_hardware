@@ -15,8 +15,13 @@ create procedure InsertProdotto(
 
 begin
 
-    insert into PRODOTTO values
-    (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, immagineIn, quantitaIn,marcaIn,modelloIn,nomeIn,datainserimentoIn);
+    if(immagineIn is not null) then
+        insert into PRODOTTO values
+        (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, immagineIn, quantitaIn,marcaIn,modelloIn,nomeIn,datainserimentoIn);
+    else
+        insert into PRODOTTO (CODICEBARRE, PREZZO, DESCRIZIONE, SPECIFICHE, QUANTITA, MARCA, MODELLO, NOME, DATAINSERIMENTO)values
+        (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, quantitaIn, marcaIn, modelloIn, nomeIn, datainserimentoIn);
+    end if;
 
 end //
 DELIMITER ;

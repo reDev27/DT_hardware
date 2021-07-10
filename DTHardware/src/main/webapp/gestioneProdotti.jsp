@@ -71,7 +71,7 @@
         <input type="text" id="quantita" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
         <textarea id="descrizione" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
         <textarea id="specifiche" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <input type="file" id="imageFile" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
+        <label for="imageFile" style="margin-bottom: 2%">Immagine</label><i class="fas fa-file-image" style="margin-left: 2%; margin-right: 2%"></i><input type="file" id="imageFile" name="image" style="margin-bottom: 2%"/><br>
         <button id="btnInvioProduct" class="btn btn-success">Invio</button><br>
     </div>
 
@@ -84,7 +84,7 @@
         <input type="text" id="quantitaModify" name="quantita" placeholder="Quantità disponibile" style="margin-bottom: 2%"><br>
         <textarea id="descrizioneModify" name="descrizione" placeholder="Descrizione..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
         <textarea id="specificheModify" name="specifiche" placeholder="Specifiche..." style="margin-bottom: 2%; width: 40%; height: 15%"></textarea><br>
-        <input type="file" id="imageFileModify" name="image" style="margin-bottom: 2%"/><label for="imageFile" style="margin-bottom: 2%">Immagine</label><br>
+        <label for="imageFile" style="margin-bottom: 2%">Immagine</label><i class="fas fa-file-image" style="margin-left: 2%; margin-right: 2%"></i><input type="file" id="imageFileModify" name="image" style="margin-bottom: 2%"/><br>
         <button id="btnInvioProductModify" class="btn btn-success">Invio</button><br>
     </div>
 

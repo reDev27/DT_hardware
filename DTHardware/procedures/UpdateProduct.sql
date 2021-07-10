@@ -14,17 +14,30 @@ create procedure UpdateProduct(
 
 begin
 
-    update prodotto
-    set
-        PREZZO = prezzoIn,
-        DESCRIZIONE = descrizioneIn,
-        SPECIFICHE = specificheIn,
-        IMMAGINE = immagineIn,
-        QUANTITA = quantitaIn,
-        MARCA = marcaIn,
-        MODELLO = modelloIn,
-        NOME = nomeIn
-    where CODICEBARRE=codiceabarreIn;
+    if(immagineIn is not null) then
+        update prodotto
+        set
+            PREZZO = prezzoIn,
+            DESCRIZIONE = descrizioneIn,
+            SPECIFICHE = specificheIn,
+            IMMAGINE = immagineIn,
+            QUANTITA = quantitaIn,
+            MARCA = marcaIn,
+            MODELLO = modelloIn,
+            NOME = nomeIn
+        where CODICEBARRE=codiceabarreIn;
+    else
+        update prodotto
+        set
+            PREZZO = prezzoIn,
+            DESCRIZIONE = descrizioneIn,
+            SPECIFICHE = specificheIn,
+            QUANTITA = quantitaIn,
+            MARCA = marcaIn,
+            MODELLO = modelloIn,
+            NOME = nomeIn
+        where CODICEBARRE=codiceabarreIn;
+    end if;
 
 end //
 

@@ -140,8 +140,11 @@ public class AdminBean extends UserBean
 		CrdGiver crd=new CrdGiver(context );
 		crd.aggiornaCrd(0);
 		AdminDAO connection=new AdminDAO();
+		ByteArrayInputStream outputStream=null;
+		if(product.getImmagine()!=null)
+			outputStream=new ByteArrayInputStream(product.getImmagine().getBytes());
 		connection.updateProdotto(	product.getCodiceABarre(), product.getPrezzo(), product.getDescrizione(), product.getSpecifiche(),
-									new ByteArrayInputStream(product.getImmagine().getBytes()), product.getQuantitaProdotto(), product.getMarca(),
+									outputStream, product.getQuantitaProdotto(), product.getMarca(),
 									product.getModello(), crd.getUsername(), crd.getPass(), product.getNomeCategoria());
 	}
 
@@ -218,7 +221,10 @@ public class AdminBean extends UserBean
 		CrdGiver crd=new CrdGiver(context );
 		crd.aggiornaCrd(0);
 		AdminDAO connection=new AdminDAO();
-		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, new ByteArrayInputStream(immagine.getBytes()), quantita, marca, modello,crd.getUsername(), crd.getPass(), nomeCategoria,dataInserimento);
+		ByteArrayInputStream outputStream=null;
+		if(immagine!=null)
+			outputStream=new ByteArrayInputStream(immagine.getBytes());
+		connection.insertProdotto(codiceABarre, prezzo, descrizione, specifiche, outputStream, quantita, marca, modello,crd.getUsername(), crd.getPass(), nomeCategoria,dataInserimento);
 		connection.destroy();
 	}
 
@@ -227,7 +233,10 @@ public class AdminBean extends UserBean
 		CrdGiver crd=new CrdGiver(context );
 		crd.aggiornaCrd(0);
 		AdminDAO connection=new AdminDAO();
-		connection.insertProdotto(product.getCodiceABarre(), product.getPrezzo(), product.getDescrizione(), product.getSpecifiche(), new ByteArrayInputStream(product.getImmagine().getBytes()), product.getQuantitaProdotto(), product.getMarca(), product.getModello(),crd.getUsername(), crd.getPass(), product.getNomeCategoria(), product.getDataInserimento());
+		ByteArrayInputStream outputStream=null;
+		if(product.getImmagine()!=null)
+			outputStream=new ByteArrayInputStream(product.getImmagine().getBytes());
+		connection.insertProdotto(product.getCodiceABarre(), product.getPrezzo(), product.getDescrizione(), product.getSpecifiche(), outputStream, product.getQuantitaProdotto(), product.getMarca(), product.getModello(),crd.getUsername(), crd.getPass(), product.getNomeCategoria(), product.getDataInserimento());
 		connection.destroy();
 	}
 

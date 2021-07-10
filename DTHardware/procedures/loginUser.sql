@@ -8,7 +8,7 @@ create procedure loginUser(
 
 begin
     if((select username from cliente
-        where PASSW=passwIn and USERNAME=usernameIn) IS not NULL) then
+        where PASSW=passwIn and (USERNAME=usernameIn or EMAIL=usernameIn)) IS not NULL) then
         set esito=true;
     else
         set esito=false;

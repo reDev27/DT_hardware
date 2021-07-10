@@ -30,9 +30,9 @@ public class AuthServ extends HttpServlet
 		Cliente user=new Cliente();
 		try
 		{
-			if(user.authUser(request.getParameter("email"), request.getParameter("pass"), request.getServletContext(), request.getSession()))
+			if(user.authUser(request.getParameter("username"), request.getParameter("pass"), request.getServletContext(), request.getSession()))
 			{
-				session.setAttribute("user", request.getParameter("email"));
+				session.setAttribute("user", request.getParameter("username"));
 			}
 		}
 		catch (SQLException | NoSuchAlgorithmException | IOException throwables)

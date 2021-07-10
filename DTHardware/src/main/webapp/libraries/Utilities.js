@@ -582,6 +582,7 @@ function searchProductsRedirect()
                 success: function (data)
                 {
                     buildTableProductHomepage(data);
+                    document.getElementById("suggerimentiDiv").innerHTML="";
                     document.getElementById("headerProducts").innerHTML="Risultati trovati: " + data.length;
                 },
                 error: function ()
@@ -629,13 +630,18 @@ function searchProducts()
 
 function showSuggerimenti(products)
 {
+    $("#suggerimentiDiv").css("width", document.getElementById("txtSearch").offsetWidth);
     var newRows="";
     var n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<a href=\"GetProductByCodeServ?codiceABarre=" + products[i].codiceABarre + "\" class=\"list-group-item list-group-item-action\">" + products[i].marca + " " + products[i].modello +"</a>";
+        newRows += "<a href=\"GetProductByCodeServ?codiceABarre=" + products[i].codiceABarre + "\" class=\"list-group-item list-group-item-action\" style='border: 1px solid rgb(0 0 0 / 60%); background-color: #c0d0a8'>" + products[i].marca + " " + products[i].modello +"</a>";
     }
     document.getElementById("suggerimentiDiv").innerHTML=newRows;
+    $(window).resize(function () {
+        $("#suggerimentiDiv").css("width", document.getElementById("txtSearch").offsetWidth);
+    })
+
 }
 
 function formatFattura(fattura)

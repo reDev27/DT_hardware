@@ -41,7 +41,7 @@
 
 <span class="row" id="searchAndCarrello" style="flex-wrap: nowrap; width: 92%">
    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
-   <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" className="list-group"></div></span><span class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
+   <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" class="list-group" style="position: absolute"></div></span><span class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
     <span class="col-3" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
 </span>
 

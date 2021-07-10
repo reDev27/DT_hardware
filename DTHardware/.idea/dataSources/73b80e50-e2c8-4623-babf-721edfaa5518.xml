@@ -1274,7 +1274,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="348" parent="289" name="NTELEFONO">
       <Position>6</Position>
-      <DataType>char(10)|0s</DataType>
+      <DataType>char(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="349" parent="289" name="EMAIL">
@@ -1826,7 +1826,7 @@ NCIVICO</ColNames>
     </argument>
     <argument id="478" parent="330" name="ntelefonoIn">
       <Position>6</Position>
-      <DataType>int|0s</DataType>
+      <DataType>char(20)|0s</DataType>
     </argument>
     <argument id="479" parent="332" name="codiceABarreIn">
       <Position>1</Position>

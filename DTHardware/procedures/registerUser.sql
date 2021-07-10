@@ -6,7 +6,7 @@ create procedure registerUser(
     in passwIn varbinary(100),
     in nomeIn varchar(30),
     in cognomeIn varchar(30),
-    in ntelefonoIn int
+    in ntelefonoIn char(20)
 )
 
 begin

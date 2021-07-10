@@ -46,8 +46,7 @@ public class UpdateCartaServ extends HttpServlet
 		if(((String)session.getAttribute("isLogged")).compareTo("l")==0)
 		{
 			String scadenzaToParse = request.getParameter("scadenza");
-			scadenzaToParse = scadenzaToParse.substring(0, 8);
-			scadenzaToParse += "00 00:00:00";
+			scadenzaToParse += "-01 00:00:00";
 			Calendar scadenza = DateUtil.getCalendarFromString(scadenzaToParse);
 			CreditCard card = new CreditCard
 					(

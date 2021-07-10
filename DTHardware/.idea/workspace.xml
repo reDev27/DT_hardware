@@ -9,31 +9,97 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornata servlet per l'eliminazione di un ordine;&#10;aggiunta procedure per eliminare ordini dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;09/07/2021, il sito base è pronto &lt;3; &#10;bug fix minori.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix alla ricerca che ora funziona in tutte le pagine;&#10;fix alla procedure dell'inserimento ordini per evitare la concorrenza;&#10;aggiornati i link di tutte le pagine html/jsp;&#10;fix ad alcune pagine di errore;&#10;bug fix minori.">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/InsertOrdine.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/InsertOrdine.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/infoPersonali.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/infoPersonali.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ImageUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/showChangeAddresses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showChangeAddresses.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/showOrdini.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/showOrdini.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/terminiECondizioni.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/terminiECondizioni.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/BeforeCheckOutServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/BeforeCheckOutServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/CarrelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/CheckOutServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/CheckOutServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/GetMostRecentProductsServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/GetMostRecentProductsServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/GetProductByCodeServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/GetProductByCodeServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/HomepageServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/HomepageServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/IsLoggedServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/IsLoggedServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/RegisterServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/RegisterServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/SetProductServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/SetProductServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ShowOrdini.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ShowOrdini.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/UpdateCartaServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/UpdateCartaServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/UpdateIndirizzoServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/UpdateIndirizzoServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ValidateCheckOutServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ValidateCheckOutServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ValidateValuesServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/ValidateValuesServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getCategoriesServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getCategoriesServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getProductByCategoryServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/getProductByCategoryServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/updateCarrelloServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/updateCarrelloServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Carrello.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Carrello.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Categoria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategorieArray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CategoriesArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CrdGiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CrdGiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CreditCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/CreditCard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/AdminDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/homepageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/BaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/UserNotLoggedDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/dateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/DAO/dateUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/GsonUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/GsonUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ImageUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ImageUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsOfAnOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/ProductsOfAnOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/RequestUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Model/RequestUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/view/lib/homepageUtilities.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/AuthServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/BeforeCheckOutServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/BeforeCheckOutServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/CheckOutServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/CheckOutServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/GetMostRecentProductsServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/GetMostRecentProductsServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/GetProductByCodeServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/GetProductByCodeServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/HomepageServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/HomepageServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/IsLoggedServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/IsLoggedServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/RegisterServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/RegisterServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/SetProductServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/SetProductServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ShowOrdini.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ShowOrdini.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/UpdateCartaServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/UpdateCartaServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/UpdateIndirizzoServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/UpdateIndirizzoServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ValidateCheckOutServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ValidateCheckOutServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/ValidateValuesServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/ValidateValuesServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/getCategoriesServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/getCategoriesServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/getProductByCategoryServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/getProductByCategoryServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controller/updateCarrelloServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/updateCarrelloServ.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Carrello.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Carrello.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/CategoriesArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/CategoriesArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/CrdGiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/CrdGiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/CreditCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/CreditCard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/AdminBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/AdminBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/AdminDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/AdminDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/BaseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/BaseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/DateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/DateUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/UserBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/UserBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/UserNotLoggedBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/UserNotLoggedBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/DAO/UserNotLoggedDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/DAO/UserNotLoggedDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/GsonUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/GsonUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ImageUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ImageUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ProductsArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ProductsArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/ProductsOfAnOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/ProductsOfAnOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model/RequestUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Model/RequestUtility.class" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,10 +177,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/procedures" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4311815" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -133,7 +199,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.43" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.43" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat 9.0.50" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.50" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/GeneraleServ" />
       <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
@@ -147,7 +213,6 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="d800cc17-a7eb-440b-8ac1-6186c32b2e06" />
-        <option name="HTTPS_PORT" value="8443" />
         <option name="PRESERVE_SESSIONS" value="true" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
@@ -343,14 +408,10 @@
       <workItem from="1625732681140" duration="10571000" />
       <workItem from="1625750878900" duration="11087000" />
       <workItem from="1625822358518" duration="8322000" />
-      <workItem from="1625836626886" duration="11333000" />
-    </task>
-    <task id="LOCAL-00072" summary="piccoli test">
-      <created>1623498724703</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1623498724703</updated>
+      <workItem from="1625836626886" duration="12587000" />
+      <workItem from="1625850070618" duration="3838000" />
+      <workItem from="1625854321270" duration="2555000" />
+      <workItem from="1625910822965" duration="1394000" />
     </task>
     <task id="LOCAL-00073" summary="fix della pagina html per inviare immagini al server(ora funzionante);&#10;fix minori.">
       <created>1623606911743</created>
@@ -688,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625838916466</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="fix alla ricerca che ora funziona in tutte le pagine;&#10;fix alla procedure dell'inserimento ordini per evitare la concorrenza;&#10;aggiornati i link di tutte le pagine html/jsp;&#10;fix ad alcune pagine di errore;&#10;bug fix minori.">
+      <created>1625848233356</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1625848233356</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +776,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="logo aggiornato." />
     <MESSAGE value="login aggiornato." />
     <MESSAGE value="aggiornamenti alle servlet per verificare il tipo di utente attualmente connesso;&#10;aggiornato il metodo di autenticazione;&#10;nuova servlet per capire se l'utente attualmente collegato è loggato e meno;&#10;aggiornata la pagina di login(da finire);&#10;fix minori." />
     <MESSAGE value="aggiornata pagina registrazione per garantire la correttezza degli input;&#10;fix al logout;&#10;le servlet ora controllano ad ogni request che tipo di utente è collegato;&#10;fix minori." />
@@ -733,7 +800,8 @@
     <MESSAGE value="nuove procedure per supportare aggiunta, modifica e cancellazione di un utente dal database;&#10;nuove servlet, bean e DAO per supportare il punto precedente;&#10;nuove pagine di gestione clienti;&#10;bug fix minori." />
     <MESSAGE value="nuova pagina per gestire gli ordini degli utenti;&#10;nuove procedure per supportare modifica e eliminazione di un ordine;&#10;aggiornati bean, DAO e servlet per supportare i punti precedenti; &#10;bug fix minori." />
     <MESSAGE value="aggiornata servlet per l'eliminazione di un ordine;&#10;aggiunta procedure per eliminare ordini dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;09/07/2021, il sito base è pronto &lt;3; &#10;bug fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornata servlet per l'eliminazione di un ordine;&#10;aggiunta procedure per eliminare ordini dal database;&#10;aggiornati bean e DAO per supportare il punto precedente;&#10;09/07/2021, il sito base è pronto &lt;3; &#10;bug fix minori." />
+    <MESSAGE value="fix alla ricerca che ora funziona in tutte le pagine;&#10;fix alla procedure dell'inserimento ordini per evitare la concorrenza;&#10;aggiornati i link di tutte le pagine html/jsp;&#10;fix ad alcune pagine di errore;&#10;bug fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix alla ricerca che ora funziona in tutte le pagine;&#10;fix alla procedure dell'inserimento ordini per evitare la concorrenza;&#10;aggiornati i link di tutte le pagine html/jsp;&#10;fix ad alcune pagine di errore;&#10;bug fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

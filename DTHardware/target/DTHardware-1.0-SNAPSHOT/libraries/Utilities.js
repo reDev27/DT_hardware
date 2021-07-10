@@ -1252,7 +1252,7 @@ function displayUserInfo(cliente)
     {
         newRows = "<br><input type=\"text\" id=\"Ncarta\" name=\"nCarta\" placeholder=\"Numero carta\">"
             + "<br>"
-            + "<input type=\"date\" id=\"scadenza\" name=\"scadenza\" placeholder=\"Data di scadenza\">"
+            + "<input type=\"month\" id=\"scadenza\" name=\"scadenza\" placeholder=\"Data di scadenza\">"
             + "<br>"
             + "<input type=\"text\" id=\"CVV\" name=\"cvv\" placeholder=\"CVV\">"
             + "<button id='btnInvioCard' type='button' class='btn btn-success'>Invio</button>"

@@ -40,7 +40,7 @@ public class AuthServ extends HttpServlet
 			throwables.printStackTrace();
 		}
 		String username= (String) session.getAttribute("user");
-		if(username.compareTo("admin")==0)
+		if(username!=null && username.compareTo("admin")==0)
 			response.sendRedirect("manager.html");
 		else
 			response.sendRedirect("login.html?e");

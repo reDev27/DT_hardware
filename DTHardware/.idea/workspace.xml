@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix alla procedure per il login, che ora permette anche di loggarsi tramite mail;&#10;bug fix minori.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/73b80e50-e2c8-4623-babf-721edfaa5518/storage_v2/_src_/schema/dthw.nzUvAA.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procedures/loginUser.sql" beforeDir="false" afterPath="$PROJECT_DIR$/procedures/loginUser.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/UpdateCartaServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/UpdateCartaServ.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controller/UpdateCartaServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/UpdateCartaServ.class" afterDir="false" />
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="fix alla servlet per il login;&#10;bug fix minori.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/AuthServ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/login.html" afterDir="false" />
     </list>
     <list id="2957b833-9dd8-4e17-a5b5-70a8641faa36" name="Changes by Francesco Tasin" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +42,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -327,21 +324,7 @@
       <workItem from="1625850070618" duration="3838000" />
       <workItem from="1625854321270" duration="2555000" />
       <workItem from="1625910822965" duration="1823000" />
-      <workItem from="1625924988723" duration="1065000" />
-    </task>
-    <task id="LOCAL-00075" summary="fix procedure per prendere un prodotto dal db tramite codice a barre;&#10;fix di tutti i DAO e bean relativi al punto precedente;&#10;fix minori.">
-      <created>1623778687302</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1623778687302</updated>
-    </task>
-    <task id="LOCAL-00076" summary="creazione servlet per mostrare i prodotti recenti;&#10;fix di tutti i bean, DAO e delle classi riguardanti il punto precedente;&#10;aggiunta nuova stored procedure;&#10;fix minori.">
-      <created>1623783252457</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1623783252457</updated>
+      <workItem from="1625924988723" duration="2220000" />
     </task>
     <task id="LOCAL-00077" summary="css tests">
       <created>1623834260689</created>
@@ -672,7 +655,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625925968939</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="fix alla procedure per il login;&#10;bug fix minori.">
+      <created>1625926087882</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1625926087882</updated>
+    </task>
+    <task id="LOCAL-00125" summary="fix alla servlet per il login;&#10;bug fix minori.">
+      <created>1625926152419</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1625926152419</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,8 +689,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornata pagina registrazione per garantire la correttezza degli input;&#10;fix al logout;&#10;le servlet ora controllano ad ogni request che tipo di utente è collegato;&#10;fix minori." />
-    <MESSAGE value="aggiornata servlet per la registrazione;&#10;aggiornata pagina per la registrazione;&#10;aggiornati bean e DAO per la registrazione;&#10;fix alla classe DateUtil;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet per la registrazione;&#10;aggiunte 3 nuove stored procedure per supportare la verifica dei dati lato server al momento della registrazione;&#10;fix di iscrizione.html e Utilities.js, non controllavano correttamente gli input dell'utente;&#10;modificata AuthServ in modo tale da conservare anche lo username dell'utente loggato nella session;&#10;nuova servlet per controllare gli input dell'utente anche lato server;&#10;modificato DB_TABLES.sql;&#10;aggiornati bean e DAO per supportare la nuove stored procedure;&#10;fix minori." />
     <MESSAGE value="aggiornata servlet di verifica form di registrazione per verificare che anche la mail sia univoca;&#10;aggiornati procedure, bean e DAO inerenti al punto precedente;&#10;fix minori." />
     <MESSAGE value="aggiornata procedure per avere informazioni utente in base al suo username;&#10;fix al collegamento per il log-out nell'intestazione(non veniva mostrato correttamente);&#10;modifiche al database (cambiato il campo sconto in fattura);&#10;aggiornata ValidateCheckOutServ per mostrare i dati all'utente al momento del check-out;&#10;aggiornati i bean e i DAO per supportare l'aggiornamento del punto precedente;&#10;aggiornato lo schema E-R;&#10;aggiornata la classe cliente per supportare meglio lo storage dei dati;&#10;fix minori." />
@@ -717,7 +712,9 @@
     <MESSAGE value="fix alla ricerca che ora funziona in tutte le pagine;&#10;fix alla procedure dell'inserimento ordini per evitare la concorrenza;&#10;aggiornati i link di tutte le pagine html/jsp;&#10;fix ad alcune pagine di errore;&#10;bug fix minori." />
     <MESSAGE value="cambiato l'input type per la scadenza della carta di credito;&#10;fix alla servlet per supportare il nuovo input type;&#10;bug fix minori." />
     <MESSAGE value="fix alla procedure per il login, che ora permette anche di loggarsi tramite mail;&#10;bug fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix alla procedure per il login, che ora permette anche di loggarsi tramite mail;&#10;bug fix minori." />
+    <MESSAGE value="fix alla procedure per il login;&#10;bug fix minori." />
+    <MESSAGE value="fix alla servlet per il login;&#10;bug fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix alla servlet per il login;&#10;bug fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

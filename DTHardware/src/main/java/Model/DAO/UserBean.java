@@ -112,16 +112,27 @@ public class UserBean extends UserNotLoggedBean
 		return cliente;
 	}
 
-	public static void callInsertCompone(int nprodotti, String codiceABarre, ServletContext context) throws SQLException, IOException
+	public static boolean callInsertCompone(int nprodotti, String codiceABarre, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);
 		UserDAO connection=new UserDAO();
-		connection.insertCompone(nprodotti, codiceABarre, crd.getUsername(), crd.getPass());
+		try
+		{
+			ResultSet result=connection.insertCompone(nprodotti, codiceABarre, crd.getUsername(), crd.getPass());
+			result.next();
+			result.getString("codiceabarreIn");
+		}
+		catch (NullPointerException  e)
+		{
+			connection.destroy();
+			return false;
+		}
 		connection.destroy();
+		return true;
 	}
 
-	public static  void callInsertOrdine(String fattura, double totale, Calendar dataAcquisto, String username, ServletContext context) throws SQLException, IOException
+	public static void callInsertOrdine(String fattura, double totale, Calendar dataAcquisto, String username, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(1);

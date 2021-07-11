@@ -41,13 +41,13 @@ public class UpdateCartaServ extends HttpServlet
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
-
 		HttpSession session=request.getSession();
 		if(((String)session.getAttribute("isLogged")).compareTo("l")==0)
 		{
 			String scadenzaToParse = request.getParameter("scadenza");
 			scadenzaToParse += "-01 00:00:00";
 			Calendar scadenza = DateUtil.getCalendarFromString(scadenzaToParse);
+			scadenza.set(Calendar.MONTH, scadenza.get(Calendar.MONTH)+1);
 			CreditCard card = new CreditCard
 					(
 							request.getParameter("nCarta"),

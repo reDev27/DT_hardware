@@ -52,8 +52,9 @@ public class Order
 		setUsername(username);
 	}
 
-	public void ordineEffettuato(Carrello carrello, ServletContext context) throws SQLException, IOException
+	public ArrayList<String> ordineEffettuato(Carrello carrello, ServletContext context) throws SQLException, IOException
 	{
+		ArrayList<String> prodottiEsauriti=new ArrayList<>();
 		synchronized (this)
 		{
 			ArrayList<Product> products = carrello.getProdotti();
@@ -62,7 +63,8 @@ public class Order
 				UserBean.callInsertOrdine(getFattura(), totale, getDataAcquisto(), username, context);
 				for (Product product : products)
 				{
-					UserBean.callInsertCompone(product.getQuantitaCarrello(), product.getCodiceABarre(), context);
+					if(UserBean.callInsertCompone(product.getQuantitaCarrello(), product.getCodiceABarre(), context))
+						prodottiEsauriti.add(product.getCodiceABarre());
 				}
 			}
 			catch (SQLException | IOException e)
@@ -70,6 +72,7 @@ public class Order
 				e.printStackTrace();
 			}
 		}
+		return prodottiEsauriti;
 	}
 
 	public String creaFattura(Cliente cliente, Carrello carrello)

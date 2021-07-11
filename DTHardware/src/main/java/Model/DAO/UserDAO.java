@@ -64,13 +64,14 @@ public class UserDAO extends UserNotLoggedDAO
 		return getResult();
 	}
 
-	public void insertCompone(int nprodotti, String codiceABarre, String userType, String passData) throws SQLException
+	public ResultSet insertCompone(int nprodotti, String codiceABarre, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);
 		CallableStatement callableStatement=user.prepareCall("{call InsertCompone(?, ?)}");
 		callableStatement.setString("nprodottiIn", String.valueOf(nprodotti));
 		callableStatement.setString("codiceABarreIn", codiceABarre);
 		doExecute(callableStatement);
+		return getResult();
 	}
 
 	public void insertOrdine(String fattura, double totale, Calendar dataacquisto, String username,String userType, String passData) throws SQLException {

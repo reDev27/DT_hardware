@@ -129,6 +129,11 @@ body
     color: #86d804;
 }
 
+#selectableTableProducts li:hover
+{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .35);
+}
+
 #prodottoSpan button
 {
     background-color: #86d804;
@@ -138,4 +143,9 @@ body
 #prodottoSpan button:hover
 {
     background-color: #578b05;
+}
+
+#pieDiPagina div span a:hover
+{
+    color: #374e0f;
 }

@@ -93,9 +93,8 @@ public class Order
 			fattura += "Marca: " + prodotto.getMarca() + ", modello: " + prodotto.getModello() + ", prezzo: €" + prodotto.getPrezzo() + ", quantità: " +
 					prodotto.getQuantitaCarrello() + ";\n";
 		}
-		//DecimalFormat decimalFormat=new DecimalFormat("#.##");
-		fattura += "\nQuantità prodotti acquistati: " + carrello.getQuantitaTotaleCarrello() + ";\nSubtotale: &#x20AC " + carrello.getTotale() +
-					";\nSpedizione: € 9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: &#x20AC " + totale;
+		fattura += "\nQuantità prodotti acquistati: " + carrello.getQuantitaTotaleCarrello() + ";\nSubtotale: &#x20AC " + Math.round(carrello.getTotale() * 100.0) / 100.0 +
+					";\nSpedizione: € 9.90;\nData di acquisto: " + DateUtil.getStringFromCalendar(getDataAcquisto()) + ";\nTotale: &#x20AC " + Math.round(totale * 100.0) / 100.0;
 		setFattura(fattura);
 		return getFattura();
 	}

@@ -196,7 +196,51 @@ body
     }
 }
 
+@media only screen and (max-device-width: 550px)
+{
+    #logoSpan
+    {
+        width: 100%;
+    }
+    #txtSearchSpan
+    {
+        width: 100%;
+    }
+    #btnCercaSpan
+    {
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+    #btnSearch
+    {
+        margin-top: 1% !important;
+    }
+    #btnCarrelloSpan
+    {
+        width: 100%;
+        position: inherit;
+    }
+    #btnCarrello
+    {
+        width: 100%;
+    }
+    #searchAndCarrello
+    {
+        flex-direction: column;
+    }
+}
+
 @media only screen and (max-width: 500px)
+{
+    #selectableTableProducts
+    {
+        display: grid;
+        place-items: center;
+    }
+}
+
+@media only screen and (max-device-width: 500px)
 {
     #selectableTableProducts
     {

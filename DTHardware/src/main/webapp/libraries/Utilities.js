@@ -1,6 +1,6 @@
 function breakPointIntestazioneCategorie()
 {
-    if (window.matchMedia("(max-width: 800px)").matches)
+    if (window.matchMedia("(max-width: 800px)").matches || window.matchMedia("(max-device-width: 550px)").matches)
     {
         $("#spanTabellaProdotti").removeClass("col-9");
         $("#spanTabellaCategorie").removeClass("col-3");
@@ -19,7 +19,7 @@ function breakPointIntestazioneCategorie()
         $("#spanTabellaCategorie").addClass("col-3");
     }
 
-    if (window.matchMedia("(max-width: 500px)").matches)
+    if (window.matchMedia("(max-width: 500px)").matches || window.matchMedia("(max-device-width: 500px)").matches)
     {
         document.getElementById("btnCarrello").innerHTML="<i class=\"fas fa-cart-arrow-down\" style=\"margin-right: 5%\"></i>";
     }

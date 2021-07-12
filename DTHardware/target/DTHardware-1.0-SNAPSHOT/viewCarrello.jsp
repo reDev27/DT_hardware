@@ -11,6 +11,7 @@
 <html lang="it">
 <head>
     <title>Carrello</title>
+    <link rel="icon" href="image/logo_DT_solo_pc.png">
 </head>
 <%Carrello carrello=(Carrello) session.getAttribute("carrello");%>
 <link href="libraries/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" type="text/css">

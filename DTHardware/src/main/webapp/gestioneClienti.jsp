@@ -74,7 +74,7 @@
         <input type="text" id="nomeModify" name="nome" placeholder="Nome" style="margin-bottom: 2%"><br>
         <input type="text" id="cognomeModify" name="cognome" placeholder="Cognome" style="margin-bottom: 2%"><br>
         <input type="text" id="nTelefonoModify" name="nTelefono" placeholder="Numero di telefono" style="margin-bottom: 2%; width: 20%; display: inline"><br>
-        <button id="btnInvioProductModify" class="btn btn-success">Invio</button><br>
+        <button id="btnInvioProductModify" class="btn btn-success" style="background-color: #86d804">Invio</button><br>
     </div>
 
     <div id="eliminaOption" class="container-fluid" style="margin-top: 5%">

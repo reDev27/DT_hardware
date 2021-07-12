@@ -1127,7 +1127,7 @@ function displayUserInfo(cliente)
             + "<br>"
             + "<input type=\"text\" id=\"AddCap\" name=\"AddCap\" placeholder=\"CAP\">"
             + "<br>"
-            + "<button id='btnInvioAddress' type='button' style='margin-bottom: 3%' class='btn btn-success'>Invio</button>"
+            + "<button id='btnInvioAddress' type='button' style='margin-bottom: 3%; background-color: #0c63e4' class='btn btn-success'>Invio</button>"
             + "<div id=\"dialogConfirmAddress\" title=\"Memorizzare indirizzo?\">\n"
             + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questo indirizzo per i prossimi acquisti?</p>\n"
             + "</div>";

@@ -10,6 +10,7 @@
 <html lang="it">
 <head>
     <title>Riepilogo ordine</title>
+    <link rel="icon" href="image/logo_DT_solo_pc.png">
 </head>
 <body>
 

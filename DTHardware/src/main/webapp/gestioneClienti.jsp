@@ -6,6 +6,7 @@
 <html lang="it">
 <head>
     <title>Gestione prodotti</title>
+    <link rel="icon" href="image/logo_DT_solo_pc.png">
 </head>
 <script src="libraries/managerUtilities.js"></script>
 <link href="libraries/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" type="text/css">

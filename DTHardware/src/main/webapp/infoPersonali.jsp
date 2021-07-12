@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="icon" href="image/logo_DT_solo_pc.png">
 </head>
 <link href="libraries/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" type="text/css">
 <script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>

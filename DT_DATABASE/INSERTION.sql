@@ -1,5 +1,22 @@
-INSERT INTO PRODOTTO (CODICEBARRE,PREZZO,DESCRIZIONE,SPECIFICHE,IMMAGINE,QUANTITA,MARCA,DATAINSERIMENTO) VALUES
-("0",20,"MSI Z270","CHIPSET Z",NULL,10,"MSI","Z270 GAMING PLUS","2021-07-12 20:00:30");
+INSERT INTO CATEGORIA VALUES
+	("Alimentatori",10),
+    ("Case",10),
+    ("Dissipazione",10),
+    ("Hard Disk",10),
+    ("Memorie Ram",10),
+    ("Monitor",10),
+    ("Mouse",10),
+    ("Pendrive",10),
+    ("Periferiche di gioco",10),
+    ("Processori",10),
+    ("Schede madri",10),
+    ("Schede video",10),
+    ("Tastiere",10);
+    
 
-insert into cliente (username, email, passw, nome, cognome, ntelefono) values
-("admin", "a@b.com", sha1("admin"), "admin", "admin", 00);
+
+
+
+
+
+

@@ -68,6 +68,7 @@ body
     float: right;
     margin-top: 5%;
     width: 70%;
+    background-color: #86d804;
 }
 
 #btnCarrelloSpan
@@ -108,7 +109,7 @@ body
 #pieDiPagina div span a
 {
     text-decoration-line: none;
-    color: #188e08;
+    color: #86d804;
 }
 
 #pieDiPagina div span h5
@@ -119,4 +120,18 @@ body
 #headerProducts
 {
     margin-left: 0;
+}
+#color-btn {
+    color: #86d804;
+}
+
+#btnAggiungiAlCarrello{
+    background-color: #86d804;
+}
+
+#btnCheckOut{
+    background-color: #86d804;
+}
+#btnOrdina{
+    background-color: #86d804;
 }

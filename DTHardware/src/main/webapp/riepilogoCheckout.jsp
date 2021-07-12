@@ -29,7 +29,7 @@
 
     #selectableTableProducts .ui-selected
     {
-        background: #188e08;
+        background: #86d804;
         color: #000000;
     }
 

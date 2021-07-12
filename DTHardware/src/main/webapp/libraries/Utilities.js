@@ -676,7 +676,7 @@ function showAddressChange(addresses)
     {
         newRows += "<span id='address" + i + "' style='display: flex; align-items: center; margin-bottom: 3%; justify-content: space-between'>"+addresses[i].via + " " + addresses[i].nCivico + " " + addresses[i].citta + " " + addresses[i].CAP + "<button class='btn btn-danger' type='button'>Elimina</button></span>";
     }
-    newRows += "<button id='btnAggiungiAddress' class='btn btn-success' type='button' style='margin-bottom: 3%'>Aggiungi</button><span id='inputAddress'></span>";
+    newRows += "<button id='btnAggiungiAddress' class='btn btn-success' type='button' style='margin-bottom: 3%; background-color: #86d804'>Aggiungi</button><span id='inputAddress'></span>";
     document.getElementById("addresses").innerHTML=newRows;
     for(let i=0; i<n; i++)
     {
@@ -1098,12 +1098,12 @@ function displayUserInfo(cliente)
     {
         newRows += "<span id='addressSpan"+iAddress+"' style='margin-right: 5%'><input type='radio' name='indirizzo' id='radioAddress"+iAddress+"'><label for='radioAddress"+iAddress+"'>" + cliente.addresses[iAddress].via + " " + cliente.addresses[iAddress].nCivico +"</label></span>";
     }
-    newRows += "<span id='newAddressSpan' style='margin-top: 3%'><button class='btn btn-success' style='margin-bottom: 3%'>aggiungi indirizzo</button><span id='textBoxNewAddress'></span></span><br>"
+    newRows += "<span id='newAddressSpan' style='margin-top: 3%'><button class='btn btn-success' style='margin-bottom: 3%; background-color: #86d804'>aggiungi indirizzo</button><span id='textBoxNewAddress'></span></span><br>"
     for(let iCard=0; iCard<nCard; iCard++)
     {
         newRows += "<span id='creditCardSpan' style='margin-right: 5%'><input type='radio' id='radioCard"+iCard+"' name='card'><label for='radioCard"+iCard+"'>" + cliente.creditCards[iCard].nCarta + "</label></span>";
     }
-    newRows += "<span id='newCreditCardSpan' style='margin-top: 3%'><button class='btn btn-success'>aggiungi carta di credito</button><span id='textBoxNewCard'></span></span>"
+    newRows += "<span id='newCreditCardSpan' style='margin-top: 3%'><button class='btn btn-success' style='background-color: #86d804'>aggiungi carta di credito</button><span id='textBoxNewCard'></span></span>"
     document.getElementById("userInfo").innerHTML=newRows;
     for(let iAddress=0; iAddress<nAddress; iAddress++)
     {

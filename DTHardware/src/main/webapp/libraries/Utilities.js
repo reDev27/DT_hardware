@@ -705,7 +705,7 @@ function showAddressChange(addresses)
             + "<br>"
             + "<input type=\"text\" id=\"AddCap\" name=\"AddCap\" placeholder=\"CAP\">"
             + "<br>"
-            + "<button id='btnInvioAddress' type='button' style='background-color#86d804; margin-bottom: 3%' class='btn btn-success'>Invio</button>"
+            + "<button id='btnInvioAddress' type='button' style='background-color: #86d804; margin-bottom: 3%' class='btn btn-success'>Invio</button>"
             + "<div id=\"dialogConfirmAddress\" title=\"Espressione non valida\">\n"
             + "<p><span class=\"ui-icon ui-icon-alert\" style=\"float:left; margin:12px 12px 20px 0;\"></span>Vuoi conservare questo indirizzo per i prossimi acquisti?</p>\n"
             + "</div>";

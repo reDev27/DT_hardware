@@ -43,6 +43,16 @@ public class UserBean extends UserNotLoggedBean
 		return productsOfAnOrder;
 	}
 
+	public static int callSelectOrderByMaxId(String username, ServletContext context) throws SQLException, IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(1);
+		UserDAO connection=new UserDAO();
+		ResultSet result = connection.selectOrderByMaxId(username, crd.getUsername(), crd.getPass());
+		result.next();
+		return result.getInt("maxId");
+	}
+
 	public static ArrayList<Order> callSelectOrdersByUsername(String username, ServletContext context) throws SQLException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);

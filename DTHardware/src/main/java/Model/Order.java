@@ -1,5 +1,6 @@
 package Model;
 
+import Model.DAO.AdminBean;
 import Model.DAO.DateUtil;
 import Model.DAO.UserBean;
 import com.google.gson.JsonObject;
@@ -65,6 +66,12 @@ public class Order
 				{
 					if(UserBean.callInsertCompone(product.getQuantitaCarrello(), product.getCodiceABarre(), context))
 						prodottiEsauriti.add(product.getCodiceABarre());
+				}
+				if(prodottiEsauriti.size()>0)
+				{
+					int maxId=UserBean.callSelectOrderByMaxId(username, context);
+					AdminBean.callDeleteComponeById(maxId, context);
+					AdminBean.callDeleteOrder(maxId, context);
 				}
 			}
 			catch (SQLException | IOException e)

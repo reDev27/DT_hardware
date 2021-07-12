@@ -23,5 +23,9 @@ begin
         (codiceabarreIn,prezzoIn,descrizioneIn,specificheIn, quantitaIn, marcaIn, modelloIn, nomeIn, datainserimentoIn);
     end if;
 
+    update categoria
+        set QUANTITA=QUANTITA+1
+    where nome=nomeIn;
+
 end //
 DELIMITER ;

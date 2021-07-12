@@ -18,6 +18,7 @@
 <script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>
 <script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
+<link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">

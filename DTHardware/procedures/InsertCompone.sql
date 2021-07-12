@@ -16,7 +16,7 @@ start transaction;
 
     set totale = (select QUANTITA from prodotto where codiceABarreIn=CODICEBARRE)-nprodottiIn;
 
-    if(totale>0) then
+    if(totale>=0) then
         update prodotto
         set
             QUANTITA=totale

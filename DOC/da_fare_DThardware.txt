@@ -6,7 +6,7 @@ Stored procedure:
 		insert indirizzo, prodotto, ordine, 				//fatto
 		override register,									//fatte
 		acquisto,											//fatto
-		prelievo prodotti(select),
+		prelievo prodotti(select),							//fatto
 		(...)
 	};
 	Java bean/DAO per tutte le procedure elencate sopra;	//fatto
@@ -18,21 +18,37 @@ Stored procedure:
 Javascript:
 {
 	gestione visualizzazione contenuti;						//fatto
-	gestione accesso e registrazione;
+	gestione accesso e registrazione;						//fatto
 	gestione carrello;										//fatto
-	algoritmo di ricerca;
-	gestione acquisti;
-	pagina visualizza i MIEI ordini(cliente);
-	pagina visualizza gli ordini(admin);
-	pagina registrazione;
-	pagina personale utente;
-	pagina informazioni generali;
-	front-end.
+	algoritmo di ricerca;									//fatto
+	gestione acquisti;										//fatto
+	pagina visualizza i MIEI ordini(cliente);				//fatto
+	pagina visualizza gli ordini(admin);					//fatto
+	pagina registrazione;									//fatto
+	pagina personale utente;								//fatto
+	pagina informazioni generali;							//fatto
+	front-end.												//fatto
 }
 
 Rifiniture
 {
-	aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);
-	aggiornare il numero di prodotti al momento dell'ordine;
-	
+	aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);				//fatto
+	fare in modo che se si acquista più della quantità consentita si visualizzi un errore; 		//fatto
+	simbolo euro in homepage nei prodotti;														//fatto
+	icona disponibile/esaurito pagina prodotti;													//fatto
+	arrotondare cifre in tutte le pagine;														//fatto
+	qualche pagina di errore(opzionale);														
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,6 +8,15 @@ import java.util.Calendar;
 
 public class UserDAO extends UserNotLoggedDAO
 {
+	public ResultSet selectOrderByMaxId(String username, String userType, String passData) throws SQLException
+	{
+		openConnection(userType, passData);
+		CallableStatement callableStatement=user.prepareCall("{call SelectOrderByMaxId(?)}");
+		callableStatement.setString("usernameIn", username);
+		doExecute(callableStatement);
+		return getResult();
+	}
+
 	public ResultSet deleteAddressByVia(String via, int nCivico, String username, String userType, String passData) throws SQLException
 	{
 		openConnection(userType, passData);

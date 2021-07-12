@@ -240,6 +240,21 @@ public class AdminBean extends UserBean
 		connection.destroy();
 	}
 
+	public static void callDeleteComponeById(int id, ServletContext context) throws IOException
+	{
+		CrdGiver crd=new CrdGiver(context);
+		crd.aggiornaCrd(0);
+		AdminDAO connection=new AdminDAO();
+		try
+		{
+			connection.deleteComponeById(id, crd.getUsername(), crd.getPass());
+		}
+		catch (SQLException throwables)
+		{
+			throwables.printStackTrace();
+		}
+	}
+
 	private static InputStream preparaImmagine(String path) throws FileNotFoundException
 	{
 		File file=new File(path);

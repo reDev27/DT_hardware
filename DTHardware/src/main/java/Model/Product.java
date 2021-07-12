@@ -18,6 +18,11 @@ public class Product
 
 	}
 
+	public Product(String codiceABarre)
+	{
+		setCodiceABarre(codiceABarre);
+	}
+
 	public Product(String codiceABarre, String marca, String modello)
 	{
 		setCodiceABarre(codiceABarre);
@@ -155,7 +160,7 @@ public Double getPrezzo()
 }
 public void setPrezzo(Double prezzo)
 {
-	this.prezzo = prezzo;
+	this.prezzo = Math.round(prezzo * 100.0) / 100.0;
 }
 public String getDescrizione()
 {

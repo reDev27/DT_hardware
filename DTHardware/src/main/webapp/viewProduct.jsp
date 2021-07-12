@@ -18,6 +18,7 @@
 <script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>
 <script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
+<link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
@@ -100,7 +101,7 @@
 
     <script>
         $( function() {
-            $( "#specificheDiv" ).tabs();
+            $( "#specificheDescrizioneDiv" ).tabs();
         } );
 
         $
@@ -148,12 +149,32 @@
             <span class="col-12" style="display: flex"><b class="text-success"  style="font-family: Helvetica,serif;font-size: 150%; color:#86d804 !important;"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 1%; margin-left: 4%">tasse incluse</p></span>
             <span class="col-12" style="display: flex"><p id="spinnerParag" style="width: 50%"> <label for="quantitaSpinner">Quantità:</label><input id="quantitaSpinner" name="spinner" value="1" style="width: 80% ;margin:1%"></p></span>
             <span class="col-12" ><button id="btnAggiungiAlCarrello" type="button" class="btn btn-success">Aggiungi al carrello</button></span>
-            <span class="col-12" style="display: block"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>
+            <span class="col-12" style="display: block"><i id="iconDisponibilita"></i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></span>
+            <%
+                if(product.isDisponibilita())
+                {
+            %>
+            <script>
+                $("#iconDisponibilita").addClass("fas fa-check-circle");
+                $("#iconDisponibilita").css("color", "#198754");
+            </script>
+            <%
+                }
+                else
+                {
+            %>
+                <script>
+                    $("#iconDisponibilita").addClass("fas fa-times-circle");
+                    $("#iconDisponibilita").css("color", "rgb(221 47 47)");
+                </script>
+            <%
+                }
+            %>
         </span>
-    <div id="specificheDiv" style="width: 90%; margin-top: 5%">
+    <div id="specificheDescrizioneDiv" style="width: 90%; margin-top: 5%">
           <ul>
-            <li><a href="#divDescrizione">Descrizione</a></li>
-            <li><a href="#divSpecifiche">Specifiche</a></li>
+            <li id="btnDescrizioneDiv"><a href="#divDescrizione">Descrizione</a></li>
+            <li id="btnSpecificheDiv"><a href="#divSpecifiche">Specifiche</a></li>
           </ul>
           <div id="divDescrizione">
               <p><%=StringUtility.subBlankNWithBR(product.getDescrizione())%></p>
@@ -229,7 +250,15 @@
 </script>
 
 <script>
+    $(document).ready(function () {
+        breakPointIntestazioneCategorie();
+    })
 
+    $(window).resize(function ()
+        {
+            breakPointIntestazioneCategorie();
+        }
+    );
     var categorie;
     $.ajax
     (

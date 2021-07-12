@@ -135,3 +135,30 @@ body
 #btnOrdina{
     background-color: #86d804;
 }
+
+/*#btnDescrizioneDiv
+{
+
+}
+
+#btnSpecificheDiv
+{
+
+}*/
+
+.ui-state-active
+{
+    background-color: #86d804 !important;
+    border-color: #c1d5a2d1 !important;
+}
+
+.ui-state-active:hover
+{
+    background-color: #578b05 !important;
+    cursor: pointer !important;
+}
+
+.ui-state-default
+{
+    cursor: pointer !important;
+}

@@ -31,7 +31,7 @@
 
     #selectableTableProducts .ui-selected
     {
-        background: #188e08;
+        background: #86d804;
         color: #000000;
     }
 
@@ -85,8 +85,8 @@
 <main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
     <header class="row" id="intestazione">
     <span>
-      <img class="cols-1" src="image/telephone.png"> <span class="cols-1">Numero di telefono: 0123456789</span>
-      <img class="cols-1" src="image/email.png" style="margin-left: 2%"> <span class="cols-8" >E-mail: DTHardware@gmail.com</span>
+     <span class="cols-1"><i class="fas fa-phone" color="#8bc52e"></i> Numero di telefono: 0123456789</span>
+        <span class="cols-8" ><i class="fas fa-envelope" color="#8bc52e"></i>E-mail: DTHardware@gmail.com</span>
       <span class="cols-1" id="accediRef"><a href="login.html" title="Accedi o crea un account">Accedi</a> oppure <a href="iscrizione.html" title="Accedi o crea un account">crea un account</a></span>
     </span>
     </header>
@@ -144,7 +144,7 @@
         <span class="col-6">
             <span class="col-12"><h4 id="headerProducts"> <%=product.getMarca()%></h4><h5 style="margin-top: 7px"><%=product.getModello()%></h5></span>
             <span class="col-12" style="display: flex"><p>Identificativo: </p><%=product.getCodiceABarre()%></span>
-            <span class="col-12" style="display: flex"><b class="text-success" style="font-family: Helvetica,serif; font-size: 150%"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 1%; margin-left: 4%">tasse incluse</p></span>
+            <span class="col-12" style="display: flex"><b class="text-success"  style="font-family: Helvetica,serif;font-size: 150%; color:#86d804 !important;"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 1%; margin-left: 4%">tasse incluse</p></span>
             <span class="col-12" style="display: flex"><p id="spinnerParag" style="width: 50%"> <label for="quantitaSpinner">Quantità:</label><input id="quantitaSpinner" name="spinner" value="1" style="width: 80% ;margin:1%"></p></span>
             <span class="col-12" ><button id="btnAggiungiAlCarrello" type="button" class="btn btn-success">Aggiungi al carrello</button></span>
             <span class="col-12" style="display: block"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>

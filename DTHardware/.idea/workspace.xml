@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="DTHardware:war" />
+      <artifact name="DTHardware:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="bug fix minori.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
@@ -429,13 +429,7 @@
       <workItem from="1626096837573" duration="21204000" />
       <workItem from="1626126504072" duration="3025000" />
       <workItem from="1626161538482" duration="11633000" />
-    </task>
-    <task id="LOCAL-00089" summary="nuova servlet per aggiungere prodotti al carrello;&#10;gestione del carrello tramite session(da fixare);&#10;aggiunta chiamata ajax per permettere la gestione del carrello;&#10;fix minori.">
-      <created>1624200329762</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1624200329764</updated>
+      <workItem from="1626173784911" duration="478000" />
     </task>
     <task id="LOCAL-00090" summary="fix alla servlet del carrello e alla relativa classe;&#10;nuova jsp per gestire il carrello;&#10;fix minori.">
       <created>1624267857009</created>
@@ -773,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626172750148</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="bug fix minori.">
+      <created>1626173822697</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1626173822697</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

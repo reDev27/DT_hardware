@@ -254,7 +254,7 @@ function modifyCliente()
                 method : "post",
                 data : cliente,
                 success : function(){window.location.reload();},
-                error : function(){showDialog("Errore", "Qualcosa è andato storto, cliente non modificato")}
+                error : function(){window.location.reload();}
             }
         );
     }
@@ -336,8 +336,8 @@ function addCliente()
                 url : "RegisterServ",
                 method : "post",
                 data : cliente,
-                success : function(){document.window.reload()},
-                error : function(){showDialog("Errore", "Qualcosa è andato storto, cliente non Aggiunto")}
+                success : function(){window.location.reload();},
+                error : function(){window.location.reload();}
             }
         );
     }
@@ -497,7 +497,7 @@ function verificaInputsModify()
                 url : "UpdateProductServ",
                 method : "post",
                 data : product,
-                success : function(){document.window.reload()},
+                success : function(){window.location.reload();},
                 error : function(){showDialog("Errore", "Qualcosa è andato storto, prodotto non modificato")}
             }
         );
@@ -601,7 +601,7 @@ function verificaInputs()
                 url : "AddProductServ",
                 method : "post",
                 data : product,
-                success : function(){document.window.reload()},
+                success : function(){window.location.reload();},
                 error : function(){showDialog("Errore", "Qualcosa è andato storto, prodotto non aggiunto")}
             }
         );

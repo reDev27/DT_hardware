@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="bug fix minori.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
@@ -431,14 +430,7 @@
       <workItem from="1626161538482" duration="11633000" />
       <workItem from="1626173784911" duration="1039000" />
       <workItem from="1626175235129" duration="716000" />
-      <workItem from="1626178232108" duration="717000" />
-    </task>
-    <task id="LOCAL-00092" summary="aggiornati metordi della classe carrello per una migliore gestione dei prodotti in esso;&#10;aggiornate tutte le pagine per fare in modo che aggiungano o tolgano gli elementi correttamente dal carrello;&#10;aggiornata la libreria utilities.js;&#10;fix minori.">
-      <created>1624362189606</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1624362189606</updated>
+      <workItem from="1626178232108" duration="1029000" />
     </task>
     <task id="LOCAL-00093" summary="aggiornata pagina carrello e ultimata impaginazione;&#10;nuova stored procedure per verificare la disponibilità di un prodotto al momento dell'acquisto;&#10;aggiornati bean e DAO relativi al punto precedente;&#10;nuova servlet per gestire il check-out(al momento supporta calcolo totale e verifica disponibilità);&#10;fix bug quantità dei prodotti presenti nel carrello;&#10;fix minori.">
       <created>1624383124620</created>
@@ -776,7 +768,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626175929669</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="bug fix minori.">
+      <created>1626179162127</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1626179162127</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

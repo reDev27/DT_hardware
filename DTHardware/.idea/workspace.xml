@@ -9,21 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti grafici minori;&#10;bug fix minori.">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti grafici responisve a tutte le pagine;&#10;bug fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneClienti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneClienti.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneOrders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/infoPersonali.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/infoPersonali.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
@@ -72,6 +61,7 @@
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/iscrizione.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/iscrizione.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/libraries/Utilities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/manager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/riepilogoCheckout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/riepilogoCheckout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewCarrello.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/viewProduct.jsp" afterDir="false" />
@@ -121,6 +111,11 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="ExportToHTMLSettings">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../DTHardware\exportToHTML" />
@@ -435,14 +430,7 @@
       <workItem from="1626081247195" duration="6856000" />
       <workItem from="1626096837573" duration="21204000" />
       <workItem from="1626126504072" duration="3025000" />
-      <workItem from="1626161538482" duration="9235000" />
-    </task>
-    <task id="LOCAL-00087" summary="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori.">
-      <created>1624037749569</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1624037749570</updated>
+      <workItem from="1626161538482" duration="11074000" />
     </task>
     <task id="LOCAL-00088" summary="aggiunti tutti i parametri necessari nella finestra di visualizzazione del prodotto;&#10;fix impaginazione nella viewProduct.jsp;&#10;fix minori.">
       <created>1624102286387</created>
@@ -780,7 +768,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626129581895</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="aggiornamenti grafici responisve a tutte le pagine;&#10;bug fix minori.">
+      <created>1626171303105</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1626171303106</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -800,7 +795,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornate creditCard e Address per supportare i parametri modificati;&#10;modificata la tabella order per far si che id si autoincrementi;&#10;mdificata insertOrdine e aggiornati bean e DAO per adattarsi al punto precedente;&#10;Creata nuova pagina di riepilogo ordine;&#10;creata nuova servlet per gestire gli indirizzi e le carte di credito scelti dall'utente con i radio box;&#10;fix minori." />
     <MESSAGE value="aggiornata DB_TABLES.sql;&#10;fix minori." />
     <MESSAGE value="aggiornata DB_TABLES.sql;&#10;completato riepilogo Checkout;&#10;aggiunte 2 nuove procedure per prendere i dati degli ordini passati in base all'utente;&#10;Aggiornate varie classi del model;&#10;fix minori." />
     <MESSAGE value="fix alla pagina carrello che mostrava il riepilogo dell'ordine nonostante non fosse stato richiesto;&#10;fix al riepilogo ordine, che permetteva l'ordine anche senza aver inserito/selezionate carta di credito e indirizzo;&#10;fix minori." />
@@ -825,7 +819,8 @@
     <MESSAGE value="immagini aggiornate;&#10;bug fix minori." />
     <MESSAGE value="breakpoints aggiunti a tutte le pagine(finiti solo nella homepage);&#10;aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);&#10;&#9;fare in modo che se si acquista più della quantità consentita si visualizzi un errore;&#10;&#9;simbolo euro in homepage nei prodotti;&#10;&#9;icona disponibile/esaurito pagina prodotti;&#10;arrotondare cifre in tutte le pagine;&#10;bug fix minori." />
     <MESSAGE value="aggiornamenti grafici minori;&#10;bug fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti grafici minori;&#10;bug fix minori." />
+    <MESSAGE value="aggiornamenti grafici responisve a tutte le pagine;&#10;bug fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti grafici responisve a tutte le pagine;&#10;bug fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

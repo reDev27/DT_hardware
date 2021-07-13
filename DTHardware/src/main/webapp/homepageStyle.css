@@ -57,6 +57,16 @@ body
     padding-right: 0;
 }
 
+#accediRef a
+{
+    color: #86d804;
+}
+
+#accediRef a:hover
+{
+    color: #374e0f;
+}
+
 #searchAndCarrello
 {
     border-radius: 1%;

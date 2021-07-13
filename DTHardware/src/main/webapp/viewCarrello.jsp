@@ -50,7 +50,7 @@
 
 <div class="row">
             <div id="carrelloDiv" class="col-8">
-                <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%; margin-left: 1%">
+                <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%; margin-left: 1%; position: initial">
                     <div class="card-block row" style="padding: 1%; margin: 0 1%">
                         <h1 class="h1-carrello" style=" margin-bottom:0; margin-top: 0; padding-bottom: 1%; padding-left:0;  font-size: 25px">CARRELLO</h1>
                         <div id="showProductDiv" class="row"></div>

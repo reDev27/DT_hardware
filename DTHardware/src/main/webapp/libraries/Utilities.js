@@ -1523,7 +1523,14 @@ function aggiornaCarrello(product)
             url: "updateCarrelloServ",
             method: "post",
             data: product,
-            success: function (){showDialog("Prodotto aggiunto", "Aggiunto al carrello con successo");},
+            success: function (){showDialog("Prodotto aggiunto", "Aggiunto al carrello con successo");
+                    setTimeout(
+                        function () {
+                            $( "#divMsg" ).dialog( "destroy" );
+                        },
+                        3000
+                    )
+                },
             error: function (){showDialog("Errore", "Non è stato possibile aggiornare il carrello")}
         }
     );

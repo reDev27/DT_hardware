@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="bug fix minori.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/StringUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/StringUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
@@ -209,6 +212,7 @@
     <configuration name="Tomcat 9.0.50" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.50" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/DTHardware_war_exploded/GeneraleServ" />
       <option name="BROWSER_ID" value="b2a9dca7-9d0b-4e1e-98a8-afb19c1328d2" />
+      <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
@@ -429,14 +433,8 @@
       <workItem from="1626096837573" duration="21204000" />
       <workItem from="1626126504072" duration="3025000" />
       <workItem from="1626161538482" duration="11633000" />
-      <workItem from="1626173784911" duration="478000" />
-    </task>
-    <task id="LOCAL-00090" summary="fix alla servlet del carrello e alla relativa classe;&#10;nuova jsp per gestire il carrello;&#10;fix minori.">
-      <created>1624267857009</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1624267857010</updated>
+      <workItem from="1626173784911" duration="1039000" />
+      <workItem from="1626175235129" duration="545000" />
     </task>
     <task id="LOCAL-00091" summary="aggiornata classe per gestire i prodotti per immagazzinare il numero di prodotti nel carrello;&#10;fix bug nel quale il numero di prodotti nel carrello non veniva impostato correttamente;&#10;aggiornate pagine html e jsp per reindirizzare alla pagina del carrello quando richiesto dall'utente;&#10;impaginazione carrello(da finire);&#10;fix minori.">
       <created>1624297523679</created>
@@ -774,7 +772,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626173822697</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="bug fix minori.">
+      <created>1626174651858</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1626174651858</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -833,6 +838,12 @@
           <url>file://$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java</url>
           <line>262</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js</url>
+          <line>2</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

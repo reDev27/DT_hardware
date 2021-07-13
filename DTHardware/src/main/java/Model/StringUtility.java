@@ -11,4 +11,9 @@ public class StringUtility
 	{
 		return s.replace("\n", " ");
 	}
+
+	public static String subVirgolette(String s)
+	{
+		return s.replace("\"", "&#34");
+	}
 }

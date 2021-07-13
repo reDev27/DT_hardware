@@ -177,10 +177,10 @@
             <li id="btnSpecificheDiv"><a href="#divSpecifiche">Specifiche</a></li>
           </ul>
           <div id="divDescrizione">
-              <p><%=StringUtility.subBlankNWithBR(product.getDescrizione())%></p>
+              <p><%=StringUtility.subVirgolette(StringUtility.subBlankNWithBR(product.getDescrizione()))%></p>
           </div>
           <div id="divSpecifiche">
-              <p><%= StringUtility.subBlankNWithBR(product.getSpecifiche())%></p>
+              <p><%= StringUtility.subVirgolette(StringUtility.subBlankNWithBR(product.getSpecifiche()))%></p>
           </div>
     </div>
     </div>

@@ -194,6 +194,28 @@ body
     {
         flex-direction: column;
     }
+
+    #tableProduct
+    {
+        margin-top: 5%;
+    }
+    #specificheDescrizioneDiv
+    {
+        margin-left: 10%;
+    }
+    #riepilogoDiv
+    {
+        margin-left: 0 !important;
+    }
+    #showProductDiv span img
+    {
+        width: 120px;
+        height: 120px;
+    }
+    #showProductDiv span span
+    {
+        width: 15em !important;
+    }
 }
 
 @media only screen and (max-device-width: 550px)
@@ -229,6 +251,19 @@ body
     {
         flex-direction: column;
     }
+
+    #tableProduct
+    {
+        margin-top: 5%;
+    }
+    #specificheDescrizioneDiv
+    {
+        margin-left: 10%;
+    }
+    #riepilogoDiv
+    {
+        margin-left: 0 !important;
+    }
 }
 
 @media only screen and (max-width: 500px)
@@ -237,6 +272,21 @@ body
     {
         display: grid;
         place-items: center;
+    }
+
+    #tableProduct
+    {
+        display: grid;
+        place-items: center;
+    }
+    #showProductDiv span img
+    {
+        width: 80px;
+        height: 80px;
+    }
+    #showProductDiv span span
+    {
+        width: 15.25em !important;
     }
 }
 

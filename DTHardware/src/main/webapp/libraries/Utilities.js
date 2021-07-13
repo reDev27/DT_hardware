@@ -1,3 +1,32 @@
+function breakPointBodyCarrello()
+{
+    if(window.matchMedia("(max-width: 800px)").matches)
+    {
+        $("#carrelloDiv").removeClass("col-8");
+        $("#riepilogoDiv").removeClass("col-3");
+        //$(".ui-spinner-input a").addClass("to-low-width-spinner");
+    }
+    else
+    {
+        $("#carrelloDiv").addClass("col-8");
+        $("#riepilogoDiv").addClass("col-3");
+        //$(".ui-spinner-input a").removeClass("to-low-width-spinner");
+    }
+}
+
+function breakPointBodyProduct()
+{
+    if(window.matchMedia("(max-width: 800px)").matches)
+    {
+        $("#categorySpan").removeClass("col-3");
+
+    }
+    else
+    {
+        $("#categorySpan").addClass("col-3");
+    }
+}
+
 function breakPointIntestazioneCategorie()
 {
     if (window.matchMedia("(max-width: 800px)").matches || window.matchMedia("(max-device-width: 550px)").matches)
@@ -29,6 +58,20 @@ function breakPointIntestazioneCategorie()
     }
 }
 
+function showDialog(title, text)
+{
+    let div=document.createElement("div");
+    div.id="divMsg";
+    let p=document.createElement("p");
+    p.innerHTML=text;
+    div.appendChild(p);
+    document.body.appendChild(div);
+    $( function()
+    {
+        $( "#divMsg" ).dialog({title : title});
+    });
+}
+
 function deleteOrder()
 {
     let clienteToEliminate={toEliminate : document.getElementById("toEliminateOrderId").innerText};
@@ -39,7 +82,7 @@ function deleteOrder()
             method : "post",
             data : clienteToEliminate,
             success : function (){window.location.reload();},
-            error : function () {alert("error");}
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, l'ordine non è stato eliminato");}
         }
     );
 }
@@ -96,7 +139,7 @@ function modifyOrder()
                 method : "post",
                 data : order,
                 success : function(){window.location.reload();},
-                error : function(){alert("error")}
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, l'ordine non è stato modificato")}
             }
         );
     }
@@ -140,7 +183,7 @@ function deleteCliente()
             method : "post",
             data : clienteToEliminate,
             success : function (){window.location.reload();},
-            error : function () {alert("error");}
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, cliente non eliminato");}
         }
     );
 }
@@ -211,7 +254,7 @@ function modifyCliente()
                 method : "post",
                 data : cliente,
                 success : function(){window.location.reload();},
-                error : function(){alert("error")}
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, cliente non modificato")}
             }
         );
     }
@@ -293,8 +336,8 @@ function addCliente()
                 url : "RegisterServ",
                 method : "post",
                 data : cliente,
-                success : function(){alert("success")},
-                error : function(){alert("error")}
+                success : function(){document.window.reload()},
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, cliente non Aggiunto")}
             }
         );
     }
@@ -339,7 +382,7 @@ function deleteProduct()
             data : productToEliminate,
             success : function (){window.location.reload();},
             error : function () {
-                alert("error");
+                showDialog("Errore", "Qualcosa è andato storto, prodotto non eliminato");
             }
         }
     );
@@ -454,8 +497,8 @@ function verificaInputsModify()
                 url : "UpdateProductServ",
                 method : "post",
                 data : product,
-                success : function(){alert("success")},
-                error : function(){alert("error")}
+                success : function(){document.window.reload()},
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, prodotto non modificato")}
             }
         );
     }
@@ -558,8 +601,8 @@ function verificaInputs()
                 url : "AddProductServ",
                 method : "post",
                 data : product,
-                success : function(){alert("success")},
-                error : function(){alert("error")}
+                success : function(){document.window.reload()},
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, prodotto non aggiunto")}
             }
         );
     }
@@ -617,7 +660,7 @@ function searchProductsRedirect()
                 },
                 error: function ()
                 {
-                    alert("error");
+                    showDialog("Errore", "Qualcosa è andato storto, non è stato possibile recuperare i dati sulla tua ricerca");
                 },
             }
         )
@@ -649,7 +692,7 @@ function searchProducts()
                 },
                 error: function ()
                 {
-                    alert("error");
+                    showDialog("Errore", "Qualcosa è andato storto, non è stato possibile recuperare i dati sulla tua ricerca");
                 },
             }
         )
@@ -983,7 +1026,7 @@ function isLogged()
             {
                 return data.L;
             },
-            error : function () {alert("error")}
+            error : function () {}
         }
     );
     return bool;
@@ -1045,7 +1088,7 @@ function ajaxAddress(address, checkHelp)
             method : "post",
             data: address,
             success : function () {},
-            error : function () {},
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, non è stato possibile usare i dati sul tuo indirizzo");},
         }
     )
 }
@@ -1099,7 +1142,7 @@ function ajaxCard(card, checkHelp)
             method : "post",
             data: card,
             success : function () {},
-            error : function () {alert("error");},
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, non è stato possibile usare i dati sulla tua carta di credito");},
         }
     )
 }
@@ -1419,7 +1462,7 @@ function showCarrello(products)
     let n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline;  justify-content: space-between'><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo.toFixed(2) + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
+        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline;  justify-content: space-between'><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo.toFixed(2) + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'><i class='fas fa-trash-alt'></i></button></span></span>";
     }
     document.getElementById("showProductDiv").innerHTML=newRows;
     for(let i=0; i<n; i++)
@@ -1481,7 +1524,7 @@ function aggiornaCarrello(product)
             method: "post",
             data: product,
             success: function (){},
-            error: function (){alert("error")}
+            error: function (){showDialog("Errore", "Non è stato possibile aggiornare il carrello")}
         }
     );
 }
@@ -1557,7 +1600,7 @@ function buildTableCategories(categories)
                     {
                         buildTableProductHomepage(data);
                     },
-                    error: function (){alert("error");}
+                    error: function (){showDialog("Errore", "Non è stato possibile caricare i prodotti")}
                 }
             )
         });

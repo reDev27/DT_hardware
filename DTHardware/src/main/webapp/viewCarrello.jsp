@@ -43,13 +43,13 @@
 
 <span class="row" id="searchAndCarrello" style="flex-wrap: nowrap; width: 92%">
    <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo_DT.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
-   <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" class="list-group" style="position: absolute"></div></span><span class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
+   <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" class="list-group" style="position: absolute"></div></span><span id="btnCercaSpan" class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
     <span class="col-3" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
 </span>
 
 
 <div class="row">
-            <div class="col-8">
+            <div id="carrelloDiv" class="col-8">
                 <div class="card cart-container" style="border: 1px solid rgba(0,0,0,.125); margin-top: 2%; margin-left: 1%">
                     <div class="card-block row" style="padding: 1%; margin: 0 1%">
                         <h1 class="h1-carrello" style=" margin-bottom:0; margin-top: 0; padding-bottom: 1%; padding-left:0;  font-size: 25px">CARRELLO</h1>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-    <div class="col-3" style="float: right; margin-top: 1.5%; margin-left: 8%">
+    <div id="riepilogoDiv" class="col-3" style="float: right; margin-top: 1.5%; margin-left: 8%">
         <div class="card cart-summary">
                 <div class="cart-summary-line row">
                     <span class="">
@@ -170,6 +170,18 @@
           checkOut();
           $("#riepilogoOrdineSpan").show();
       })
+
+      $(document).ready(function () {
+          breakPointIntestazioneCategorie();
+          breakPointBodyCarrello();
+      })
+
+      $(window).resize(function ()
+          {
+              breakPointIntestazioneCategorie();
+              breakPointBodyCarrello();
+          }
+      );
 
       window.onbeforeunload=function () {
           sessionStorage.removeItem("selectedAddress");

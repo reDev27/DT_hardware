@@ -39,10 +39,6 @@
 
 	</div>
 
-	<!--<input type="text" id="nome">
-	<input type="file" id="imageFile" />
-	<button id="btnInvioImg" class="btn btn-success">Invio</button>-->
-
 	<div id="pieDiPagina" class="row jumbotron">
 		<div class="col-4">
     <span id="infoSpan" class="row">
@@ -104,7 +100,7 @@
 						else
 							window.location.href="homepage.html";
 					},
-					error : function () {alert("error")}
+					error : function () {showDialog("Errore", "Non è stato possibile autenticare l'account")}
 				}
 			)
 		)
@@ -122,28 +118,6 @@
 			};
 			reader.readAsDataURL(this.files[0]);
 		}
-		$("#btnInvioImg").click
-		( function ()
-			{
-				const objToSent = {"img": imgConverted};
-				$.ajax
-				(
-					{
-						url: "TestServ",
-						method: "post",
-						data: objToSent,
-						success: function ()
-						{
-							alert("Success");
-						},
-						error: function ()
-						{
-							alert("error");
-						}
-					}
-				)
-			}
-		)
 	</script>
 </main>
 </body>

@@ -2,18 +2,28 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="DTHardware:war" />
+      <artifact name="DTHardware:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="breakpoints aggiunti a tutte le pagine(finiti solo nella homepage);&#10;aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);&#10;&#9;fare in modo che se si acquista più della quantità consentita si visualizzi un errore;&#10;&#9;simbolo euro in homepage nei prodotti;&#10;&#9;icona disponibile/esaurito pagina prodotti;&#10;arrotondare cifre in tutte le pagine;&#10;bug fix minori.">
+    <list default="true" id="2f33fea9-d3db-4e84-b1ab-89da2035d7d4" name="Default Changelist" comment="aggiornamenti grafici minori;&#10;bug fix minori.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneClienti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneClienti.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneOrders.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/gestioneProdotti.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/homepageStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/infoPersonali.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/infoPersonali.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/libraries/Utilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProductStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProductStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/metodiDiPagamento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/politicheReso.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewCarrello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/viewProduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/DTHardware-1.0-SNAPSHOT/WEB-INF/classes/Controller/AuthServ.class" afterDir="false" />
@@ -424,14 +434,8 @@
       <workItem from="1626019848511" duration="788000" />
       <workItem from="1626081247195" duration="6856000" />
       <workItem from="1626096837573" duration="21204000" />
-      <workItem from="1626126504072" duration="2478000" />
-    </task>
-    <task id="LOCAL-00086" summary="Homepage ultimata;&#10;aggiornamento ajax per visualizzare i prodotti in base alla categoria;&#10;fix grafici minori;&#10;fix stored procedure SelectProdottoByCategoria;&#10;fix minori.">
-      <created>1624014227837</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1624014227838</updated>
+      <workItem from="1626126504072" duration="3025000" />
+      <workItem from="1626161538482" duration="9235000" />
     </task>
     <task id="LOCAL-00087" summary="Nuova servlet per la gestione della pagina di un prodotto;&#10;Nuova jsp per la visualizzazione delle specifiche di un prodotto;&#10;fix a bean e DAO che ora permettono di selezionare un prodotto dal database correttamente;&#10;fix minori.">
       <created>1624037749569</created>
@@ -769,7 +773,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626124043747</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="aggiornamenti grafici minori;&#10;bug fix minori.">
+      <created>1626129581895</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1626129581895</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +800,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aggiornata la pagina del carrello per dare la possibilità di aggiungere una carta di credito e un indirizzo in fase di riepilogo ordine (ed eventualmente salvarli);&#10;aggiornati tutti bean e DAO inerenti al punto precedente;&#10;due nuove servlet per gestire l'inserimento di indirizzo e carta di credito;&#10;fix minori." />
     <MESSAGE value="aggiornate creditCard e Address per supportare i parametri modificati;&#10;modificata la tabella order per far si che id si autoincrementi;&#10;mdificata insertOrdine e aggiornati bean e DAO per adattarsi al punto precedente;&#10;Creata nuova pagina di riepilogo ordine;&#10;creata nuova servlet per gestire gli indirizzi e le carte di credito scelti dall'utente con i radio box;&#10;fix minori." />
     <MESSAGE value="aggiornata DB_TABLES.sql;&#10;fix minori." />
     <MESSAGE value="aggiornata DB_TABLES.sql;&#10;completato riepilogo Checkout;&#10;aggiunte 2 nuove procedure per prendere i dati degli ordini passati in base all'utente;&#10;Aggiornate varie classi del model;&#10;fix minori." />
@@ -814,7 +824,8 @@
     <MESSAGE value="fix all'inserimento data di scadenza della carta di credito;&#10;aggiunta animazione ai prodotti;&#10;fix a procedure, servlet, bean e DAO per fare in modo che all'acquisto vengano aggiornate le quantità dei prodotti acquistati disponibili;&#10;bug fix minori." />
     <MESSAGE value="immagini aggiornate;&#10;bug fix minori." />
     <MESSAGE value="breakpoints aggiunti a tutte le pagine(finiti solo nella homepage);&#10;aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);&#10;&#9;fare in modo che se si acquista più della quantità consentita si visualizzi un errore;&#10;&#9;simbolo euro in homepage nei prodotti;&#10;&#9;icona disponibile/esaurito pagina prodotti;&#10;arrotondare cifre in tutte le pagine;&#10;bug fix minori." />
-    <option name="LAST_COMMIT_MESSAGE" value="breakpoints aggiunti a tutte le pagine(finiti solo nella homepage);&#10;aggiornare quantità categorie dinamicamente(aggiunta/eliminazione prodotto);&#10;&#9;fare in modo che se si acquista più della quantità consentita si visualizzi un errore;&#10;&#9;simbolo euro in homepage nei prodotti;&#10;&#9;icona disponibile/esaurito pagina prodotti;&#10;arrotondare cifre in tutte le pagine;&#10;bug fix minori." />
+    <MESSAGE value="aggiornamenti grafici minori;&#10;bug fix minori." />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornamenti grafici minori;&#10;bug fix minori." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -828,11 +839,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/Model/DAO/UserNotLoggedBean.java</url>
           <line>262</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Model/Order.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

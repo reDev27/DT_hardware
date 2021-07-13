@@ -110,12 +110,11 @@
               type: "GET",
               url: "getCategoriesServ",
               dataType: "json",
-              //data
               success: function (data)
               {
                 buildTableCategories(data);
               },
-              error: function (){alert("error")}
+              error: function (){showDialog("Errore", "Non è stato possibile caricare le categorie")}
             }
     )
     $(
@@ -142,7 +141,7 @@
 				},
 
 				error: function () {
-					alert("error")
+					showDialog("Errore", "Non è stato possibile caricare i prodotti")
 				}
 			}
 		);
@@ -169,7 +168,7 @@
 				},
 
 				error: function () {
-					alert("error")
+					showDialog("Errore", "Non è stato possibile caricare i prodotti")
 				}
 			}
 		);
@@ -200,12 +199,12 @@
 										method: "get",
 									}
 								)
-								window.location.href="homepage.html";
+								window.location.href="about:blank";
 							}
 						)
 					}
 				},
-				error : function () {alert("error")}
+				error : function () {showDialog("Errore", "Non è stato possibile autenticare l'account")}
 			}
 		)
 	)

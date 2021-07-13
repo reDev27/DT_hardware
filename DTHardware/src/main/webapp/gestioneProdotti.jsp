@@ -177,7 +177,7 @@
                 },
                 error : function ()
                 {
-                    alert("error");
+                    showDialog("Errore", "Non è stato possibile recuperare i dati sulle categorie dal server");
                 }
             }
         )
@@ -214,7 +214,7 @@
                         window.location.href="homepage.html";
                     }
                 },
-                error : function () {alert("error")}
+                error : function () {showDialog("Errore", "Non è stato possibile autenticare l'account")}
             }
 
         )

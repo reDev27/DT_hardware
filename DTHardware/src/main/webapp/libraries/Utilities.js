@@ -1527,6 +1527,7 @@ function aggiornaCarrello(product)
                     setTimeout(
                         function () {
                             $( "#divMsg" ).dialog( "destroy" );
+                            document.getElementById("divMsg").remove();
                         },
                         3000
                     )

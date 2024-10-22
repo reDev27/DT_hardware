@@ -209,7 +209,7 @@ public class AdminBean extends UserBean
 
 	public static void callInsertCategoria(String nome, int quantita, int codiceaBarre, ServletContext context) throws SQLException, IOException
 	{
-		CrdGiver crd=new CrdGiver(context );
+		CrdGiver crd=new CrdGiver(context);
 		crd.aggiornaCrd(0);
 		AdminDAO connection=new AdminDAO();
 		connection.insertCategoria(nome, quantita, codiceaBarre, crd.getUsername(), crd.getPass());

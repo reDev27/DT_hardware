@@ -8,7 +8,7 @@
 body
 {
 
-    background-image: url("image/tema_verde.png");
+    background-image: url("image/icone_tema.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -55,6 +55,16 @@ body
     float: right;
     margin-right: 0;
     padding-right: 0;
+}
+
+#accediRef a
+{
+    color: #86d804;
+}
+
+#accediRef a:hover
+{
+    color: #374e0f;
 }
 
 #searchAndCarrello
@@ -134,7 +144,7 @@ body
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .35);
 }
 
-#prodottoSpan button
+/*#prodottoSpan button
 {
     background-color: #86d804;
     border-color: #c1d5a2d1;
@@ -143,9 +153,158 @@ body
 #prodottoSpan button:hover
 {
     background-color: #578b05;
+}*/
+
+.btn-success
+{
+    background-color: #86d804 !important;
+    border-color: #c1d5a2d1 !important;
+}
+
+.btn-success:hover
+{
+    background-color: #578b05 !important;
 }
 
 #pieDiPagina div span a:hover
 {
     color: #374e0f;
+}
+
+@media only screen and (max-width: 800px)
+{
+    #logoSpan
+    {
+        width: 100%;
+    }
+    #txtSearchSpan
+    {
+        width: 100%;
+    }
+    #btnCercaSpan
+    {
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+    #btnSearch
+    {
+        margin-top: 1% !important;
+    }
+    #btnCarrelloSpan
+    {
+        width: 100%;
+        position: inherit;
+    }
+    #btnCarrello
+    {
+        width: 100%;
+    }
+    #searchAndCarrello
+    {
+        flex-direction: column;
+    }
+
+    #tableProduct
+    {
+        margin-top: 5%;
+    }
+    #specificheDescrizioneDiv
+    {
+        margin-left: 10%;
+    }
+    #riepilogoDiv
+    {
+        margin-left: 0 !important;
+    }
+    #showProductDiv span img
+    {
+        width: 120px;
+        height: 120px;
+    }
+    #showProductDiv span span
+    {
+        width: 15em !important;
+    }
+}
+
+@media only screen and (max-device-width: 550px)
+{
+    #logoSpan
+    {
+        width: 100%;
+    }
+    #txtSearchSpan
+    {
+        width: 100%;
+    }
+    #btnCercaSpan
+    {
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+    #btnSearch
+    {
+        margin-top: 1% !important;
+    }
+    #btnCarrelloSpan
+    {
+        width: 100%;
+        position: inherit;
+    }
+    #btnCarrello
+    {
+        width: 100%;
+    }
+    #searchAndCarrello
+    {
+        flex-direction: column;
+    }
+
+    #tableProduct
+    {
+        margin-top: 5%;
+    }
+    #specificheDescrizioneDiv
+    {
+        margin-left: 10%;
+    }
+    #riepilogoDiv
+    {
+        margin-left: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+    #selectableTableProducts
+    {
+        display: grid;
+        place-items: center;
+    }
+
+    #tableProduct
+    {
+        display: grid;
+        place-items: center;
+    }
+    #showProductDiv span img
+    {
+        width: 80px;
+        height: 80px;
+    }
+    #showProductDiv span span
+    {
+        width: 15.25em !important;
+    }
+}
+
+@media only screen and (max-device-width: 500px)
+{
+    #selectableTableProducts
+    {
+        display: grid;
+        place-items: center;
+    }
 }

@@ -13,7 +13,8 @@
     <link rel="icon" href="image/logo_DT_solo_pc.png">
 </head>
 <body>
-
+<link href="libraries/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" type="text/css">
+<script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>
 <script src="libraries/Utilities.js"></script>
 <link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
@@ -52,8 +53,8 @@
 <main id="alfaContainer"  style="width: 80%; margin: 0 -10% 0 10%;position: center; background-color: white">
     <header class="row" id="intestazione">
     <span>
-      <img class="cols-1" src="image/telephone.png"> <span class="cols-1">Numero di telefono: 0123456789</span>
-      <img class="cols-1" src="image/email.png" style="margin-left: 2%"> <span class="cols-8" >E-mail: DTHardware@gmail.com</span>
+		<span class="cols-1"><i class="fas fa-phone" color="#8bc52e"></i> Numero di telefono: 0123456789</span>
+		<span class="cols-8" ><i class="fas fa-envelope" color="#8bc52e"></i>E-mail: DTHardware@gmail.com</span>
       <span class="cols-1" id="accediRef"><a href="login.html" title="Accedi o crea un account">Accedi</a> oppure <a href="iscrizione.html" title="Accedi o crea un account">crea un account</a></span>
     </span>
     </header>
@@ -132,12 +133,13 @@
     </div>
 
     <script>
-        $( function() {
+        $( function()
+        {
             $( "#dialogEsito" ).dialog({autoOpen: false});
         } );
     </script>
 
-    <div id="dialogEsito" title="Espressione non valida">
+    <div id="dialogEsito" title="Errore">
         <p id="esitoP"></p>
     </div>
 
@@ -157,19 +159,22 @@
                     method : "post",
                     success : function (){
                         document.getElementById("esitoP").innerHTML = "Acquisto effettuato con successo! Verrai reindirizzato alla homepage a breve.";
+                        $( "#dialogEsito" ).dialog( "option", "title", "Acquisto riuscito" );
                         $("#dialogEsito").dialog("open");
                         setTimeout(function () {
                             window.location.href = "homepage.html";
                         }, 4000);
                     },
-                    error : function () {
-                        document.getElementById("esitoP").innerHTML = "Errore in fare di check-out. Per favore riprova, se il problema persiste contatta il nostro centro assistenza.";
-                        $("#dialogEsito").dialog("open");
+                    error : function (data)
+                    {
+                        showProdottiEsauriti(data)
                     },
-                    beforeSend : function () {
+                    beforeSend : function ()
+                    {
                         $("#spinnerOrdina").show();
                     },
-                    complete : function () {
+                    complete : function ()
+                    {
                         $("#spinnerOrdina").hide();
                     }
                 }

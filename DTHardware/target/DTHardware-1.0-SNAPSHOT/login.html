@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<link rel="icon" href="image/logo_DT.png">
+	<link rel="icon" href="image/logo_DT_solo_pc.png">
 	
 	<title>Login</title>
 	<link rel="stylesheet" href="animate.css">
@@ -11,10 +11,11 @@
 </head>
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
 <script src="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="libraries/bootstrap-5.0.1-dist/bootstrap-5.0.1-dist/css/bootstrap.css">
-		<body background="image/tema_verde.png">
+		<body background="image/icone_tema.png">
 		<form name="frm" action="AuthServ" method="POST">
 	<div class="container">
 		<div class="top">
@@ -85,7 +86,7 @@
 						}
 					},
 					error: function () {
-						alert("error")
+						showDialog("Errore", "Non è stato possibile autenticare l'account");
 					}
 				}
 			);

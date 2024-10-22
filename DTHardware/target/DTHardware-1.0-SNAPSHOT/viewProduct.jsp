@@ -18,6 +18,7 @@
 <script defer src="libraries/fontawesome-free-5.15.3-web/js/all.js"></script>
 <script src="libraries/Utilities.js"></script>
 <link rel="stylesheet" type="text/css" href="viewProductStyle.css">
+<link id="linkCssLibrary" rel="stylesheet" type="text/css" href="homepageStyle.css">
 <script src="libraries/jQuery_current.js"></script>
 <script src="libraries/jquery-ui-1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="libraries/jquery-ui-1.12.1/jquery-ui.css">
@@ -94,13 +95,13 @@
 
   <span class="row" id="searchAndCarrello" style="flex-wrap: nowrap; width: 92%">
     <span class="cols-4" id="logoSpan"><a href="homepage.html"><img src="image/logo_DT.png" width="100%" id="logoIcon" alt="Il nostro logo"></a></span>
-    <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" class="list-group" style="position: absolute"></div></span><span class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
+    <span class="col-3" id="txtSearchSpan"><textarea id="txtSearch" placeholder="Cerca..." rows="1" class="cols-4" oninput="searchProducts()" style="resize: none"></textarea><div id="suggerimentiDiv" class="list-group" style="position: absolute"></div></span><span id="btnCercaSpan" class="col-1"><button id="btnSearch" style="width: 30px; height: 30px; padding: 0; margin-top: 25%" class="btn btn-light" onclick="searchRedirectUtility()"><i class="fas fa-search"></i></button></span>
     <span class="col-3" id="btnCarrelloSpan"><button id="btnCarrello" type="button" class="btn btn-success cols-4">Carrello</button></span>
   </span>
 
     <script>
         $( function() {
-            $( "#specificheDiv" ).tabs();
+            $( "#specificheDescrizioneDiv" ).tabs();
         } );
 
         $
@@ -131,13 +132,13 @@
     </script>
 
 <div class="row" style="margin-top: 3%">
-  <span class="col-3">
+  <span id="categorySpan" class="col-3">
     <h4 style="margin-left: 5%">Categorie</h4>
     <div id="categoriesList">
         <ul id="categoriesListUl"></ul>
     </div>
   </span>
-  <span class="col-9">
+  <span id="infoProdottoSpan" class="col-9">
     <div id="tableProduct" class="row">
         <span class="col-6">
             <img src="<%= product.getImmagine()%>" width="100%">
@@ -148,18 +149,38 @@
             <span class="col-12" style="display: flex"><b class="text-success"  style="font-family: Helvetica,serif;font-size: 150%; color:#86d804 !important;"><%=product.getPrezzo()%> &#x20AC</b><p style="margin-top: 1%; margin-left: 4%">tasse incluse</p></span>
             <span class="col-12" style="display: flex"><p id="spinnerParag" style="width: 50%"> <label for="quantitaSpinner">Quantità:</label><input id="quantitaSpinner" name="spinner" value="1" style="width: 80% ;margin:1%"></p></span>
             <span class="col-12" ><button id="btnAggiungiAlCarrello" type="button" class="btn btn-success">Aggiungi al carrello</button></span>
-            <span class="col-12" style="display: block"><i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></i></span>
+            <span class="col-12" style="display: block"><i id="iconDisponibilita"></i><%=product.isDisponibilita()?"Disponibile":"Esaurito"%></span>
+            <%
+                if(product.isDisponibilita())
+                {
+            %>
+            <script>
+                $("#iconDisponibilita").addClass("fas fa-check-circle");
+                $("#iconDisponibilita").css("color", "#198754");
+            </script>
+            <%
+                }
+                else
+                {
+            %>
+                <script>
+                    $("#iconDisponibilita").addClass("fas fa-times-circle");
+                    $("#iconDisponibilita").css("color", "rgb(221 47 47)");
+                </script>
+            <%
+                }
+            %>
         </span>
-    <div id="specificheDiv" style="width: 90%; margin-top: 5%">
+    <div id="specificheDescrizioneDiv" style="width: 90%; margin-top: 5%">
           <ul>
-            <li><a href="#divDescrizione">Descrizione</a></li>
-            <li><a href="#divSpecifiche">Specifiche</a></li>
+            <li id="btnDescrizioneDiv"><a href="#divDescrizione">Descrizione</a></li>
+            <li id="btnSpecificheDiv"><a href="#divSpecifiche">Specifiche</a></li>
           </ul>
           <div id="divDescrizione">
-              <p><%=StringUtility.subBlankNWithBR(product.getDescrizione())%></p>
+              <p><%=StringUtility.subVirgolette(StringUtility.subBlankNWithBR(product.getDescrizione()))%></p>
           </div>
           <div id="divSpecifiche">
-              <p><%= StringUtility.subBlankNWithBR(product.getSpecifiche())%></p>
+              <p><%= StringUtility.subVirgolette(StringUtility.subBlankNWithBR(product.getSpecifiche()))%></p>
           </div>
     </div>
     </div>
@@ -229,7 +250,15 @@
 </script>
 
 <script>
+    $(document).ready(function () {
+        breakPointIntestazioneCategorie();
+        breakPointBodyProduct();
+    })
 
+    $(window).resize(function () {
+        breakPointIntestazioneCategorie();
+        breakPointBodyProduct();
+    });
     var categorie;
     $.ajax
     (
@@ -256,8 +285,8 @@
             "marca" : "<%= product.getMarca()%>",
             "modello" : "<%= product.getModello()%>",
             "prezzo" : <%= product.getPrezzo()%>,
-            "descrizione" : "<%= StringUtility.subBlankNWithSpace(product.getDescrizione())%>",
-            "specifiche" : "<%= StringUtility.subBlankNWithSpace(product.getSpecifiche())%>",
+            "descrizione" : "<%= StringUtility.subVirgolette(StringUtility.subBlankNWithSpace(product.getDescrizione()))%>",
+            "specifiche" : "<%= StringUtility.subVirgolette(StringUtility.subBlankNWithSpace(product.getSpecifiche()))%>",
             "immagine" : "<%= product.getImmagine()%>",
             "disponibilita" : <%= product.isDisponibilita()%>,
             "quantitaProdotto" : <%= product.getQuantitaProdotto()%>,

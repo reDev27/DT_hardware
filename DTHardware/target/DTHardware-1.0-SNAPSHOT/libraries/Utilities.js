@@ -1,6 +1,79 @@
+function breakPointBodyCarrello()
+{
+    if(window.matchMedia("(max-width: 800px)").matches)
+    {
+        $("#carrelloDiv").removeClass("col-8");
+        $("#riepilogoDiv").removeClass("col-3");
+        //$(".ui-spinner-input a").addClass("to-low-width-spinner");
+    }
+    else
+    {
+        $("#carrelloDiv").addClass("col-8");
+        $("#riepilogoDiv").addClass("col-3");
+        //$(".ui-spinner-input a").removeClass("to-low-width-spinner");
+    }
+}
+
+function breakPointBodyProduct()
+{
+    if(window.matchMedia("(max-width: 800px)").matches)
+    {
+        $("#categorySpan").removeClass("col-3");
+
+    }
+    else
+    {
+        $("#categorySpan").addClass("col-3");
+    }
+}
+
+function breakPointIntestazioneCategorie()
+{
+    if (window.matchMedia("(max-width: 800px)").matches || window.matchMedia("(max-device-width: 550px)").matches)
+    {
+        $("#spanTabellaProdotti").removeClass("col-9");
+        $("#spanTabellaCategorie").removeClass("col-3");
+        $("#logoSpan").removeClass("col-4");
+        $("#txtSearchSpan").removeClass("col-3");
+        $("#btnCercaSpan").removeClass("col-1");
+        $("#btnCarrelloSpan").removeClass("col-3")
+    }
+    else
+    {
+        $("#logoSpan").addClass("col-4");
+        $("#txtSearchSpan").addClass("col-3");
+        $("#btnCercaSpan").addClass("col-1");
+        $("#btnCarrelloSpan").addClass("col-3")
+        $("#spanTabellaProdotti").addClass("col-9");
+        $("#spanTabellaCategorie").addClass("col-3");
+    }
+
+    if (window.matchMedia("(max-width: 500px)").matches || window.matchMedia("(max-device-width: 500px)").matches)
+    {
+        document.getElementById("btnCarrello").innerHTML="<i class=\"fas fa-cart-arrow-down\" style=\"margin-right: 5%\"></i>";
+    }
+    else
+    {
+        document.getElementById("btnCarrello").innerHTML="<i class=\"fas fa-cart-arrow-down\" style=\"margin-right: 5%\"></i>Carrello";
+    }
+}
+
+function showDialog(title, text)
+{
+    let div=document.createElement("div");
+    div.id="divMsg";
+    let p=document.createElement("p");
+    p.innerHTML=text;
+    div.appendChild(p);
+    document.body.appendChild(div);
+    $( function()
+    {
+        $( "#divMsg" ).dialog({title : title});
+    });
+}
+
 function deleteOrder()
 {
-    alert("ciao");
     let clienteToEliminate={toEliminate : document.getElementById("toEliminateOrderId").innerText};
     $.ajax
     (
@@ -9,7 +82,7 @@ function deleteOrder()
             method : "post",
             data : clienteToEliminate,
             success : function (){window.location.reload();},
-            error : function () {alert("error");}
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, l'ordine non è stato eliminato");}
         }
     );
 }
@@ -66,7 +139,7 @@ function modifyOrder()
                 method : "post",
                 data : order,
                 success : function(){window.location.reload();},
-                error : function(){alert("error")}
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, l'ordine non è stato modificato")}
             }
         );
     }
@@ -110,7 +183,7 @@ function deleteCliente()
             method : "post",
             data : clienteToEliminate,
             success : function (){window.location.reload();},
-            error : function () {alert("error");}
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, cliente non eliminato");}
         }
     );
 }
@@ -181,7 +254,7 @@ function modifyCliente()
                 method : "post",
                 data : cliente,
                 success : function(){window.location.reload();},
-                error : function(){alert("error")}
+                error : function(){window.location.reload();}
             }
         );
     }
@@ -263,8 +336,8 @@ function addCliente()
                 url : "RegisterServ",
                 method : "post",
                 data : cliente,
-                success : function(){alert("success")},
-                error : function(){alert("error")}
+                success : function(){window.location.reload();},
+                error : function(){window.location.reload();}
             }
         );
     }
@@ -309,7 +382,7 @@ function deleteProduct()
             data : productToEliminate,
             success : function (){window.location.reload();},
             error : function () {
-                alert("error");
+                showDialog("Errore", "Qualcosa è andato storto, prodotto non eliminato");
             }
         }
     );
@@ -424,8 +497,8 @@ function verificaInputsModify()
                 url : "UpdateProductServ",
                 method : "post",
                 data : product,
-                success : function(){alert("success")},
-                error : function(){alert("error")}
+                success : function(){window.location.reload();},
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, prodotto non modificato")}
             }
         );
     }
@@ -528,8 +601,8 @@ function verificaInputs()
                 url : "AddProductServ",
                 method : "post",
                 data : product,
-                success : function(){alert("success")},
-                error : function(){alert("error")}
+                success : function(){window.location.reload();},
+                error : function(){showDialog("Errore", "Qualcosa è andato storto, prodotto non aggiunto")}
             }
         );
     }
@@ -541,7 +614,7 @@ function showProductsGestione(products)
     let n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<tr id='product"+i+"' style='cursor: pointer'><td>"+products[i].codiceABarre+"</td><td>"+products[i].prezzo+"</td><td>"+products[i].marca+"</td>" +
+        newRows += "<tr id='product"+i+"' style='cursor: pointer'><td>"+products[i].codiceABarre+"</td><td>"+products[i].prezzo.toFixed(2)+"</td><td>"+products[i].marca+"</td>" +
             "<td>"+products[i].modello+"</td><td>"+products[i].quantitaProdotto+"</td><td>"+toStringDatePlusMonth(products[i].dataInserimento)+"</td></tr>";
     }
     document.getElementById("tableGestioneProducts").innerHTML=newRows;
@@ -554,7 +627,7 @@ function showProductsGestione(products)
                 document.getElementById("codiceABarreModify").value=products[i].codiceABarre;
                 document.getElementById("marcaModify").value=products[i].marca;
                 document.getElementById("modelloModify").value=products[i].modello;
-                document.getElementById("prezzoModify").value=products[i].prezzo;
+                document.getElementById("prezzoModify").value=products[i].prezzo.toFixed(2);
                 document.getElementById("selectCategoryModify").value=products[i].nomeCategoria;
                 document.getElementById("quantitaModify").value=products[i].quantitaProdotto;
                 document.getElementById("descrizioneModify").value=products[i].descrizione;
@@ -587,7 +660,7 @@ function searchProductsRedirect()
                 },
                 error: function ()
                 {
-                    alert("error");
+                    showDialog("Errore", "Qualcosa è andato storto, non è stato possibile recuperare i dati sulla tua ricerca");
                 },
             }
         )
@@ -619,7 +692,7 @@ function searchProducts()
                 },
                 error: function ()
                 {
-                    alert("error");
+                    showDialog("Errore", "Qualcosa è andato storto, non è stato possibile recuperare i dati sulla tua ricerca");
                 },
             }
         )
@@ -953,7 +1026,7 @@ function isLogged()
             {
                 return data.L;
             },
-            error : function () {alert("error")}
+            error : function () {}
         }
     );
     return bool;
@@ -1015,7 +1088,7 @@ function ajaxAddress(address, checkHelp)
             method : "post",
             data: address,
             success : function () {},
-            error : function () {},
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, non è stato possibile usare i dati sul tuo indirizzo");},
         }
     )
 }
@@ -1069,7 +1142,7 @@ function ajaxCard(card, checkHelp)
             method : "post",
             data: card,
             success : function () {},
-            error : function () {alert("error");},
+            error : function () {showDialog("Errore", "Qualcosa è andato storto, non è stato possibile usare i dati sulla tua carta di credito");},
         }
     )
 }
@@ -1389,7 +1462,7 @@ function showCarrello(products)
     let n=products.length;
     for(let i=0; i<n; i++)
     {
-        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline;  justify-content: space-between'><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'>elimina</button></span></span>";
+        newRows += "<span id='prodotto"+i+"' style='display: flex; border: 1px solid rgba(0,0,0,.125); align-items: center'><img src='" + products[i].immagine +"' width='160' height='160'><span id='spanInfoProdotto"+i+"' style='display: flex; align-items: baseline;  justify-content: space-between'><h6>" + products[i].marca + " " + products[i].modello + "</h6><h6 style='margin-left: 5%; margin-right: 5%'>" + products[i].prezzo.toFixed(2) + " &#x20AC</h6><input id=\"quantitaSpinner"+i+"\" name=\"spinner\" value=\""+products[i].quantitaCarrello+"\" style=\"width: 80% ;margin:1%\"><button class='btn btn-danger' style='margin-left: 5%'><i class='fas fa-trash-alt'></i></button></span></span>";
     }
     document.getElementById("showProductDiv").innerHTML=newRows;
     for(let i=0; i<n; i++)
@@ -1450,8 +1523,16 @@ function aggiornaCarrello(product)
             url: "updateCarrelloServ",
             method: "post",
             data: product,
-            success: function (){},
-            error: function (){alert("error")}
+            success: function (){showDialog("Prodotto aggiunto", "Aggiunto al carrello con successo");
+                    setTimeout(
+                        function () {
+                            $( "#divMsg" ).dialog( "destroy" );
+                            document.getElementById("divMsg").remove();
+                        },
+                        3000
+                    )
+                },
+            error: function (){showDialog("Errore", "Non è stato possibile aggiornare il carrello")}
         }
     );
 }
@@ -1464,21 +1545,37 @@ function redirectToCarrello()
     });
 }
 
+function showProdottiEsauriti(data)
+{
+    let prodotti=JSON.parse(data.responseText);
+    if(prodotti!==undefined)
+    {
+        let n=prodotti.length;
+        let newRows="I seguenti prodotti non sono disponibili nella quantità richiesta: ";
+        for(let i=0; i<n; i++)
+        {
+            newRows += prodotti[i].codiceABarre + " ";
+        }
+        document.getElementById("esitoP").innerHTML = newRows;
+    }
+    else
+        document.getElementById("esitoP").innerHTML = "Errore in fase di check-out. Per favore riprova, se il problema persiste contatta il nostro centro assistenza.";
+    $("#dialogEsito").dialog("open");
+}
+
 function buildTableCategoriesProductPage(categories)
 {
     var newRows="";
     var n = categories.length;
     for(let i=0; i<n; i++)
     {
-        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\"><p style='margin-top: 5%; margin-bottom: 5%; cursor: pointer'>"+ categories[i].nome +"</p></li>";
+        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\" style='position: inherit; padding-left: 2%'><p style='margin-top: 5%; margin-bottom: 5%; cursor: pointer'>"+ categories[i].nome +"</p></li>";
     }
     document.getElementById("categoriesListUl").innerHTML=newRows;
     for(let i=0; i<n; i++)
     {
         $( "#listItem" + i ).on( "click", function()
         {
-            //document.getElementById("headerProducts").innerText=categories[i].nome;
-            //var category={"category" : categories[i].nome};
             sessionStorage.setItem("category", categories[i].nome);
             window.location.href="homepage.html";
         });
@@ -1491,7 +1588,7 @@ function buildTableCategories(categories)
     var n = categories.length;
     for(let i=0; i<n; i++)
     {
-        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\"><p style='margin-top: 5%; margin-bottom: 5%; cursor: pointer'>"+ categories[i].nome +"</p></li>";
+        newRows+="<li id=\"listItem" + i +"\" tabindex=\""+ i +"\" class=\"ui-tabs-tab ui-state-default ui-tab ui-corner-left\" aria-controls=\"tabs-"+ i +"\" aria-labelledby=\"ui-id-"+ i +"\" aria-selected=\"false\" aria-expanded=\"false\" style='position: inherit; padding-left: 2%'><p style='margin-top: 5%; margin-bottom: 5%; cursor: pointer'>"+ categories[i].nome +"</p></li>";
     }
     document.getElementById("categoriesListUl").innerHTML=newRows;
     for(let i=0; i<n; i++)
@@ -1511,7 +1608,7 @@ function buildTableCategories(categories)
                     {
                         buildTableProductHomepage(data);
                     },
-                    error: function (){alert("error");}
+                    error: function (){showDialog("Errore", "Non è stato possibile caricare i prodotti")}
                 }
             )
         });
@@ -1524,7 +1621,7 @@ function buildTableProductHomepage(products)
     var newRows="";
     for(let i=0; i<n; i++)
     {
-        newRows+= "<li id='prodotto"+ i +"' class=\"ui-state-default\"><span id='prodottoSpan' class='row' style='padding: 1.75%'><img class='col-12' width='160' height='160' src=\"" + products[i].immagine+"\">" + "<p class='col-12'>" + products[i].marca +"</p> <p class='col-12'>"+ products[i].modello + "</p><p class='col-12'> " + products[i].prezzo + "</p><button id='btnAggiungi"+i+"' type=\"button\" class=\"btn btn-primary cols-12\">Aggiungi al carrello</button><p id='disponibilitaP' class='col-12'> "+ isAvailable(products[i].disponibilita, i) + "<i id='icon"+i+"' style='margin-left: 3%'></i></p></span></li>";
+        newRows+= "<li id='prodotto"+ i +"' class=\"ui-state-default\"><span id='prodottoSpan' class='row' style='padding: 1.75%'><img class='col-12' width='160' height='160' src=\"" + products[i].immagine+"\">" + "<p class='col-12'>" + products[i].marca +"</p> <p class='col-12'>"+ products[i].modello + "</p><p class='col-12'> &#x20AC " + products[i].prezzo.toFixed(2) + "</p><button id='btnAggiungi"+i+"' type=\"button\" class=\"btn btn-success cols-12\">Aggiungi al carrello</button><p id='disponibilitaP' class='col-12'> "+ isAvailable(products[i].disponibilita, i) + "<i id='icon"+i+"' style='margin-left: 3%'></i></p></span></li>";
     }
     document.getElementById("selectableTableProducts").innerHTML=newRows;
     $("#selectableTableProducts").css({"cursor": "pointer","list-style-type": "none", "margin": "0", "padding": "0", "width": "100%" });
@@ -1535,12 +1632,12 @@ function buildTableProductHomepage(products)
         if(products[i].disponibilita===false)
         {
             $("#prodotto" + i + " span button").prop("disabled", true);
-            $("#icon" + i).css("color", "rgb(221 47 47)")
+            $("#icon" + i).css("color", "rgb(221 47 47)");
             $("#icon" + i).addClass("fas fa-times-circle");
         }
         else
         {
-            $("#icon" + i).css("color", "#198754")
+            $("#icon" + i).css("color", "#198754");
             $("#icon" + i).addClass("fas fa-check-circle");
         }
 

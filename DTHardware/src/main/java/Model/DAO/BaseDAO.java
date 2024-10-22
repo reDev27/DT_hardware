@@ -59,6 +59,13 @@ public abstract class BaseDAO implements Destroyable
 
 	protected void openConnection(String userType, String pass)
 	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e)
+		{
+			System.err.println("Errore nel caricamento del driver JDBC\n" + e.getMessage());
+		}
 		if(user==null)
 		{
 			try
@@ -74,7 +81,7 @@ public abstract class BaseDAO implements Destroyable
 
 	protected Connection user;
 	private ResultSet result;
-	protected final String URL="jdbc:mysql://127.0.0.1:3306/dthw?serverTimezone=" + TimeZone.getDefault().getID();
+	protected final String URL="jdbc:mysql://localhost:3306/dthw?serverTimezone=" + TimeZone.getDefault().getID();
 
 protected ResultSet getResult()
 {

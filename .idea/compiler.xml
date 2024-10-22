@@ -9,8 +9,5 @@
         <module name="DTHardware" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="DTHardware" target="9" />
-    </bytecodeTargetLevel>
   </component>
 </project>

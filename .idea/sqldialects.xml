@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="PROJECT" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteAddressByVia.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteCartaDiCreditoByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteClienteByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteComponeByCodiceABarre.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteComponeById.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteOrderById.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteOrdineByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteProduct.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/DeleteRisiedeByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InitCategorie.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InsertCategoria.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InsertCompone.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InsertIndirizzo.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InsertOrdine.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InsertProdotto.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/InsertRisiede.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/IsAvailableProduct.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SearchProducts.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectCartadicreditoByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectCategoria.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectCliente.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectClienteByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectComponeById.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectIndirizzoByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectMail.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectMostRecentProducts.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectOrderByMaxId.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectOrders.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectOrdiniByUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectProdottoByCategoria.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectProducts.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectProductsByOrderId.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/SelectUsername.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/UpdateCliente.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/UpdateOrder.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/UpdateProduct.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/insertCartaCredito.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/loginUser.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/registerUser.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/procedures/selectProdottoByCodiceABarre.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DT_DATABASE/DB_TABLES.sql" dialect="MySQL" />
   </component>
 </project>

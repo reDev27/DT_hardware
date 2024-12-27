@@ -33,7 +33,7 @@ public class RegisterServ extends HttpServlet
 		Integer cvv=null;
 		String appoggio=request.getParameter("CVV");
 		if(appoggio!=null && appoggio.compareTo("")!=0)
-			cvv=Integer.parseInt(appoggio);
+			cvv= (Integer) Integer.parseInt(appoggio);
 		if(RequestUtility.checkIsLogged(request.getSession()).compareTo("n")==0);
 		{
 			try

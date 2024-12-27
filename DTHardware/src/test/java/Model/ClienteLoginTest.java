@@ -76,9 +76,6 @@ public class ClienteLoginTest {
         }
     }
 
-
-
-
     @Test
     public void testAuthUser_EmptyPassword() throws SQLException, NoSuchAlgorithmException, IOException {
         // Mock di getResourceAsStream
@@ -86,11 +83,11 @@ public class ClienteLoginTest {
 
         // Mock del comportamento di callLogin
         try (MockedStatic<UserNotLoggedBean> mockedStatic = mockStatic(UserNotLoggedBean.class)) {
-            mockedStatic.when(() -> UserNotLoggedBean.callLogin(context, "validUser", "EmptyPassword"))
+            mockedStatic.when(() -> UserNotLoggedBean.callLogin(context, "validUser", ""))
                     .thenReturn(false);
 
             // Esegui il test sulla login
-            boolean result = cliente.authUser("validUser", "EmptyPassword", context, session);
+            boolean result = cliente.authUser("validUser", "", context, session);
 
             // Verifica i risultati
             assertFalse(result, "Login con username valida e password vuota dovrebbe fallire");
@@ -99,7 +96,7 @@ public class ClienteLoginTest {
     }
 
     @Test
-    public void testAuthUser_NullUsername() throws SQLException, NoSuchAlgorithmException, IOException {
+    public void testAuthUser_InvalidUsername() throws SQLException, NoSuchAlgorithmException, IOException {
         // Mock di getResourceAsStream
         when(context.getResourceAsStream(anyString())).thenReturn(new ByteArrayInputStream("mocked content".getBytes()));
 
@@ -113,6 +110,24 @@ public class ClienteLoginTest {
 
             // Verifica i risultati
             assertFalse(result, "Login con username non valida dovrebbe fallire");
+            verify(session).setAttribute("isLogged", "n");
+        }
+    }
+    @Test
+    public void testAuthUser_EmptyUsername() throws SQLException, NoSuchAlgorithmException, IOException {
+        // Mock di getResourceAsStream
+        when(context.getResourceAsStream(anyString())).thenReturn(new ByteArrayInputStream("mocked content".getBytes()));
+
+        // Mock del comportamento di callLogin
+        try (MockedStatic<UserNotLoggedBean> mockedStatic = mockStatic(UserNotLoggedBean.class)) {
+            mockedStatic.when(() -> UserNotLoggedBean.callLogin(context, "", "validPassword"))
+                    .thenReturn(false);
+
+            // Esegui il test sulla login
+            boolean result = cliente.authUser("", "validPassword", context, session);
+
+            // Verifica i risultati
+            assertFalse(result, "Login con username valida e password vuota dovrebbe fallire");
             verify(session).setAttribute("isLogged", "n");
         }
     }

@@ -40,18 +40,18 @@ public class AdminDAOTest {
 
     @Test
     public void testCodiceABarreErrato() throws SQLException {
-        // Arrange: codice a barre vuoto o errato
+        // TEST: codice a barre vuoto o errato
         String codiceaBarre = ""; // Formato non valido
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -77,18 +77,19 @@ public class AdminDAOTest {
 
     @Test
     public void testPrezzoErrato() throws SQLException {
-        // Arrange: prezzo negativo
-        String codiceaBarre = "12345";
+        // TEST: prezzo negativo o uguale a 0
+
+        String codiceaBarre = "123456789101";
         double prezzo = -5.0; // Formato non valido
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -113,18 +114,19 @@ public class AdminDAOTest {
 
     @Test
     public void testDescrizioneErrata() throws SQLException {
-        // Arrange: descrizione nulla
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
+        // TEST: descrizione nulla
+
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
         String descrizione = null; // Formato non valido
-        String specifiche = "Specifiche valide";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -148,18 +150,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testSpecificheErrate() throws SQLException {
-        // Arrange: specifiche nulle
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
+        // TEST: specifiche nulle
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
         String specifiche = null; // Formato non valido
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -183,18 +185,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testImmagineErrata() throws SQLException {
-        // Arrange: immagine nulla
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        // Arrange: immagine nulla o errore nell URL
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = null; // Formato non valido
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -218,18 +220,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testQuantitaErrata() throws SQLException {
-        // Arrange: quantità negativa
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        // TEST: quantità negativa o pari a 0
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = -1; // Formato non valido
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = -1;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -253,18 +255,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testMarcaErrata() throws SQLException {
-        // Arrange: marca nulla
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        // TEST: marca nulla
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = null; // Formato non valido
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = null; //Formato non valido
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -288,18 +290,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testModelloErrato() throws SQLException {
-        // Arrange: modello nullo
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        // TEST: modello nullo
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = null; // Formato non valido
+        int quantita = 10;
+        String marca = "HP";
+        String modello = null; //Formato non valido
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = Calendar.getInstance();
 
         // Act & Assert
@@ -323,18 +325,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testDataInserimentoErrata() throws SQLException {
-        // Arrange: data nulla
-        String codiceaBarre = "12345";
-        double prezzo = 10.0;
-        String descrizione = "Descrizione valida";
-        String specifiche = "Specifiche valide";
+        // TEST: data nulla
+        String codiceaBarre = "123456789101";
+        double prezzo = 199.99;
+        String descrizione = "Il migliore per qualità/prezzo";
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family";
         InputStream image = mock(InputStream.class);
-        int quantita = 5;
-        String marca = "MarcaValida";
-        String modello = "ModelloValido";
+        int quantita = 10;
+        String marca = "HP";
+        String modello = "EliteBook";
         String userType = "admin";
         String passData = "password";
-        String nomeCategoria = "Elettronica";
+        String nomeCategoria = "Computer";
         Calendar dataInserimento = null; // Formato non valido
 
         // Act & Assert
@@ -358,18 +360,18 @@ public class AdminDAOTest {
     }
     @Test
     public void testInserimentoDatiCorretti() throws SQLException {
-        // Arrange: tutti i dati corretti
-        String codiceaBarre = "12345ABC"; // Formato corretto
-        double prezzo = 19.99; // Formato corretto
-        String descrizione = "Prodotto di test"; // Formato corretto
-        String specifiche = "Specifiche tecniche valide"; // Formato corretto
+        // TEST: tutti i dati corretti
+        String codiceaBarre = "123456789101"; // Formato corretto
+        double prezzo = 199.99; // Formato corretto
+        String descrizione = "Il migliore per qualità/prezzo"; // Formato corretto
+        String specifiche = "Mobile Intel 4 Series Express Chipset Family"; // Formato corretto
         InputStream image = mock(InputStream.class); // Simulazione di un'immagine valida
         int quantita = 10; // Valore positivo, formato corretto
-        String marca = "MarcaValida"; // Formato corretto
-        String modello = "Modello2023"; // Formato corretto
+        String marca = "HP"; // Formato corretto
+        String modello = "EliteBook"; // Formato corretto
         String userType = "admin"; // Utente valido
         String passData = "password"; // Password corretta
-        String nomeCategoria = "Elettronica"; // Nome categoria valido
+        String nomeCategoria = "Computer"; // Nome categoria valido
         Calendar dataInserimento = Calendar.getInstance(); // Data corretta
 
         // Act

@@ -41,6 +41,7 @@
     <file url="file://$PROJECT_DIR$/DTHardware/procedures/loginUser.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/DTHardware/procedures/registerUser.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/DTHardware/procedures/selectProdottoByCodiceABarre.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/DTHardware/src/main/java/Model/DAO/AdminDAO.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/DT_DATABASE/DB_TABLES.sql" dialect="MySQL" />
   </component>
 </project>

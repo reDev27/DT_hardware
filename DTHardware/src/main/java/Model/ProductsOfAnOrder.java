@@ -1,7 +1,5 @@
 package Model;
 
-import javax.servlet.ServletContext;
-
 public class ProductsOfAnOrder extends ProductsArray
 {
 	public ProductsOfAnOrder()

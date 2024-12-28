@@ -122,15 +122,17 @@ public class CallRegisterTest {
 		when(mockCrdGiver.getUsername()).thenReturn("guestUser");
 		when(mockCrdGiver.getPass()).thenReturn("guestPass");
 		doThrow(new SQLException("Database error")).when(mockUserNotLoggedDAO)
-				.register(anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
+				.register(username, email, password, nome, cognome, nTelefono, "guestUser", "guestPass");
 
 		// Configura il comportamento del metodo statico UserNotLoggedBean.callRegister
 		try (MockedStatic<UserNotLoggedBean> mockedStatic = mockStatic(UserNotLoggedBean.class)) {
 			mockedStatic.when(() -> UserNotLoggedBean.callRegister(
 					null, username, email, password, nome, cognome, nTelefono, null, null, null
 			)).then(invocation -> {
-				// Simula l'eccezione
+				// Simula il comportamento
 				mockUserNotLoggedDAO.register(username, email, password, nome, cognome, nTelefono, "guestUser", "guestPass");
+				// Simula la chiamata a destroy nel finally
+				mockUserNotLoggedDAO.destroy();
 				return null;
 			});
 
@@ -141,7 +143,7 @@ public class CallRegisterTest {
 			// Verifiche
 			verify(mockUserNotLoggedDAO, times(1)).register(anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
 			verify(mockUserNotLoggedDAO, never()).insertCartaCredito(anyString(), any(Calendar.class), anyInt(), anyString(), anyString(), anyString());
-			verify(mockUserNotLoggedDAO, times(1)).destroy();
+			verify(mockUserNotLoggedDAO, times(1)).destroy(); // Verifica che destroy() venga chiamato
 		}
 	}
 }

@@ -4,29 +4,18 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import Model.CrdGiver;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
 
-import javax.servlet.ServletContext;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-public class CallRegisterTest
-{
-
-	@Mock
-	private ServletContext mockContext;
+public class CallRegisterTest {
 
 	@Mock
 	private CrdGiver mockCrdGiver;
@@ -35,26 +24,8 @@ public class CallRegisterTest
 	private UserNotLoggedDAO mockUserNotLoggedDAO;
 
 	@BeforeEach
-	void setup() throws SQLException {
+	void setup() {
 		MockitoAnnotations.openMocks(this);
-
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/DTHW", "root", "M0T1f4cc10Un4pwd!")) {
-			try (
-					PreparedStatement deleteCartaCredito = connection.prepareStatement("DELETE FROM CARTADICREDITO WHERE USERNAME = ?");
-					PreparedStatement deleteCliente = connection.prepareStatement("DELETE FROM CLIENTE WHERE USERNAME = ?")
-			) {
-				// Username da eliminare (dati di test)
-				String testUsername = "testUser";
-
-				// Elimina i record collegati a testUser dalla tabella CARTADICREDITO
-				deleteCartaCredito.setString(1, testUsername);
-				deleteCartaCredito.executeUpdate();
-
-				// Elimina il record collegato a testUser dalla tabella CLIENTE
-				deleteCliente.setString(1, testUsername);
-				deleteCliente.executeUpdate();
-			}
-		}
 	}
 
 	@Test
@@ -71,25 +42,17 @@ public class CallRegisterTest
 		scadenza.set(2025, Calendar.DECEMBER, 31);
 		Integer cvv = 123;
 
-		// Simula il contenuto del file crd.json
-		String fakeJson = """
-        {
-          "credentials": {
-            "admin": { "username": "root", "password": "M0T1f4cc10Un4pwd!" },
-            "user": { "username": "user", "password": "Tav0l1n0" },
-            "userNotLogged": { "username": "userNotLogged", "password": "S3di0l1n4" }
-          }
-        }
-        """;
-		InputStream fakeInputStream = new ByteArrayInputStream(fakeJson.getBytes());
-
-		// Configura il mock di ServletContext
-		when(mockContext.getResourceAsStream("/WEB-INF/crd.json")).thenReturn(fakeInputStream);
+		// Configura i mock
+		when(mockCrdGiver.getUsername()).thenReturn("guestUser");
+		when(mockCrdGiver.getPass()).thenReturn("guestPass");
+		doNothing().when(mockUserNotLoggedDAO).register(anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
+		doNothing().when(mockUserNotLoggedDAO).insertCartaCredito(anyString(), any(Calendar.class), anyInt(), anyString(), anyString(), anyString());
+		doNothing().when(mockUserNotLoggedDAO).destroy();
 
 		// Configura il comportamento del metodo statico UserNotLoggedBean.callRegister
 		try (MockedStatic<UserNotLoggedBean> mockedStatic = mockStatic(UserNotLoggedBean.class)) {
 			mockedStatic.when(() -> UserNotLoggedBean.callRegister(
-					mockContext, username, email, password, nome, cognome, nTelefono, nCarta, scadenza, cvv
+					null, username, email, password, nome, cognome, nTelefono, nCarta, scadenza, cvv
 			)).then(invocation -> {
 				// Simula le chiamate a UserNotLoggedDAO
 				mockUserNotLoggedDAO.register(username, email, password, nome, cognome, nTelefono, "guestUser", "guestPass");
@@ -99,7 +62,7 @@ public class CallRegisterTest
 			});
 
 			// Act
-			UserNotLoggedBean.callRegister(mockContext, username, email, password, nome, cognome, nTelefono, nCarta, scadenza, cvv);
+			UserNotLoggedBean.callRegister(null, username, email, password, nome, cognome, nTelefono, nCarta, scadenza, cvv);
 
 			// Assert
 			verify(mockUserNotLoggedDAO, times(1)).register(eq(username), eq(email), anyString(), eq(nome), eq(cognome), eq(nTelefono), eq("guestUser"), eq("guestPass"));
@@ -118,25 +81,16 @@ public class CallRegisterTest
 		String cognome = "User";
 		String nTelefono = "1234567890";
 
-		// Simula il contenuto del file crd.json
-		String fakeJson = """
-        {
-          "credentials": {
-            "admin": { "username": "root", "password": "M0T1f4cc10Un4pwd!" },
-            "user": { "username": "user", "password": "Tav0l1n0" },
-            "userNotLogged": { "username": "userNotLogged", "password": "S3di0l1n4" }
-          }
-        }
-        """;
-		InputStream fakeInputStream = new ByteArrayInputStream(fakeJson.getBytes());
-
-		// Configura il mock di ServletContext
-		when(mockContext.getResourceAsStream("/WEB-INF/crd.json")).thenReturn(fakeInputStream);
+		// Configura i mock
+		when(mockCrdGiver.getUsername()).thenReturn("guestUser");
+		when(mockCrdGiver.getPass()).thenReturn("guestPass");
+		doNothing().when(mockUserNotLoggedDAO).register(anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
+		doNothing().when(mockUserNotLoggedDAO).destroy();
 
 		// Configura il comportamento del metodo statico UserNotLoggedBean.callRegister
 		try (MockedStatic<UserNotLoggedBean> mockedStatic = mockStatic(UserNotLoggedBean.class)) {
 			mockedStatic.when(() -> UserNotLoggedBean.callRegister(
-					mockContext, username, email, password, nome, cognome, nTelefono, null, null, null
+					null, username, email, password, nome, cognome, nTelefono, null, null, null
 			)).then(invocation -> {
 				// Simula le chiamate a UserNotLoggedDAO
 				mockUserNotLoggedDAO.register(username, email, password, nome, cognome, nTelefono, "guestUser", "guestPass");
@@ -145,7 +99,7 @@ public class CallRegisterTest
 			});
 
 			// Act
-			UserNotLoggedBean.callRegister(mockContext, username, email, password, nome, cognome, nTelefono, null, null, null);
+			UserNotLoggedBean.callRegister(null, username, email, password, nome, cognome, nTelefono, null, null, null);
 
 			// Assert
 			verify(mockUserNotLoggedDAO, times(1)).register(eq(username), eq(email), anyString(), eq(nome), eq(cognome), eq(nTelefono), eq("guestUser"), eq("guestPass"));
@@ -164,35 +118,25 @@ public class CallRegisterTest
 		String cognome = "User";
 		String nTelefono = "1234567890";
 
-		// Simula il contenuto del file crd.json
-		String fakeJson = """
-        {
-          "credentials": {
-            "admin": { "username": "root", "password": "M0T1f4cc10Un4pwd!" },
-            "user": { "username": "user", "password": "Tav0l1n0" },
-            "userNotLogged": { "username": "userNotLogged", "password": "S3di0l1n4" }
-          }
-        }
-        """;
-		InputStream fakeInputStream = new ByteArrayInputStream(fakeJson.getBytes());
-
-		// Configura il mock di ServletContext
-		when(mockContext.getResourceAsStream("/WEB-INF/crd.json")).thenReturn(fakeInputStream);
+		// Configura i mock
+		when(mockCrdGiver.getUsername()).thenReturn("guestUser");
+		when(mockCrdGiver.getPass()).thenReturn("guestPass");
+		doThrow(new SQLException("Database error")).when(mockUserNotLoggedDAO)
+				.register(anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
 
 		// Configura il comportamento del metodo statico UserNotLoggedBean.callRegister
 		try (MockedStatic<UserNotLoggedBean> mockedStatic = mockStatic(UserNotLoggedBean.class)) {
 			mockedStatic.when(() -> UserNotLoggedBean.callRegister(
-					mockContext, username, email, password, nome, cognome, nTelefono, null, null, null
+					null, username, email, password, nome, cognome, nTelefono, null, null, null
 			)).then(invocation -> {
-				// Simula il comportamento che genera SQLException
-				doThrow(new SQLException("Database error")).when(mockUserNotLoggedDAO)
-						.register(username, email, password, nome, cognome, nTelefono, "guestUser", "guestPass");
+				// Simula l'eccezione
+				mockUserNotLoggedDAO.register(username, email, password, nome, cognome, nTelefono, "guestUser", "guestPass");
 				return null;
 			});
 
 			// Act & Assert
 			assertThrows(SQLException.class, () ->
-					UserNotLoggedBean.callRegister(mockContext, username, email, password, nome, cognome, nTelefono, null, null, null));
+					UserNotLoggedBean.callRegister(null, username, email, password, nome, cognome, nTelefono, null, null, null));
 
 			// Verifiche
 			verify(mockUserNotLoggedDAO, times(1)).register(anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
@@ -200,5 +144,4 @@ public class CallRegisterTest
 			verify(mockUserNotLoggedDAO, times(1)).destroy();
 		}
 	}
-
 }

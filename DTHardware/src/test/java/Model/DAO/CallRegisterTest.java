@@ -146,4 +146,106 @@ public class CallRegisterTest {
 			verify(mockUserNotLoggedDAO, times(1)).destroy(); // Verifica che destroy() venga chiamato
 		}
 	}
+
+	@Test
+	void shouldFailWhenUsernameTooLong() throws SQLException, NoSuchAlgorithmException, IOException {
+		// Arrange
+		String invalidUsername = "a".repeat(31); // Nome utente > 30 caratteri
+		String email = "test@example.com";
+		String password = "testPassword";
+		String nome = "Test";
+		String cognome = "User";
+		String nTelefono = "1234567890";
+
+		// Configura i mock per simulare il comportamento in caso di errore
+		doThrow(new IllegalArgumentException("Username too long")).when(mockUserNotLoggedDAO)
+				.register(eq(invalidUsername), anyString(), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
+
+		// Act & Assert
+		assertThrows(IllegalArgumentException.class, () -> {
+			UserNotLoggedBean.callRegister(null, invalidUsername, email, password, nome, cognome, nTelefono, null, null, null);
+		});
+	}
+
+	@Test
+	void shouldFailWhenEmailFormatIsInvalid() throws SQLException, NoSuchAlgorithmException, IOException {
+		// Arrange
+		String username = "testUser";
+		String invalidEmail = "invalidemail";
+		String password = "testPassword";
+		String nome = "Test";
+		String cognome = "User";
+		String nTelefono = "1234567890";
+
+		// Configura i mock per simulare il comportamento in caso di errore
+		doThrow(new IllegalArgumentException("Invalid email format")).when(mockUserNotLoggedDAO)
+				.register(eq(username), eq(invalidEmail), anyString(), anyString(), anyString(), anyString(), anyString(), anyString());
+
+		// Act & Assert
+		assertThrows(IllegalArgumentException.class, () -> {
+			UserNotLoggedBean.callRegister(null, username, invalidEmail, password, nome, cognome, nTelefono, null, null, null);
+		});
+	}
+
+	@Test
+	void shouldFailWhenPasswordIsTooShort() throws SQLException, NoSuchAlgorithmException, IOException {
+		// Arrange
+		String username = "testUser";
+		String email = "test@example.com";
+		String shortPassword = "short"; // Password troppo corta
+		String nome = "Test";
+		String cognome = "User";
+		String nTelefono = "1234567890";
+
+		// Configura i mock per simulare il comportamento in caso di errore
+		doThrow(new IllegalArgumentException("Password too short")).when(mockUserNotLoggedDAO)
+				.register(eq(username), eq(email), eq(shortPassword), anyString(), anyString(), anyString(), anyString(), anyString());
+
+		// Act & Assert
+		assertThrows(IllegalArgumentException.class, () -> {
+			UserNotLoggedBean.callRegister(null, username, email, shortPassword, nome, cognome, nTelefono, null, null, null);
+		});
+	}
+
+	@Test
+	void shouldFailWhenPhoneNumberIsInvalid() throws SQLException, NoSuchAlgorithmException, IOException {
+		// Arrange
+		String username = "testUser";
+		String email = "test@example.com";
+		String password = "testPassword";
+		String nome = "Test";
+		String cognome = "User";
+		String invalidPhoneNumber = "12345"; // Numero troppo corto
+
+		// Configura i mock per simulare il comportamento in caso di errore
+		doThrow(new IllegalArgumentException("Invalid phone number")).when(mockUserNotLoggedDAO)
+				.register(eq(username), eq(email), eq(password), eq(nome), eq(cognome), eq(invalidPhoneNumber), anyString(), anyString());
+
+		// Act & Assert
+		assertThrows(IllegalArgumentException.class, () -> {
+			UserNotLoggedBean.callRegister(null, username, email, password, nome, cognome, invalidPhoneNumber, null, null, null);
+		});
+	}
+
+	@Test
+	void shouldFailWhenAddressIsInvalid() throws SQLException, NoSuchAlgorithmException, IOException {
+		// Arrange
+		String username = "testUser";
+		String email = "test@example.com";
+		String password = "testPassword";
+		String nome = "Test";
+		String cognome = "User";
+		String nTelefono = "1234567890";
+		String invalidAddress = "Invalid Address Without Number";
+
+		// Configura i mock per simulare il comportamento in caso di errore
+		doThrow(new IllegalArgumentException("Invalid address format")).when(mockUserNotLoggedDAO)
+				.register(eq(username), eq(email), eq(password), eq(nome), eq(cognome), eq(nTelefono), anyString(), anyString());
+
+		// Act & Assert
+		assertThrows(IllegalArgumentException.class, () -> {
+			UserNotLoggedBean.callRegister(null, username, email, password, nome, cognome, nTelefono, null, null, null);
+		});
+	}
+
 }

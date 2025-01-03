@@ -254,6 +254,7 @@ public class UserNotLoggedBean
 		connection.destroy();
 	}
 
+/*	TODO Questa è la vecchia implementazione, da cancellare
 	public static void callRegister(ServletContext context, String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv) throws SQLException, NoSuchAlgorithmException, IOException
 	{
 		CrdGiver crd=new CrdGiver(context);
@@ -266,7 +267,66 @@ public class UserNotLoggedBean
 			connection.insertCartaCredito(nCarta, scadenza, cvv, username,crd.getUsername(), crd.getPass());
 		}
 		connection.destroy();
+	}*/
+
+	public static void callRegister(ServletContext context, String username, String eMail, String password, String nome, String cognome, String nTelefono, String nCarta, Calendar scadenza, Integer cvv)
+			throws SQLException, NoSuchAlgorithmException, IOException {
+
+		//faccio la validazione sugli input
+		if (context == null) {
+			throw new IllegalArgumentException("Context must not be null");
+		}
+		if (username == null || username.length() > 30) {
+			throw new IllegalArgumentException("Invalid username: must be non-null and at most 30 characters");
+		}
+		if (eMail == null || !eMail.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")) {
+			throw new IllegalArgumentException("Invalid email format");
+		}
+		if (password == null || password.length() < 8) {
+			throw new IllegalArgumentException("Invalid password: must be at least 8 characters");
+		}
+		if (nome == null || !nome.matches("^\\b[A-Z][a-z]*$")) {
+			throw new IllegalArgumentException("Invalid name format: must start with a capital letter followed by lowercase letters");
+		}
+		if (cognome == null || !cognome.matches("^\\b[A-Z][a-z]*$")) {
+			throw new IllegalArgumentException("Invalid surname format: must start with a capital letter followed by lowercase letters");
+		}
+		if (nTelefono == null || !nTelefono.matches("^\\d{10}$")) {
+			throw new IllegalArgumentException("Invalid phone number: must be exactly 10 digits");
+		}
+
+		// Validazione opzionale per i dati della carta di credito
+		if (nCarta != null) {
+			if (nCarta.length() != 12) {
+				throw new IllegalArgumentException("Invalid credit card number: must be 12 digits");
+			}
+			if (scadenza == null) {
+				throw new IllegalArgumentException("Expiration date must not be null when a credit card is provided");
+			}
+			if (cvv == null || cvv <= 100 || cvv >= 999) {
+				throw new IllegalArgumentException("Invalid CVV: must be a 3-digit number");
+			}
+		}
+
+		// se i valori in input sono giusti faccio l'autenticazione
+		CrdGiver crd = new CrdGiver(context);
+		crd.aggiornaCrd(2);
+
+		String passwordPronta = preparaPassword(password);
+		UserNotLoggedDAO connection = new UserNotLoggedDAO();	//autenticazione anche sul database
+
+		//eseguo la registrazione
+		connection.register(username, eMail, passwordPronta, nome, cognome, nTelefono, crd.getUsername(), crd.getPass());
+
+		//TODO questo codice ad ora non viene mai usato, da fare refactor
+		if (nCarta != null && scadenza != null && cvv != null) {
+			connection.insertCartaCredito(nCarta, scadenza, cvv, username, crd.getUsername(), crd.getPass());
+		}
+
+		//chiudo la connessione con il database
+		connection.destroy();
 	}
+
 
 	public static boolean callLogin(ServletContext context, String nickname, String password) throws NoSuchAlgorithmException, SQLException, IOException
 	{

@@ -27,9 +27,10 @@ public class ProductsArray extends GsonUtility
 	private ArrayList<Product> prodotti;
 
 	public ArrayList<Product> getProdotti()
-{
-	return prodotti;
-}
+	{
+		return prodotti;
+	}
+
 	public void setProdotti(ArrayList<Product> prodotti)
 {
 	this.prodotti = prodotti;
